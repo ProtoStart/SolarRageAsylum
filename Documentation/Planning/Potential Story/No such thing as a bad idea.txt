@@ -1,0 +1,62 @@
+What's already been decribed that still sounds good:
+(I find this helps me start to fill in gaps from the ideas we've already had)
+
+	"The story isn't fixed from the start of development" 
+	-- This means we're planning on adding detail and parts of the story, as we build and update the game.
+	---That means we should try to keep some bits flexible - though the more of the story we know the more the story will inpsire game mechanics and levels.
+	"generally it's about escaping an Asylum"
+	-- What's the asylum like? 
+	--- If it's built for people with Solar Rage, then they'll take special precautions to not activate the Solar Rage. There would be special facilities for long term treatment. They'd have "cool down" rooms for ending their rage faster and isolated from others.  
+	-- What's the Asylum called? - is it literally called Solar Rage Asylum?
+	--- Maybe the "Solar Rage" condition is common enough, and specialised enough that it needs one dedicated facility
+	--- Or maybe it's the "Rage Asylum" for the Solar system?
+	---- Ooh that could mean it's on a man-made planetoid on an orbit around our sun.
+	
+	I'm not expecting a complex storyline with an immersive world, but a bit of a story to add intrigue and make players care about the main character a bit would be cool. 
+	-- That doesn't mean people can't make it a complex storyline. It's just important not to hold up game development for it - so if you have a choice of working on game mechanics /level VS story and your skill and inspiration for each are equal - pick game mechanics or levels.
+	
+	The game name conjures up an image of an arcade style game in my mind, perhaps a bit like pac-man, where in some levels you're avoiding being caught by guards and maybe also having to manage how long the character is in a sunlight provoked rage. 
+	-- So you're fleeing guards. Should any of them have names and backstories? Would one of the guards be a commander of the patrol? Are they evil?
+	-- Why does the sunlight provoke a rage?
+	
+	In other levels you would have to avoid being seen by the guards at all, and as the game progresses, maybe they'd get better at detecting you, and your rage would make it harder to stay unnoticed and less easy to control.
+	-- So If 
+	
+	
+Worldbuilding questions:
+	What's the world that the Asylum in like?
+	-- Does it have gravity?
+	--- Natural gravity or artificial gravity? How much?
+	--- That would probably couple in with a game mechanic quite well, though it's a game mechanic that I would want to introduce when players are getting used to things and have mastered basic skills. Therefor I'm thinking yes, the world the Asylum is in has an amount of gravity that makes players (and developers!) not have to really think about gravity - at least initially.
+	---- It could be revealed part way into the game that the planet has artificial gravity that can be disrupted.
+	---- Equally the game could involve travelling to orbit/space another world
+	-- Is it part of earth?
+	--- If so what time period and roughly where?
+	---- Future would allow us to have the cause of "solar rage" as exposure to some chemical or radiation that makes sufferers suseptable to UV induced psychosis and elevated strength.
+	---- Back in Manhatten project era USA could be cool - Roswell, Area 51. ----- Maybe you lived near an Atomic test site, or where experimented on by the CIA. They are scared you'll kill people in your rage state
+	--- If it is part of earth, we can base it 
+	
+Main Character development questions:
+	Whats his/her name?
+	-- Do we need to name them? Could we let the player decide the name?
+	--- We could give them a choice of a few pre-made pre-named characters to choose from
+	--- Or we could put a text box for them to type a name into, and also get them to choose gender
+	-- Probs want something easy to remember
+	-- Random Generator could help come up with ideas
+	-- In a tabletop RPG I play with friends, we always call men who work in tranpsort Nigel - I'd quite like to throw a reference to that at some point but maybe not the main character. (It's an in-joke admittedly, but should be harmless to put in somewhere)
+	-- Human names that I can think of off the top of my head (you might be able to spot some word association going on here haha) : Dylan, Bob, Frankie, Frank, Francesca (not sure spelling), Laura, Lauren, Isabel, Isabella, Max, Lewis, Lou, Matt, John, Andy, Paul, Stuart, Helen, Emily, Faith, Heather, Sue, Susan, Susannah, Roger, Tim, Anthony, Micheal, Josh, Chad, Hannah, George, Harry, Elizabeth, Phillip, Philip, Jenson, Kate, Katy, Katheryn, Henry, Leo, Leopald, Oswald, Berny, Sefton, Clifford, Ross, Rachel, Joey, Monica, Chandler, Pheobe, Karen, Chloe, Claire, Jenny, Vivian, Chris, Christophe, Christopher, Christine, David
+	
+	Gender
+	-- Do we choose a gender? 
+	-- Or leave it indistinguishable and undisclosed? 
+	--- Maybe do the metroid trick? - Indistinguishable because of a space suit until you want to do a reveal
+	-- Or do we let players choose?
+	--- If they can choose, then that means we either have to make the character graphics not clearly one gender, or make two sets of character graphics
+	
+	Species
+	-- Human?
+	-- Humanoid Race that isn't quite human?
+	-- Cyborg?
+	-- Could they be hiding their real species from the one that has captured them?
+	--- Maybe they're trying to infiltrate that species - able to hide their differences enough that most people don't realise.
+	

@@ -1,0 +1,11 @@
+Brainstorming/reviewing next steps 4th of May 2021
+
+What's been done: (typing this out helps me see the next gaps to fill in. It's like looking at a jigsaw puzzle while your making it and assessing what you've got so far and what clues you can see to help you know what pieces to look for next. Sometimes this is the best way to start a session or to get past a feeling of not knowing what to do next)
+ - The README and introduction reddit post sets out the project quite well
+ - index.html currently just sets out some very basic stuff
+ -- At this point we don't really have a game layout in html/css, I have a vague picture in my mind I need to break down
+ --Essentially we've just got: 
+ --- loads of comments explaining things
+ --- Decided that we'll have a separate stylesheet file called mainStyles.css that index will link to (it's part of my normal way of doing things, and I can't see a reason to not do it this time) - doesn't mean it will be the only style sheet of course. 
+ --- We've got an icon link for the favicon, though no actual image file - (I don't think I'm in the mood for graphic design this eve, and don't have a mental image of what it would be just yet, maybe I could make a stopgap thing quickly, or make an obvious placeholder icon like a square with a cross). I might also change the href as I don't think that structure makes total sense for this project.
+ --- We've put in a link for a separate js file, that indicates that it's 

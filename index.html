@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<!-- This tag, with !-- is a comment - browsers and search engines ignore it, but human developers can read it to get more info. This project intentionally has more of them, than you might normally find, so that it's super easy for beginners to understand everything -->
+	<!-- head tag houses: 
+	a) "metadata" such as what character encoding standard this file uses
+	b) Stuff used outside of the main browser pain (eg the tab bar, favourites, search engines)
+	c) links to other files that are needed as well (such as .css stylesheets and .js JavaScript files
+	
+	Basically everything that isn't in the main pane of the browser
+	-->
+    <head>
+		<!-- meta tags state some kind of "Metadata". In this case the "charset" which is short for "character set" which is also known as the files "character encoding". Don't change or remove this line unless you know what you're doing.-->
+        <meta charset="utf-8">
+		<!-- <title> appears in search engine results as the pages title, is shown in the browser tab on most browsers (or as the title bar in browsers without tabs) and is usually what browsers list the page as in history and bookmarks. Generally you always want to have a title tag. For games it makes sense to match up with the game name, or maybe sometimes have it say the level or area name -->
+        <title>Solar Rage Asylum</title>
+		<!-- 
+		Link elements tell the browser that it needs to download another file. 
+		The rel attribute specifies the kind of relationship between the current file and the linked file. 
+		In this case it's the main icon symbolising the page. 
+		It's often called the favicon (short for Favourites Icon)- since in the early days of the web it's main use was as the icon used in favourites menus. 
+		In modern browsers it also appears in the tab next to the title, as well as in users browser history and any anywhere else where something would need an icon to represent the page. 
+		The href attribute gives a "relative address" for it (meaning an address that is based on the address that this file is at, so it doesn't need to include all the folders above. 
+		Files in the same folder are simply the filename and extension, to start the filepath from two folders above where this file is start with ../../ and to start at the "root" start with / 
+		-->
+		<link rel="icon" href="Icons/icon.png" type="image/x-icon"></link>
+		<!-- Another link element - in this case a stylesheet (literally a file that defines how things look).  -->
+		<link rel="stylesheet" href="mainStyles.css"> </link>
+
+		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
+		<script src="mainUpdate001.js"></script><!-- update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
+		<!-- open source vanilla JS cookie acceptance popup (a cookie popup of some kind is required by EU law if there are any cookies)-->
+		<link rel="stylesheet" href="purecookie.css"/>
+		<script src="purecookie.js"></script>
+    </head>
+	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
+    <body> <!--onload="startUp()"-->
+		<div class="header">
+			<!-- div for positioning menu-->
+			<div id="menuTopLayer">
+			</div>
+			<!-- The title (H1 as in Heading 1)-->
+			<h1>Solar Rage Asylum</h1>
+			<p>Replace this with an actual game layout!</p>
+		</div>
+		<div id="mainContent">
+			<div id="cookiePopupContainer"></div>
+			<div id="Version">Version - Alpha 0.0.1 "Boilerplate"</div>
+		</div>
+	</body>
+</html>

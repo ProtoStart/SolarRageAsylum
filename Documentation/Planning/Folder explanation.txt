@@ -1,0 +1,5 @@
+SolarRageAsylum/Documentation/Planning folder explanation
+
+In one sense, this folder is obvious from the name - files in this folder are about planning aspects of the project "Solar Rage Asylum". This includes a record of the planning that went into the game as it is now, as well as plans for future updates as they emerge.
+
+It might not be obvious, why we include old planning files as a part of documentation, or even why documentation would be included in the folder for the game. Basically, I want to make sure that everyone who has the source code for the game, also has documentation for it, including a look into the thoughts and reasoning that went into the plans that formed into what was created. That kind of look behind the scenes might help people understand the code base better, and possibly help people get into coding. It might also help to explain why some parts of the project are the way they are, and help people feel more involved in this game.
