@@ -1,0 +1,328 @@
+/* IMPORTANT PLEASE READ: At this point this file is a straight copy of mainStyles.css from the ProtoStart staging area, which itself has some unused style rules for things that it might use eventually. I'm only doing a commit with this for the benifit of showing my process. To get going quickly, I take a bunch of CSS that could be useful from a previous project and then go through it taking out stuff that won't be needed and editing things to fit the new project. This saves a huge amount of typing, solving common things that I've solved before, and is a really productive way of getting me thinking about what will be needed in the CSS*/
+html{
+	margin: 0px;
+	padding:0px;
+}
+
+body{
+    text-align: center;
+    width: 100%;
+	padding-top: 0.2px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	margin: 0px;
+	background-color: #FFFFFF;
+}
+body *{
+    margin: 0px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    font-size: 12pt;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#menuIcon{
+	position: fixed;
+	left:5%;
+	top: 5px;
+}
+
+#categoriesOuter{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.header{
+    color: blue;
+	background-color: white;
+	position: fixed;
+	display: block;
+	width: 100%;
+	margin-top:0px;
+}
+
+.header h1{
+	text-align: left;
+	margin-left: 5px;
+	
+}
+
+#MenuTitle{
+	font-size: 22px;
+	padding-top: 4px;
+	padding-bottom: 2px;
+}
+
+#priceAndAdd *{
+	display: inline;
+}
+
+button{
+    margin: 4px;
+	
+}
+
+ .choices{
+	 padding-top: 4px;
+	 padding-bottom: 4px;
+ }
+
+
+input{
+	box-sizing: border-box; /*Specifies how the visible height and width should be calculated with regard to padding - weirdly the default for inputs is different to most other UI. I could do this with a sweeping reset, but I'd rather just alter elements that I find unintuitive as and when I come across them*/	
+}
+
+/* Text adjustment classes*/
+.biggerText{
+	font-size: 105%;
+}
+
+
+/*Different sections should have slightly different colours so that theres an extra visual clue that they are different sections*/
+/*
+/*Main pallete*/
+
+.OrangeOne{
+	background-color: #ff8b33; /*Matches colour of title bar on r/ProtoStart*/
+}
+
+.OrangeTwo{
+	background-color: #ffae70; /*Matches colour of the about community header bar on r/ProtoStart*/
+}
+
+.ProtoStartPurple{
+	background-color: #b041d2; /*Matches the post button colour on r/ProtoStart*/
+	color: white;
+}
+.ProtoStartPurple a:visited {
+  color: pink;
+}
+
+
+.homepageSection{
+	padding-left:   4px;
+	padding-right:  4px;
+	padding-top:    5px;
+	padding-bottom: 5px;
+}
+
+.homepageButton{
+	height: 60px;
+    max-height: 60px;
+    margin: 1px 2px 1px 2px;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.container{
+    width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+	/*revert back when ruled out
+	width: 99%;
+	padding-left: 4px;
+	padding-right: 0px;*/
+	min-width: 110px;
+    align-items: top;
+    
+    height: 64px;/*Overuled for larger screensizes to add room for scrollbar*/
+	min-height: 64px; /*Overuled for larger screensizes to add room for scrollbar. This rule is mostly for resizing*/
+    background-color: #b5e7a0;
+
+	/*resize: vertical; doesn't work as well as hoped - resize handle is tiny and difficult to use*/
+}
+
+#mainContent{
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 72px; /*prevents being overlapped by fixed header, even with tagline going to two lines. Media query changes this to smaller margin for screens where the header tagline is on 1 line*/
+}
+
+
+.xScroll{
+    display: flex; /*Makes things on one line*/
+	overflow-x: scroll; /*Scrollbar on the x axis*/
+    overflow-y: hidden; /*No Scrollbar or overflow on the y axis*/
+}
+.yScroll{
+	overflow-x: hidden; /*Scrollbar on the x axis*/
+    overflow-y: scroll; /*No Scrollbar or overflow on the y axis*/
+}
+
+/** Scrollbar styling, in webkit browsers **/
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 20px; /* 20px makes it kinda beefy but IMHO not too beefy*/
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 0px; /*Removes scrollbar - overruled by a media query when the screen width is at least a set amount*/
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(176, 65, 210, 0.6); /*rgb part converted from #b041d2; using http://hex2rgba.devoth.com/ "a" part (the opacity) derived from trial and error!*/
+    border-radius: 10px; /* This makes each of the corners appear rounded - since scrollbars are long and thin, once you round the corners off you get the shape that looks like a rectangle with semicircles at each end */
+    border: 2px solid #ffffff; /* Sets the border to be: 2 pixels wide all around, a solid line (as opposed to dashed or dotted or anything else like that) and the colour represented by the hex colour #ffffff which is pure white*/
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;  
+    background-color: #ffffff; 
+}
+
+
+.Selected{
+	border-style: inset;
+	background-color: #86af49;
+}
+
+
+/* Main Menu*/
+#menuTopLayer{
+	position: fixed;
+	display: block;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+#mainMenuIcon {
+	top: 0px;
+	left: 0px;
+}
+
+/*Javascript is used to apply .hidden and .showing as appropriate*/
+.hidden {
+	display: none;
+}
+.showing {
+	display: block;
+}
+
+/* MODAL */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 0%; /* Make sure the only thing setting the box location is in the rule for the modal content */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: 0%;
+  
+  padding: 0px;
+  border: 1px solid #888;
+  width: auto;
+  height: 90%;
+  vertical-align: middle;
+}
+
+/* Style the iFrame*/
+#myModalIFrame {
+	height: 100%;
+	margin: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 94%; /*Allow room for scroll bar and padding, otherwise when it appears content overspills*/
+	border-width: 0px; /*Hide the default border around iFrames*/
+    border-style: none; /*Hide the default border around iFrames*/
+}
+
+/* The Close Button */
+.close {
+  margin: 3px;
+  color: #aaaaaa;
+  position: absolute; /*Prevents a situation at narrow widths where the close button plus the main part of the modal content becomes wider than the modal, causing the rest of the content dropping lower and spilling out of the modal*/
+  right: 8%;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ACCORDION*/
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 96%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+#infoBody{
+	padding: 0px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+}
+
+.alignLeft{
+	text-align: left;
+}
+
+#cookiePopupContainer {
+	position: fixed;
+	bottom: 2px;
+	width: 10%;
+	left: 45%;
+}
+
+
+/*Not used but could be helpful in future
+.numbersInside{
+	list-style-position: inside;
+}
+
+.hideBullets{
+	list-style: none;
+}
+*/
+
+
+/****NO DEFAULT STYLES AFTER THIS COMMENT!, MEDIA QUERIES IN SIZE ORDER (Media queries are usually for overriding styles for specific sizes of screen or to account for device dependant needs, and as such we would not want default styles declared lower than MQ's where they might override a rule. Use mobile first design priniciples - main css should work for tiny screens, then use media queries to make changes for bigger screen sizes.****/
+
+@media only screen and (min-width: 500px) {
+	.header{
+		width: 500px;
+		right: 50%;
+		margin-right: -250px;
+	}
+		
+}
