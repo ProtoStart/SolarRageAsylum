@@ -265,6 +265,8 @@ function showAllXClass(x){
 }
 
 function hardcodedHTMLDivTabs(tabDivClass, tabButtonClass, showDivId, selectedButtonId){
+	/*This function is used for creating a Tab interface effect, where you have a div in the HTML for each tabs content - all with a class that you pass into tabDivClass, plus buttons that select each tab with a class that you pass into tabButtonClass. */
+	//Call function to hide everything with class passed into tabDivClass and then show just the one with the id passed into showDivId
 	hideAllXClassShowY(tabDivClass,showDivId);
 	//we deselect all the buttons, and then select the one that was clicked afterwards
 	//(saves this function having to know what was just clicked and what was previously selected)
