@@ -32,15 +32,16 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 
 /*Main sections*/
 #mainContent{
-	
+	padding-bottom: 30px; /*Part of the solution to overlapping with the fixed footer*/
 }
 
 #footer{
 	position: fixed;
-	bottom: 2px;
+	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	/*background-color: lime; used just for checking that it covers where it should*/
+	padding-bottom: 2px;
+	background-color: #DDDDDD; /*Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a vis separation if people are looking at that area*/
 }
 
 /* Text - h1, h2 - h6, p*/
