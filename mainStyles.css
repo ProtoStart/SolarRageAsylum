@@ -30,6 +30,31 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	box-sizing: border-box; /*Specifies how the visible height and width should be calculated with regard to padding - weirdly the default for inputs is different to most other UI. I could do this with a sweeping reset, but I'd rather just alter elements that I find unintuitive as and when I come across them*/ 
 }
 
+/*Main sections*/
+#mainContent{
+	
+}
+
+#footer{
+	position: fixed;
+	bottom: 2px;
+	left: 0px;
+	right: 0px;
+	/*background-color: lime; used just for checking that it covers where it should*/
+}
+
+/* Text - h1, h2 - h6, p*/
+h1{
+	font-size: 80pt;
+	color: #ff850a;
+	text-shadow: #000 0px 0px 14px;
+    -webkit-font-smoothing: antialiased;
+}
+h2{
+	font-size: 44pt;
+	
+}
+
 /* Text adjustment classes*/
 .biggerText{ /* Potentially useful class for making text bigger */ 
 	font-size: 105%; /* not altered for SRA */ 
