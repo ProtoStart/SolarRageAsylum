@@ -1,5 +1,39 @@
 /*This file is the JavaScript in use on the homepage/landing page of Solar Rage Asylum - only put functions in here when they are actually being used!*/
 
+function codeUnlockFunc(){
+	//alert("funky"); //test the function runs
+	/* 	This is a dedicated function for the button with ID "tryCodeBtn"
+		Currently, it is only for unlocking things that are hidden within the page already - it isn't intended to be secure, and everything can run on the client side.
+		Main planned use: allowing access to stuff that isn't polished enough for feedback, but won't matter if curious people find it.
+		Also: Easter eggs, cheat codes, level codes
+	
+		This needs to:
+			get the contents of the input with id codeUnlock (DONE)
+			test it against various secret codes (DONE for now, TODO: for long term should use a switch or a dictionary of keys - so it just looks up the value in a list and pulls off the correct option, rather than have a big string of ifs that will get ugly and hard to use) 
+			do a particular thing if it matches a code (for certain things DONE)
+			give a big "nope" if it's incorrect (DONE)
+		
+	*/
+	//get the contents of the input with id codeUnlock - tested works
+	var codeAttempt = document.getElementById("codeUnlock").value;
+	//test it against various secret codes (if's will work to start)
+	if (codeAttempt == ""){
+		alert("You gotta type something fool!");
+	} else if (codeAttempt == "hunter2"){
+		alert("Nice password");
+	} else if (codeAttempt == "hunter23"){
+		alert("Nice password a");
+	} else if (codeAttempt == "hunter2"){
+		alert("Nice password b");
+	} else if (codeAttempt == "I know where you hid the body"){
+		alert("it's not hidden! it's right there in view source!");
+	} else {
+		alert("NOPE that code ain't right");
+	}
+}
+
+
+/** Code for divTabs **/
 /*by class we mean css class
 Use in conjuction with hideViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */

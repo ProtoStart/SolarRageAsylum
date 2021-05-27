@@ -41,7 +41,7 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	left: 0px;
 	right: 0px;
 	padding-bottom: 2px;
-	background-color: #DDDDDD; /*Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a vis separation if people are looking at that area*/
+	background-color: #DDDDDD; /*Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
 }
 
 /* Text - h1, h2 - h6, p*/
@@ -145,6 +145,10 @@ To make the effect you have a div of class modal which is partially seethrough a
   color: #000; /* not altered for SRA */ 
   text-decoration: none; /* not altered for SRA */ 
   cursor: pointer; /* not altered for SRA */ 
+}
+
+.lime{ /*Useful in development for checking where the boundary of an element is visually, if it's overlapped, also if javascript is applying CSS okay*/
+	background-color: lime;
 }
 
 #cookiePopupContainer { /* not altered for SRA */ 
