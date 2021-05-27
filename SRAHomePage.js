@@ -23,8 +23,8 @@ function codeUnlockFunc(){
 		alert("Nice password");
 	} else if (codeAttempt == "hunter23"){
 		alert("Nice password a");
-	} else if (codeAttempt == "hunter2"){
-		alert("Nice password b");
+	} else if (codeAttempt == "uuddlrlrba" || codeAttempt == "wwssadadba" || codeAttempt == "upupdowndownleftrightleftrightba"){//Up, Up, Down, Down, Left, Right, Left, Right, B, A
+		alert("Cheat code accepted! It doesn't do anything yet though :(");
 	} else if (codeAttempt == "I know where you hid the body"){
 		alert("it's not hidden! it's right there in view source!");
 	} else {
