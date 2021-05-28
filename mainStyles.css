@@ -44,6 +44,12 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	background-color: #DDDDDD; /*Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
 }
 
+/* Smaller Sections */
+.homePageTabs{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 /* Text - h1, h2 - h6, p*/
 h1{
 	font-size: 80pt;

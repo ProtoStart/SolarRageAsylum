@@ -22,8 +22,10 @@ function codeUnlockFunc(){
 	} else if (codeAttempt == "hunter2"){
 		alert("Nice password");
 	} else if (codeAttempt == "letmein" || codeAttempt == "Iwannaplay"){//display when "letmein" or "Iwannaplay" is used as a code, and the user confirms
-		if (confirm("Are you okay playing a game, in such early stages that it could be a bit of a mess?")){
-			hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
+		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
+			if (confirm("Wanna come into our testing area?")){
+				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
+			};
 		};
 	} else if (codeAttempt == "uuddlrlrba" || codeAttempt == "wwssadadba" || codeAttempt == "upupdowndownleftrightleftrightba"){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code"
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
