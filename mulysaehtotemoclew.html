@@ -24,8 +24,9 @@
 		-->
 		<link rel="icon" href="Icons/icon.png" type="image/x-icon"></link>
 		<!-- Another link element - in this case a stylesheet (literally a file that defines how things look).  -->
-		<link rel="stylesheet" href="mainStyles.css"> </link>
-
+		<link rel="stylesheet" href="generalStyles.css"> </link>
+		<!-- Stylesheet specificly for gameplay -->
+		<link rel="stylesheet" href="gameStyles.css"> </link>
 		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
 		<script src="SRATestAreaV0-0-3a.js"></script><!-- we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
 		<!-- open source vanilla JS cookie acceptance popup (a cookie popup of some kind is required by EU law if there are any cookies)-->
@@ -38,17 +39,27 @@
 			<!-- div for positioning menu-->
 			<div id="menuTopLayer">
 			</div>
-		</div>
-		<div id="mainContent">
 			<!-- The title (H1 as in Heading 1)-->
 			<h1>Solar Rage Asylum</h1>
 			<h2>(Very Early Alpha version)</h2>
-			<div id="welcome" class="showing">
-				<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning or explanation whenever a developer wants to test something, or even work on something pretty much live to the web. Asking in our reddit forum is currently the best way to find out what's going on.</p>
-				<p>Yup there's actually nothing really here right now. Though this is the page where we'll test out basic movement, new character graphics, level designs and more. Watch out for updates from PGDesign on reddit, and check back next Friday, when it is likely he'll be on testing stuff. We will also use that code thing for level codes, extra stuff for the curious, and cheats. Because some old school gaming things are just cool.</p>
-			</div>		
+		</div>
+		<div id="welcome" class="showing">
+			<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning or explanation whenever a developer wants to test something, or even work on something pretty much live to the web. Asking in our reddit forum is currently the best way to find out what's going on.</p>
+			<p>Yup there's actually nothing really here right now. Though this is the page where we'll test out basic movement, new character graphics, level designs and more. Watch out for updates from PGDesign on reddit, and check back next Friday, when it is likely he'll be on testing stuff. We will also use that code thing for level codes, extra stuff for the curious, and cheats. Because some old school gaming things are just cool.</p>
 		</div>
 		<button id="toggleWelcome" onclick="toggleWelcome()">Hide this rambling nonsense!</button>
+		<div id="mainContent">
+			<div id="gameArea">
+				<div id="mockPC">yo</div><!-- PC refers to Player Character, here we're using a div with some text in place of an image -->
+			</div>
+			<div id="gameBtns"><!-- game buttons -->
+				<button id="upBtn" class="gameBtn" onclick="move('u')">Up</button>
+				<button id="leftBtn" class="gameBtn" onclick="move('l')">Left</button>
+				<button id="downBtn" class="gameBtn" onclick="move('d')">Down</button>
+				<button id="rightBtn" class="gameBtn" onclick="move('r')">Right</button>
+			</div>
+		</div>
+		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
 			<span id="Version">Version - Alpha 0.0.3 "Secrets of the box" of Solar Rage Asylum</span>

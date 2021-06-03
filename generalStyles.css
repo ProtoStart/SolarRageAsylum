@@ -9,7 +9,7 @@ html{ /* The outer tag of every page*/
 }
  
 body{ /* Full display area */ 
-    text-align: center; /* not altered for SRA */ 
+    text-align: center; /* game content areas overrule this, handy for everything else */ 
     width: 100%; /* not altered for SRA */ 
 	padding-top: 0px; /* not altered for SRA */ 
 	padding-right: 0px; /* not altered for SRA */ 
