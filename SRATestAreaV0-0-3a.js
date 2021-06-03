@@ -15,14 +15,14 @@ function move(dir){ //dir = direction
 		
 		//check if can move
 		//to go up reduce the top, since top is the amount of px from the top of the play area
-		document.getElementById("mockPC").style.top = PCy + moveAmount;
+		document.getElementById("mockPC").style.top = (PCy - moveAmount) + "px";  //brackets for human clarity, I tested it without them out of curiosity and it works, but feels like it shouldn't! Note that the minus treats the values immediatly around it as numbers in this case and then the plus sees that the "px" side is a string so does an append rather than mathematical addition
 		
 	} else if (dir == "l"){//to go left reduce the left, since offsetLeft is the amount of px from the left edge of the play area
 		alert("l");
 	} else if (dir == "d"){ 
 		//alert("d");
 		//to go down increase the "top", since top is the amount of px from the top of the play area - using offsetTop doesn't work since that's a one way value (you can't set it)
-		document.getElementById("mockPC").style.top = PCy + moveAmount + "px";
+		document.getElementById("mockPC").style.top = PCy + moveAmount + "px"; //Note the first plus acts on two numbers, so does addition, then the second plus sees "px" is a string so appends it at the end. This results in a new value for the style rule complete with the px unit.
 	} else if (dir == "r"){//to go right increase the left, since left is the amount of px from the left edge of the play area
 		alert("r");
 	};
