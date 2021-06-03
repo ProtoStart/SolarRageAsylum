@@ -2,19 +2,36 @@
 //File should be renamed at least on each main version increment, plus any time we have issues with cacheing.
 
 function move(dir){ //dir = direction
+	let moveAmount = 10; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
-	//TODO: switch case would probably be better
-	if (dir == "u"){
-		alert("u");
-		//TODO: find #mockPC coords - add a value to move it up
-	} else if (dir == "l"){
+	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition)
+	var PCx = document.getElementById("mockPC").offsetLeft;
+	var PCy = document.getElementById("mockPC").offsetTop;
+	//alert("Start: x = " + PCx + ", y = " + PCy);
+	
+	//TODO: potential performance increase here - switch case
+	if (dir == "u"){ 
+		//alert("u");
+		
+		//check if can move
+		//to go up reduce the top, since top is the amount of px from the top of the play area
+		document.getElementById("mockPC").style.top = PCy + moveAmount;
+		
+	} else if (dir == "l"){//to go left reduce the left, since offsetLeft is the amount of px from the left edge of the play area
 		alert("l");
-	} else if (dir == "d"){
-		alert("d");
-	} else if (dir == "r"){
+	} else if (dir == "d"){ 
+		//alert("d");
+		//to go down increase the "top", since top is the amount of px from the top of the play area - using offsetTop doesn't work since that's a one way value (you can't set it)
+		document.getElementById("mockPC").style.top = PCy + moveAmount + "px";
+	} else if (dir == "r"){//to go right increase the left, since left is the amount of px from the left edge of the play area
 		alert("r");
 	};
-	
+}
+
+function canMove(){ 
+
+	//Todo: collision logic here
+	return true;
 }
 
 function toggleWelcome(){

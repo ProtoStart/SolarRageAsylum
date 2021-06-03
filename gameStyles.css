@@ -3,8 +3,17 @@
 	height: 400px;
 	border: 2px solid lime;
 	margin: 10px 30px 20px 30px;
+	position: relative;
 }
 
 #gameArea *{
 	text-align: left;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+
+#mockPC{
+/*	top: 200px;
+	left: 100px;*/
 }
