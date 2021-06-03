@@ -20,19 +20,21 @@ function codeUnlockFunc(){
 	if (codeAttempt == ""){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
-		alert("Nice password");
-	} else if (codeAttempt == "letmein" || codeAttempt == "Iwannaplay"){//display when "letmein" or "Iwannaplay" is used as a code, and the user confirms
+		alert("Nice password! (try demanding entry in three words but combined into one for 7 characters, all lower case");
+	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1 and fun 30 and mayhem 30 respectively
+		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
+	} else if (codeAttempt == "letmein" || codeAttempt == "Iwannaplay"|| codeAttempt == "please let me in" || codeAttempt == "let me in please"){//display the hidden tab when "letmein" or "Iwannaplay" , "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
 		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
 			if (confirm("Wanna come into our testing area?")){
 				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
 			};
 		};
-	} else if (codeAttempt == "uuddlrlrba" || codeAttempt == "wwssadadba" || codeAttempt == "upupdowndownleftrightleftrightba"){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code"
+	} else if (codeAttempt == "uuddlrlrba" || codeAttempt == "wwssadadba" || codeAttempt == "upupdowndownleftrightleftrightba" || codeAttempt == "up up down down left right left right b a"|| codeAttempt == "UUDDLRLRBA"){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code"
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
 	} else if (codeAttempt == "I know where you hid the body"){
 		alert("it's not hidden! it's right there in view source!"); //A joke I made up
 	} else {
-		alert("NOPE that code ain't right");
+		alert("NOPE that code ain't right! There is no limit on attempts currently, so keep trying. Maybe get your friends to help guess??");
 	}
 }
 
