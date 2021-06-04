@@ -14,6 +14,8 @@ function codeUnlockFunc(){
 			give a big "nope" if it's incorrect (DONE)
 		
 	*/
+	
+	document.getElementById("mainContent").classList.remove("lime");
 	//get the contents of the input with id codeUnlock - tested works
 	var codeAttempt = document.getElementById("codeUnlock").value;
 	//test it against various secret codes (if's will work to start)
@@ -23,16 +25,19 @@ function codeUnlockFunc(){
 		alert("Nice password! (try demanding entry in three words but combined into one for 7 characters, all lower case");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1 and fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
-	} else if (codeAttempt == "letmein" || codeAttempt == "Iwannaplay"|| codeAttempt == "please let me in" || codeAttempt == "let me in please"){//display the hidden tab when "letmein" or "Iwannaplay" , "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
+	} else if (codeAttempt.includes("letmein") || codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein" or "Iwannaplay" , or anything with the words "let me in" such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
 		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
 			if (confirm("Wanna come into our testing area?")){
 				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
 			};
 		};
-	} else if (codeAttempt == "uuddlrlrba" || codeAttempt == "wwssadadba" || codeAttempt == "upupdowndownleftrightleftrightba" || codeAttempt == "up up down down left right left right b a"|| codeAttempt == "UUDDLRLRBA"){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code"
+	} else if (codeAttempt.includes("uuddlrlrba") || codeAttempt.includes("wwssadadba") || codeAttempt.includes("upupdowndownleftrightleftright") || codeAttempt.includes("up up down down left right left right")|| codeAttempt.includes("UUDDLRLRBA")){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code" - a few permutations allowed including use of includes so that there can be other things like start, and on the longer ones I've made it be forgiving of missing the end letters or getting them wrong
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
-	} else if (codeAttempt == "I know where you hid the body"){
+	} else if (codeAttempt.includes("I know where you hid the body")){
 		alert("it's not hidden! it's right there in view source!"); //A joke I made up
+	} else if (codeAttempt.includes("lime") || codeAttempt.includes("colour") || codeAttempt.includes("color")){
+		alert("BEHOLD! here be the greatest colour");
+		document.getElementById("mainContent").classList.add("lime");
 	} else {
 		alert("NOPE that code ain't right! There is no limit on attempts currently, so keep trying. Maybe get your friends to help guess??");
 	}
