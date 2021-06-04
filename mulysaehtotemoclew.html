@@ -55,10 +55,15 @@
 				<div id="mockPC">yo</div><!-- PC refers to Player Character, here we're using a div with some text in place of an image, using "yo" simply because it's a very short word which makes it roughly square compared with longer words and I like the word-->
 			</div>
 			<div id="gameBtns"><!-- game buttons -->
-				<button id="upBtn" class="gameBtn" onclick="move('u')">Up</button>
-				<button id="leftBtn" class="gameBtn" onclick="move('l')">Left</button>
-				<button id="downBtn" class="gameBtn" onclick="move('d')">Down</button>
-				<button id="rightBtn" class="gameBtn" onclick="move('r')">Right</button>
+				<span id="highBtns">
+					<button id="upBtn" class="gameBtn" onclick="move('u')">Up</button>
+				</span>
+				<br/>
+				<span id="lowBtns">
+					<button id="leftBtn" class="gameBtn" onclick="move('l')">Left</button>
+					<button id="downBtn" class="gameBtn" onclick="move('d')">Down</button>
+					<button id="rightBtn" class="gameBtn" onclick="move('r')">Right</button>
+				</span>
 			</div>
 		</div>
 		

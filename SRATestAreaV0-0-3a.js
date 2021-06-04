@@ -2,7 +2,7 @@
 //File should be renamed at least on each main version increment, plus any time we have issues with cacheing.
 
 function move(dir){ //dir = direction
-	let moveAmount = 10; //the amount of px (pixels) that something will move by in one movement, if it can.
+	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
 	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition)
 	var PCx = document.getElementById("mockPC").offsetLeft;

@@ -14,7 +14,7 @@ function codeUnlockFunc(){
 			give a big "nope" if it's incorrect (DONE)
 		
 	*/
-	
+	//This line undoes one of the gimmicky things this function does on certain words (adding a "lime" class to the mainContent div)
 	document.getElementById("mainContent").classList.remove("lime");
 	//get the contents of the input with id codeUnlock - tested works
 	var codeAttempt = document.getElementById("codeUnlock").value;
@@ -23,6 +23,8 @@ function codeUnlockFunc(){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
 		alert("Nice password! (try demanding entry in three words but combined into one for 7 characters, all lower case");
+	} else if (codeAttempt.includes("RHCP")){
+		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1 and fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
 	} else if (codeAttempt.includes("letmein") || codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein" or "Iwannaplay" , or anything with the words "let me in" such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
