@@ -14,6 +14,12 @@ var globals = {
 		"right": "600",
 		"bottom": "400",
 		"left": "0"
+	},
+	"PC": { /* PC == Player Character */
+		"width": 30,
+		"height": 30,
+		/*"stat": ,*/
+		"Name": "Bob"
 	}
 }; 
 /* #gameArea
@@ -22,65 +28,73 @@ var globals = {
 */
 
 function move(dir){ //dir = direction
-	//HIJACKING TOP LINE OF THIS FUNCTION TO TEST ANOTHER FUNCTION inInBounds(xTop, yLeft, xBase, yRight) - I have alerts in the func for each test, then I change the values here to make sure each type of out of bounds gets caught and doesn't cause an error, with no erroneous catches - which it turned out originally there where because I forgot to parse to ints! - Normally this woudln't make it into a check in but I want to show that I do these checks at this point, before I hook it up fully (helps make bug fixing so much easier, because the code is fresh in my head, and I've done less that might cause a bug)
-	isInBounds("7","7","7","7");
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
-	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition)
+	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition) -- x axis is from the left to the right, y axis is from top downwards
 	var PCx = document.getElementById("mockPC").offsetLeft;
-	var PCy = document.getElementById("mockPC").offsetTop;
-	var attemptX = PCx; //Instantiated here with the PCx value, rewritten if moving in x axis, still used if moving in in y for collision detection
-	var attemptY = PCy; //Instantiated here with the PCy value, rewritten if moving in y axis, still used if moving in in x for collision detection
+	var PCy = parseInt(document.getElementById("mockPC").offsetTop) - 2; //for some reason offsetTop seems to gets a value 2 px higher than it should and this causes our code to position the PC lower on each move than it should - causing noticeable diagonal movement when moving on x axis and not really noticeable extra/less movement when moving on the y axis.
+	var attemptLeftX = PCx; //Instantiated here with the PCx value, rewritten if moving in x axis, still used if moving in in y for collision detection
+	var attemptTopY = PCy; //Instantiated here with the PCy value, rewritten if moving in y axis, still used if moving in in x for collision detection
+
 	//alert("Start: x = " + PCx + ", y = " + PCy);
-	
 	//TODO: potential performance increase here - switch case
 	if (dir == "u"){ 
 		//alert("u");
 		
-		//check if can move - for now just wether it's in the bounds of the game area
-		/*HERE if(isInBounds()){
-			
-		};*/
 		//to go up reduce the top, since top is the amount of px from the top of the play area
-		document.getElementById("mockPC").style.top = (PCy - moveAmount) + "px";  //brackets for human clarity, I tested it without them out of curiosity and it works, but feels like it shouldn't! Note that the minus treats the values immediatly around it as numbers in this case and then the plus sees that the "px" side is a string so does an append rather than mathematical addition
+		attemptTopY = PCy - moveAmount;  //Note that the minus treats the values immediatly around it as numbers in this case
 		
 	} else if (dir == "l"){
 		//alert("l");
-		//to go left reduce the left, since left is the amount of px from the left edge of the play area. Needs the letters "px" appended to the end since we're changing a css style that needs to be set with the units.
-		document.getElementById("mockPC").style.left = (PCx - moveAmount) + "px"; 
+		//to go left reduce the left, since left is the amount of px from the left edge of the play area
+		attemptLeftX = PCx - moveAmount; 
 	} else if (dir == "d"){ 
 		//alert("d");
-		//to go down set our characters element css style for "top", to (old y axis value plus movement amount) with "px" on the end. Top is the distance from the top of the play area - using offsetTop doesn't work since that's a one way value (you can't set it, it's just calculated for you)
-		document.getElementById("mockPC").style.top = PCy + moveAmount + "px"; //Note the first plus acts on two numbers, so does addition, then the second plus sees "px" is a string so appends it at the end. This results in a new value for the style rule complete with the px unit.
+		//to go down we do our old y axis value plus movement amount
+		attemptTopY = PCy + moveAmount;
 	} else if (dir == "r"){
 		//alert("r");
-		//to go right increase the "left", since "left" is the amount of distance from the left edge of the play area. Just like for left except we add the move amount: Take the old x axis value, add the moveAmount, then append "px", set that to the "left" style of the element we are moving
-		document.getElementById("mockPC").style.left = (PCx + moveAmount) + "px"; 
+		//Take the old x axis value, add the moveAmount
+		attemptLeftX = PCx + moveAmount;
+	};
+	
+	//During early stages of working collision detection these where defined with the the other attempt values - but they can be based on the other attempt values after they've been calculated with movement included. Since they aren't needed til doing collision checks and those aren't done til here, theres no point defining them earlier just to update them.
+	var attemptRightX = attemptLeftX + globals.PC.width;
+	var attemptBottomY = attemptTopY + globals.PC.height;
+	
+	//If the values this is attempting will still be in bounds, change the styles of our Player Character div to show it where we want it to move to
+	//function isInBounds(yTop, xLeft, yBase, xRight)
+	if(isInBounds(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
+		document.getElementById("mockPC").style.left = attemptLeftX + "px";
+		document.getElementById("mockPC").style.top = attemptTopY + "px";
 	};
 }
 
-function isInBounds(xTop, yLeft, xBase, yRight){
+function isInBounds(yTop, xLeft, yBase, xRight){
 	/*literally just output true if the given co-ords are within the bounds of the play area, and false if not
 		Params: 
-			xTop is the x axis of the top of the object 
-			yLeft is the y axis of the left edge of the object
-			xBase is the x axis of the base (bottom) of the object
-			yRight is the y axis of the right edge of the object
+			yTop is the y axis of the top of the object 
+			xLeft is the x axis of the left edge of the object
+			yBase is the y axis of the base (bottom) of the object
+			xRight is the x axis of the right edge of the object
 		We need to compare the co-ords given in params with our boundary that we have stored in our global data
 		All our global data is in a JSON format var called "globals" up the top of the file.
 		< means the thing on the left is less than the thing on the right  (the crocodile bites the bigger thing!)
 		> means the thing on the left is more than the thing on the right
+		x axis is left to right
+		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
 	*/
-	if(xTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top x co-ords less than 0 would mean it's above the top boundary
+	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
 		alert("top bounds");
 		return false;
-	} else if (yRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most y co-ords greater than 600 would be beyond the right boundary
-		alert("right bounds, yRight = " + yRight + ", globals right = " + globals.bounds.right);
+	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
+		alert("right bounds");
 		return false;
-	} else if (xBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, x co-ords of the base greater than 400 would be beyond the bottom boundary
+	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
 		alert("bottom bounds");
 		return false;
-	} else if (yLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most y co-ords less than 0 would be beyond the left boundary
+	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
 		alert("left bounds");
 		return false;
 	};
