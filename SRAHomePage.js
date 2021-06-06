@@ -22,7 +22,7 @@ function codeUnlockFunc(){
 	if (codeAttempt == ""){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
-		alert("Nice password! (try demanding entry in three words but combined into one for 7 characters, all lower case");
+		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters, all lower case");
 	} else if (codeAttempt.includes("RHCP")){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1 and fun 30 and mayhem 30 respectively
