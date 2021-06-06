@@ -63,7 +63,15 @@
 					type="button" 
 					class="homepageButton"
 				>
-					rough development roadmap
+					Progress / Roadmap
+				</button>
+				<button 
+					id="techInfoBtn" 
+					onclick="hardcodedHTMLDivTabs('homePageTabs', 'homepageButton', 'techInfoTab', 'techInfoBtn')"   
+					type="button" 
+					class="homepageButton"
+				>
+					Tech Info
 				</button>
 			</div>
 			<div id="aboutGameTab" class="hidden homePageTabs">
@@ -73,22 +81,41 @@
 				</p>
 				<p>We'll add levels with new game mechanics and smarter, better equipped guards over time. By the end of 2021 there should be a pretty good game out of this - an indy game for sure, with creative game mechanics, tricky puzzles, some tense action and hopefuly an interesting story. 
 				</p>
-				<p>Oh and we'll have cheat codes and level codes, because I like old school stuff like that (and besides level codes are a quick and easy thing to get working, and don't require storing data). Try guessing some now!</p>
+				<p>Oh and we'll have cheat codes and level codes, because I like old school stuff like that (and besides level codes are a quick and easy thing to get working, and don't require storing data). Try guessing some now - you might be able to get into our alpha testing area!</p>
 			</div>
 			<div id="roadmapTab" class="hidden homePageTabs">
 				<p>Here's a very rough road map for the early months of development. Some things will overlap with previous activities</p>
 				<ol class="alignLeft">
-					<li>Concept and requirements (DONE) - this was where I thought through the basics of what this game would be and how I'd do it</li>
-					<li>Basic project setup (DONE) - staging area connected up to a github repo for the project, simple landing page built, concise description of what the game will be </li>
-					<li>Main character design - (Started - doing in chunks around basic movement)</li>
-					<li>Basic movement (Good start: single movement per button press with four directions works nicely, working on collision detection next)</li>
-					<li>Simple first level with no guards</li>
-					<li>2nd level with stupid, short sighted guards</li>
-					<li>Some more levels with increasingly better AI and more game mechanics</li>
+					<li><b>Concept and requirements (DONE)</b> - this was where I thought through the basics of what this game would be and how I'd do it</li>
+					<li><b>Basic project setup (DONE)</b> - staging area connected up to a github repo for the project, simple landing page built, concise description of what the game will be </li>
+					<li><b>Main character design</b> - (Kinda started - am having to refresh skills since it's been a while, and am doing in chunks around basic movement)</li>
+					<li><b>Basic movement </b> (Good start: single movement per button press with four directions works nicely, boundary collision detection works well, still needs keyboard input, and continuous movement)</li>
+					<li><b>Simple first level with no guards </b>- current estimate (as of 6/6/2021) this will be in beta by 13th June</li>
+					<li><b>2nd level</b> with stupid, short sighted guards</li>
+					<li><b>Some more levels</b> with increasingly better AI and more game mechanics</li>
 					
 					<!--<li></li>
 					<li></li>-->
 				</ol>
+			</div>
+			<div id="techInfoTab" class="hidden homePageTabs">
+				<p>
+				Currently built entirely in JavaScript, HTML and CSS. (We may add in some JS or CSS frameworks later, but for now it's all pure JS)<br/> 
+				The game runs entirely in the players browser - which means it's not reliant on a good internet connection.
+				</p>
+				<p>
+				We're making our game engine from the ground up - which means it will take some time to do, but also gives us some benefits:
+				</p>
+				<ul class="alignLeft">
+					<li>We have complete control over it - so if we want or do something very innovative or a bit out there, we can</li>
+					<li>It will be easy for our community to use the game engine, or bits of it, for other projects - we can even use levels of SRA to test out game mechanics that could become the core of other games</li>
+					<li>We can make sure that the game engine is easy to understand and work with</li>
+					<li>Experience: working on a game engine is a great way for developers who haven't built many games before, to really understand how games work under the hood</li>
+					<li>Every developer who joins up with, or collaborates with ProtoStart will be able to talk to the developers who built the game engine</li>
+					
+					<!--<li></li>
+					<li></li>-->
+				</ul>
 			</div>
 			<!-- Tab below intentionally has no button for now. Will display when "letmein" or "Iwannaplay" is used as a code, and the user confirms, read the div Id and link href backwards to understand them, done that way so that they aren't obviously guessable-->
 			<div id="mulysaehtotecnartne" class="hidden homePageTabs">
