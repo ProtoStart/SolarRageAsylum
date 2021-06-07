@@ -73,14 +73,31 @@
 				>
 					Tech Info
 				</button>
+				<button 
+					id="mullingBtn" 
+					onclick="hardcodedHTMLDivTabs('homePageTabs', 'homepageButton', 'mullingTab', 'mullingBtn')"   
+					type="button" 
+					class="homepageButton"
+				>
+					Potential ideas
+				</button>
+				<!--
+				<button 
+					id="titlehereBtn" 
+					onclick="hardcodedHTMLDivTabs('homePageTabs', 'homepageButton', 'titlehereTab', 'titlehereBtn')"   
+					type="button" 
+					class="homepageButton"
+				>
+					Title here
+				</button>
+				-->
 			</div>
 			<div id="aboutGameTab" class="hidden homePageTabs">
 				<p>A 2D top down indy game about escaping an Asylum.</p>
 				<p>
 					The game will be built and released incrementally over at least the remainder of 2021.</br>The first level will just have basic movement and very very simple to build stuff and is due out in June 2021. Once that is available we'll work on level 2. In level 2 you'll have to avoid guards, but they'll be a bit stupid and lazy - it makes it easy enough for level 2 of a game, and also means we can release level 2 without having made effective AI. 
 				</p>
-				<p>We'll add levels with new game mechanics and smarter, better equipped guards over time. By the end of 2021 there should be a pretty good game out of this - an indy game for sure, with creative game mechanics, tricky puzzles, some tense action and hopefuly an interesting story. 
-				</p>
+				<p>We'll add levels with new game mechanics and smarter, better equipped guards over time. By the end of 2021 there should be a pretty good game out of this - an indy game for sure, with creative game mechanics, tricky puzzles, some tense action and hopefuly an interesting story. </p>
 				<p>Oh and we'll have cheat codes and level codes, because I like old school stuff like that (and besides level codes are a quick and easy thing to get working, and don't require storing data). Try guessing some now - you might be able to get into our alpha testing area!</p>
 			</div>
 			<div id="roadmapTab" class="hidden homePageTabs">
@@ -121,6 +138,15 @@
 					<li></li>-->
 				</ul>
 			</div>
+			<div id="mullingTab" class="hidden homePageTabs">
+				<p>
+				<b>This is just stuff I'm considering:</b>
+				The first level could have an intro like "We smuggled in a controller for a robot for you to aid your escape. It should be hard to detect, try moving it!" - this gives a nice reason for some levels to have turn based blocky movement and others to have a more natural movement style when our prisoner is actually fleeing the asylum, and maybe we could have a hard to control vehicle for levels with continuos unstoppable movement.
+				</p>
+			</div>
+	<!--	<div id="titlehereTab" class="hidden homePageTabs">
+				<p></p>
+			</div> -->
 			<!-- Tab below intentionally has no button for now. Will display when "letmein" or "Iwannaplay" is used as a code, and the user confirms, read the div Id and link href backwards to understand them, done that way so that they aren't obviously guessable-->
 			<div id="mulysaehtotecnartne" class="hidden homePageTabs">
 				<p>Welcome. I'd apologize for the mess but you just agreed that you're okay with it. Now in you go. <a href="mulysaehtotemoclew.html" target="_blank">To the Asylum.</a></p>

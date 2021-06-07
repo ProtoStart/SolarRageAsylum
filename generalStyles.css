@@ -50,6 +50,12 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	margin-right: 10px;
 }
 
+/* Div/span Backgrounds and borders*/
+.orangeBG{
+	background-color: orange;
+}
+
+
 /* Text - h1, h2 - h6, p*/
 h1{
 	font-size: 80pt;

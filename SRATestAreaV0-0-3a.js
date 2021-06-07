@@ -27,6 +27,14 @@ var globals = {
 	height: 400px;
 */
 
+/** Keyboard controls **/
+document.onkeydown = function() {myFunction()};
+
+function myFunction() {
+  alert("you pressed a key");
+}
+
+/** Movement **/
 function move(dir){ //dir = direction
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
