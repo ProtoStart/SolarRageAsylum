@@ -1,0 +1,23 @@
+You awaken in a haze,
+the surroundings,
+they're different,
+and kind of not staying still.
+
+You feel calm.
+Very calm.
+
+Maybe too calm, given you can barely see, barely move and what you can see is ... floaty and not anything you remember seeing before.
+
+What's your name?
+
+[enter name]
+
+Ahh nice to meet you, I'm Derek your new internal monologue. Or perhaps if this is a game then you could say I'm the narrator for this little story. 
+Apologies, I'll try to fix up that fourth wall again. It's not very good nar-ayyy err I mean that's not very helpful for an internal monologue. 
+Don't worry, you're not crazy. 
+Though, judging from the padded empty room we're in, and the fuzzy calm sensation you're currently feeling, um, maybe there's a chance someone else got that impression??
+
+What happened last night? Is there a chance you wheren't your regular self? (Pick the option that seems the most likely for a character you'd want to play)
+
+["I can't quite remember, but knowing me I wasn't .. exactly sober", "All I remember is having a quiet night in alone", "I was out with my mates but staying sober - someones got to keep everyone safe", "Duuuude like that was like yesterday man. I think the cosmos was calling out. Yeah, that's it! The cosmos was calling out to me, inviting me to bask in it's radiance down the beach, so I went down there and just sat looking out onto the waves man!"]
+
