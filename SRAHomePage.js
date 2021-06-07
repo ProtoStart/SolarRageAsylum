@@ -1,5 +1,5 @@
 /*This file is the JavaScript in use on the homepage/landing page of Solar Rage Asylum - only put functions in here when they are actually being used!*/
-
+/** Unlock/cheat codes **/
 function codeUnlockFunc(){
 	//alert("funky"); //test the function runs
 	/* 	This is a dedicated function for the button with ID "tryCodeBtn"
@@ -27,7 +27,7 @@ function codeUnlockFunc(){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt.includes("osebud")){ //Sims "rosebud" cheat - I've left off the r as an easy way to allow for people putting a capital R instead - though equally "nosebud" would pass this lol.
 		alert("1000 Simoleans added to your characters wallet. Simoleans aren't the currency in SRA so they are useless!");
-	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1 and fun 30 and mayhem 30 respectively
+	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
 	} else if (codeAttempt.includes("letmein") || codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein" or "Iwannaplay" , or anything with the words "let me in" such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
 		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
@@ -38,7 +38,7 @@ function codeUnlockFunc(){
 	} else if (codeAttempt.includes("uuddlrlrba") || codeAttempt.includes("wwssadadba") || codeAttempt.includes("upupdowndownleftrightleftright") || codeAttempt.includes("up up down down left right left right")|| codeAttempt.includes("UUDDLRLRBA")){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code" - a few permutations allowed including use of includes so that there can be other things like start, and on the longer ones I've made it be forgiving of missing the end letters or getting them wrong
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
 	} else if (codeAttempt.includes("I know where you hid the body")){
-		alert("it's not hidden! it's right there in view source!"); //A joke I made up
+		alert("it's not hidden! it's right there in view source!"); //An HTML joke I made up
 	} else if (codeAttempt.includes("lime") || codeAttempt.includes("colour") || codeAttempt.includes("color")){
 		alert("BEHOLD! here be the greatest colour");
 		document.getElementById("mainContent").classList.add("lime");
@@ -48,7 +48,9 @@ function codeUnlockFunc(){
 }
 
 
-/** Code for divTabs **/
+/** ****  divTabs and related hide/show functions **********
+	(divTabs being the tabbed layout effect created with hidden divs and buttons that fire off code that will show the matching div and hide the others)
+**/
 /*by class we mean css class
 Use in conjuction with hideViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */
