@@ -28,10 +28,10 @@ var globals = {
 */
 
 /** Keyboard controls **/
-document.onkeydown = function() {myFunction()};
+document.addEventListener("keydown", keyTap);
 
-function myFunction() {
-  alert("you pressed a key");
+function keyTap(event) {
+  alert("you pressed the key with keyCode is: " + event.keyCode);
 }
 
 /** Movement **/
