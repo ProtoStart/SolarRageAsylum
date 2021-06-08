@@ -8,6 +8,9 @@
 		globals.bounds.top
 	There are other ways too - search for "JSON traversal" or "read JSON"
 */
+//let pcElement = document.getElementById("mockPC");
+//let pcSetWidth = (getComputedStyle(pcElement).width).slice(0,-2);
+
 var globals = {
 	"bounds": { //The edges of the playable area, in px. Currently just matching the div gameArea size definition in gameStyles.css - maybe it should be set via JS in an init? Remember co-ords in JS/CSS are done with 0,0 being the top left.
 		"top": "0",
@@ -16,8 +19,10 @@ var globals = {
 		"left": "0"
 	},
 	"PC": { /* PC == Player Character */
-		"width": 30,
-		"height": 30,
+		//"element": document.getElementById("mockPC"),
+		//I'll need a setter to set this programattically
+		"width": 50,
+		"height": 50,//document.getElementById("mockPC").style.height,
 		/*"stat": ,*/
 		"Name": "Bob"
 	}
@@ -33,7 +38,8 @@ document.addEventListener("keydown", keyTap);
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
   //alert("you pressed the key with keyCode: " + event.keyCode);
-  
+  alert(globals.PC.width);
+  alert();
   
   if (event.keyCode == 87) { //w == 87
 	  move("u");
