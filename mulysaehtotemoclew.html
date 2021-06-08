@@ -46,9 +46,9 @@
 		<div id="welcome" class="showing">
 			<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning whenever a developer wants to test something, or even work on something pretty much live to the web. If they've not explained here, asking in our reddit forum is currently the best way to find out what's going on. This "ramble" will be changed by devs every now and then to fit what's going on</p>
 			<p class="orangeBG">
-			<b>Last update here:</b> Lunchtime 8th June 2021 (UK time) <br/>
-			<b>Currently working on:</b> Character models, and have also been working on making the collision detection programmatically match whatever size the character is in CSS<br/>
-			<b>Why?</b> Character models: We need a character very soon, I feel like doing some graphic design. 
+			<b>Last update here:</b> Evening 8th June 2021 (UK time) <br/>
+			<b>Currently working on:</b> Character models, also did a bit on collision detection programmatically matching whatever size the character is in CSS (decided that's not worth pursuing further for now)<br/>
+			<b>Why?</b> Character models: We've got most of the basic programming done, so now it's about fleshing it out and I felt like doing some graphic design. 
 			<br/>
 			collision detection changes: currently for collision detection, I'm copying the values for all objects that need detecting from the CSS into a JS variable - that will get annoying to keep up to date for everything in the game, and is kind of asking me to forget some time and cause a weird bug.
 			<br/>
@@ -59,7 +59,8 @@
 		<button id="toggleWelcome" onclick="toggleWelcome()">Hide this rambling nonsense!</button>
 		<div id="mainContent">
 			<div id="gameArea">
-				<div id="mockPC"></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
+				
+				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 			</div>
 			<div id="gameBtns"><!-- game buttons -->
 				<span id="highBtns">
@@ -76,7 +77,7 @@
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
-			<span id="Version">Version - Alpha 0.0.3 "Secrets of the box" of Solar Rage Asylum</span>
+			<span id="Version">Version - Alpha 0.0.4 "Stick Man Moves" of Solar Rage Asylum</span>
 			<span id="BasicCredit"> - A ProtoStart game lead by Phil Ganney</span>
 		</div>
 	</body>

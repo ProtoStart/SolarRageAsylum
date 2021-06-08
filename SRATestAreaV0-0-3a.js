@@ -15,14 +15,14 @@ var globals = {
 	"bounds": { //The edges of the playable area, in px. Currently just matching the div gameArea size definition in gameStyles.css - maybe it should be set via JS in an init? Remember co-ords in JS/CSS are done with 0,0 being the top left.
 		"top": "0",
 		"right": "600",
-		"bottom": "400",
+		"bottom": "390",
 		"left": "0"
 	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),
 		//I'll need a setter to set this programattically
 		"width": 50,
-		"height": 50,//document.getElementById("mockPC").style.height,
+		"height": 27,//document.getElementById("mockPC").style.height,
 		/*"stat": ,*/
 		"Name": "Bob"
 	}
@@ -38,8 +38,8 @@ document.addEventListener("keydown", keyTap);
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
   //alert("you pressed the key with keyCode: " + event.keyCode);
-  alert(globals.PC.width);
-  alert();
+  //alert(globals.PC.width);
+  //alert();
   
   if (event.keyCode == 87) { //w == 87
 	  move("u");
@@ -112,16 +112,16 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
-		alert("top bounds");
+		//alert("top bounds");
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
-		alert("right bounds");
+		//alert("right bounds");
 		return false;
 	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
-		alert("bottom bounds");
+		//alert("bottom bounds");
 		return false;
 	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
-		alert("left bounds");
+		//alert("left bounds");
 		return false;
 	};
 	return true; //To get here none of the out of bounds conditions would have been met
