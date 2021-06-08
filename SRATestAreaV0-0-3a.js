@@ -31,7 +31,19 @@ var globals = {
 document.addEventListener("keydown", keyTap);
 
 function keyTap(event) {
-  alert("you pressed the key with keyCode is: " + event.keyCode);
+  //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
+  //alert("you pressed the key with keyCode: " + event.keyCode);
+  
+  
+  if (event.keyCode == 87) { //w == 87
+	  move("u");
+  } else if (event.keyCode == 65) { //a == 65
+	  move("l");
+  } else if (event.keyCode == 83) { //s == 83
+	  move("d");
+  } else if (event.keyCode == 68) { //d == 68
+	  move("r");
+  };
 }
 
 /** Movement **/
