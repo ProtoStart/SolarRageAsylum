@@ -46,12 +46,11 @@
 		<div id="welcome" class="showing">
 			<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning whenever a developer wants to test something, or even work on something pretty much live to the web. If they've not explained here, asking in our reddit forum is currently the best way to find out what's going on. This "ramble" will be changed by devs every now and then to fit what's going on</p>
 			<p class="orangeBG">
-			<b>Last update here:</b> Evening 8th June 2021 (UK time) <br/>
-			<b>Currently working on:</b> Character models, also did a bit on collision detection programmatically matching whatever size the character is in CSS (decided that's not worth pursuing further for now)<br/>
-			<b>Why?</b> Character models: We've got most of the basic programming done, so now it's about fleshing it out and I felt like doing some graphic design. 
+			<b>Last update here:</b> Midday 9th June 2021 (UK time) <br/>
+			<b>Currently working on:</b> Improving controls, right now making holding down the on screen buttons keep them moving just like holding keyboard keys down does. Up first to get the concept working, then the others. Maybe later today I might do other improvements to the controls such as turning, maybe diagonals (unlikely), or styling them<br/>
+			<b>Why?</b> 
 			<br/>
-			collision detection changes: currently for collision detection, I'm copying the values for all objects that need detecting from the CSS into a JS variable - that will get annoying to keep up to date for everything in the game, and is kind of asking me to forget some time and cause a weird bug.
-			<br/>
+			
 			<!--<b>Do I expect to finish it this session?</b> I'm just having a quick go at it, if I'm not making progress within 25 min I'll move onto some other part of SRA<br/>-->
 			<b>What other areas of SRA will get some dev time in the next week?</b> The aim for the end of this week is the first level, in a beta quality. I'll need to finish: opening story, Graphics - character and background plus an easy level of stuff to go around and to get to. 
 			</p>
@@ -64,7 +63,7 @@
 			</div>
 			<div id="gameBtns"><!-- game buttons -->
 				<span id="highBtns">
-					<button id="upBtn" class="gameBtn" onclick="move('u')">Up</button>
+					<button id="upBtn" class="gameBtn" onmousedown="startMove('u')" onmouseup="endMove()">Up</button>
 				</span>
 				<br/>
 				<span id="lowBtns">

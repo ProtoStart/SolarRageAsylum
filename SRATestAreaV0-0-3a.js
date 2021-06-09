@@ -53,6 +53,17 @@ function keyTap(event) {
 }
 
 /** Movement **/
+var movePCInterval;
+function startMove(dir){
+	
+	movePCInterval = setInterval(function(){ move(dir); }, 500);
+}
+
+function endMove(){
+	clearInterval(movePCInterval);
+}
+
+
 function move(dir){ //dir = direction
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
