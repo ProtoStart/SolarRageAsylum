@@ -67,12 +67,12 @@
 			<div id="gameBtns"><!-- game buttons -->
 				<span id="highBtns">
 					<button id="upBtn" class="gameBtn" ontouchstart="startMove('u')" onmousedown="startMove('u')" onmouseup="endMove()" ontouchend="endMove()">Up</button>
-					<button id="rotateBtn" class="gameBtn" onmousedown="startRotate('u')" onmouseup="endRotate()">Rotate</button>
+					<button id="rotateBtn" class="gameBtn" ontouchstart="startRotate('u')" onmousedown="startRotate('u')" onmouseup="endRotate()" ontouchend="endRotate()">Rotate</button>
 				</span>
 				<br/>
 				<span id="lowBtns">
 					<button id="leftBtn" class="gameBtn" onmousedown="startMove('l')" onmouseup="endMove()">Left</button>
-					<button id="downBtn" class="gameBtn" ontouchstart="startMove('u')" onmousedown="startMove('d')" onmouseup="endMove()"ontouchend="endMove()">Down</button>
+					<button id="downBtn" class="gameBtn" ontouchstart="startMove('d')" onmousedown="startMove('d')" onmouseup="endMove()"ontouchend="endMove()">Down</button>
 					<button id="rightBtn" class="gameBtn" onmousedown="startMove('r')" onmouseup="endMove()">Right</button>
 				</span>
 			</div>
