@@ -56,7 +56,7 @@ function keyTap(event) {
 var movePCInterval;
 function startMove(dir){
 	
-	movePCInterval = setInterval(function(){ move(dir); }, 500);
+	movePCInterval = setInterval(function(){ move(dir); }, 80);
 }
 
 function endMove(){

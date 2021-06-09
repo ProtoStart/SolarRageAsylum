@@ -67,9 +67,9 @@
 				</span>
 				<br/>
 				<span id="lowBtns">
-					<button id="leftBtn" class="gameBtn" onclick="move('l')">Left</button>
-					<button id="downBtn" class="gameBtn" onclick="move('d')">Down</button>
-					<button id="rightBtn" class="gameBtn" onclick="move('r')">Right</button>
+					<button id="leftBtn" class="gameBtn" onmousedown="startMove('l')" onmouseup="endMove()">Left</button>
+					<button id="downBtn" class="gameBtn" onmousedown="startMove('d')" onmouseup="endMove()">Down</button>
+					<button id="rightBtn" class="gameBtn" onmousedown="startMove('r')" onmouseup="endMove()">Right</button>
 				</span>
 			</div>
 		</div>
