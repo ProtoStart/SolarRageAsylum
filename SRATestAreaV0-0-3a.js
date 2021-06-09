@@ -24,7 +24,8 @@ var globals = {
 		"width": 50,
 		"height": 27,//document.getElementById("mockPC").style.height,
 		/*"stat": ,*/
-		"Name": "Bob"
+		"Name": "Bob",
+		"angle": 0
 	}
 }; 
 /* #gameArea
@@ -51,17 +52,37 @@ function keyTap(event) {
 	  move("d");
   } else if (event.keyCode == 68 || event.keyCode == 39) { //d == 68 or right arrow == 39
 	  move("r");
+  } else if (event.keyCode == 69 || event.keyCode == 32) { //e == 69 or space == 32
+	  rotate("");
   };
 }
 
+/** Rotate **/
+var rotatePCInterval;
+function startRotate(dir){  //Allows continuous movement, until endMove called
+	
+	rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
+}
+
+function endRotate(){  //Stops rotation caused by startRotate
+	clearInterval(rotatePCInterval);
+}
+
+function rotate(dir){
+	globals.PC.angle += 3; //weirdly if it goes over 360 js seems to be able to just handle that correctly, even though the value can go way up - might cause issues with a number being unexpectedly hight but maybe not
+	document.getElementById("mockPC").style.transform = 'rotate(' + globals.PC.angle + 'deg)';
+	//alert(globals.PC.angle); //This line if run and not commented, proves that the angle value keeps going up and up and js/css just handles it
+}
+
+
 /** Movement **/
 var movePCInterval;
-function startMove(dir){
+function startMove(dir){  //Allows continuous movement, until endMove called
 	
 	movePCInterval = setInterval(function(){ move(dir); }, 80);
 }
 
-function endMove(){
+function endMove(){  //Stops movement caused by startMove
 	clearInterval(movePCInterval);
 }
 

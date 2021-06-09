@@ -46,10 +46,11 @@
 		<div id="welcome" class="showing">
 			<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning whenever a developer wants to test something, or even work on something pretty much live to the web. If they've not explained here, asking in our reddit forum is currently the best way to find out what's going on. This "ramble" will be changed by devs every now and then to fit what's going on</p>
 			<p class="orangeBG">
-			<b>Last update here:</b> Midday 9th June 2021 (UK time) <br/>
-			<b>Currently working on:</b> Improving controls, I've just added arrow key control (though maximize your screen and hide this ramble to minimize page scrolling) and just before that I made holding on screen buttons down 
+			<b>Last update here:</b> 2:30PM (ish) 9th June 2021 (UK time) <br/>
+			<b>Today I've been working on:</b> Improving controls, I've just added rotation (Only clockwise seems needed, use e or space on keyboard or the button marked rotate), then before that arrow key control (though maximize your screen and hide this ramble to minimize page scrolling) 
+			and before that I made holding screen buttons down 
 			make stick man keep moving just like holding keyboard keys down does. 
-			Maybe later today I might do other improvements to the controls such as turning, maybe diagonals (unlikely), or styling them<br/>
+			<br/>
 			<b>Why?</b> Having good game controls is important for giving a quality feel to the game.
 			<br/>
 			
@@ -66,6 +67,7 @@
 			<div id="gameBtns"><!-- game buttons -->
 				<span id="highBtns">
 					<button id="upBtn" class="gameBtn" onmousedown="startMove('u')" onmouseup="endMove()">Up</button>
+					<button id="rotateBtn" class="gameBtn" onmousedown="startRotate('u')" onmouseup="endRotate()">Rotate</button>
 				</span>
 				<br/>
 				<span id="lowBtns">
