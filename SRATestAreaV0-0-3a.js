@@ -60,7 +60,10 @@ function keyTap(event) {
 /** Rotate **/
 var rotatePCInterval;
 function startRotate(dir){  //Allows continuous movement, until endMove called
-	
+	//clearInterval lines here are to allow players to "unstick" movement or rotation glitches caused by mouseup or touchend events not firing
+	clearInterval(rotatePCInterval);
+	clearInterval(movePCInterval);
+	//starts off the continuous rotation
 	rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
 }
 
@@ -78,7 +81,9 @@ function rotate(dir){
 /** Movement **/
 var movePCInterval;
 function startMove(dir){  //Allows continuous movement, until endMove called
-	
+	//clearInterval lines here are to allow players to "unstick" movement or rotation glitches caused by mouseup or touchend events not firing (happens if they move off the button while they're still holding or clicking, or if button text is selected (but in final game I think I'l be getting rid of the text in the button)
+	clearInterval(rotatePCInterval);
+	clearInterval(movePCInterval);
 	movePCInterval = setInterval(function(){ move(dir); }, 80);
 }
 
@@ -128,6 +133,9 @@ function move(dir){ //dir = direction
 		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
 		document.getElementById("mockPC").style.left = attemptLeftX + "px";
 		document.getElementById("mockPC").style.top = attemptTopY + "px";
+	} else {
+		clearInterval(movePCInterval);
+		clearInterval(rotatePCInterval);
 	};
 }
 
