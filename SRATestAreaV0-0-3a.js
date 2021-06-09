@@ -133,7 +133,7 @@ function move(dir){ //dir = direction
 		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
 		document.getElementById("mockPC").style.left = attemptLeftX + "px";
 		document.getElementById("mockPC").style.top = attemptTopY + "px";
-	} else {
+	} else { //This is one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
 	};
