@@ -41,13 +41,15 @@ function keyTap(event) {
   //alert(globals.PC.width);
   //alert();
   
-  if (event.keyCode == 87) { //w == 87
+  //Maybe TODO: diagonals - it would get quite a bit more complicated I think - you'd have to check if another key was already pressed and allow for player not releasing key
+  
+  if (event.keyCode == 87 || event.keyCode == 38 ) { //w == 87, up arrow == 38 but may also cause page scrolling issues
 	  move("u");
-  } else if (event.keyCode == 65) { //a == 65
+  } else if (event.keyCode == 65 || event.keyCode == 37) { //a == 65 or left arrow == 37
 	  move("l");
-  } else if (event.keyCode == 83) { //s == 83
+  } else if (event.keyCode == 83 || event.keyCode == 40) { //s == 83 or down arrow == 40
 	  move("d");
-  } else if (event.keyCode == 68) { //d == 68
+  } else if (event.keyCode == 68 || event.keyCode == 39) { //d == 68 or right arrow == 39
 	  move("r");
   };
 }
