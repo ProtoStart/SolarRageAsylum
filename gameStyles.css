@@ -4,6 +4,8 @@
 	border: 2px solid lime;
 	margin: 10px 30px 20px 30px;
 	position: relative;
+	background-image: url(rainbowVortex.png);
+	background-position: -200px -300px;
 }
 
 #gameArea *{
@@ -16,4 +18,6 @@
 #mockPC{
 	width: 50px;
 	height: 27px;
+	left: 300px;
+	top: 195px;
 }

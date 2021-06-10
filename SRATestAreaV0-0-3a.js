@@ -91,7 +91,6 @@ function endMove(){  //Stops movement caused by startMove
 	clearInterval(movePCInterval);
 }
 
-
 function move(dir){ //dir = direction
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);
@@ -133,10 +132,34 @@ function move(dir){ //dir = direction
 		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
 		document.getElementById("mockPC").style.left = attemptLeftX + "px";
 		document.getElementById("mockPC").style.top = attemptTopY + "px";
+		//WORK IN PROGRESS Move the swirly background with you
+		//var bgPosx = document.getElementById("gameArea").style.background-position.width();
+		//alert(bgPosx);
+		//document.getElementById("gameArea").style.background-position = 
 	} else { //This is one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
 	};
+}
+
+function getBGCoords(){//UNUSED WORK IN PROGRESS - FOR MAKING THE SWIRL MOVE WITH PC
+	//thanks to "David says reinstate Monica" on stackoverflow on this q here https://stackoverflow.com/questions/19505142/get-posx-and-posy-of-background-position-in-javascript
+	var demo = document.getElementById('gameArea'),
+    _tmp = window.getComputedStyle(demo,null).backgroundPosition.trim().split(/\s+/),
+    positions = {
+        'left' : _tmp[0],
+        'top' : _tmp[1],
+        'numbers' : {
+            'left' : parseFloat(_tmp[0]),
+            'top' : parseFloat(_tmp[1])
+        },
+        'units' : {
+            'left' : _tmp[0].replace(/\d+/,''),
+            'top' : _tmp[1].replace(/\d+/,'')
+        }
+    };
+	
+//console.log(positions, positions.left, positions.top, positions.numbers.left, positions.numbers.top, positions.units.left, positions.units.top);
 }
 
 function isInBounds(yTop, xLeft, yBase, xRight){
