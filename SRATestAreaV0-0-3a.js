@@ -25,7 +25,8 @@ var globals = {
 		"height": 27,//document.getElementById("mockPC").style.height,
 		/*"stat": ,*/
 		"Name": "Bob",
-		"angle": 0
+		"angle": 0,
+		"viewSpinAngle": 0
 	}
 }; 
 /* #gameArea
@@ -75,6 +76,9 @@ function rotate(dir){
 	globals.PC.angle += 3; //weirdly if it goes over 360 js seems to be able to just handle that correctly, even though the value can go way up - might cause issues with a number being unexpectedly hight but maybe not
 	document.getElementById("mockPC").style.transform = 'rotate(' + globals.PC.angle + 'deg)';
 	//alert(globals.PC.angle); //This line if run and not commented, proves that the angle value keeps going up and up and js/css just handles it
+	//rotate viewableArea counter clockwise   use viewSpinAngle
+	globals.PC.viewSpinAngle -= 2;
+	document.getElementById("viewableArea").style.transform = 'rotate(' + globals.PC.viewSpinAngle + 'deg)';
 }
 
 
@@ -99,6 +103,10 @@ function move(dir){ //dir = direction
 	var PCy = parseInt(document.getElementById("mockPC").offsetTop) - 2; //for some reason offsetTop seems to gets a value 2 px higher than it should and this causes our code to position the PC lower on each move than it should - causing noticeable diagonal movement when moving on x axis and not really noticeable extra/less movement when moving on the y axis.
 	var attemptLeftX = PCx; //Instantiated here with the PCx value, rewritten if moving in x axis, still used if moving in in y for collision detection
 	var attemptTopY = PCy; //Instantiated here with the PCy value, rewritten if moving in y axis, still used if moving in in x for collision detection
+	var viewX = document.getElementById("viewableArea").offsetLeft;
+	var viewY = parseInt(document.getElementById("viewableArea").offsetTop) - 29;
+	var attViewX = viewX; //Same deal as for PC co-ords
+	var attViewY = viewY; //Same deal as for PC co-ords
 
 	//alert("Start: x = " + PCx + ", y = " + PCy);
 	//TODO: potential performance increase here - switch case
@@ -107,19 +115,22 @@ function move(dir){ //dir = direction
 		
 		//to go up reduce the top, since top is the amount of px from the top of the play area
 		attemptTopY = PCy - moveAmount;  //Note that the minus treats the values immediatly around it as numbers in this case
-		
+		attViewY = viewY - moveAmount;
 	} else if (dir == "l"){
 		//alert("l");
 		//to go left reduce the left, since left is the amount of px from the left edge of the play area
-		attemptLeftX = PCx - moveAmount; 
+		attemptLeftX = PCx - moveAmount;
+		attViewX = viewX - moveAmount;
 	} else if (dir == "d"){ 
 		//alert("d");
 		//to go down we do our old y axis value plus movement amount
 		attemptTopY = PCy + moveAmount;
+		attViewY = viewY + moveAmount;
 	} else if (dir == "r"){
 		//alert("r");
 		//Take the old x axis value, add the moveAmount
 		attemptLeftX = PCx + moveAmount;
+		attViewX = viewX + moveAmount;
 	};
 	
 	//During early stages of working collision detection these where defined with the the other attempt values - but they can be based on the other attempt values after they've been calculated with movement included. Since they aren't needed til doing collision checks and those aren't done til here, theres no point defining them earlier just to update them.
@@ -132,34 +143,13 @@ function move(dir){ //dir = direction
 		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
 		document.getElementById("mockPC").style.left = attemptLeftX + "px";
 		document.getElementById("mockPC").style.top = attemptTopY + "px";
-		//WORK IN PROGRESS Move the swirly background with you
-		//var bgPosx = document.getElementById("gameArea").style.background-position.width();
-		//alert(bgPosx);
-		//document.getElementById("gameArea").style.background-position = 
+		//Also move the swirly background with you
+		document.getElementById("viewableArea").style.left = attViewX + "px";
+		document.getElementById("viewableArea").style.top = attViewY + "px";
 	} else { //This is one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
 	};
-}
-
-function getBGCoords(){//UNUSED WORK IN PROGRESS - FOR MAKING THE SWIRL MOVE WITH PC
-	//thanks to "David says reinstate Monica" on stackoverflow on this q here https://stackoverflow.com/questions/19505142/get-posx-and-posy-of-background-position-in-javascript
-	var demo = document.getElementById('gameArea'),
-    _tmp = window.getComputedStyle(demo,null).backgroundPosition.trim().split(/\s+/),
-    positions = {
-        'left' : _tmp[0],
-        'top' : _tmp[1],
-        'numbers' : {
-            'left' : parseFloat(_tmp[0]),
-            'top' : parseFloat(_tmp[1])
-        },
-        'units' : {
-            'left' : _tmp[0].replace(/\d+/,''),
-            'top' : _tmp[1].replace(/\d+/,'')
-        }
-    };
-	
-//console.log(positions, positions.left, positions.top, positions.numbers.left, positions.numbers.top, positions.units.left, positions.units.top);
 }
 
 function isInBounds(yTop, xLeft, yBase, xRight){
