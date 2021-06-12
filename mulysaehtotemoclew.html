@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<!-- Solar Rage Asylum, alpha testing page - a web based game where the devs will show you their process for making it, and make the source code easy to read and understand! -->
 	<!-- This tag, with !-- is a comment - browsers and search engines ignore it, but human developers can read it to get more info. This project intentionally has more of them, than you might normally find, so that it's super easy for beginners to understand everything -->
 	<!-- head tag houses: 
 	a) "metadata" such as what character encoding standard this file uses
@@ -11,8 +12,10 @@
     <head>
 		<!-- meta tags state some kind of "Metadata". In this case the "charset" which is short for "character set" which is also known as the files "character encoding". Don't change or remove this line unless you know what you're doing.-->
         <meta charset="utf-8">
-		<!-- <title> appears in search engine results as the pages title, is shown in the browser tab on most browsers (or as the title bar in browsers without tabs) and is usually what browsers list the page as in history and bookmarks. Generally you always want to have a title tag. For games it makes sense to match up with the game name, or maybe sometimes have it say the level or area name -->
+		<!-- Tag below appears in search engine results as the pages title, is shown in the browser tab on most browsers (or as the title bar in browsers without tabs) and is usually what browsers list the page as in history and bookmarks. Generally you always want to have a title tag. For games it makes sense to match up with the game name, or maybe sometimes have it say the level or area name -->
         <title>Solar Rage Asylum</title>
+		<!-- Prevent search engines showing this hidden page - note if a search engine has already included the page before this was added, it will only take effect when they next "crawl" the page - you can request Google recrawl using there URL inspection tool others might have something similar-->
+		<meta name="robots" content="noindex">
 		<!-- 
 		Link elements tell the browser that it needs to download another file. 
 		The rel attribute specifies the kind of relationship between the current file and the linked file. 
