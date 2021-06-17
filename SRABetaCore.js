@@ -184,11 +184,38 @@ function move(dir){ //dir = direction
 		//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
-
-		//Level one ending conditions TODO: This probably can't stay here if this code is supposed to be basic movement for any level with the hoverbed
-		if ((globals.WallsBumped.N == true) && (globals.WallsBumped.E == true)){
-			alert("Bump!");
+		var iWalls = 0;
+		if (globals.WallsBumped.N == true){
+			iWalls++;
 		};
+		if (globals.WallsBumped.E == true){
+			iWalls++;
+		};
+		if (globals.WallsBumped.S == true){
+			iWalls++;
+		};
+		if (globals.WallsBumped.W == true){
+			iWalls++;
+		};
+		if (iWalls == 4){
+			alert("It's official, I'm in a padded room.");
+			if(confirm("That's all for now, updates coming regularly. Keep playing?")){
+				
+			} else {
+				//reset all the wallsbumped in case they play again!
+				globals.WallsBumped.N = false;
+				globals.WallsBumped.S = false;
+				globals.WallsBumped.E = false;
+				globals.WallsBumped.W = false;
+				nextScreen("mainContent", "screen001");
+			};
+		} else if (iWalls == 3){
+			alert("Padded. Just one wall left to check");
+		} else if (iWalls == 2){
+			alert("This wall feels padded too");
+		} else if (iWalls == 1){
+			alert("Oh, theres a wall there, though it seems padded");
+		} 
 	};
 }
 
