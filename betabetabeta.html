@@ -32,27 +32,87 @@
 		<!-- Stylesheet specificly for gameplay -->
 		<link rel="stylesheet" href="gameStyles.css"> </link>
 		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
-		<script src="SRATestAreaV0-0-3a.js"></script><!-- we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
+		<script src="SRABetaCore.js"></script><!-- TODO: we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
 		<!-- open source vanilla JS cookie acceptance popup (a cookie popup of some kind is required by EU law if there are any cookies)-->
 		<link rel="stylesheet" href="purecookie.css"/>
 		<script src="purecookie.js"></script>
     </head>
 	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
     <body> <!--onload="startUp()"-->
-		<div class="header">
+		<div id="screen001" class="showing" onclick="nextScreen('screen001', 'screen002')">
+			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>. 
+		</div>
+		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
+			<h1>Solar Rage Asylum</h1>
+			<h2>(Early taster Beta)</h2>
+			<p>A 2D top down indy game about escaping an Asylum.</p>
+			<p>Releasing new levels as they are built.</p>
+			<p><b>So far:</b> Opening story - though it's still being worked on</p>
+			<p><b>Coming soon:</b>first level (in Alpha testing)</p>
+		</div>
+		
+		<div id="screen003" class="hidden" onclick="nextScreen('screen003', 'screen003b')">
+			<p>You awaken in a haze,</br>
+			or is it still a dream?</br>
+			Other than yourself, and the hoverbed you're laying on </br>
+			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
+			flowing around and under you</br>
+			</p>
+			<div id="previewGameArea" class="gameArea">
+				<div id="previewPC" class="pcInHoverbed"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
+				<div id="previewRainbow" class="rainbowVortex"></div>
+			</div>
+
+			
+		</div>
+		<div id="screen003b" class="hidden" onclick="nextScreen('screen003b', 'screen004')">
+			<p>
+			You feel calm.</br>
+			Very calm.</br>
+			</p>
+			<p>
+			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
+			Maybe we should start trying to figure some things out.
+			</br>
+			</p>
+		</div>
+		
+		<div id="screen004" class="hidden" >
+			<p>First off what's your name?</p>
+			<input type="text" id="fname" name="fname"/> 
+			<button id="screen004Done" type="button" onclick="nextScreen('screen004', 'screen005')"> Say it</button>
+		</div>
+		<div id="screen005" class="hidden" onclick="nextScreen('screen005', 'mainContent')">
+			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. Or perhaps if this is a game then you could say I'm the narrator for this little story. 
+			</p>
+			<p>
+			*COUGH* *COUGH* <br/>
+			Apologies, that was wrong of me. <br/>
+			I'll try to fix up that fourth wall again. It's not very good nar-ayyy err I mean that's not very helpful for an internal monologue. 
+			<br/>
+			Oh, and don't worry, you're not crazy.</p>
+			<p>All the best people have internal monologues that give themselves names 
+			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
+			think of existence as being more than it appears</p>
+		</div>
+	<!-- templates for copying
+		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
+			<p></p>
+		</div>
+		<h2> </h2>
+		onclick="nextScreen('screen004', 'screen005')"
+		
+	-->
+		<div class="header hidden">
 			<!-- div for positioning menu-->
 			<div id="menuTopLayer">
 			</div>
 			<!-- The title (H1 as in Heading 1)-->
 			<h1>Solar Rage Asylum</h1>
-			<h2>(Very Early Alpha version)</h2>
+			<h2></h2>
 		</div>
-		<div id="welcome" class="showing">
-			<p>This is our beta area - the beta isn't really up yet - it's much like our alpha area currently</p>
-		</div>
-		<button id="toggleWelcome" onclick="toggleWelcome()">Hide this rambling nonsense!</button>
-		<div id="mainContent">
-			<div id="gameArea">
+		<div id="mainContent" class="hidden">
+			<div id="gameArea" class="ExtraBorder">
 				
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 				<div id="viewableArea"></div>
@@ -73,7 +133,7 @@
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
-			<span id="Version">Version - Alpha 0.0.5 "Preparing a proper beta page" of Solar Rage Asylum</span>
+			<span id="Version">Solar Rage Asylum, Version: Alpha 0.0.5 "Preparing a proper beta page"</span>
 			<span id="BasicCredit"> - A ProtoStart game lead by Phil Ganney</span>
 		</div>
 	</body>

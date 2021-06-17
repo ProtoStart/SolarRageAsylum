@@ -1,33 +1,54 @@
-#gameArea{
+#gameArea,
+.gameArea{ /*gameArea was initially unique on a page, but it now seems we might have more than one game area on a page at a time - even if they are not visible at the same time having duplicate id's would be a problem and we want to reuse all this CSS*/
 	width: 600px;
 	height: 390px;
-	border: 2px solid lime;
+	/*border: 2px solid lime; /* temporarily commented out so that the kludge border can work*/
 	margin: 10px 30px 20px 30px;
 	position: relative;
 	background-color: black;
 }
 
-#gameArea *{
+#gameArea *,
+.gameArea *{
 	text-align: left;
 	position: relative;
 	margin: 0px;
 	padding: 0px;
 }
 
+.rainbowVortex,
 #viewableArea{
+/*Old settings before temporary kludge - revert these, leave the others as they are
 	width: 250px;
 	height: 250px;
 	border-radius: 125px;
-	background-image: url(rainbowVortex.png);
-	background-position: -380px -340px;
 	left: 200px;
 	top: 52px;
+
+*/
+
+	width: 230px;
+	height: 230px;
+	border-radius: 115px;
+	background-image: url(rainbowVortex.png);
+	background-position: -380px -340px;
+	left: 210px;
+	top: 62px;
 	z-index: 1; /* Behind mockPC*/
 }
+
+.pcInHoverbed,
 #mockPC{
 	width: 50px; /* Match image*/
 	height: 27px;
 	left: 300px;
 	top: 195px;
 	z-index: 2; /* In front of viewable area*/
+}
+
+
+/*Temporary kludge*/
+.ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
+	/*half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border*/
+	border: 90px solid black;
 }

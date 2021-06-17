@@ -1,0 +1,53 @@
+BETA NOTES
+Known imperfections:
+Currently no way to step back through screens 
+	- you can reload the page to start again, but that's all
+	- Multiple ways of fixing that
+		- Lots of individual buttons calling the change screen function with hardcoded inputs
+			Very easy, takes about 30seconds per screen to set up 
+				- would mean I'd end up with a lot of buttons in the code
+		- store the screen they're on, have a single previous button on screen from all but the first 
+			with a function that checks which they are on and which was previous, load them into the change screen function
+		
+Relies on people guessing to tap the stuff shown sometimes
+The onload thing where I wanted the game area to show while the immediate area was being talked about doesn't work yet
+Really I want the rainbow to spin a bit gradually on it's own too
+We're not actually saving the name when we take it yet
+	We're not even doing anything with the name - the button just skips on
+Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
+	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
+	a) First kludge tried: a large black border - V Simple good for first level, probs won't last for others. This gives an area around the game area that would still show the rainbow effect, but with existing code would prevent you from moving the character into that area
+		- Makes the visible game area larger than I wanted 
+			it's way too big for mobile 
+				(it might shrink everything down to fit the window but even that is a problem),
+			on my laptop screen I feel I need the window maximized
+				theres only a few pixels gap
+				now there isn't even a nice visually clear border to help with this
+	a2) Current kludge in place - slight variation on solution a that I tried - not quite as large border and smaller rainbow vortex
+		- I dont't like having a smaller rainbow vortex
+		- It's still going to be too big for mobile
+		- I still have to position the game area quite carefully, just not as much
+			- so I still miss having the contrasting border
+		- I'm going to check this in (commit it to github) but only for the benefit of saving this for prosperity and it's been a while since I made a commit.
+			- I'll even stick comments by the changed values so that I can easily undo them without reverting the commit
+				- if I committed and rolled back I think I'd lose record of it, but at the very least I'd roll back all of the other beta stuff!!
+			
+	b) could enlarge the div, but not fully match the bounds to it 
+		- would presumably have the same effect as a border for the first level
+		- except I could have the old thin line of lime as a border again 
+			which would be nice for making sure that the game area is entirely visible in the browser pane
+		- also seems better for the long run, once the rainbow and black background go
+			- would keep the game area consistent for the player, which would be good for UX
+			- You'd match the background graphic to show the place you're in, 
+				and the boundary values would be where walls start in the image
+				you could match them up either way, or even a bit of both
+					graphic to the boundary
+					or boundary to fit the graphic
+		- Might require repositioning things, and changing border values
+	c) could shrink the bounds values
+		- that might make a very small effective game area
+			not an issue for levels where you're confined to a small room
+				which makes sense at the start
+			In fact after trying a and a2 I quite like the sound of this option
+	d) as it gets near to the boundary start clipping the rainbows element on that side? - seems like fairly complex coding compared with the other solutions
+	e) is there some CSS or HTML trick I could do to make the rainbow clip when it goes out of the box?

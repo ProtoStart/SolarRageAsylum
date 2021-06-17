@@ -15,7 +15,13 @@ What's your name?
 Ahh nice to meet you, I'm Derek your new internal monologue. Or perhaps if this is a game then you could say I'm the narrator for this little story. 
 Apologies, I'll try to fix up that fourth wall again. It's not very good nar-ayyy err I mean that's not very helpful for an internal monologue. 
 Don't worry, you're not crazy. 
-Though, judging from the padded empty room we're in, and the fuzzy calm sensation you're currently feeling, um, maybe there's a chance someone else got that impression??
+[original draft line, which unfortunately doesn't work with the gameplay very well]Though, judging from the padded empty room we're in, and the fuzzy calm sensation you're currently feeling, um, maybe there's a chance someone else got that impression??
+[revision option 1] All the best people have internal monologues that give themselves names 
+			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
+			think of existence as being more than it appears
+[bridging addition so we can use 1 and 2] Yes that must be it. Oh and the weird vision?? Yeah that's er, that's not normal, though it can happen as a result of various substances being in your system, both prescribed and "recreational". 
+[revision option 2] At least, <i>I</i> don't think you're crazy. This hoverbed we're on does seem to be some kind of hospice or er, dare I say it, an asylum bed.
+[possibly a mix - try them in situ]
 
 What happened last night? Is there a chance you wheren't your regular self? (Pick the option that seems the most likely for a character you'd want to play)
 
