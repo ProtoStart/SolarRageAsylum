@@ -1,4 +1,4 @@
-BETA NOTES
+BETA NOTES (keep this professional-ish!)
 Known imperfections:
 Currently no way to step back through screens 
 	- you can reload the page to start again, but that's all
@@ -10,10 +10,14 @@ Currently no way to step back through screens
 			with a function that checks which they are on and which was previous, load them into the change screen function
 		
 Relies on people guessing to tap the stuff shown sometimes
+
 The onload thing where I wanted the game area to show while the immediate area was being talked about doesn't work yet
+
 Really I want the rainbow to spin a bit gradually on it's own too
+
 We're not actually saving the name when we take it yet
 	We're not even doing anything with the name - the button just skips on
+
 Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
 	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
 	a) First kludge tried: a large black border - V Simple good for first level, probs won't last for others. This gives an area around the game area that would still show the rainbow effect, but with existing code would prevent you from moving the character into that area
@@ -30,7 +34,7 @@ Kludgey workaround in place currently, for the rainbow vortex being able to go b
 			- so I still miss having the contrasting border
 		- I'm going to check this in (commit it to github) but only for the benefit of saving this for prosperity and it's been a while since I made a commit.
 			- I'll even stick comments by the changed values so that I can easily undo them without reverting the commit
-				- if I committed and rolled back I think I'd lose record of it, but at the very least I'd roll back all of the other beta stuff!!
+				- if I committed and rolled back I think I'd lose record of it, but at minimum I'd roll back all of the other beta stuff and have to patch it up!!
 			
 	b) could enlarge the div, but not fully match the bounds to it 
 		- would presumably have the same effect as a border for the first level
