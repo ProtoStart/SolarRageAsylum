@@ -44,6 +44,12 @@ var globals = {
 		"Name": "Bob",
 		"angle": 0,
 		"viewSpinAngle": 0
+	},
+	"WallsBumped": {
+		"N" : false,  //globals.WallsBumped.N
+		"E" : false,
+		"S" : false,
+		"W" : false
 	}
 }; 
 /* #gameArea
@@ -174,9 +180,15 @@ function move(dir){ //dir = direction
 		//Also move the swirly background with you
 		document.getElementById("viewableArea").style.left = attViewX + "px";
 		document.getElementById("viewableArea").style.top = attViewY + "px";
-	} else { //This is one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
+	} else {
+		//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
+
+		//Level one ending conditions TODO: This probably can't stay here if this code is supposed to be basic movement for any level with the hoverbed
+		if ((globals.WallsBumped.N == true) && (globals.WallsBumped.E == true)){
+			alert("Bump!");
+		};
 	};
 }
 
@@ -196,15 +208,19 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
 		//alert("top bounds");
+		globals.WallsBumped.N = true;
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
 		//alert("right bounds");
+		globals.WallsBumped.E = true;
 		return false;
 	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
 		//alert("bottom bounds");
+		globals.WallsBumped.S = true;
 		return false;
 	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
 		//alert("left bounds");
+		globals.WallsBumped.W = true;
 		return false;
 	};
 	return true; //To get here none of the out of bounds conditions would have been met
