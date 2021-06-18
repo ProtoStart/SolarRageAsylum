@@ -69,8 +69,15 @@ function showgamearea(){
 	showViaClass("gameArea");
 }
 
-/** Keyboard controls **/
-document.addEventListener("keydown", keyTap);
+
+
+function launchLevelOne(){
+	//move onto the game screen div via nextScreen
+	nextScreen('screen005', 'mainContent');
+	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
+	document.addEventListener("keydown", keyTap);
+	
+}
 
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below

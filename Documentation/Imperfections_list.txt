@@ -1,6 +1,6 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
-The keyboard controls take effect no matter what is shown - so if you type a name with a,w,s or d or use the arrow keys you might get an alert saying that you've bumped into a wall!!!
+(Part fixed, doesn't get you on first run through now) The keyboard controls take effect no matter what is shown - so if you type a name with a,w,s or d or use the arrow keys you might get an alert saying that you've bumped into a wall!!!
 
 Currently no way to step back through screens 
 	- you can reload the page to start again, but that's all
