@@ -46,7 +46,7 @@ var globals = {
 		"viewSpinAngle": 0
 	},
 	"WallsBumped": {
-		"N" : false,  //globals.WallsBumped.N
+		"N" : false,  //globals.WallsBumped.N  North wall  -- the top
 		"E" : false,
 		"S" : false,
 		"W" : false
@@ -184,7 +184,9 @@ function move(dir){ //dir = direction
 		//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
-		var iWalls = 0;
+		
+		//count up how many different walls player has bumped into
+		var iWalls = 0; //Holds our number of walls player has bumped into
 		if (globals.WallsBumped.N == true){
 			iWalls++;
 		};
@@ -197,6 +199,7 @@ function move(dir){ //dir = direction
 		if (globals.WallsBumped.W == true){
 			iWalls++;
 		};
+		//Now we know how many walls bumped into, we can give a message accordingly
 		if (iWalls == 4){
 			alert("It's official, I'm in a padded room.");
 			if(confirm("That's all for now, updates coming regularly. Keep playing?")){
