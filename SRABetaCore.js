@@ -218,6 +218,9 @@ function move(dir){ //dir = direction
 				globals.WallsBumped.S = false;
 				globals.WallsBumped.E = false;
 				globals.WallsBumped.W = false;
+				//also remove the event listener for keys!
+				document.removeEventListener("keydown", keyTap);
+				//send back to opening screen
 				nextScreen("mainContent", "screen001");
 			};
 		} else if (iWalls == 3){
