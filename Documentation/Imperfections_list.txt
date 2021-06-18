@@ -1,5 +1,7 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
+The keyboard controls take effect no matter what is shown - so if you type a name with a,w,s or d or use the arrow keys you might get an alert saying that you've bumped into a wall!!!
+
 Currently no way to step back through screens 
 	- you can reload the page to start again, but that's all
 	- Multiple ways of fixing that
@@ -14,9 +16,6 @@ Relies on people guessing to tap the stuff shown sometimes
 The onload thing where I wanted the game area to show while the immediate area was being talked about doesn't work yet
 
 Really I want the rainbow to spin a bit gradually on it's own too
-
-We're not actually saving the name when we take it yet
-	We're not even doing anything with the name - the button just skips on
 
 Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
 	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
@@ -55,3 +54,6 @@ Kludgey workaround in place currently, for the rainbow vortex being able to go b
 			In fact after trying a and a2 I quite like the sound of this option
 	d) as it gets near to the boundary start clipping the rainbows element on that side? - seems like fairly complex coding compared with the other solutions
 	e) is there some CSS or HTML trick I could do to make the rainbow clip when it goes out of the box?
+	
+RECENT FIXES  AND IMPROVEMENTS!! YAY!!
+We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
