@@ -1,6 +1,6 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
-(Part fixed, doesn't get you on first run through now) The keyboard controls take effect no matter what is shown - so if you type a name with a,w,s or d or use the arrow keys you might get an alert saying that you've bumped into a wall!!!
+
 
 Currently no way to step back through screens 
 	- you can reload the page to start again, but that's all
@@ -57,3 +57,4 @@ Kludgey workaround in place currently, for the rainbow vortex being able to go b
 	
 RECENT FIXES  AND IMPROVEMENTS!! YAY!!
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
+The keyboard controls are now only active on the actual playable level - so if you type a name with a,w,s or d or use the arrow keys you can no longer get an alert saying that you've bumped into a wall!!!
