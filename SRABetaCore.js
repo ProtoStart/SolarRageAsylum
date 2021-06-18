@@ -45,11 +45,55 @@ var globals = {
 		"angle": 0,
 		"viewSpinAngle": 0
 	},
-	"WallsBumped": {
+	"WallsBumped": { //all start off false, and change when PC bumps into them
 		"N" : false,  //globals.WallsBumped.N  North wall  -- the top
 		"E" : false,
 		"S" : false,
 		"W" : false
+	},
+	"Screens": {
+		"current" : "screen001",  //Override on each transition, to keep track
+		//Annotated template at bottom!
+		"screen001" : {
+			"prevScreen" : false,  //this is the first screen unless we include for example the landing page
+			"nextScreen" : "screen002"
+		},
+		"screen002" : {
+			"prevScreen" : "screen001",
+			"nextScreen" : "screen003"
+		},
+		"screen003" : {
+			"prevScreen" : "screen002", //div id of the previous screen (used for onscreen back button)
+			"nextScreen" : "screen003b" //div id of the next screen
+		}, 
+		"screen003b" : {  //screen number matching div id that this refers to
+			"prevScreen" : "screen003", //div id of the previous screen (used for onscreen back button)
+			"nextScreen" : "screen004" //div id of the next screen
+		}, 
+		"screen004" : {  //screen number matching div id that this refers to
+			"prevScreen" : "screen003", //div id of the previous screen (used for onscreen back button)
+			"nextScreen" : false //false - this is the name input screen, so we have a button next to the input that runs a func to save the input and then move to the next screen
+		}, 
+		"screen005" : {  //screen number matching div id that this refers to
+			"prevScreen" : "screen004", //the div id of the previous screen (used for onscreen back button)
+			"nextScreen" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		}, 
+		"mainContent" : { 
+			"prevScreen" : "screen005", 
+			"nextScreen" : false 
+		}, 
+ 
+		/* Annotated Template
+		"screen002" : {  //screen number matching div id that this refers to
+			"prevScreen" : "screen001", //false if the onscreen back button shouldn't show, otherwise the div id of the previous screen (used for onscreen back button)
+			"nextScreen" : "screen003" //false if you don't want a simple skip screen button, otherwise div id of the next screen
+		}, 
+		Non annotated template
+		"screen002" : { 
+			"prevScreen" : "screen001", 
+			"nextScreen" : "screen003" 
+		}, 
+		*/
 	}
 }; 
 /* #gameArea

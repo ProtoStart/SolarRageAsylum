@@ -1,17 +1,25 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
 
-
-Currently no way to step back through screens 
+Currently no way to step back through screens (working on)
 	- you can reload the page to start again, but that's all
 	- Multiple ways of fixing that
-		- Lots of individual buttons calling the change screen function with hardcoded inputs
+		- Attempting this, (though it's very long winded, and is draining my soul so I need a break!)
+			store the screen they're on, have a single previous button on screen from all but the first 
+			with a function that checks which they are on and which was previous, load them into the change screen function
+				added advantage 1 - storing which screen they are on could be useful for other things - could have a button that generates a code to get them back to that spot
+				added advantage 2 - use very similar code to have a next button
+				keeps the DOM (Document Object Model) smaller
+				
+		- Alternatively but ruled out unless other attempt fails for some reason. 
+			Lots of individual buttons calling the change screen function with hardcoded inputs
 			Very easy, takes about 30seconds per screen to set up 
 				- would mean I'd end up with a lot of buttons in the code
-		- store the screen they're on, have a single previous button on screen from all but the first 
-			with a function that checks which they are on and which was previous, load them into the change screen function
-		
-Relies on people guessing to tap the stuff shown sometimes
+				- I'd have to add them in every screen
+					- would that get annoying? - probably not that bad - just copy and paste the markup!
+				- the visual consistancy issue would be resolved by CSS classes
+				
+Relies on people guessing to tap the stuff shown sometimes - should be solved once I've added next buttons
 
 The onload thing where I wanted the game area to show while the immediate area was being talked about doesn't work yet
 
