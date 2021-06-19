@@ -70,3 +70,5 @@ Swapped the alerts that happened when you collided into walls, with text at the 
 Keyboard controls stated on screen when you can move, next to the buttons (much better UX)
 
 Slightly less reliant on people guessing to click text now, as I've put a hint on screen002. I'll work on full fix for next update.
+
+Story improvements - it now feels more like you're a crazy person - it's a bit more chilling and captivating
