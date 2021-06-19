@@ -247,20 +247,14 @@ function move(dir){ //dir = direction
 		};
 		//Now we know how many walls bumped into, we can give a message accordingly
 		if (iWalls == 4){
-			alert("It's official, I'm in a padded room.");
-			if(confirm("That's all for now, updates coming regularly. Keep playing?")){
-				
-			} else { 
-				resetGameArea();
-				//send back to opening screen
-				nextScreen("mainContent", "screen001");
-			};
+			nextScreen("screen009", "screen010");
+			//Previously used a confirm, but now we show in screen10 a link to go back
 		} else if (iWalls == 3){
-			alert("Padded. Just one wall left to check");
+			nextScreen("screen008", "screen009");
 		} else if (iWalls == 2){
-			alert("This wall feels padded too");
+			nextScreen("screen007", "screen008");
 		} else if (iWalls == 1){
-			alert("Oh, theres a wall there, though it seems padded");
+			nextScreen("screen006", "screen007");
 		} 
 	};
 }
@@ -386,8 +380,12 @@ function resetGameArea(){
 	document.removeEventListener("keydown", keyTap);
 	//hide the onscreen buttons
 	hideViaClass("gameBtns");
-	//hide screen006
+	//hide screen006 - 010 (only one of those would be shown at any given time, but it's easier to make sure they are all hidden than to find out which one is showing and just hide that
 	hideViaClass("screen006");
+	hideViaClass("screen007");
+	hideViaClass("screen008");
+	hideViaClass("screen009");
+	hideViaClass("screen010");
 	//remove the extra border
 	document.getElementById("gameArea").classList.remove("ExtraBorder");
 	/*set the positions back to the starting place
@@ -403,4 +401,12 @@ function resetGameArea(){
 	
 	document.getElementById("viewableArea").style.left = "210px";
 	document.getElementById("viewableArea").style.top = "62px";
+}
+
+function exitGame(){
+	if(confirm("Exit back to title screens?")){
+		resetGameArea();
+		//send back to opening screen
+		nextScreen("mainContent", "screen001");
+	};
 }

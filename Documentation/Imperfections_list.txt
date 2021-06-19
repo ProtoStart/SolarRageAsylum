@@ -55,7 +55,7 @@ Kludgey workaround in place currently, for the rainbow vortex being able to go b
 					graphic to the boundary
 					or boundary to fit the graphic
 		- Might require repositioning things, and changing border values
-	c) could shrink the bounds values
+	c) (done a little bit of this) could shrink the bounds values
 		- that might make a very small effective game area
 			not an issue for levels where you're confined to a small room
 				which makes sense at the start
@@ -66,3 +66,6 @@ Kludgey workaround in place currently, for the rainbow vortex being able to go b
 RECENT FIXES  AND IMPROVEMENTS!! YAY!!
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
 The keyboard controls are now only active on the actual playable level - so if you type a name with a,w,s or d or use the arrow keys you can no longer get an alert saying that you've bumped into a wall!!!
+Rainbow vortex on screen throughout the story (without the extra border and without controls until you get to that point)
+Swapped the alerts that happened when you collided into walls, with text at the top - so much nicer to play
+Keyboard controls stated on screen when you can move, next to the buttons (much better UX)
