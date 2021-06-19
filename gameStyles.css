@@ -4,7 +4,9 @@
 	height: 390px;
 	/*border: 2px solid lime; /* temporarily commented out so that the kludge border can work*/
 	margin: 10px 30px 20px 30px;
-	position: relative;
+	position: fixed;
+	bottom: 22px;
+	left: 0px;
 	background-color: black;
 }
 
@@ -49,8 +51,10 @@
 
 /*Temporary kludge*/
 .ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
-	/*half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border*/
-	border: 90px solid black;
+	/*	Previously using: half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border
+		Now using: a reduced value than that, as I've also restricted the game bounds in JS globals
+	*/
+	border: 70px solid black;
 }
 
 #gameBtns{
@@ -60,4 +64,8 @@
 	padding-bottom: 2px;
 	/*background-color: #DDDDDD; Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
 	z-index: 10;
+}
+
+#keyboardHint{
+	max-width: 210px;
 }

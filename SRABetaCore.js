@@ -30,10 +30,10 @@ Main game menu
 
 var globals = {
 	"bounds": { //The edges of the playable area, in px. Currently just matching the div gameArea size definition in gameStyles.css - maybe it should be set via JS in an init? Remember co-ords in JS/CSS are done with 0,0 being the top left.
-		"top": "0",
-		"right": "600",
-		"bottom": "390",
-		"left": "0"
+		"top": "30",
+		"right": "570",
+		"bottom": "360",
+		"left": "30"
 	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),
@@ -60,7 +60,7 @@ var globals = {
 		},
 		"screen002" : {
 			"prevScreen" : "screen001",
-			"nextScreen" : "screen003"
+			"nextScreen" : false //to get the animated rainbowVortex we need to call that func  - surely we can do onloads on divs?? instead did I just get it wrong last time I tried??
 		},
 		"screen003" : {
 			"prevScreen" : "screen002", //div id of the previous screen (used for onscreen back button)
@@ -115,13 +115,7 @@ function showgamearea(){
 
 
 
-function launchLevelOne(){
-	//move onto the game screen div via nextScreen
-	nextScreen('screen005', 'mainContent');
-	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
-	document.addEventListener("keydown", keyTap);
-	
-}
+
 
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
@@ -158,7 +152,7 @@ function endRotate(){  //Stops rotation caused by startRotate
 	clearInterval(rotatePCInterval);
 }
 
-function rotate(dir){
+function rotate(dir){ //NOTE at time of writing dir isn't actually used! Only clockwise has been implemented at time of writing
 	globals.PC.angle += 3; //weirdly if it goes over 360 js seems to be able to just handle that correctly, even though the value can go way up - might cause issues with a number being unexpectedly hight but maybe not
 	document.getElementById("mockPC").style.transform = 'rotate(' + globals.PC.angle + 'deg)';
 	//alert(globals.PC.angle); //This line if run and not commented, proves that the angle value keeps going up and up and js/css just handles it
@@ -256,14 +250,8 @@ function move(dir){ //dir = direction
 			alert("It's official, I'm in a padded room.");
 			if(confirm("That's all for now, updates coming regularly. Keep playing?")){
 				
-			} else {
-				//reset all the wallsbumped in case they play again!
-				globals.WallsBumped.N = false;
-				globals.WallsBumped.S = false;
-				globals.WallsBumped.E = false;
-				globals.WallsBumped.W = false;
-				//also remove the event listener for keys!
-				document.removeEventListener("keydown", keyTap);
+			} else { 
+				resetGameArea();
 				//send back to opening screen
 				nextScreen("mainContent", "screen001");
 			};
@@ -338,4 +326,81 @@ function namePC(){
 	globals.PC.Name = name;
 	//alert("globals.PC.Name == " + globals.PC.Name);
 	nextScreen('screen004', 'screen005')
+}
+
+function showAwakening(){
+	/* showAwakening handles a screen transition where our character wakes up
+		while the narration is going on.
+		The previous screen with just text is replaced by:
+		some new text
+		plus the first view of the opening game area
+			but the player does not yet have control of the character
+			also the black area needs to be smaller
+		For Beta 0.0.1 "Early taster Beta" this was done with:
+			a copy of the game area markup within the screens div,
+				with different id's but CSS classes that had the same rules
+		For an improved opening sequence: 
+			I want the game area to stay on screen
+				An easy way to do that is a seperate div that we just also show in this function
+			I want the rainbowVortex to move on it's own at the start
+				and then it'll stop during the story
+				- to have done this on the stand in one, 
+					I would've had to add quite a chunk of stuff that I'd done for the proper game area
+		SO NOW:
+			this function brings up the next div of words,
+			but also the actual game area 
+				- without the buttons 
+					(those are set to hidden, and altered when we want players to be able to move the character)
+				without keyboard input just yet 
+					(they have to only be enabled at movable parts anyway - otherwise that would clash with typing into inputs)
+				without the extra border we have for preventing the vortex going over the main page background
+					(saves space for the text)
+	*/
+	nextScreen('screen002', 'screen003');
+	showViaClass("mainContent");
+	
+	//startRotate("u"); //at time of writing, the u is meaningless as the parameter is ignored!
+	//rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
+}
+
+function launchLevelOne(){
+	//move onto the controls explanation div via nextScreen
+	nextScreen('screen005', 'screen006');
+	//apply class="ExtraBorder" to gameArea
+	document.getElementById("gameArea").classList.add("ExtraBorder");
+	
+	//display the control buttons
+	showViaClass("gameBtns");
+	
+	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
+	document.addEventListener("keydown", keyTap);
+	
+}
+
+function resetGameArea(){
+	globals.WallsBumped.N = false;
+	globals.WallsBumped.S = false;
+	globals.WallsBumped.E = false;
+	globals.WallsBumped.W = false;
+	//also remove the event listener for keys!
+	document.removeEventListener("keydown", keyTap);
+	//hide the onscreen buttons
+	hideViaClass("gameBtns");
+	//hide screen006
+	hideViaClass("screen006");
+	//remove the extra border
+	document.getElementById("gameArea").classList.remove("ExtraBorder");
+	/*set the positions back to the starting place
+		#mockPC
+		left: 300px;
+		top: 195px;
+		#viewableArea
+		left: 210px;
+		top: 62px;
+	*/
+	document.getElementById("mockPC").style.left = "300px";
+	document.getElementById("mockPC").style.top = "195px";
+	
+	document.getElementById("viewableArea").style.left = "210px";
+	document.getElementById("viewableArea").style.top = "62px";
 }

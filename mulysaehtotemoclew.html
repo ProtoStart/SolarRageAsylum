@@ -49,18 +49,18 @@
 		<div id="welcome" class="showing">
 			<p>Welcome to our <i>real</i> testing area<br/> Stuff here will change without warning whenever a developer wants to test something, or even work on something pretty much live to the web. If they've not explained here, asking in our reddit forum is currently the best way to find out what's going on. This "ramble" will be changed by devs every now and then to fit what's going on</p>
 			<p class="yellowBG"> 
-				<b>Working on a beta page today</b> It will go live in the next couple of days<br/>
+				<b>An early Beta taster is out now</b> That will get updates directly, and this area will just be used for testing the odd crazy thing that can't go into the beta but also can't be tested just on my dev device<br/>
 				<b>Last update here:</b>Morning 14th June 2021 (UK time)<br/>
-				<b>Added/improved:</b> Since the update from the 10th I've improved some stuff in the "head" section of HTML pages which effects how results in search engines and sharing links show up.</br>
-				<b>Why?</b> Sharing links: I shared a link to this page to my dad through a popular messaging service and it put in part of a comment in the source code as the description ... yeah that signals to me, that it's time to make sure I have good meta tags<br/>
+				<!--<b>Added/improved:</b> </br>
+				<b>Why?</b> <br/>
 				Beta page: Now that I've got some graphics, movement, collision detection, and a draft of a story, it's time to form this into a proper beta release <br/>
-				<!--<b>Do I expect to finish it this session?</b> I'm just having a quick go at it, if I'm not making progress within 25 min I'll move onto some other part of SRA<br/>-->
+				<b>Do I expect to finish it this session?</b> I'm just having a quick go at it, if I'm not making progress within 25 min I'll move onto some other part of SRA<br/>-->
 				<!---->
 				<b>What other areas of SRA will get some dev time in the next week?</b> I'm working on the first level beta release. I'll need to finish: adding the opening story, forming the stuff below into an easy level of stuff to go around and to get to, adding polish, then getting the word out about this game. 
 			</p>
 		</div>
 		<button id="toggleWelcome" onclick="toggleWelcome()">Hide this rambling nonsense!</button>
-		<div id="mainContent">
+		<div id="mainContent" class="hidden">   <!-- hidden in testing area as a quick fix for having made CSS changes for the beta, that still effect this area, causing it to be fixed above everything else-->
 			<div id="gameArea" class="ExtraBorder">
 				
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
@@ -82,7 +82,7 @@
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
-			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.1 "Early taster Beta"</span>
+			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.2 "Improved Early taster Beta"</span>
 			<span id="BasicCredit"> - A ProtoStart game lead by Phil Ganney</span>
 		</div>
 	</body>

@@ -42,7 +42,7 @@
 		<div id="screen001" class="showing" onclick="nextScreen('screen001', 'screen002')">
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>. 
 		</div>
-		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
+		<div id="screen002" class="hidden" onclick="showAwakening()">
 			<h1>Solar Rage Asylum</h1>
 			<h2>(Early taster Beta)</h2>
 			<p>A 2D top down indy game about escaping an Asylum.</p>
@@ -59,10 +59,6 @@
 			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
 			flowing around and under you</br>
 			</p>
-			<div id="previewGameArea" class="gameArea">
-				<div id="previewPC" class="pcInHoverbed"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
-				<div id="previewRainbow" class="rainbowVortex"></div>
-			</div>
 		</div>
 		<div id="screen003b" class="hidden" onclick="nextScreen('screen003b', 'screen004')">
 			<p>
@@ -92,8 +88,21 @@
 			<p>All the best people have internal monologues that give themselves names 
 			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
 			think of existence as being more than it appears</p>
-			<p>Lets have a go at trying to move around</p>
-			<h3>(Keyboard controls available for each onscreen control coming, wasd or arrows to move, e or space to rotate) </h3>
+		</div>
+		<div id="screen006" class="hidden" > <!--  Level one playable from this screen-->
+			<p>Lets try to move around, feeling for walls</p>
+		</div>
+		<div id="screen007" class="hidden" >
+			<p> Bump text here </p>
+		</div>
+		<div id="screen008" class="hidden" >
+			<p> Bump text here </p>
+		</div>
+		<div id="screen009" class="hidden" >
+			<p> Bump text here </p>
+		</div>
+		<div id="screen010" class="hidden" >
+			<p> Bump text here </p>
 		</div>
 	<!-- templates for copying
 		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
@@ -112,12 +121,11 @@
 			<h2></h2>
 		</div>
 		<div id="mainContent" class="hidden">
-			<div id="gameArea" class="ExtraBorder">
-				
+			<div id="gameArea" >
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 				<div id="viewableArea"></div>
 			</div>
-			<div id="gameBtns"><!-- game buttons -->
+			<div id="gameBtns" class="hidden"><!-- game buttons -->
 				<span id="highBtns">
 					<button id="upBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('u')" onmousedown="startMove('u')" onmouseup="endMove()" ontouchend="endMove()">Up</button>
 					<button id="rotateBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startRotate('u')" onmousedown="startRotate('u')" onmouseup="endRotate()" ontouchend="endRotate()">Rotate</button>
@@ -128,12 +136,13 @@
 					<button id="downBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('d')" onmousedown="startMove('d')" onmouseup="endMove()" ontouchend="endMove()">Down</button>
 					<button id="rightBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('r')" onmousedown="startMove('r')" onmouseup="endMove()" ontouchend="endMove()">Right</button>
 				</span>
+				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
 			</div>
 		</div>
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
-			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.1 "Early taster Beta"</span>
+			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.2 "Improved Early taster Beta"</span>
 			<span id="BasicCredit"> - A ProtoStart game lead by Phil Ganney</span>
 		</div>
 	</body>
