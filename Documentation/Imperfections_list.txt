@@ -1,5 +1,6 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
+(Yaaay we're down to just 3 issues! and I've got ideas for solutions to each of them!)
 
 Currently no way to step back through screens (working on)
 	- you can reload the page to start again, but that's all
@@ -20,10 +21,7 @@ Currently no way to step back through screens (working on)
 				- the visual consistancy issue would be resolved by CSS classes
 				
 Relies on people guessing to tap the stuff shown sometimes - should be solved once I've added next buttons
-
-The onload thing where I wanted the game area to show while the immediate area was being talked about doesn't work yet
-
-Really I want the rainbow to spin a bit gradually on it's own too
+	Slightly less reliant now, as I've put a hint on screen002, not really fixed though
 
 Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
 	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
@@ -67,5 +65,8 @@ RECENT FIXES  AND IMPROVEMENTS!! YAY!!
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
 The keyboard controls are now only active on the actual playable level - so if you type a name with a,w,s or d or use the arrow keys you can no longer get an alert saying that you've bumped into a wall!!!
 Rainbow vortex on screen throughout the story (without the extra border and without controls until you get to that point)
+	Now also moves during that time, stops when you get control, and theres a neat handover now where it's like oh the rainbow has stopped spinning lets try moving.
 Swapped the alerts that happened when you collided into walls, with text at the top - so much nicer to play
 Keyboard controls stated on screen when you can move, next to the buttons (much better UX)
+
+Slightly less reliant on people guessing to click text now, as I've put a hint on screen002. I'll work on full fix for next update.

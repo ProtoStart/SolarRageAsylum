@@ -113,10 +113,6 @@ function showgamearea(){
 	showViaClass("gameArea");
 }
 
-
-
-
-
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
   //alert("you pressed the key with keyCode: " + event.keyCode);
@@ -139,6 +135,7 @@ function keyTap(event) {
 }
 
 /** Rotate **/
+var rotateJustRainbowInterval; // Sorry long var name!
 var rotatePCInterval;
 function startRotate(dir){  //Allows continuous movement, until endMove called
 	//clearInterval lines here are to allow players to "unstick" movement or rotation glitches caused by mouseup or touchend events not firing
@@ -148,17 +145,38 @@ function startRotate(dir){  //Allows continuous movement, until endMove called
 	rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
 }
 
+function startRainbowRotate(dir){  //Allows continuous movement, until endMove called
+	//starts off the continuous rotation using rotateRainbow(dir)
+	rotateJustRainbowInterval = setInterval(function(){ rotateRainbow(dir); }, 40);
+}
+
 function endRotate(){  //Stops rotation caused by startRotate
 	clearInterval(rotatePCInterval);
 }
 
-function rotate(dir){ //NOTE at time of writing dir isn't actually used! Only clockwise has been implemented at time of writing
+function endRainbowRotate(){  //Stops rainbow rotation caused by startRainbowRotate
+	clearInterval(rotateJustRainbowInterval);
+}
+
+function rotatePC(dir){
 	globals.PC.angle += 3; //weirdly if it goes over 360 js seems to be able to just handle that correctly, even though the value can go way up - might cause issues with a number being unexpectedly hight but maybe not
 	document.getElementById("mockPC").style.transform = 'rotate(' + globals.PC.angle + 'deg)';
-	//alert(globals.PC.angle); //This line if run and not commented, proves that the angle value keeps going up and up and js/css just handles it
+}
+
+function rotateRainbow(dir){
+	var change = -2; //default to a negative number so that it causes anti-clockwise rotation by default (as the original version of this did, when we only rotated view area acw)
+	if(dir == "cw"){ //cw for clockwise - so if we specify clockwise we get clockwise, otherwise we get anti-clockwise
+		change = 2;
+	}
 	//rotate viewableArea counter clockwise   use viewSpinAngle
-	globals.PC.viewSpinAngle -= 2;
+	globals.PC.viewSpinAngle += change; //add a negative number to rotate anti-cw, add a +ve num to rotate cw
 	document.getElementById("viewableArea").style.transform = 'rotate(' + globals.PC.viewSpinAngle + 'deg)';
+}
+
+function rotate(dir){ //NOTE at time of writing dir isn't actually used! Only clockwise has been implemented at time of writing
+	rotatePC(dir);
+	//alert(globals.PC.angle); //This line if run and not commented, proves that the angle value keeps going up and up and js/css just handles it
+	rotateRainbow();
 }
 
 
@@ -319,7 +337,7 @@ function namePC(){
 	//alert(name); //Handy to have for testing
 	globals.PC.Name = name;
 	//alert("globals.PC.Name == " + globals.PC.Name);
-	nextScreen('screen004', 'screen005')
+	nextScreen('screen004', 'screen005');
 }
 
 function showAwakening(){
@@ -352,14 +370,18 @@ function showAwakening(){
 	*/
 	nextScreen('screen002', 'screen003');
 	showViaClass("mainContent");
-	
-	//startRotate("u"); //at time of writing, the u is meaningless as the parameter is ignored!
-	//rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
+	startRainbowRotate("cw");
+	//startRotate("dir");
+	//rotateRainbow("cw"); //clockwise rotation
 }
 
 function launchLevelOne(){
 	//move onto the controls explanation div via nextScreen
 	nextScreen('screen005', 'screen006');
+	
+	//stop the rainbow from rotating, to simulate that that the rotation stops for now (but it comes back when you move around)
+	endRainbowRotate(); 
+	
 	//apply class="ExtraBorder" to gameArea
 	document.getElementById("gameArea").classList.add("ExtraBorder");
 	
@@ -368,7 +390,6 @@ function launchLevelOne(){
 	
 	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
 	document.addEventListener("keydown", keyTap);
-	
 }
 
 function resetGameArea(){
