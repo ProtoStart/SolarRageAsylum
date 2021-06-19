@@ -42,7 +42,7 @@ var globals = {
 		"height": 27,//match document.getElementById("mockPC").style.height,
 		/*"stat": ,*/
 		"Name": "my friend", //access with globals.PC.Name  This should get overwritten when the player names their character - using "my friend" as a default value in case we get a bug where the name is not set - as it's a good stand in for when you don't know a name
-		"angle": 0,
+		"angle": 3,
 		"viewSpinAngle": 0
 	},
 	"WallsBumped": { //all start off false, and change when PC bumps into them
@@ -370,6 +370,7 @@ function showAwakening(){
 	*/
 	nextScreen('screen002', 'screen003');
 	showViaClass("mainContent");
+	rotatePC("dir");
 	startRainbowRotate("cw");
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation
