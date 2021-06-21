@@ -20,8 +20,9 @@ Currently no way to step back through screens (working on)
 					- would that get annoying? - probably not that bad - just copy and paste the markup!
 				- the visual consistancy issue would be resolved by CSS classes
 				
-Relies on people guessing to tap the stuff shown sometimes - should be solved once I've added next buttons
-	Slightly less reliant now, as I've put a hint on screen002, not really fixed though
+Relies on people remembering to tap the stuff shown sometimes - should be solved once I've added next buttons
+	Slightly less reliant now, as I've put a hint on screen002,
+	Less reliant again thanks to automatically moving people onto screen002 after a few seconds
 
 Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
 	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
@@ -70,5 +71,6 @@ Swapped the alerts that happened when you collided into walls, with text at the 
 Keyboard controls stated on screen when you can move, next to the buttons (much better UX)
 
 Slightly less reliant on people guessing to click text now, as I've put a hint on screen002. I'll work on full fix for next update.
+	Some more work done - automatically moves people from screen001 to screen002 after a few seconds (I've also done some of the coding for the next/back buttons, but they're not quite ready to go in yet thanks to bugs)
 
 Story improvements - it now feels more like you're a crazy person - it's a bit more chilling and captivating

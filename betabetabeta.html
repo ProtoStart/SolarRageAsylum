@@ -38,8 +38,12 @@
 		<script src="purecookie.js"></script>
     </head>
 	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
-    <body> <!--onload="startUp()"-->
-		<div id="screen001" class="showing" onclick="nextScreen('screen001', 'screen002')">
+    <body onload="pageStart()"> <!--"-->
+		<div class="masterBtn">
+			<button id="masterPrevBtn" class="hidden">Previous</button>
+			<button id="masterNextBtn" class="hidden">Next</button>
+		</div>
+		<div id="screen001" class="showing" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
 		</div>
 		<div id="screen002" class="hidden" onclick="showAwakening()">

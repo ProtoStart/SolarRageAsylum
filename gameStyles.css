@@ -69,3 +69,9 @@
 #keyboardHint{
 	max-width: 210px;
 }
+
+.masterBtn{
+	position: fixed;
+	bottom: 86px;
+	right: 100px;
+}

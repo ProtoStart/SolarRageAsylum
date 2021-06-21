@@ -100,6 +100,21 @@ var globals = {
 	width: 600px;
 	height: 400px;
 */
+function pageStart(){
+	
+	setTimeout(function(){
+	nextScreen("screen001", "screen002");
+	}, 3000);
+}
+
+function showNextBtn(){//Show the button called masterNextBtn
+	showViaClass("masterNextBtn");
+}
+
+function masterNextBtn(){
+	//for now this only does the first screen
+	
+}
 
 function nextScreen(old, newScreen){
 	hideViaClass(old);
@@ -430,5 +445,6 @@ function exitGame(){
 		resetGameArea();
 		//send back to opening screen
 		nextScreen("mainContent", "screen001");
+		pageStart();
 	};
 }
