@@ -28,15 +28,25 @@
 	top: 52px;
 
 */
-
+	overflow: clip;
 	width: 230px;
 	height: 230px;
 	border-radius: 115px;
-	background-image: url(rainbowVortex.png);
-	background-position: -380px -340px;
+	/*background-image: url(rainbowVortex.png);
+	background-position: -380px -340px;*/
 	left: 210px;
 	top: 62px;
 	z-index: 1; /* Behind mockPC*/
+}
+
+.rainbowVortex img,
+#viewableArea img{
+	position: relative;
+	left: -100px;
+	top: -76px;
+	border-radius: 115px;
+	/*width: 250px;
+	height: 250px;*/
 }
 
 .pcInHoverbed,

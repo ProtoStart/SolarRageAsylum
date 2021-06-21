@@ -52,7 +52,7 @@ var globals = {
 		"W" : false
 	},
 	"Screens": {
-		"current" : "screen001",  //Override on each transition, to keep track
+		"current" : "screen001", //Override each transition, to keep track - globals.Screens.current to access 
 		//Annotated template at bottom!
 		"screen001" : {
 			"prevScreen" : false,  //this is the first screen unless we include for example the landing page
@@ -101,9 +101,10 @@ var globals = {
 	height: 400px;
 */
 function pageStart(){
-	
 	setTimeout(function(){
-	nextScreen("screen001", "screen002");
+		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
+			nextScreen("screen001", "screen002");
+		}
 	}, 3000);
 }
 
@@ -119,6 +120,7 @@ function masterNextBtn(){
 function nextScreen(old, newScreen){
 	hideViaClass(old);
 	showViaClass(newScreen);
+	globals.Screens.current = newScreen;
 }
 
 /*I don't think this ever actually gets called now!*/

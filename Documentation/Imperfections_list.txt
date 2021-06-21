@@ -74,3 +74,11 @@ Slightly less reliant on people guessing to click text now, as I've put a hint o
 	Some more work done - automatically moves people from screen001 to screen002 after a few seconds (I've also done some of the coding for the next/back buttons, but they're not quite ready to go in yet thanks to bugs)
 
 Story improvements - it now feels more like you're a crazy person - it's a bit more chilling and captivating
+Found and immediatly fixed a bug where if you where fast moving on from the opening screens, the code meant to automatically move on from screen001 to screen002 had the effect of loading screen002 while keeping whatever screen you'd got to up - now it will only auto show screen002 and try to remove screen001 if you are actually still on screen001 at the time
+Hopefully fixed (need to see it on live server to confirm - it never did this on dev machine) rainbowVortex having a visible lag
+	
+
+
+
+
+
