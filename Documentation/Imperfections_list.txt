@@ -1,6 +1,8 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
-(Yaaay we're down to just 3 issues! and I've got ideas for solutions to each of them!)
+Needs quite a bit of styling work for smaller screens
+	Everything gets shrunk down to try to fit in, but then it's too small to see detail or tap buttons
+		plus since some stuff is fixed to the top, and some stuff is fixed to the bottom, theres then a gulf between sometimes, and if you zoom in to see one thing, you can't see the other - a nightmare for the playable section!
 
 Currently no way to step back through screens (working on)
 	- you can reload the page to start again, but that's all
@@ -75,7 +77,7 @@ Slightly less reliant on people guessing to click text now, as I've put a hint o
 
 Story improvements - it now feels more like you're a crazy person - it's a bit more chilling and captivating
 Found and immediatly fixed a bug where if you where fast moving on from the opening screens, the code meant to automatically move on from screen001 to screen002 had the effect of loading screen002 while keeping whatever screen you'd got to up - now it will only auto show screen002 and try to remove screen001 if you are actually still on screen001 at the time
-Hopefully fixed (need to see it on live server to confirm - it never did this on dev machine) rainbowVortex having a visible lag
+rainbowVortex no longer has a visible lag
 	
 
 
