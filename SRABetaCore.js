@@ -1,7 +1,7 @@
 /**This file should only have stuff used actually used in the beta for key things.
 
 NOT IN HERE:
-Specific level stuff
+Specific level stuff  --- ahahahaha - there's currently loads in here for the opening section and first level, and its probably all "technical debt" that I'll have to sort out before I've got multiple levels!
 smaller additions to gameplay mechanics
 stuff just for the landing page
 stuff being experimented on in Alpha
@@ -29,7 +29,7 @@ Main game menu
 //let pcSetWidth = (getComputedStyle(pcElement).width).slice(0,-2);
 
 var globals = {
-	"bounds": { //The edges of the playable area, in px. Currently just matching the div gameArea size definition in gameStyles.css - maybe it should be set via JS in an init? Remember co-ords in JS/CSS are done with 0,0 being the top left.
+	"bounds": { //The edges of the playable area, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
 		"top": "30",
 		"right": "570",
 		"bottom": "360",
@@ -55,43 +55,67 @@ var globals = {
 		"current" : "screen001", //Override each transition, to keep track - globals.Screens.current to access 
 		//Annotated template at bottom!
 		"screen001" : {
-			"prevScreen" : false,  //this is the first screen unless we include for example the landing page
-			"nextScreen" : "screen002"
+			"prevBtn" : false,  //this is the first screen unless we include for example the landing page
+			"nextBtn" : "screen002"
 		},
 		"screen002" : {
-			"prevScreen" : "screen001",
-			"nextScreen" : false //to get the animated rainbowVortex we need to call that func  - surely we can do onloads on divs?? instead did I just get it wrong last time I tried??
+			"prevBtn" : "screen001",
+			"nextBtn" : function() {
+				//to get the animated rainbowVortex we need to call showAwakening
+				showAwakening();
+			}
 		},
 		"screen003" : {
-			"prevScreen" : "screen002", //div id of the previous screen (used for onscreen back button)
-			"nextScreen" : "screen003b" //div id of the next screen
+			"prevBtn" : function() {
+				//neatly handle going back a screen
+				undoAwakening();
+			}, 
+			"nextBtn" : "screen003b" //div id of the next screen
 		}, 
 		"screen003b" : {  //screen number matching div id that this refers to
-			"prevScreen" : "screen003", //div id of the previous screen (used for onscreen back button)
-			"nextScreen" : "screen004" //div id of the next screen
+			"prevBtn" : "screen003", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen004" //div id of the next screen
 		}, 
 		"screen004" : {  //screen number matching div id that this refers to
-			"prevScreen" : "screen003", //div id of the previous screen (used for onscreen back button)
-			"nextScreen" : false //false - this is the name input screen, so we have a button next to the input that runs a func to save the input and then move to the next screen
+			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false - this is the name input screen, so we have a button next to the input that runs a func to save the input and then move to the next screen
 		}, 
 		"screen005" : {  //screen number matching div id that this refers to
-			"prevScreen" : "screen004", //the div id of the previous screen (used for onscreen back button)
-			"nextScreen" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
-		}, 
-		"mainContent" : { 
-			"prevScreen" : "screen005", 
-			"nextScreen" : false 
-		}, 
- 
+			"prevBtn" : "screen004", //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : function() {
+				//we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent
+				launchLevelOne();
+			}
+		},
+		"screen006" : {  //screen number matching div id that this refers to
+			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		},
+		"screen007" : {  //screen number matching div id that this refers to
+			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		},
+		"screen008" : {  //screen number matching div id that this refers to
+			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		},
+		"screen009" : {  //screen number matching div id that this refers to
+			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		},
+		"screen010" : {  //screen number matching div id that this refers to
+			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+		},
 		/* Annotated Template
 		"screen002" : {  //screen number matching div id that this refers to
-			"prevScreen" : "screen001", //false if the onscreen back button shouldn't show, otherwise the div id of the previous screen (used for onscreen back button)
-			"nextScreen" : "screen003" //false if you don't want a simple skip screen button, otherwise div id of the next screen
+			"prevBtn" : "screen001", //false if the onscreen back button shouldn't show, otherwise the div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003" //false if you don't want a simple skip screen button, otherwise div id of the next screen
 		}, 
 		Non annotated template
 		"screen002" : { 
-			"prevScreen" : "screen001", 
-			"nextScreen" : "screen003" 
+			"prevBtn" : "screen001", 
+			"nextBtn" : "screen003" 
 		}, 
 		*/
 	}
@@ -108,27 +132,73 @@ function pageStart(){
 	}, 3000);
 }
 
-function showNextBtn(){//Show the button called masterNextBtn
-	showViaClass("masterNextBtn");
+function masterPrevBtnClick(){
+//click event function for masterPrevBtn
+	var screenLeaving = globals.Screens.current;
+	if (typeof globals.Screens[screenLeaving].prevBtn === "string"){
+	//if theres a string in the value for nextBtn then we...
+		//...use the nextScreen function, passing the value in that string
+		nextScreen(screenLeaving, globals.Screens[screenLeaving].prevBtn);
+	} else {
+		globals.Screens[screenLeaving].prevBtn();
+	}
 }
 
-function masterNextBtn(){
-	//for now this only does the first screen
-	
+function masterNextBtnClick(){
+//click event function for masterNextBtn
+	//TODO: improve the logic here. (This feels bodgy as I'm writing it - probably need to make changes to nextScreen)
+	var screenLeaving = globals.Screens.current;
+	if (typeof globals.Screens[screenLeaving].nextBtn === "string"){
+	//if theres a string in the value for nextBtn then we...
+		//...use the nextScreen function, passing the value in that string
+		nextScreen(screenLeaving, globals.Screens[screenLeaving].nextBtn);
+	} else {
+		globals.Screens[screenLeaving].nextBtn();
+	}
 }
 
-function nextScreen(old, newScreen){
+function nextScreen(old, newScreen){  //"new" is a reserved word that we can't have as a parameter name
 	hideViaClass(old);
 	showViaClass(newScreen);
+	//keep track of which screen is showing, in our globals
 	globals.Screens.current = newScreen;
+	/*	globals.Screens[newScreen] is equivalent to globals.Screens. whatever our newScreen value is 
+		we could have gone with globals.Screens[globals.Screens.current] as in this case they'll have the same value but 
+			... that would be silly to do here as that adds an extra thing for JS to look up and we've literally just set that value
+	*/
+	//handle a potential error that happens if globals doesn't have the value
+	if (typeof globals.Screens[newScreen] === 'undefined' || globals.Screens[newScreen].prevBtn === 'undefined' || globals.Screens[newScreen].prevBtn === null) {
+    // variable is undefined or null
+		//I think we can get away with a silly error message like this, poking fun at ourselves
+		alert("if you're seeing this, a developer hasn't added values needed for the screen transition");
+	} else if (globals.Screens[newScreen].prevBtn == false){
+	//the value is set to false - meaning button should be hidden
+		//make sure that the prevous screen button (masterPrevBtn) is hidden
+		hideViaClass("masterPrevBtn");
+	} else {
+		showViaClass("masterPrevBtn");
+	}
+	
+	//Basically the same as for masterPrevBtn but for masterNextBtn
+	if (typeof globals.Screens[newScreen] === 'undefined' || globals.Screens[newScreen].nextBtn === 'undefined' || globals.Screens[newScreen].nextBtn === null) {
+    // variable is undefined or null
+		//a slightly different error message - since it's likely to show straight after one for the prvious buttons - since if you've forgotten one it'slikely you've forgotten both
+		alert("the developer should check the values for globals.Screens");
+	} else if (globals.Screens[newScreen].nextBtn == false){
+	//the value is set to false - meaning button should be hidden
+		//make sure that the next screen button (masterNextBtn) is hidden
+		hideViaClass("masterNextBtn");
+	} else {
+		showViaClass("masterNextBtn");
+	}
 }
 
 /*I don't think this ever actually gets called now!*/
-function showgamearea(){
+/*function showgamearea(){
 	//#gameArea
 	alert("boo");
 	showViaClass("gameArea");
-}
+}*/
 
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
@@ -391,6 +461,14 @@ function showAwakening(){
 	startRainbowRotate("cw");
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation
+}
+
+function undoAwakening(){
+//used if user clicks the previous button from the screen where you have the awakening
+	//Need to end the rotation - otherwise if it's loaded again while the first is still loaded it will rotate twice as fast
+	endRainbowRotate(); 
+	nextScreen('screen003', 'screen002');
+	hideViaClass("mainContent");
 }
 
 function launchLevelOne(){

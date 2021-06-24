@@ -40,8 +40,8 @@
 	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
     <body onload="pageStart()"> <!--"-->
 		<div class="masterBtn">
-			<button id="masterPrevBtn" class="hidden">Previous</button>
-			<button id="masterNextBtn" class="hidden">Next</button>
+			<button id="masterPrevBtn" class="hidden" onclick="masterPrevBtnClick()">Previous</button>
+			<button id="masterNextBtn" class="hidden" onclick="masterNextBtnClick()">Next</button>
 		</div>
 		<div id="screen001" class="showing" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
@@ -144,7 +144,7 @@
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
-			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.5 "Fix for rainbow lag"</span>
+			<span id="Version">Solar Rage Asylum, Version: Beta 0.0.6 "better story section controls"</span>
 			<span id="BasicCredit"> - A ProtoStart game lead by Phil Ganney</span>
 		</div>
 	</body>
