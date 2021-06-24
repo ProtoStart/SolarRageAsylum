@@ -4,27 +4,6 @@ Needs quite a bit of styling work for smaller screens
 	Everything gets shrunk down to try to fit in, but then it's too small to see detail or tap buttons
 		plus since some stuff is fixed to the top, and some stuff is fixed to the bottom, theres then a gulf between sometimes, and if you zoom in to see one thing, you can't see the other - a nightmare for the playable section!
 
-Currently no way to step back through screens (working on)
-	- you can reload the page to start again, but that's all
-	- Multiple ways of fixing that
-		- Attempting this, (though it's very long winded, and is draining my soul so I need a break!)
-			store the screen they're on, have a single previous button on screen from all but the first 
-			with a function that checks which they are on and which was previous, load them into the change screen function
-				added advantage 1 - storing which screen they are on could be useful for other things - could have a button that generates a code to get them back to that spot
-				added advantage 2 - use very similar code to have a next button
-				keeps the DOM (Document Object Model) smaller
-				
-		- Alternatively but ruled out unless other attempt fails for some reason. 
-			Lots of individual buttons calling the change screen function with hardcoded inputs
-			Very easy, takes about 30seconds per screen to set up 
-				- would mean I'd end up with a lot of buttons in the code
-				- I'd have to add them in every screen
-					- would that get annoying? - probably not that bad - just copy and paste the markup!
-				- the visual consistancy issue would be resolved by CSS classes
-				
-Relies on people remembering to tap the stuff shown sometimes - should be solved once I've added next buttons
-	Slightly less reliant now, as I've put a hint on screen002,
-	Less reliant again thanks to automatically moving people onto screen002 after a few seconds
 
 Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
 	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
@@ -78,6 +57,8 @@ Slightly less reliant on people guessing to click text now, as I've put a hint o
 Story improvements - it now feels more like you're a crazy person - it's a bit more chilling and captivating
 Found and immediatly fixed a bug where if you where fast moving on from the opening screens, the code meant to automatically move on from screen001 to screen002 had the effect of loading screen002 while keeping whatever screen you'd got to up - now it will only auto show screen002 and try to remove screen001 if you are actually still on screen001 at the time
 rainbowVortex no longer has a visible lag
+
+Added Previous and Next buttons! They show or are hidden depending on what's apropriate for the screen you are on, but always in the same place. (These where trickier and more long winded to get working than you might expect!)
 	
 
 
