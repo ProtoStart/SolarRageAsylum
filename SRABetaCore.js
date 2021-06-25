@@ -234,7 +234,7 @@ function startRotate(dir){  //Allows continuous movement, until endMove called
 
 function startRainbowRotate(dir){  //Allows continuous movement, until endMove called
 	//starts off the continuous rotation using rotateRainbow(dir)
-	rotateJustRainbowInterval = setInterval(function(){ rotateRainbow(dir); }, 40);
+	rotateJustRainbowInterval = setInterval(function(){ rotateRainbow(dir); }, 50); //After playtesting, I made the interval 10ms longer than it originally was, to slow the movement down so that it's taking less of the players focus.
 }
 
 function endRotate(){  //Stops rotation caused by startRotate
