@@ -193,18 +193,9 @@ function nextScreen(old, newScreen){  //"new" is a reserved word that we can't h
 	}
 }
 
-/*I don't think this ever actually gets called now!*/
-/*function showgamearea(){
-	//#gameArea
-	alert("boo");
-	showViaClass("gameArea");
-}*/
-
 function keyTap(event) {
   //For letters keyCode seems to start at 65 and go up from there alphabetically (I guess it matches ASCII or Unicode rather than keyboard layout) I actually got the required keyCodes from just reading the alerts made by the test line below
   //alert("you pressed the key with keyCode: " + event.keyCode);
-  //alert(globals.PC.width);
-  //alert();
   
   //Maybe TODO: diagonals - it would get quite a bit more complicated I think - you'd have to check if another key was already pressed and allow for player not releasing key
   
@@ -282,7 +273,7 @@ function endMove(){  //Stops movement caused by startMove
 
 function move(dir){ //dir = direction
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
-	//alert("Should move " + dir);
+	//alert("Should move " + dir);  //a line for quick debugging purposes
 	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition) -- x axis is from the left to the right, y axis is from top downwards
 	var PCx = document.getElementById("mockPC").offsetLeft;
 	var PCy = parseInt(document.getElementById("mockPC").offsetTop) - 2; //for some reason offsetTop seems to gets a value 2 px higher than it should and this causes our code to position the PC lower on each move than it should - causing noticeable diagonal movement when moving on x axis and not really noticeable extra/less movement when moving on the y axis.
@@ -399,7 +390,7 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 }
 
 
-/*by class we mean css class
+/*by "via class" we mean by swapping css classes that handle showing or hiding things
 Use in conjuction with hideViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */
 function showViaClass(id){
@@ -407,7 +398,7 @@ function showViaClass(id){
   document.getElementById(id).classList.add("showing");
 }
 
-/*by class we mean css class
+/*by "via class" we mean by swapping css classes that handle showing or hiding things
 Use in conjuction with showViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */
 function hideViaClass(id){
@@ -506,16 +497,11 @@ function resetGameArea(){
 	//remove the extra border
 	document.getElementById("gameArea").classList.remove("ExtraBorder");
 	/*set the positions back to the starting place
-		#mockPC
-		left: 300px;
-		top: 195px;
-		#viewableArea
-		left: 210px;
-		top: 62px;
+		#mockPC 		left: 300px;	top: 195px;
+		#viewableArea	left: 210px;	top: 62px;
 	*/
 	document.getElementById("mockPC").style.left = "300px";
 	document.getElementById("mockPC").style.top = "195px";
-	
 	document.getElementById("viewableArea").style.left = "210px";
 	document.getElementById("viewableArea").style.top = "62px";
 }
