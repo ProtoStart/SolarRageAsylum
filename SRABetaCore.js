@@ -30,10 +30,10 @@ Main game menu
 
 var globals = {
 	"bounds": { //The edges of the playable area, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
-		"top": "30",
-		"right": "570",
-		"bottom": "360",
-		"left": "30"
+		"top": "99",
+		"right": "658",
+		"bottom": "439",
+		"left": "90"
 	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),
