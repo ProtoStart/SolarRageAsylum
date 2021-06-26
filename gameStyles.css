@@ -1,4 +1,5 @@
-.gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
+#gameArea,
+.gameArea{ /*gameArea was initially unique on a page, but it now seems we might have more than one game area on a page at a time - even if they are not visible at the same time having duplicate id's would be a problem and we want to reuse all this CSS*/
 	width: 600px;
 	height: 390px;
 	/*border: 2px solid lime; /* temporarily commented out so that the kludge border can work*/
@@ -19,10 +20,20 @@
 
 .rainbowVortex,
 #viewableArea{
+/*Old settings before temporary kludge - revert these, leave the others as they are
+	width: 250px;
+	height: 250px;
+	border-radius: 125px;
+	left: 200px;
+	top: 52px;
+
+*/
 	overflow: clip;
 	width: 230px;
 	height: 230px;
 	border-radius: 115px;
+	/*background-image: url(rainbowVortex.png);
+	background-position: -380px -340px;*/
 	left: 210px;
 	top: 62px;
 	z-index: 1; /* Behind mockPC*/
@@ -53,9 +64,7 @@
 	/*	Previously using: half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border
 		Now using: a reduced value than that, as I've also restricted the game bounds in JS globals
 	*/
-	/*border: 70px solid black;*/
-	width: 740px; /*70px + 600px + 70px*/
-	height: 530px;/*70px + 390px + 70px*/
+	border: 70px solid black;
 }
 
 #gameBtns{

@@ -4,6 +4,45 @@ Needs quite a bit of styling work for smaller screens
 	Everything gets shrunk down to try to fit in, but then it's too small to see detail or tap buttons
 		plus since some stuff is fixed to the top, and some stuff is fixed to the bottom, theres then a gulf between sometimes, and if you zoom in to see one thing, you can't see the other - a nightmare for the playable section!
 
+
+Kludgey workaround in place currently, for the rainbow vortex being able to go beyond the game area and looking silly
+	Potential solutions: (I'll start with trying the simpler solutions and playtest until I find one that works well)
+	a) First kludge tried: a large black border - V Simple good for first level, probs won't last for others. This gives an area around the game area that would still show the rainbow effect, but with existing code would prevent you from moving the character into that area
+		- Makes the visible game area larger than I wanted 
+			it's way too big for mobile 
+				(it might shrink everything down to fit the window but even that is a problem),
+			on my laptop screen I feel I need the window maximized
+				theres only a few pixels gap
+				now there isn't even a nice visually clear border to help with this
+	a2) Current kludge in place - slight variation on solution a that I tried - not quite as large border and smaller rainbow vortex
+		- I dont't like having a smaller rainbow vortex
+		- It's still going to be too big for mobile
+		- I still have to position the game area quite carefully, just not as much
+			- so I still miss having the contrasting border
+		- I'm going to check this in (commit it to github) but only for the benefit of saving this for prosperity and it's been a while since I made a commit.
+			- I'll even stick comments by the changed values so that I can easily undo them without reverting the commit
+				- if I committed and rolled back I think I'd lose record of it, but at minimum I'd roll back all of the other beta stuff and have to patch it up!!
+			
+	b) could enlarge the div, but not fully match the bounds to it 
+		- would presumably have the same effect as a border for the first level
+		- except I could have the old thin line of lime as a border again 
+			which would be nice for making sure that the game area is entirely visible in the browser pane
+		- also seems better for the long run, once the rainbow and black background go
+			- would keep the game area consistent for the player, which would be good for UX
+			- You'd match the background graphic to show the place you're in, 
+				and the boundary values would be where walls start in the image
+				you could match them up either way, or even a bit of both
+					graphic to the boundary
+					or boundary to fit the graphic
+		- Might require repositioning things, and changing border values
+	c) (done a little bit of this) could shrink the bounds values
+		- that might make a very small effective game area
+			not an issue for levels where you're confined to a small room
+				which makes sense at the start
+			In fact after trying a and a2 I quite like the sound of this option
+	d) as it gets near to the boundary start clipping the rainbows element on that side? - seems like fairly complex coding compared with the other solutions
+	e) is there some CSS or HTML trick I could do to make the rainbow clip when it goes out of the box?
+	
 RECENT FIXES  AND IMPROVEMENTS!! YAY!!
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
 The keyboard controls are now only active on the actual playable level - so if you type a name with a,w,s or d or use the arrow keys you can no longer get an alert saying that you've bumped into a wall!!!
@@ -20,7 +59,7 @@ Found and immediatly fixed a bug where if you where fast moving on from the open
 rainbowVortex no longer has a visible lag
 
 Added Previous and Next buttons! They show or are hidden depending on what's apropriate for the screen you are on, but always in the same place. (These where trickier and more long winded to get working than you might expect!)
-Replaced a kludgey fix with an actual good fix (for rainbow vortex going out of the panel)	
+	
 
 
 
