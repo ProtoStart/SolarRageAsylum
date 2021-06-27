@@ -1,0 +1,78 @@
+.gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
+	width: 600px;
+	height: 390px;
+	/*border: 2px solid lime; /* temporarily commented out so that the kludge border can work*/
+	margin: 10px 30px 20px 30px;
+	position: fixed;
+	bottom: 22px;
+	left: 0px;
+	background-color: black;
+}
+
+#gameArea *,
+.gameArea *{
+	text-align: left;
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+
+.rainbowVortex,
+#viewableArea{
+	overflow: clip;
+	width: 230px;
+	height: 230px;
+	border-radius: 115px;
+	left: 210px;
+	top: 62px;
+	z-index: 1; /* Behind mockPC*/
+}
+
+.rainbowVortex img,
+#viewableArea img{
+	position: relative;
+	left: -100px;
+	top: -76px;
+	border-radius: 115px;
+	/*width: 250px;
+	height: 250px;*/
+}
+
+.pcInHoverbed,
+#mockPC{
+	width: 50px; /* Match image*/
+	height: 27px;
+	left: 300px;
+	top: 195px;
+	z-index: 2; /* In front of viewable area*/
+}
+
+
+/*Temporary kludge*/
+.ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
+	/*	Previously using: half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border
+		Now using: a reduced value than that, as I've also restricted the game bounds in JS globals
+	*/
+	
+	width: 740px; /*70px + 600px + 70px*/
+	height: 530px;/*70px + 390px + 70px*/
+}
+
+#gameBtns{
+	position: fixed;
+	bottom: 56px;
+	right: 0px;
+	padding-bottom: 2px;
+	/*background-color: #DDDDDD; Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
+	z-index: 10;
+}
+
+#keyboardHint{
+	max-width: 210px;
+}
+
+.masterBtn{
+	position: fixed;
+	bottom: 86px;
+	right: 100px;
+}
