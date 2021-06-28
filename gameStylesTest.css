@@ -1,11 +1,9 @@
 .gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
 	width: 600px;
 	height: 390px;
-	/*border: 2px solid lime;*/ /*At this point only thing stopping me bringing back a lime border is the knock on clipping, though 1px would be better for subtlety*/
+	border: 1px solid lime;
 	margin: 10px 30px 20px 30px;
-	position: fixed;
-	bottom: 22px;
-	left: 0px;
+
 	background-color: black;	
 }
 
@@ -47,8 +45,6 @@
 	z-index: 2; /* In front of viewable area*/
 }
 
-
-/*Temporary kludge*/
 .ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
 	/*	Previously using: half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border
 		Now using: a reduced value than that, as I've also restricted the game bounds in JS globals
@@ -56,6 +52,11 @@
 	
 	width: 740px; /*70px + 600px + 70px*/
 	height: 530px;/*70px + 390px + 70px*/
+}
+
+button{
+	height:100px;
+	min-width:100px;
 }
 
 #gameBtns{
@@ -69,10 +70,59 @@
 
 #keyboardHint{
 	max-width: 210px;
+	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
 }
 
 .masterBtn{
 	position: fixed;
 	bottom: 86px;
 	right: 100px;
+}
+
+/****NO DEFAULT STYLES AFTER THIS COMMENT!
+	MEDIA QUERIES IN SIZE ORDER ONLY
+	(Media queries are usually for overriding styles for specific sizes of screen
+		or to account for device dependant needs, 
+		and as such we would not want default styles declared lower than MQ's where they might override a rule. 
+		In the long run we're swithing to "mobile first design" principles.
+		
+		Common breakpoints according to https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/
+		320px—480px: Mobile devices
+		481px—768px: iPads, Tablets
+		769px—1024px: Small screens, laptops  - 769px still seems tiny to me
+		1025px—1200px: Desktops, large screens
+		1201px and more— Extra large screens, TV
+****/
+@media only screen and (min-width: 290px) {
+/*Tiny width - It's very rare for modern devices to be narrower than this - Galaxy Fold is 280px, Galaxy Siii is 360px, iPhone 4 was 320px, iPhone X is 375*/
+	*{
+		/*border: 2px solid lime;*/
+	}
+}
+@media only screen and (min-width: 400px) {
+}
+
+@media only screen and (min-width: 500px) {
+	.gameArea{
+		/*border: 20px solid lime;*/
+			position: fixed;
+	bottom: 22px;
+	left: 0px;
+	}
+}
+@media only screen and (min-width: 769px) {
+/*769px: The start size of laptops, small monitors*/
+
+}
+@media only screen and (min-width: 1024px) {
+	/**/
+	#keyboardHint{
+	display: block;
+	}
+	button{
+	height:60px;
+	min-width:60px;
+	}
+}
+@media only screen and (min-width: 400px) {
 }

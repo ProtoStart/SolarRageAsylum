@@ -76,3 +76,14 @@
 	bottom: 86px;
 	right: 100px;
 }
+
+/****NO DEFAULT STYLES AFTER THIS COMMENT!
+		MEDIA QUERIES IN SIZE ORDER 
+	(Media queries are usually for overriding styles for specific sizes of screen
+		or to account for device dependant needs, 
+		and as such we would not want default styles declared lower than MQ's where they might override a rule. 
+		In the long run we're swithing to "mobile first design" principles.
+****/
+@media only screen and (min-width: 290px) {
+	
+}
