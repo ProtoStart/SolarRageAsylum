@@ -29,10 +29,10 @@
 		<link rel="icon" href="favicon.png" type="image/x-icon"></link>
 		<!-- Another link element - in this case a stylesheet (literally a file that defines how things look).  -->
 		<link rel="stylesheet" href="generalStyles.css"> </link>
-		<!-- Stylesheet specificly for gameplay -->
-		<link rel="stylesheet" href="gameStyles.css"> </link>
+		<!-- Stylesheet specificly for gameplay, with a query string that we change occasionally-->
+		<link rel="stylesheet" href="gameStyles.css?date=20210628"> </link> <!--Supposedly having a query string that you modify helps with caching issues format here is YYYYMMDD-->
 		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
-		<script src="SRABetaCore.js"></script><!-- TODO: we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
+		<script src="SRABetaCore.js?date=20210628"></script><!-- TODO: we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
 		<!-- open source vanilla JS cookie acceptance popup (a cookie popup of some kind is required by EU law if there are any cookies)-->
 		<link rel="stylesheet" href="purecookie.css"/>
 		<script src="purecookie.js"></script>
@@ -122,7 +122,7 @@
 			<h2></h2>
 		</div>
 		<div id="mainContent" class="hidden">
-			<div id="gameArea" >
+			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
 			</div>

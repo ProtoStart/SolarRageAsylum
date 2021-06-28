@@ -1,12 +1,12 @@
 .gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
 	width: 600px;
 	height: 390px;
-	/*border: 2px solid lime; /* temporarily commented out so that the kludge border can work*/
+	/*border: 2px solid lime;*/ /*At this point only thing stopping me bringing back a lime border is the knock on clipping, though 1px would be better for subtlety*/
 	margin: 10px 30px 20px 30px;
 	position: fixed;
 	bottom: 22px;
 	left: 0px;
-	background-color: black;
+	background-color: black;	
 }
 
 #gameArea *,
