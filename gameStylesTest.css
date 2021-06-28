@@ -78,6 +78,11 @@ button{
 	bottom: 86px;
 	right: 100px;
 }
+/*Will be moved to generalStyles when I'm happy with it in the test area*/
+#Version,
+#LeadBy{
+	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
+}
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!
 	MEDIA QUERIES IN SIZE ORDER ONLY
@@ -123,6 +128,10 @@ button{
 	height:60px;
 	min-width:60px;
 	}
+	#Version,
+	#LeadBy{
+	display: inline;/*none;*/
+	}
 }
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 1200px) {
 }
