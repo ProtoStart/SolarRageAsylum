@@ -115,6 +115,20 @@ var globals = {
 	width: 600px;
 	height: 400px;
 */
+
+function openFullscreen() {
+//opens the browser in full screen - particularly wanted on mobile so that we have a bit more screen to work with
+//found on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
+	var elem = document.getElementById("all");
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) { /* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE11 */
+		elem.msRequestFullscreen();
+	}
+}
+
 function pageStart(){
 	setTimeout(function(){
 		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
@@ -441,6 +455,7 @@ function showAwakening(){
 	showViaClass("mainContent");
 	rotatePC("dir");
 	startRainbowRotate("cw");
+	openFullscreen();
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation
 }
