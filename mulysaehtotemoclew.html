@@ -17,6 +17,7 @@
 		<meta name="description" content="Solar Rage Asylum test area"></meta>
 		<!-- Prevent search engines showing this hidden page - note if a search engine has already included the page before this was added, it will only take effect when they next "crawl" the page - you can request Google recrawl using there URL inspection tool others might have something similar-->
 		<meta name="robots" content="noindex">
+		<meta name="viewport" content="initial-scale=1, user-scalable=yes, width=device-width, maximum-scale=3">
 		<!-- 
 		Link elements tell the browser that it needs to download another file. 
 		The rel attribute specifies the kind of relationship between the current file and the linked file. 
@@ -39,89 +40,6 @@
     </head>
 	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
 <body onload="pageStart()"> <!--"-->
-		<div class="masterBtn"> <!--These buttons are shown or hidden based on needs of each screen, by JS setting a class used in CSS-->
-			<button id="masterPrevBtn" class="hidden" onclick="masterPrevBtnClick()">Previous</button>
-			<button id="masterNextBtn" class="hidden" onclick="masterNextBtnClick()">Next</button>
-		</div>
-		<div id="screen001" class="showing" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
-			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
-		</div>
-		<div id="screen002" class="hidden" onclick="showAwakening()">
-			<h1>Solar Rage Asylum</h1>
-			<h2>(TEST AREA - CURRENTLY WITH SOME BROKEN STUFF I KNOW ABOUT)</h2>
-			<P><b>Using this area to figure out why play area boundaries work great when it's run from local machine but don't align when actually on the web</b></p>
-			<p>A 2D top down indy game about escaping an Asylum.</p>
-			<p>Releasing new levels as they are built.</p>
-			<p>Currently best viewed on desktop/laptop (fixes for smaller screens coming soon)</p>
-			<p><b>So far:</b> Opening story - though it's still being worked on, with first bit of movement</p>
-			<p><b>Coming in next few weeks:</b>Improvements to this opener - especially for mobile, more story, a slightly more complex level</p>
-			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
-			<p>(To continue from this screen, and other text only screens, click/tap the text)</p>
-		</div>
-		<div id="screen003" class="hidden" onclick="nextScreen('screen003', 'screen003b')">
-			<p>You awaken in a haze,</br>
-			or is it still a dream?</br>
-			Other than yourself, and the hoverbed you're laying on </br>
-			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
-			flowing around and under you</br>
-			</p>
-		</div>
-		<div id="screen003b" class="hidden" onclick="nextScreen('screen003b', 'screen004')">
-			<p>
-			You feel calm.</br>
-			Very calm.</br>
-			</p>
-			<p>
-			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
-			Maybe we should start trying to figure some things out.
-			</br>
-			</p>
-		</div>
-		<div id="screen004" class="hidden" >
-			<p>First off what's your name?</p>
-			<input type="text" id="fname" name="fname"/> 
-			<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
-		</div>
-		<div id="screen005" class="hidden" onclick="launchLevelOne()">
-			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
-			</p>
-			<p>
-			Oh, and don't worry, you're not crazy.</p>
-			<p>All the best people have internal monologues that give themselves names 
-			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
-			think of existence as being more than it appears</p>
-		</div>
-		<div id="screen006" class="hidden" > <!--  Level one playable from this screen-->
-			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
-		</div>
-		<div id="screen007" class="hidden" >
-			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
-		</div>
-		<div id="screen008" class="hidden" >
-			<p>This wall feels padded too</p>
-		</div>
-		<div id="screen009" class="hidden" >
-			<p>Padded. Just one wall left to check</p>
-		</div>
-		<div id="screen010" class="hidden" >
-			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta</i> you can keep moving around or click here to go back to the titles</a></p>
-		</div>
-	<!-- templates for copying
-		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
-			<p></p>
-		</div>
-		<h2> </h2>
-		onclick="nextScreen('screen004', 'screen005')"
-		
-	-->
-		<div class="header hidden">
-			<!-- div for positioning menu-->
-			<div id="menuTopLayer">
-			</div>
-			<!-- The title (H1 as in Heading 1)-->
-			<h1>Solar Rage Asylum</h1>
-			<h2></h2>
-		</div>
 		<div id="mainContent" class="hidden">
 			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
@@ -141,7 +59,89 @@
 				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
 			</div>
 		</div>
+		<div id="screen001" class="showing storyTxt" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
+			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
+		</div>
+		<div id="screen002" class="hidden storyTxt" onclick="showAwakening()">
+			<h1>Solar Rage Asylum</h1>
+			<h2>(TEST AREA - CURRENTLY TESTING DIFFERENT MOBILE-FRIENDLY LAYOUTS)</h2>
+			<P><b>Using this area to figure out why play area boundaries work great when it's run from local machine but don't align when actually on the web</b></p>
+			<p>A 2D top down indy game about escaping an Asylum.</p>
+			<p>Releasing new levels as they are built.</p>
+			<p>Currently best viewed on desktop/laptop (fixes for smaller screens coming soon)</p>
+			<p><b>So far:</b> Opening story - though it's still being worked on, with first bit of movement</p>
+			<p><b>Coming in next few weeks:</b>Improvements to this opener - especially for mobile, more story, a slightly more complex level</p>
+			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
+			<p>(To continue from this screen, and other text only screens, click/tap the text)</p>
+		</div>
+		<div id="screen003" class="hidden storyTxt" onclick="nextScreen('screen003', 'screen003b')">
+			<p>You awaken in a haze,</br>
+			or is it still a dream?</br>
+			Other than yourself, and the hoverbed you're laying on </br>
+			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
+			flowing around and under you</br>
+			</p>
+		</div>
+		<div id="screen003b" class="hidden storyTxt" onclick="nextScreen('screen003b', 'screen004')">
+			<p>
+			You feel calm.</br>
+			Very calm.</br>
+			</p>
+			<p>
+			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
+			Maybe we should start trying to figure some things out.
+			</br>
+			</p>
+		</div>
+		<div id="screen004" class="hidden storyTxt" >
+			<p>First off what's your name?</p>
+			<input type="text" id="fname" name="fname"/> 
+			<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
+		</div>
+		<div id="screen005" class="hidden storyTxt" onclick="launchLevelOne()">
+			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
+			</p>
+			<p>
+			Oh, and don't worry, you're not crazy.</p>
+			<p>All the best people have internal monologues that give themselves names 
+			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
+			think of existence as being more than it appears</p>
+		</div>
+		<div id="screen006" class="hidden storyTxt" > <!--  Level one playable from this screen-->
+			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
+		</div>
+		<div id="screen007" class="hidden storyTxt" >
+			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
+		</div>
+		<div id="screen008" class="hidden storyTxt" >
+			<p>This wall feels padded too</p>
+		</div>
+		<div id="screen009" class="hidden storyTxt" >
+			<p>Padded. Just one wall left to check</p>
+		</div>
+		<div id="screen010" class="hidden storyTxt" >
+			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta</i> you can keep moving around or click here to go back to the titles</a></p>
+		</div>
+	<!-- templates for copying
+		<div id="screen002" class="hidden storyTxt" onclick="nextScreen('screen002', 'screen003')">
+			<p></p>
+		</div>
+		<h2> </h2>
+		onclick="nextScreen('screen004', 'screen005')"
 		
+	-->
+		<div class="header hidden">
+			<!-- div for positioning menu-->
+			<div id="menuTopLayer">
+			</div>
+			<!-- The title (H1 as in Heading 1)-->
+			<h1>Solar Rage Asylum</h1>
+			<h2></h2>
+		</div>
+		<div class="masterBtn"> <!--These buttons are shown or hidden based on needs of each screen, by JS setting a class used in CSS-->
+			<button id="masterPrevBtn" class="hidden" onclick="masterPrevBtnClick()">Previous</button>
+			<button id="masterNextBtn" class="hidden" onclick="masterNextBtnClick()">Next</button>
+		</div>
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
 			<span id="GameName">Solar Rage Asylum</span>

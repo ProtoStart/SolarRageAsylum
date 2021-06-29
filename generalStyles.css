@@ -48,7 +48,7 @@ button, input{
 	right: 0px;
 	padding-bottom: 2px;
 	background-color: #DDDDDD; /*Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
-	z-index: 10; /* Puts it in front of anything with a smaller z-index - I've set it to 10 so that that should mean we won't have to change it for a while */
+	z-index: 9; /* Puts it in front of anything with a smaller z-index - I've set it to 10 so that that should mean we won't have to change it for a while */
 }
 
 #Version,

@@ -1,10 +1,16 @@
+body{
+	background-color: black;
+	
+}
 .gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
 	width: 600px;
 	height: 390px;
 	border: 1px solid lime;
-	margin: 10px 30px 20px 30px;
-
+	
+	position:fixed;
+	
 	background-color: black;	
+	z-index: 8;
 }
 
 #gameArea *,
@@ -49,19 +55,31 @@
 	/*	Previously using: half of viewableArea width - half mockPC width = 125 - 25  = 100 on each border
 		Now using: a reduced value than that, as I've also restricted the game bounds in JS globals
 	*/
-	
+	top: -100px;
+	left:-90px;
 	width: 740px; /*70px + 600px + 70px*/
 	height: 530px;/*70px + 390px + 70px*/
 }
 
-button{
-	height:100px;
+button,input{
+	height: 60px;
 	min-width:100px;
+	z-index: 10;
 }
 
-input{
-	height:100px;
-	min-width:100px;
+.storyTxt{
+	z-index: 10;
+	position: fixed;  /*Position needs to be set for z-index to take effect*/
+	top:0px;
+	left:0px;
+	right:0px;
+	background-color: rgba(30,30,30,0.9);/*(230,230,230,0.2);*/
+	padding-bottom: 50px;
+}
+
+.storyTxt p{
+	color: white;
+	
 }
 
 #gameBtns{
@@ -76,12 +94,18 @@ input{
 #keyboardHint{
 	max-width: 210px;
 	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
+	color: white;
 }
 
 .masterBtn{
 	position: fixed;
-	bottom: 86px;
-	right: 100px;
+	bottom: 16px;
+	right: 10px;
+	z-index: 10;
+}
+
+#footer{
+	background-color: rgba(30,30,30,0.9);
 }
 
 
@@ -110,12 +134,7 @@ input{
 }
 
 @media only screen and (min-width: 500px) {
-	.gameArea{
-		/*border: 20px solid lime;*/
-		position: fixed;
-		bottom: 22px;
-		left: 0px;
-	}
+
 }
 @media only screen and (min-width: 769px) {
 /*769px: The start size of laptops, small monitors*/
@@ -126,16 +145,20 @@ input{
 	#keyboardHint{
 	display: block;
 	}
-	button{
-	height:60px;
-	min-width:60px;
-	}
-	input{/*input height should always match button*/
-	height:60px;
-	}
 	#Version,
 	#LeadBy{
 	display: inline;/*none;*/
+	}
+	.masterBtn{
+	bottom: 86px;
+	right: 100px;
+	}
+	.gameArea{
+		/*border: 20px solid lime;*/
+		position: fixed;
+		bottom: 22px;
+		left: 0px;
+		margin: 10px 30px 20px 30px;
 	}
 }
 @media only screen and (min-width: 1200px) {
