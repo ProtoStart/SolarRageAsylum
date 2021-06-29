@@ -30,6 +30,16 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	box-sizing: border-box; /*Specifies how the visible height and width should be calculated with regard to padding - weirdly the default for inputs is different to most other UI. I could do this with a sweeping reset, but I'd rather just alter elements that I find unintuitive as and when I come across them*/ 
 }
 
+button{
+	height:80px;
+	min-width:100px;
+}
+
+input{
+	height:80px;
+	min-width:100px;
+}
+
 /*Main sections*/
 #mainContent{
 	padding-bottom: 30px; /*Part of the solution to overlapping with the fixed footer*/
@@ -188,5 +198,12 @@ To make the effect you have a div of class modal which is partially seethrough a
 	#Version,
 	#LeadBy{
 	display: inline;/*at smaller sizes: none;  for some combinations of screen width and text length, the footer wraps to multiple lines - which is an issue when theres less screen estate*/
+	}
+	button{
+	height:60px;
+	min-width:60px;
+	}
+	input{/*input height should always match button*/
+	height:60px;
 	}
 }

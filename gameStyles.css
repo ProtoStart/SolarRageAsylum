@@ -54,16 +54,6 @@
 	height: 530px;/*70px + 390px + 70px*/
 }
 
-button{
-	height:100px;
-	min-width:100px;
-}
-
-input{
-	height:100px;
-	min-width:100px;
-}
-
 #gameBtns{
 	position: fixed;
 	bottom: 56px;
@@ -125,13 +115,6 @@ input{
 	/**/
 	#keyboardHint{
 	display: block;
-	}
-	button{
-	height:60px;
-	min-width:60px;
-	}
-	input{/*input height should always match button*/
-	height:60px;
 	}
 	#Version,
 	#LeadBy{
