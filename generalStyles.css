@@ -30,14 +30,10 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	box-sizing: border-box; /*Specifies how the visible height and width should be calculated with regard to padding - weirdly the default for inputs is different to most other UI. I could do this with a sweeping reset, but I'd rather just alter elements that I find unintuitive as and when I come across them*/ 
 }
 
-button{
+button, input{
 	height:80px;
 	min-width:100px;
-}
-
-input{
-	height:80px;
-	min-width:100px;
+	font-size: 28px;
 }
 
 /*Main sections*/
