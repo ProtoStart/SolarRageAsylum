@@ -59,6 +59,11 @@ button{
 	min-width:100px;
 }
 
+input{
+	height:100px;
+	min-width:100px;
+}
+
 #gameBtns{
 	position: fixed;
 	bottom: 56px;
@@ -78,11 +83,8 @@ button{
 	bottom: 86px;
 	right: 100px;
 }
-/*Will be moved to generalStyles when I'm happy with it in the test area*/
-#Version,
-#LeadBy{
-	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
-}
+
+
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!
 	MEDIA QUERIES IN SIZE ORDER ONLY
@@ -110,9 +112,9 @@ button{
 @media only screen and (min-width: 500px) {
 	.gameArea{
 		/*border: 20px solid lime;*/
-			position: fixed;
-	bottom: 22px;
-	left: 0px;
+		position: fixed;
+		bottom: 22px;
+		left: 0px;
 	}
 }
 @media only screen and (min-width: 769px) {
@@ -127,6 +129,9 @@ button{
 	button{
 	height:60px;
 	min-width:60px;
+	}
+	input{/*input height should always match button*/
+	height:60px;
 	}
 	#Version,
 	#LeadBy{

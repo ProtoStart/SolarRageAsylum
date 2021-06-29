@@ -45,6 +45,11 @@ input{ /* <input> elements - text boxes, radio buttons, form submit buttons (not
 	z-index: 10; /* Puts it in front of anything with a smaller z-index - I've set it to 10 so that that should mean we won't have to change it for a while */
 }
 
+#Version,
+#LeadBy{
+	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
+}
+
 /* Smaller Sections */
 .homePageTabs{
 	margin-left: 10px;
@@ -176,3 +181,12 @@ To make the effect you have a div of class modal which is partially seethrough a
 
 }
 */
+
+@media only screen and (min-width: 1024px) {
+/*min-width: 1024px == Monitors, laptops and bigger*/
+	/*Footer sections that aren't essential to have on screen*/
+	#Version,
+	#LeadBy{
+	display: inline;/*at smaller sizes: none;  for some combinations of screen width and text length, the footer wraps to multiple lines - which is an issue when theres less screen estate*/
+	}
+}
