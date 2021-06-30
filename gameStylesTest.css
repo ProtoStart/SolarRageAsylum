@@ -168,7 +168,16 @@ button,input{
 }
 @media only screen and (min-width: 1200px) {
 }
-
+@media only screen and (min-height: 380px) {
+	.ExtraBorder{
+		top: -50px;
+	}
+}
+@media only screen and (min-height: 400px) {
+	.ExtraBorder{
+		top: -40px;
+	}
+}
 @media only screen and (min-height: 500px) {
 	.gameArea{
 		top: unset;
