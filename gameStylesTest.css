@@ -85,7 +85,7 @@ button,input{
 .openingScreen{
 	z-index: 10;
 	background-color: rgba(30,30,30,0.9);
-	overflow-x: scroll;
+	overflow-y: scroll;
 }
 
 #gameBtns{

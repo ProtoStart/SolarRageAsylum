@@ -137,6 +137,17 @@ function openFullscreen() {
 	}
 }
 
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
 function pageStart(){
 	setTimeout(function(){
 		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
@@ -474,6 +485,7 @@ function undoAwakening(){
 	endRainbowRotate(); 
 	nextScreen('screen003', 'screen002');
 	hideViaClass("mainContent");
+	closeFullscreen();
 }
 
 function launchLevelOne(){
@@ -525,6 +537,8 @@ function exitGame(){
 		resetGameArea();
 		//send back to opening screen
 		nextScreen("mainContent", "screen001");
+		//a confirm popping up ends full screen on some/most browsers but won't fix scrolling issue on start screen, unlike specifically calling the closeFullscreen func
+		closeFullscreen();
 		pageStart();
 	};
 }
