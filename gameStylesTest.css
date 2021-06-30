@@ -63,7 +63,7 @@ body{
 
 button,input{
 	height: 60px;
-	min-width:100px;
+	/*min-width:100px;*/
 	z-index: 10;
 }
 
@@ -74,7 +74,7 @@ button,input{
 	left:0px;
 	right:0px;
 	background-color: rgba(30,30,30,0.9);/*(230,230,230,0.2);*/
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 }
 
 .storyTxt p{
@@ -89,6 +89,11 @@ button,input{
 	padding-bottom: 2px;
 	/*background-color: #DDDDDD; Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
 	z-index: 10;
+}
+#gameBtns button{
+	min-width:60px;
+	width:60px;
+	background-color: rgba(230,230,230,0.2);
 }
 
 #keyboardHint{
@@ -162,4 +167,12 @@ button,input{
 	}
 }
 @media only screen and (min-width: 1200px) {
+}
+
+@media only screen and (min-height: 500px) {
+	.gameArea{
+		top: unset;
+		bottom:10px;
+		left:0px;
+	}
 }
