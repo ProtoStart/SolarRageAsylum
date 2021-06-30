@@ -77,9 +77,15 @@ button,input{
 	padding-bottom: 20px;
 }
 
-.storyTxt p{
+.storyTxt p,
+.openingScreen p{
 	color: white;
-	
+}
+
+.openingScreen{
+	z-index: 10;
+	background-color: rgba(30,30,30,0.9);
+	overflow-x: scroll;
 }
 
 #gameBtns{
@@ -111,6 +117,16 @@ button,input{
 
 #footer{
 	background-color: rgba(30,30,30,0.9);
+}
+
+h1{
+	font-size: 60pt;
+	color: #ff850a;
+	text-shadow: #000 0px 0px 7px;
+    -webkit-font-smoothing: antialiased;
+}
+h2{
+	font-size: 28pt;
 }
 
 
@@ -165,6 +181,16 @@ button,input{
 		left: 0px;
 		margin: 10px 30px 20px 30px;
 	}
+	h1{
+	font-size: 80pt;
+	color: #ff850a;
+	text-shadow: #000 0px 0px 14px;
+    -webkit-font-smoothing: antialiased;
+}
+h2{
+	font-size: 44pt;
+	
+}
 }
 @media only screen and (min-width: 1200px) {
 }

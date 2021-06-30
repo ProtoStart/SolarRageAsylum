@@ -65,6 +65,14 @@ var globals = {
 		}, 
 		"screen003b" : {  //screen number matching div id that this refers to
 			"prevBtn" : "screen003", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003c" //div id of the next screen
+		}, 
+		"screen003c" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003d" //div id of the next screen
+		}, 
+		"screen003d" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003c", //div id of the previous screen (used for onscreen back button)
 			"nextBtn" : "screen004" //div id of the next screen
 		}, 
 		"screen004" : {  //screen number matching div id that this refers to

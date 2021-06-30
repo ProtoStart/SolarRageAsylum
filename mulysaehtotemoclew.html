@@ -59,10 +59,10 @@
 				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
 			</div>
 		</div>
-		<div id="screen001" class="showing storyTxt" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
+		<div id="screen001" class="showing openingScreen" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
 		</div>
-		<div id="screen002" class="hidden storyTxt" onclick="showAwakening()">
+		<div id="screen002" class="hidden openingScreen">
 			<h1>Solar Rage Asylum</h1>
 			<h2>(TEST AREA - CURRENTLY TESTING DIFFERENT MOBILE-FRIENDLY LAYOUTS)</h2>
 			<P><b>Using this area to figure out why play area boundaries work great when it's run from local machine but don't align when actually on the web</b></p>
@@ -72,25 +72,28 @@
 			<p><b>So far:</b> Opening story - though it's still being worked on, with first bit of movement</p>
 			<p><b>Coming in next few weeks:</b>Improvements to this opener - especially for mobile, more story, a slightly more complex level</p>
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
-			<p>(To continue from this screen, and other text only screens, click/tap the text)</p>
 		</div>
 		<div id="screen003" class="hidden storyTxt" onclick="nextScreen('screen003', 'screen003b')">
 			<p>You awaken in a haze,</br>
-			or is it still a dream?</br>
-			Other than yourself, and the hoverbed you're laying on </br>
+			or is it still a dream?
+			</p>
+		</div>
+		<div id="screen003b" class="hidden storyTxt" onclick="nextScreen('screen003b', 'screen003c')">
+			<p>Other than yourself, and the hoverbed you're laying on </br>
 			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
 			flowing around and under you</br>
 			</p>
 		</div>
-		<div id="screen003b" class="hidden storyTxt" onclick="nextScreen('screen003b', 'screen004')">
+		<div id="screen003c" class="hidden storyTxt" onclick="nextScreen('screen003c', 'screen003d')">
 			<p>
 			You feel calm.</br>
-			Very calm.</br>
+			Very calm.
 			</p>
+		</div>
+		<div id="screen003d" class="hidden storyTxt" onclick="nextScreen('screen003d', 'screen004')">
 			<p>
 			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
 			Maybe we should start trying to figure some things out.
-			</br>
 			</p>
 		</div>
 		<div id="screen004" class="hidden storyTxt" >
