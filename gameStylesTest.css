@@ -77,15 +77,19 @@ button,input{
 	padding-bottom: 20px;
 }
 
-.storyTxt p,
-.openingScreen p{
+.storyTxt p{
 	color: white;
 }
 
 .openingScreen{
 	z-index: 10;
-	background-color: rgba(30,30,30,0.9);
+	background-color: white;
 	overflow-y: scroll;
+	padding-bottom: 130px;
+}
+
+#screen001{
+	margin-top: 10px;
 }
 
 #gameBtns{
