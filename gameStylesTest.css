@@ -91,6 +91,15 @@ button,input{
 #screen001{
 	margin-top: 10px;
 }
+#screen002{
+	text-align: left; /*Less likely to be overlapped by buttons*/
+	padding-left:4px; /*Need a little bit of padding when left aligned*/
+	padding-right:4px;
+}
+#screen002 h1,
+#screen002 h2{
+	text-align: center; /*headings look silly left aligned here, and these are unlikely to ever be the last few lines, so we have an exception to the rule of aligning left for this screen*/
+}
 
 #gameBtns{
 	position: fixed;
