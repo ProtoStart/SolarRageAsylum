@@ -138,7 +138,12 @@ button,input{
 
 #gameBtns{
 	position: fixed;
-	bottom: 56px;
+	top: 50%;
+	/*bottom: 56px; commented instead of deleted in case we want to override it back to that on any size*/
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+	
 	right: 0px;
 	padding-bottom: 2px;
 	/*background-color: #DDDDDD; Opaque, slightly off white background - Opaque prevents text looking awkward over the top of stuff behind it, off white is only subtly different from the generic white so doesn't draw attention to it much, but also does give a visible separation if people are looking at that area*/
