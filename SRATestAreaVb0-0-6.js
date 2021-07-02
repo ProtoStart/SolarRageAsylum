@@ -52,7 +52,7 @@ var globals = {
 		"screen002" : {
 			"prevBtn" : "screen001",
 			"nextBtn" : function() {
-				/*TODO: In middle of doing This will take player from opening screens, into a fairly blank screen briefly
+				/*This will take player from opening screens, into a fairly blank screen briefly
 					while browser full screen mode takes effect fully
 					so that that is completely done before seemlessly moving into the story opening
 				*/
@@ -60,7 +60,7 @@ var globals = {
 				nextScreen("screen002","screen003");
 			}
 		},
-		"screen003" : { //A transition screen, while browsers shift to full screen
+		"screen003" : { //Shows while browsers shift to full screen - has an epilepsy warning in the centre of the screen
 			"prevBtn" : function() {
 				closeFullscreen();
 				nextScreen("screen003","screen002");
@@ -70,10 +70,10 @@ var globals = {
 				nextScreen("screen003","screen003b");
 			}
 		}, 
-		"screen003b" : {  //screen number matching div id that this refers to
+		"screen003b" : {  //Game starts here
 			"prevBtn" : function() {
-				//neatly handle going back to screen002
-				undoAwakening();
+				//neatly handle going back a screen
+				undoAwakening(); //contains code for moving back a screen
 			}, 
 			"nextBtn" : "screen003c" //div id of the next screen
 		}, 
@@ -517,7 +517,6 @@ function undoAwakening(){
 	endRainbowRotate(); 
 	nextScreen('screen003b', 'screen003');
 	hideViaClass("mainContent");
-	closeFullscreen();
 }
 
 function launchLevelOne(){
