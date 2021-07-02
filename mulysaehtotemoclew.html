@@ -95,19 +95,20 @@
 		</div>
 		<div id="screen003e" class="hidden storyTxt" onclick="nextScreen('screen003e', 'screen003f')">
 			<p>
-
+				Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.
 			</p>
 		</div>
 		<div id="screen003f" class="hidden storyTxt" onclick="nextScreen('screen003f', 'screen004')">
 			<p>
-			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
-			Maybe we should start trying to figure some things out.
+				Maybe we should start trying to figure some things out.
 			</p>
 		</div>
 		<div id="screen004" class="hidden storyTxt" >
-			<p>First off what's your name?</p>
-			<input type="text" id="fname" name="fname"/> 
-			<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
+			<div>
+				<p>First off what's your name?</p>
+				<input type="text" id="fname" name="fname"/> 
+				<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
+			</div>
 		</div>
 		<div id="screen005" class="hidden storyTxt" onclick="launchLevelOne()">
 			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
@@ -117,19 +118,19 @@
 			<p>All the best people have internal monologues that give themselves names 
 			like this.</p>
 		</div>
-		<div id="screen006" class="hidden storyTxt" > <!--  Level one playable from this screen-->
+		<div id="screen006" class="hidden gameplayTopText" > <!--  Level one playable from this screen-->
 			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
 		</div>
-		<div id="screen007" class="hidden storyTxt" >
+		<div id="screen007" class="hidden gameplayTopText" >
 			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
 		</div>
-		<div id="screen008" class="hidden storyTxt" >
+		<div id="screen008" class="hidden gameplayTopText" >
 			<p>This wall feels padded too</p>
 		</div>
-		<div id="screen009" class="hidden storyTxt" >
+		<div id="screen009" class="hidden gameplayTopText" >
 			<p>Padded. Just one wall left to check</p>
 		</div>
-		<div id="screen010" class="hidden storyTxt" >
+		<div id="screen010" class="hidden gameplayTopText" >
 			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta</i> you can keep moving around or click here to go back to the titles</a></p>
 		</div>
 	<!-- templates for copying

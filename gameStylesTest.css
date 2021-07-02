@@ -70,8 +70,16 @@ button,input{
 	/*min-width:100px;*/
 	z-index: 10;
 }
-
+.gameplayTopText,
 .storyTxt{
+/*	Both classes are primarily for text (sometimes inputs too) at the top of the screen,
+	On small screens they are the same,
+		but MediaQuerys (at the bottom of the stylesheet) resize them for bigger screens to different amounts
+	
+	.gameplayTopText is for text that will be on screen during gameplay,
+		... so needs lots of room
+	.storyTxt is for text and choices that happen in story scenes when the player cannot move the character around
+*/
 	z-index: 10;
 	position: fixed;  /*Position needs to be set for z-index to take effect*/
 	top:0px;
@@ -81,6 +89,7 @@ button,input{
 	padding-bottom: 20px;
 }
 
+.gameplayTopText p,
 .storyTxt p{
 	color: white;
 }
@@ -264,6 +273,19 @@ h2{
 		top: unset;
 		bottom:10px;
 		left:0px;
+	}
+}
+@media only screen and (min-height: 600px) {
+	.storyTxt{
+		height: 190px;
+	}
+	.storyTxt > *{  /*All direct children of storytext class,  > means only direct children * means all kinds of element */
+		position: relative;
+		top: 50%;
+		
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
 	}
 }
 @media screen and (orientation:landscape){
