@@ -22,14 +22,15 @@ function codeUnlockFunc(){
 	if (codeAttempt == ""){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
-		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters, all lower case");
+		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters, the last 6 of which in lower case");
 	} else if (codeAttempt.includes("RHCP")){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt.includes("osebud")){ //Sims "rosebud" cheat - I've left off the r as an easy way to allow for people putting a capital R instead - though equally "nosebud" would pass this lol.
+		//TODO: make the simoleans actually get added to the players game inventory!
 		alert("1000 Simoleans added to your characters wallet. Simoleans aren't the currency in SRA so they are useless!");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
-	} else if (codeAttempt.includes("letmein") || codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein" or "Iwannaplay" , or anything with the words "let me in" such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement
+	} else if (codeAttempt.includes("letmein") || codeAttempt.includes("Letmein") ||codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
 		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
 			if (confirm("Wanna come into our testing area?")){
 				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");

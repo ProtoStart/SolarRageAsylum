@@ -3,6 +3,7 @@ Known imperfections:
 Needs quite a bit of styling work for smaller screens
 	Everything gets shrunk down to try to fit in, but then it's too small to see detail or tap buttons
 		plus since some stuff is fixed to the top, and some stuff is fixed to the bottom, theres then a gulf between sometimes, and if you zoom in to see one thing, you can't see the other - a nightmare for the playable section!
+	Our alpha test area is getting really good for small screens, by sometime around the 4th/5th July there should be an update for the beta. (I'd like to say 3rd but that seems optimistic)
 
 RECENT FIXES  AND IMPROVEMENTS!! YAY!!
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable

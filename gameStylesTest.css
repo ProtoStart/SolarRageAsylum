@@ -5,7 +5,7 @@ body{
 .gameArea{ /*Using a class allows us to replace these values with other classes if needed*/
 	width: 600px;
 	height: 390px;
-	border: 1px solid lime;
+	
 	
 	position:fixed;
 	
@@ -19,6 +19,10 @@ body{
 	position: relative;
 	margin: 0px;
 	padding: 0px;
+}
+
+.limeBorder{
+	border: 1px solid lime;
 }
 
 .rainbowVortex,
@@ -101,6 +105,37 @@ button,input{
 	text-align: center; /*headings look silly left aligned here, and these are unlikely to ever be the last few lines, so we have an exception to the rule of aligning left for this screen*/
 }
 
+.middleWhiteTxt{
+/*
+	
+	After a while of trying to figure a solution that fit requirements...
+		...I adapted this from stackoverflow 
+		- https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
+		- top: 50%; sets the top to 50% of the screen height
+		- then transform: translateY(-50%) shifts it up by half of whatever the height of this is
+*/
+	position: absolute;
+    top: 50%;
+    left: 0px;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+	margin-left: 2%;
+	margin-right: 2%;
+	color:white;
+}
+
+/*Tested out and haven't managed to make an effect I like with it*/
+.haze{
+	box-shadow: inset 0 0 2000px rgba(250, 250, 250, .9);
+    filter: blur(60px);
+	position: fixed;
+	top:0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+
 #gameBtns{
 	position: fixed;
 	bottom: 56px;
@@ -160,9 +195,9 @@ h2{
 ****/
 @media only screen and (min-width: 290px) {
 /*Tiny width - It's very rare for modern devices to be narrower than this - Galaxy Fold is 280px, Galaxy Siii is 360px, iPhone 4 was 320px, iPhone X is 375*/
-	*{
-		/*border: 2px solid lime;*/
-	}
+	/*{
+		border: 2px solid lime;
+	}*/
 }
 @media only screen and (min-width: 400px) {
 }
@@ -199,11 +234,13 @@ h2{
 	color: #ff850a;
 	text-shadow: #000 0px 0px 14px;
     -webkit-font-smoothing: antialiased;
-}
-h2{
-	font-size: 44pt;
-	
-}
+	}
+	h2{
+		font-size: 44pt;
+	}
+	.smallPortraitScreenOnly{
+		display: none;
+	}
 }
 @media only screen and (min-width: 1200px) {
 }
@@ -222,5 +259,10 @@ h2{
 		top: unset;
 		bottom:10px;
 		left:0px;
+	}
+}
+@media screen and (orientation:landscape){
+	.smallPortraitScreenOnly{
+		display: none;
 	}
 }
