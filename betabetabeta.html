@@ -17,6 +17,7 @@
 		<meta name="description" content="Solar Rage Asylum beta"></meta>
 		<!-- Prevent search engines showing this hidden page - note if a search engine has already included the page before this was added, it will only take effect when they next "crawl" the page - you can request Google recrawl using there URL inspection tool others might have something similar-->
 		<meta name="robots" content="noindex">
+		<meta name="viewport" content="initial-scale=1, user-scalable=yes, width=device-width, maximum-scale=3">
 		<!-- 
 		Link elements tell the browser that it needs to download another file. 
 		The rel attribute specifies the kind of relationship between the current file and the linked file. 
@@ -30,83 +31,110 @@
 		<!-- Another link element - in this case a stylesheet (literally a file that defines how things look).  -->
 		<link rel="stylesheet" href="generalStyles.css"> </link>
 		<!-- Stylesheet specificly for gameplay, with a query string that we change occasionally-->
-		<link rel="stylesheet" href="gameStyles.css?date=20210628"> </link> <!--Supposedly having a query string that you modify helps with caching issues format here is YYYYMMDD-->
+		<link rel="stylesheet" href="gameStyles.css?date=20210703"> </link> <!--Supposedly having a query string that you modify helps with caching issues format here is YYYYMMDD-->
 		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
-		<script src="SRABetaCore.js?date=20210628"></script><!-- TODO: we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
+		<script src="SRABetaCore.js?date=20210703"></script><!-- TODO: we should update the JS filename for each update as an easy way to make sure that returning visitors use the correct js rather than probably using a cached version -->
 		<!-- open source vanilla JS cookie acceptance popup (a cookie popup of some kind is required by EU law if there are any cookies)-->
 		<link rel="stylesheet" href="purecookie.css"/>
 		<script src="purecookie.js"></script>
     </head>
 	<!-- body tag houses everything that is shown to the user in the main area of the browser, in this case an "onload" attribute is "commented out" so that it's ignored at the moment-->
-    <body onload="pageStart()"> <!--"-->
-		<div class="masterBtn"> <!--These buttons are shown or hidden based on needs of each screen, by JS setting a class used in CSS-->
-			<button id="masterPrevBtn" class="hidden" onclick="masterPrevBtnClick()">Previous</button>
-			<button id="masterNextBtn" class="hidden" onclick="masterNextBtnClick()">Next</button>
+    <body id="all" onload="pageStart()"> <!--"-->
+		<div id="mainContent" class="hidden">
+			<div id="gameArea" class="gameArea">
+				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
+				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
+			</div>
+			<div id="gameBtns" class="hidden"><!-- game buttons -->
+				<span id="highBtns">
+					<button id="upBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('u')" onmousedown="startMove('u')" onmouseup="endMove()" ontouchend="endMove()">↑</button>
+					<button id="rotateBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startRotate('u')" onmousedown="startRotate('u')" onmouseup="endRotate()" ontouchend="endRotate()">↻</button>
+				</span>
+				<br/>
+				<span id="lowBtns">
+					<button id="leftBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('l')" onmousedown="startMove('l')" onmouseup="endMove()" ontouchend="endMove()">←</button>
+					<button id="downBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('d')" onmousedown="startMove('d')" onmouseup="endMove()" ontouchend="endMove()">↓</button>
+					<button id="rightBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('r')" onmousedown="startMove('r')" onmouseup="endMove()" ontouchend="endMove()">→</button>
+				</span>
+				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
+			</div>
 		</div>
-		<div id="screen001" class="showing" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
+		<div id="screen001" class="showing openingScreen" onload="pageStart()" onclick="nextScreen('screen001', 'screen002')">
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
 		</div>
-		<div id="screen002" class="hidden" onclick="showAwakening()">
+		<div id="screen002" class="hidden openingScreen">
 			<h1>Solar Rage Asylum</h1>
 			<h2>(Early taster Beta)</h2>
 			<p>A 2D top down indy game about escaping an Asylum.</p>
 			<p>Releasing new levels as they are built.</p>
-			<p>Currently best viewed on desktop/laptop (fixes for smaller screens coming soon)</p>
-			<p><b>So far:</b> Opening story - though it's still being worked on, with first bit of movement</p>
-			<p><b>Coming in next few weeks:</b>Improvements to this opener - especially for mobile, more story, a slightly more complex level</p>
+			<p>3rd July released am update for the visuals - particularly for mobile</p>
+			<p><b>So far:</b> Opening story - though theres still a bit more to do on it, with first bit of movement</p>
+			<p><b>Coming in next few weeks:</b>Improvements to this opener - more story, a slightly more complex level</p>
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
-			<p>(To continue from this screen, and other text only screens, click/tap the text)</p>
 		</div>
-		<div id="screen003" class="hidden" onclick="nextScreen('screen003', 'screen003b')">
+		<div id="screen003" class="hidden middleWhiteTxt">
+			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours ahead </br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>
+			<p class="smallPortraitScreenOnly"><b>small devices:</b> we recommend landscape for the best experience</p>
+		</div>
+		<div id="screen003b" class="hidden storyTxt" onclick="nextScreen('screen003b', 'screen003c')">
 			<p>You awaken in a haze,</br>
-			or is it still a dream?</br>
-			Other than yourself, and the hoverbed you're laying on </br>
+			or is it still a dream?
+			</p>
+		</div>
+		<div id="screen003c" class="hidden storyTxt" onclick="nextScreen('screen003c', 'screen003d')">
+			<p>Other than yourself, and the hoverbed you're laying on </br>
 			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
 			flowing around and under you</br>
 			</p>
 		</div>
-		<div id="screen003b" class="hidden" onclick="nextScreen('screen003b', 'screen004')">
+		<div id="screen003d" class="hidden storyTxt" onclick="nextScreen('screen003d', 'screen00e')">
 			<p>
 			You feel calm.</br>
-			Very calm.</br>
+			Very calm.
 			</p>
+		</div>
+		<div id="screen003e" class="hidden storyTxt" onclick="nextScreen('screen003e', 'screen003f')">
 			<p>
-			Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.</br>
-			Maybe we should start trying to figure some things out.
-			</br>
+				Maybe too calm, given you can barely see, and what you can see is <i>not</i> your normal reality.
 			</p>
 		</div>
-		<div id="screen004" class="hidden" >
-			<p>First off what's your name?</p>
-			<input type="text" id="fname" name="fname"/> 
-			<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
+		<div id="screen003f" class="hidden storyTxt" onclick="nextScreen('screen003f', 'screen004')">
+			<p>
+				Maybe we should start trying to figure some things out.
+			</p>
 		</div>
-		<div id="screen005" class="hidden" onclick="launchLevelOne()">
+		<div id="screen004" class="hidden storyTxt" >
+			<div>
+				<p>First off what's your name?</p>
+				<input type="text" id="fname" name="fname"/> 
+				<button id="screen004Done" type="button" onclick="namePC()"> Say it</button>
+			</div>
+		</div>
+		<div id="screen005" class="hidden storyTxt" onclick="launchLevelOne()">
 			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
 			</p>
 			<p>
 			Oh, and don't worry, you're not crazy.</p>
 			<p>All the best people have internal monologues that give themselves names 
-			like this, and it's <i>hardly rare</i> for a brain as bright as yours to 
-			think of existence as being more than it appears</p>
+			like this.</p>
 		</div>
-		<div id="screen006" class="hidden" > <!--  Level one playable from this screen-->
+		<div id="screen006" class="hidden gameplayTopText" > <!--  Level one playable from this screen-->
 			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
 		</div>
-		<div id="screen007" class="hidden" >
+		<div id="screen007" class="hidden gameplayTopText" >
 			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
 		</div>
-		<div id="screen008" class="hidden" >
+		<div id="screen008" class="hidden gameplayTopText" >
 			<p>This wall feels padded too</p>
 		</div>
-		<div id="screen009" class="hidden" >
+		<div id="screen009" class="hidden gameplayTopText" >
 			<p>Padded. Just one wall left to check</p>
 		</div>
-		<div id="screen010" class="hidden" >
+		<div id="screen010" class="hidden gameplayTopText" >
 			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta</i> you can keep moving around or click here to go back to the titles</a></p>
 		</div>
 	<!-- templates for copying
-		<div id="screen002" class="hidden" onclick="nextScreen('screen002', 'screen003')">
+		<div id="screen002" class="hidden storyTxt" onclick="nextScreen('screen002', 'screen003')">
 			<p></p>
 		</div>
 		<h2> </h2>
@@ -121,30 +149,15 @@
 			<h1>Solar Rage Asylum</h1>
 			<h2></h2>
 		</div>
-		<div id="mainContent" class="hidden">
-			<div id="gameArea" class="gameArea">
-				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
-				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
-			</div>
-			<div id="gameBtns" class="hidden"><!-- game buttons -->
-				<span id="highBtns">
-					<button id="upBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('u')" onmousedown="startMove('u')" onmouseup="endMove()" ontouchend="endMove()">Up</button>
-					<button id="rotateBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startRotate('u')" onmousedown="startRotate('u')" onmouseup="endRotate()" ontouchend="endRotate()">Rotate</button>
-				</span>
-				<br/>
-				<span id="lowBtns">
-					<button id="leftBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('l')" onmousedown="startMove('l')" onmouseup="endMove()" ontouchend="endMove()">Left</button>
-					<button id="downBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('d')" onmousedown="startMove('d')" onmouseup="endMove()" ontouchend="endMove()">Down</button>
-					<button id="rightBtn" class="gameBtn" style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" unselectable="on" ontouchstart="startMove('r')" onmousedown="startMove('r')" onmouseup="endMove()" ontouchend="endMove()">Right</button>
-				</span>
-				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
-			</div>
+		<div class="masterBtn"> <!--These buttons are shown or hidden based on needs of each screen, by JS setting a class used in CSS-->
+			<button id="masterPrevBtn" class="hidden" onclick="masterPrevBtnClick()">Previous</button>
+			<button id="masterNextBtn" class="hidden" onclick="masterNextBtnClick()">Next</button>
 		</div>
 		
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
 			<span id="GameName">Solar Rage Asylum</span>
-			<span id="Version">, Version: Beta 0.0.6 "better story section controls"</span>
+			<span id="Version">, Version: Beta 0.0.7 "Design, Responsive Design"</span>
 			<span id="BasicCredit"> - A ProtoStart game</span>
 			<span id="LeadBy"> lead by Phil Ganney</span>
 		</div>

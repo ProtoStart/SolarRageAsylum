@@ -27,7 +27,15 @@ Main game menu
 */
 //let pcElement = document.getElementById("mockPC");
 //let pcSetWidth = (getComputedStyle(pcElement).width).slice(0,-2);
+/*
+Game Area
+	width: 740px; //70px + 600px + 70px
+	height: 530px; //70px + 390px + 70px
 
+Rainbow
+	width: 230px;
+	height: 230px;
+*/
 var globals = {
 	"bounds": { //The edges of the playable area, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
 		"top": "99",
@@ -61,23 +69,49 @@ var globals = {
 		"screen002" : {
 			"prevBtn" : "screen001",
 			"nextBtn" : function() {
-				//to get the animated rainbowVortex we need to call showAwakening
-				showAwakening();
+				/*This will take player from opening screens, into a fairly blank screen briefly
+					while browser full screen mode takes effect fully
+					so that that is completely done before seemlessly moving into the story opening
+				*/
+				openFullscreen();
+				nextScreen("screen002","screen003");
 			}
 		},
-		"screen003" : {
+		"screen003" : { //Shows while browsers shift to full screen - has an epilepsy warning in the centre of the screen
+			"prevBtn" : function() {
+				closeFullscreen();
+				nextScreen("screen003","screen002");
+			}, 
+			"nextBtn" : function() {
+				showAwakening();
+				nextScreen("screen003","screen003b");
+			}
+		}, 
+		"screen003b" : {  //Game starts here
 			"prevBtn" : function() {
 				//neatly handle going back a screen
-				undoAwakening();
+				undoAwakening(); //contains code for moving back a screen
 			}, 
-			"nextBtn" : "screen003b" //div id of the next screen
+			"nextBtn" : "screen003c" //div id of the next screen
 		}, 
-		"screen003b" : {  //screen number matching div id that this refers to
-			"prevBtn" : "screen003", //div id of the previous screen (used for onscreen back button)
+		"screen003c" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003d" //div id of the next screen
+		}, 
+		"screen003d" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003c", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003e" //div id of the next screen
+		}, 
+		"screen003e" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003d", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003f" //div id of the next screen
+		}, 
+		"screen003f" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003e", //div id of the previous screen (used for onscreen back button)
 			"nextBtn" : "screen004" //div id of the next screen
 		}, 
 		"screen004" : {  //screen number matching div id that this refers to
-			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"prevBtn" : "screen003f", //div id of the previous screen (used for onscreen back button)
 			"nextBtn" : false //false - this is the name input screen, so we have a button next to the input that runs a func to save the input and then move to the next screen
 		}, 
 		"screen005" : {  //screen number matching div id that this refers to
@@ -124,6 +158,31 @@ var globals = {
 	width: 600px;
 	height: 400px;
 */
+
+function openFullscreen() {
+//opens the browser in full screen - particularly wanted on mobile so that we have a bit more screen to work with
+//found on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
+	var elem = document.getElementById("all");
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.webkitRequestFullscreen) { /* Safari */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE11 */
+		elem.msRequestFullscreen();
+	}
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
 function pageStart(){
 	setTimeout(function(){
 		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
@@ -224,6 +283,8 @@ function startRotate(dir){  //Allows continuous movement, until endMove called
 }
 
 function startRainbowRotate(dir){  //Allows continuous movement, until endMove called
+	//We don't want multiple of these intervals set, so this wipes any existing interval first. I tried code that checks for an interval instead of this approach, and it seemed great, until changing back and forward on screens causes false negatives on those checks
+	clearInterval(rotateJustRainbowInterval);
 	//starts off the continuous rotation using rotateRainbow(dir)
 	rotateJustRainbowInterval = setInterval(function(){ rotateRainbow(dir); }, 50); //After playtesting, I made the interval 10ms longer than it originally was, to slow the movement down so that it's taking less of the players focus.
 }
@@ -418,6 +479,18 @@ function namePC(){
 	nextScreen('screen004', 'screen005');
 }
 
+function openInAHaze(){
+	//CURRENTLY BUTCHERED WHILE I FIGURE OUT SOME ASPECTS OF GAME DESIGN
+	nextScreen('screen002', 'screen003');
+	//TODO: improve this opening more!
+	/*setTimeout(function(){ //adapted from the code for moving from screen001 to screen002
+		if(globals.Screens.current == "screen003"){
+			nextScreen("screen003", "screen003b");
+			showAwakening();
+		}
+	}, 2000);*/
+}
+
 function showAwakening(){
 	/* showAwakening handles a screen transition where our character wakes up
 		while the narration is going on.
@@ -446,10 +519,11 @@ function showAwakening(){
 				without the extra border we have for preventing the vortex going over the main page background
 					(saves space for the text)
 	*/
-	nextScreen('screen002', 'screen003');
+	
 	showViaClass("mainContent");
 	rotatePC("dir");
 	startRainbowRotate("cw");
+	
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation
 }
@@ -458,7 +532,7 @@ function undoAwakening(){
 //used if user clicks the previous button from the screen where you have the awakening
 	//Need to end the rotation - otherwise if it's loaded again while the first is still loaded it will rotate twice as fast
 	endRainbowRotate(); 
-	nextScreen('screen003', 'screen002');
+	nextScreen('screen003b', 'screen003');
 	hideViaClass("mainContent");
 }
 
@@ -511,6 +585,8 @@ function exitGame(){
 		resetGameArea();
 		//send back to opening screen
 		nextScreen("mainContent", "screen001");
+		//a confirm popping up ends full screen on some/most browsers but won't fix scrolling issue on start screen, unlike specifically calling the closeFullscreen func
+		closeFullscreen();
 		pageStart();
 	};
 }

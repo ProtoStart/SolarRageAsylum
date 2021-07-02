@@ -1,11 +1,10 @@
 BETA NOTES (keep this professional-ish!)
 Known imperfections:
-Needs quite a bit of styling work for smaller screens
-	Everything gets shrunk down to try to fit in, but then it's too small to see detail or tap buttons
-		plus since some stuff is fixed to the top, and some stuff is fixed to the bottom, theres then a gulf between sometimes, and if you zoom in to see one thing, you can't see the other - a nightmare for the playable section!
-	Our alpha test area is getting really good for small screens, by sometime around the 4th/5th July there should be an update for the beta. (I'd like to say 3rd but that seems optimistic)
+Game isn't finished
+Developer isn't earning off it yet
+--I'm sure there's some other stuff, but basically I'm pretty darn proud of where I've managed to get this project
 
-RECENT FIXES  AND IMPROVEMENTS!! YAY!!
+FIXES  AND IMPROVEMENTS!! YAY!!  -- Newer updates at the bottom of this
 We're now actually sort of saving the name when we take it yet - it's not used anywhere yet, and it's not permenantly saving it anywhere - it's just stored in a JavaScript variable
 The keyboard controls are now only active on the actual playable level - so if you type a name with a,w,s or d or use the arrow keys you can no longer get an alert saying that you've bumped into a wall!!!
 Rainbow vortex on screen throughout the story (without the extra border and without controls until you get to that point)
@@ -23,7 +22,7 @@ rainbowVortex no longer has a visible lag
 Added Previous and Next buttons! They show or are hidden depending on what's apropriate for the screen you are on, but always in the same place. (These where trickier and more long winded to get working than you might expect!)
 Replaced a previously kludgey bit of code for keeping the rainbow vortex inside the game area
 
-
+Just rolled out a huge quality improvement - particularly for mobile, but also nicer for desktop too.
 
 
 
