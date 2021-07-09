@@ -64,7 +64,7 @@
 		</div>
 		<div id="screen002" class="hidden openingScreen">
 			<h1>Solar Rage Asylum</h1>
-			<h2>(TEST AREA - though stuff here has just been rolled out to Beta)</h2>
+			<h2>(TEST AREA - now testing being able to turn off the spin effect)</h2>
 			<p>A 2D top down indy game about escaping an Asylum.</p>
 			<p>Releasing new levels as they are built.</p>
 			<p>Currently best viewed on desktop/laptop (fixes for smaller screens coming soon)</p>
@@ -73,7 +73,11 @@
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
 		</div>
 		<div id="screen003" class="hidden middleWhiteTxt">
-			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours ahead </br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>
+			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours</br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>
+			<label for="removeSpin">Use spin effect?</label>
+			<input type="checkbox" checked id="useSpin" name="removeSpin" value="removeSpin">
+
+
 			<p class="smallPortraitScreenOnly"><b>small devices:</b> we recommend landscape for the best experience</p>
 		</div>
 		<div id="screen003b" class="hidden storyTxt" onclick="nextScreen('screen003b', 'screen003c')">

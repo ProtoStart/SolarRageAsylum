@@ -1,4 +1,4 @@
-/** Last used for: mobile improvements
+/** Last used for: spin effect toggle
 **/
 
 /*Global Variables
@@ -66,6 +66,13 @@ var globals = {
 				nextScreen("screen003","screen002");
 			}, 
 			"nextBtn" : function() {
+				if(document.getElementById('useSpin').checked){
+				//checkbox labelled "Use spin effect?" is checked
+					globals.playerSettings.spin = true;
+				} else {
+				//checkbox labelled "Use spin effect?" is not checked
+					globals.playerSettings.spin = false;
+				}
 				showAwakening();
 				nextScreen("screen003","screen003b");
 			}
@@ -135,6 +142,10 @@ var globals = {
 			"nextBtn" : "screen003" 
 		}, 
 		*/
+	},
+	"playerSettings": {
+		//for people with epilepsy or suffer from visually triggered headaches
+		"spin": false //access with globals.playerSettings.spin
 	}
 }; 
 /* #gameArea
@@ -261,11 +272,20 @@ function startRotate(dir){  //Allows continuous movement, until endMove called
 	//clearInterval lines here are to allow players to "unstick" movement or rotation glitches caused by mouseup or touchend events not firing
 	clearInterval(rotatePCInterval);
 	clearInterval(movePCInterval);
+
 	//starts off the continuous rotation
 	rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
 }
 
 function startRainbowRotate(dir){  //Allows continuous movement, until endMove called
+	//Don't do any of this function if the player settings show that the player does not want the rainbow spin effect
+	/*We also have this check in the actual rotateRainbow function 
+		(so that rotate button roates stickman but not the rainbow) 
+		but it's a waste of resources to set a func on interval if not using it
+	*/
+	if (globals.playerSettings.spin == false){
+		return;
+	}
 	//We don't want multiple of these intervals set, so this wipes any existing interval first. I tried code that checks for an interval instead of this approach, and it seemed great, until changing back and forward on screens causes false negatives on those checks
 	clearInterval(rotateJustRainbowInterval);
 	//starts off the continuous rotation using rotateRainbow(dir)
@@ -286,6 +306,10 @@ function rotatePC(dir){
 }
 
 function rotateRainbow(dir){
+	//Don't do the rest of this function if the player settings show that the player does not want the rainbow spin effect
+	if (globals.playerSettings.spin == false){
+		return;
+	}
 	var change = -2; //default to a negative number so that it causes anti-clockwise rotation by default (as the original version of this did, when we only rotated view area acw)
 	if(dir == "cw"){ //cw for clockwise - so if we specify clockwise we get clockwise, otherwise we get anti-clockwise
 		change = 2;
