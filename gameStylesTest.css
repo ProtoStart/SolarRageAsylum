@@ -191,7 +191,10 @@ h2{
 	font-size: 28pt;
 }
 
-
+:focus {
+  outline: 1px dashed black; /*Makes it a bit more discreet than the standard settings*/
+  box-shadow: 1px 1px 1px 1px white; /*So that focus is still visible on black backgrounds*/
+}
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!
 	MEDIA QUERIES IN SIZE ORDER ONLY
