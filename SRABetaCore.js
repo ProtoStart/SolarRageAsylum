@@ -115,7 +115,11 @@ var globals = {
 		}, 
 		"screen003f" : {  //screen number matching div id that this refers to
 			"prevBtn" : "screen003e", //div id of the previous screen (used for onscreen back button)
-			"nextBtn" : "screen004" //div id of the next screen
+			"nextBtn" : function() {
+				nextScreen("screen003f","screen004");
+				//Set the focus to the text box for the name
+				document.getElementById("fname").focus();
+			}
 		}, 
 		"screen004" : {  //screen number matching div id that this refers to
 			"prevBtn" : "screen003f", //div id of the previous screen (used for onscreen back button)
@@ -260,6 +264,8 @@ function nextScreen(old, newScreen){  //"new" is a reserved word that we can't h
 		hideViaClass("masterNextBtn");
 	} else {
 		showViaClass("masterNextBtn");
+		//Set autofocus on the button so that if on PC the player can hit enter to go to next screen
+		document.getElementById("masterNextBtn").focus();
 	}
 }
 
