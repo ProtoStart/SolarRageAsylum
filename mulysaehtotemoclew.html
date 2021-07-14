@@ -114,10 +114,9 @@
 		</div>
 		<div id="screen005" class="hidden storyTxt" onclick="launchLevelOne()">
 			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
-			</p>
-			<p>
-			Oh, and don't worry, you're not crazy.</p>
-			<p>All the best people have internal monologues that give themselves names 
+			<br/><!-- Using br's because the positioning css sometimes overlaps multiple p's if they are long and the viewport is narrow (this was the only place where that still happened at end of beta 0.0.7)-->
+			Oh, and don't worry, you're not crazy.<br/>
+			All the best people have internal monologues that give themselves names 
 			like this.</p>
 		</div>
 		<div id="screen006" class="hidden gameplayTopText" > <!--  Level one playable from this screen-->
@@ -133,10 +132,14 @@
 			<p>Padded. Just one wall left to check</p>
 		</div>
 		<div id="screen010" class="hidden gameplayTopText" >
-			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta</i> you can keep moving around or click here to go back to the titles</a></p>
+			<p>It's official, we're in a padded room. I wonder why?<i><br/>taster beta ends here, you can keep going into the abyss that is story written in Alpha</i> OR <a onclick="exitGame()">click here to go back to the titles</a></p>
+		</div>
+		<div id="screen011" class="hidden storyTxt" onclick="nextScreen('screen011', 'screen012')">
+			<p>Some text here - fun fact: right now I'm drawing a total blank on what the story is here!</p>
 		</div>
 	<!-- templates for copying
-		<div id="screen002" class="hidden storyTxt" onclick="nextScreen('screen002', 'screen003')">
+		you'll need to delete one of these classes: storyTxt, gameplayTopText
+		<div id="screen010" class="hidden storyTxt gameplayTopText" onclick="nextScreen('screen010', 'screen011')">
 			<p></p>
 		</div>
 		<h2> </h2>

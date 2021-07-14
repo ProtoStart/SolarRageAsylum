@@ -133,7 +133,19 @@ var globals = {
 		},
 		"screen010" : {  //screen number matching div id that this refers to
 			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
-			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+			"nextBtn" : function() {
+				nextScreen("screen010","screen011");
+				/*go to "cut screen" 
+					- hide game buttons
+					- turn off keyboard controls
+					- move the character to the centre of the screen
+				*/
+				resetGameArea();
+			}
+		},
+		"screen011" : { 
+			"prevBtn" : "screen010", //TODO check that that's ok to do
+			"nextBtn" : false
 		},
 		/* Annotated Template
 		"screen002" : {  //screen number matching div id that this refers to
