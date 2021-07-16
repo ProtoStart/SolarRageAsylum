@@ -23,7 +23,7 @@ function codeUnlockFunc(){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
 		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters, the last 6 of which in lower case");
-	} else if (codeAttempt.includes("RHCP")){
+	} else if (codeAttempt.includes("RHCP") || codeAttempt.includes("Chili Peppers")){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt.includes("osebud")){ //Sims "rosebud" cheat - I've left off the r as an easy way to allow for people putting a capital R instead - though equally "nosebud" would pass this lol.
 		//TODO: make the simoleans actually get added to the players game inventory!
@@ -43,6 +43,10 @@ function codeUnlockFunc(){
 	} else if (codeAttempt.includes("lime") || codeAttempt.includes("colour") || codeAttempt.includes("color")){
 		alert("BEHOLD! here be the greatest colour");
 		document.getElementById("mainContent").classList.add("lime");
+	} else if (codeAttempt.includes("furious the monkey boy")){ //Age of Empires 2 reference
+		alert("Raiding party!!"); 
+	} else if (codeAttempt.includes("i r winner")){ //Age of Empires 2 reference
+		alert("All hail, king of the losers!"); 
 	} else {
 		alert("NOPE that code ain't right! There is no limit on attempts currently, so keep trying. Maybe get your friends to help guess??");
 	}
