@@ -1,0 +1,27 @@
+Friends "M" and "J" played the SRA Beta - version 0.0.7 - here's some notes from that
+They really liked the dialogue - apparently it reminded M of Douglas Adams - that's quite a compliment from M
+
+
+
+Friends suggestions:
+
+	J suggested:
+	I could double down on the narrative sections, making the game a text adventure with movement/action sections sprinkled in for variety.
+		- This sounds pretty cool, and would probably be an easier game to program than what I had in my mind.
+		- The writing would need to be consistantly good, but that actually seems to be a strength of this game, as well as something I'm enjoying
+		- That would mean player choices would effect narrative - at least what order they do things
+		- I had been thinking this would be "on rails" and all about the action - the narration was mostly to set the scene and add drama to the action, but this seems cool. I'm going to take on this suggestion, at least try it out. 
+		- Maybe if it feels like more effort than it's worth, or if I find it really hard to do well, then I might not take it to Beta, or I might just have a tiny bit of this style here and there
+		
+	M suggested:
+	Hover effects on the hoverbed
+		eg: light radiating from underneath
+			the light takes time to dissapear, so you leave a trail behind you as you move
+			- This would look really cool
+			- I think I'll save working on that for during the Kickstarter though
+				- seems like the kind of extra flourish that fits into polishing up the game, rather than the kind of thing that needs to exist for the trial to even work
+				- I could even have Kickstarter stretch goals for being able to customize the glow in settings
+		
+At least one friend didn't pick up on that are now fixed:
+	that they could use their keyboard to get through story screens - I've since put a controls screen in to state all the control options available
+	where the link on the home page was for actually playing the Beta - I reworded the link to make it clear
