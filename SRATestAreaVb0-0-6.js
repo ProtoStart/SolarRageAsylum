@@ -57,14 +57,21 @@ var globals = {
 					so that that is completely done before seemlessly moving into the story opening
 				*/
 				openFullscreen();
-				nextScreen("screen002","screen003");
+				nextScreen("screen002","controlsInfo");
 			}
 		},
-		"screen003" : { //Shows while browsers shift to full screen - has an epilepsy warning in the centre of the screen
+		"controlsInfo" : { //Shows as a screen right after we go to full screen - when shown as a modal we won't use this block
 			"prevBtn" : function() {
 				closeFullscreen();
-				nextScreen("screen003","screen002");
+				nextScreen("controlsInfo","screen002");
 			}, 
+			"nextBtn" : function() {
+				nextScreen("controlsInfo","screen003");
+				document.getElementById("useSpin").focus()
+			}
+		},
+		"screen003" : { //has an epilepsy warning in the centre of the screen
+			"prevBtn" : "controlsInfo", 
 			"nextBtn" : function() {
 				if(document.getElementById('useSpin').checked){
 				//checkbox labelled "Use spin effect?" is checked
@@ -145,7 +152,39 @@ var globals = {
 		},
 		"screen011" : { 
 			"prevBtn" : "screen010", //TODO check that that's ok to do
-			"nextBtn" : false
+			"nextBtn" : "screen012"
+		},
+		"screen012" : { 
+			"prevBtn" : "screen011",
+			"nextBtn" : "screen013"
+		},
+		"screen013" : { 
+			"prevBtn" : "screen012",
+			"nextBtn" : "screen014"
+		},
+		"screen014" : { 
+			"prevBtn" : "screen013",
+			"nextBtn" : "screen015"
+		},
+		"screen015" : { 
+			"prevBtn" : "screen014",
+			"nextBtn" : "screen016"
+		},
+		"screen016" : { 
+			"prevBtn" : "screen015",
+			"nextBtn" : "screen017"
+		},
+		"screen017" : { 
+			"prevBtn" : "screen016",
+			"nextBtn" : function() {
+				nextScreen("screen017","screen018");
+				//Set the focus to the first button
+				document.getElementById("firstCanYouHearChoice").focus();
+			}
+		},
+		"screen018" : { 
+			"prevBtn" : "screen017",
+			"nextBtn" : false /*Divergent choices*/
 		},
 		/* Annotated Template
 		"screen002" : {  //screen number matching div id that this refers to
@@ -614,4 +653,37 @@ function exitGame(){
 		closeFullscreen();
 		pageStart();
 	};
+}
+
+function showControlsPage(){
+//TODO: UNTESTED should show the controls page as a "modal" over the other content
+	// Get the modal
+	var modal = document.getElementById("controlsInfo");
+	/* Commented out: 
+	adapted this function from a startup function in my TeaRounder project
+	probably won't have a single button that opens the modal
+	
+	// Get the button that opens the modal
+	var infoButton = document.getElementById("infoButton");
+	// When the user clicks the button, open the modal 
+	infoButton.onclick = function() {
+		//modal.innerHTML = "<div>content from info.html</div>"; //This would be my preference rather than using a iFrame but I can't figure it out at time of writing
+		modalIFrame.src = "info.html";
+		modal.style.display = "block";
+	}
+	
+	*/
+	// When the user clicks on the x span, close the modal
+	document.getElementsById("closeControls").onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+	//make controlsInfo visible
+	showViaClass("controlsInfo");
 }

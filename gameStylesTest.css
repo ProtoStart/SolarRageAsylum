@@ -192,8 +192,49 @@ h2{
 }
 
 :focus {
-  outline: 1px dashed black; /*Makes it a bit more discreet than the standard settings*/
-  box-shadow: 1px 1px 1px 1px white; /*So that focus is still visible on black backgrounds*/
+	outline: 3px solid gold;
+	z-index: 50;
+  /*outline: 1px dashed black;*/ /*Makes it a bit more discreet than the standard settings*/
+  /*box-shadow: 1px 1px 1px 1px white;*/ /*So that focus is still visible on black backgrounds*/
+  /*background-color: gold;*/
+}
+/*Colourful text to differentiate beeps and voices*/
+.redBeep{
+	color: red;
+}
+.orangeBeep{
+	color: orange;
+}
+.yellowBeep{
+	color: yellow;
+}
+.greenBeep{
+	color: green;
+}
+.blueBeep{
+	color: blue;
+}
+.indigoBeep{
+	color: indigo;
+}
+.violetBeep{
+	color: violet;
+}
+.goldBeep{
+	color: gold;
+}
+.silverBeep{
+	color: silver;
+}
+.bronzeBeep{
+	color: bronze;
+}
+.limeBeep{
+	color: lime;
+}
+
+p.employee1Voice{
+	color: green;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!

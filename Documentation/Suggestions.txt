@@ -21,6 +21,16 @@ Friends suggestions:
 			- I think I'll save working on that for during the Kickstarter though
 				- seems like the kind of extra flourish that fits into polishing up the game, rather than the kind of thing that needs to exist for the trial to even work
 				- I could even have Kickstarter stretch goals for being able to customize the glow in settings
+	Discovering that you've got medical drips attached to your veins
+		- the container bags are attached to the bed - you don't have to wheel them separately or drag them along
+		- from my memory of what M said, I picture three different drips and maybe you don't know what they are at first, and have to figure them out.
+			- Three might be a bit much for a few reasons: 
+				screen area for mobile players - IDK, maybe if the bars are short it could work - it would probably challenge my design skills anyway
+				Narratively - at least to fit in with what's known so far
+				Initial difficulty
+		- These could then be shown in a HUD (Head Up Display) 
+			- I guess you'd need 
+		- Oooh maybe the asylum could have a bunch of different drips to find with different effects, and maybe they each have 
 		
 At least one friend didn't pick up on that are now fixed:
 	that they could use their keyboard to get through story screens - I've since put a controls screen in to state all the control options available

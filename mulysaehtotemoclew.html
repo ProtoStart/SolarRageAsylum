@@ -64,13 +64,33 @@
 		</div>
 		<div id="screen002" class="hidden openingScreen">
 			<h1>Solar Rage Asylum</h1>
-			<h2>(TEST AREA - now testing being able to turn off the spin effect)</h2>
+			<h2>(TEST AREA - working on level 2)</h2>
 			<p>A 2D top down indy game about escaping an Asylum.</p>
 			<p>Releasing new levels as they are built.</p>
-			<p>Currently best viewed on desktop/laptop (fixes for smaller screens coming soon)</p>
 			<p><b>So far:</b> Opening story - though it's still being worked on, with first bit of movement</p>
-			<p><b>Coming in next few weeks:</b>Improvements to this opener - especially for mobile, more story, a slightly more complex level</p>
+			<p><b>Coming in next few weeks:</b> A slightly more complex level</p>
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
+		</div>
+		<div id="controlsInfo" class="hidden middleWhiteTxt">
+			<h2>Controls</h2><!--This screen isn't mobile friendly!!-->
+			<p>You can play this entire game using either: touch screens, mouse and keyboard, just keyboard or just a mouse.</p>
+			<h3>Touch screens and mouse:</h3>
+			<p>tap or click on the buttons shown on screen.<br/>
+			If a screen is just story, tapping/clicking on the story does the same as the Next button</p>
+			<h3>Keyboard:</h3>
+			<p>
+				<b>Action sections:</b> w,a,s & d or arrow keys for movement, e or space to rotate. <br/>
+				<b>Story sections:</b> 
+				
+				standard accessibility keys for your web browser can be used to cycle through and select options<br/>
+				Typically:<br/>
+				Tab cycles through options<br/>
+				Shift + Tab cycles through options in reverse<br/>
+				Space checks or unchecks checkboxes<br/>
+				Enter activates selected buttons.<br/>
+				The game automatically sets keyboard focus to the "Next" button <br/>
+				or the first text box / option if the screen has choices.<br/>
+			</p>
 		</div>
 		<div id="screen003" class="hidden middleWhiteTxt">
 			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours</br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>
@@ -132,10 +152,45 @@
 			<p>Padded. Just one wall left to check</p>
 		</div>
 		<div id="screen010" class="hidden gameplayTopText" >
-			<p>It's official, we're in a padded room. I wonder why?<i><br/>taster beta ends here, you can keep going into the abyss that is story written in Alpha</i> OR <a onclick="exitGame()">click here to go back to the titles</a></p>
+			<p>It's official, we're in a padded room. I wonder why?<i><br/>the taster Beta currently ends at this point, but here in our test area, you can see stuff that is being worked on (expect bugs)</i> OR <a onclick="exitGame()">click here to go back to the titles</a></p>
 		</div>
 		<div id="screen011" class="hidden storyTxt" onclick="nextScreen('screen011', 'screen012')">
-			<p>Some text here - fun fact: right now I'm drawing a total blank on what the story is here!</p>
+		<!-- So by this point we know:
+				- we're on a hoverbed
+				- theres confusion about what is going on
+				- you're in a padded room
+				- you're either crazy,
+					or under the influence of some kind of hallucinagen
+		-->
+			<p>Ok so ... we're in a padded room, that we don't remember going into, on a white hoverbed...</p>
+		</div>
+		<div id="screen012" class="hidden storyTxt" onclick="nextScreen('screen012', 'screen013')">
+			<p>the room feels empty, I'm pretty sure nobody else is in here, or any other large objects<br/> and ... we're probably hallucinating - certainly something majorly wrong with our vision. Are we crazy? Where we crazy? I don't think I'm normally crazy.</p>
+		</div>
+		<div id="screen013" class="hidden storyTxt" onclick="nextScreen('screen013', 'screen014')">
+			<p>Someone must suspect that we're crazy, or have seen us be crazy, at least recently. We wouldn't have put us, I mean I wouldn't have put myself into a padded room... <br/>would I??</p>
+		</div>
+		<div id="screen014" class="hidden storyTxt" onclick="nextScreen('screen014', 'screen015')">
+			<p>Could they have been correct? Maybe something came over me. Some kind of ... psionic ... warp field??</p>
+		</div>
+		<div id="screen015" class="hidden storyTxt" onclick="nextScreen('screen015', 'screen016')">
+			<p>I hear footsteps, outside the room. <br/> I think someone might be about to enter</p>
+		</div>
+		<div id="screen016" class="hidden storyTxt" onclick="nextScreen('screen016', 'screen017')">
+			<p>Sounds like a keypad, <span class="yellowBeep">beep</span> <span class="redBeep">beep</span> <span class="yellowBeep">beep</span> <span class="greenBeep">beep</span> <span class="limeBeep">beep</span> and on the final beep the door opened with a satisfying woosh. Be calm now </p>
+		</div>
+		<div id="screen017" class="hidden storyTxt" onclick="nextScreen('screen017', 'screen018')">
+			<p class="employee1Voice">Hello there. Can you hear me okay?</p>
+		</div>
+		<div id="screen018" class="hidden storyTxt">
+			<div>
+				<button id="firstCanYouHearChoice">Yes.</button>
+				<button>Yes, though I can't see you!</button>
+				<button>Is someone there??</button>
+				<button>(Remain silent)</button>
+				<button>EFUGY BLA BLORP FORP!!! (whilst throwing arms around)</button>
+				<!-- TODO: More options after Kickstarter?? / Future update??-->
+			</div>
 		</div>
 	<!-- templates for copying
 		you'll need to delete one of these classes: storyTxt, gameplayTopText

@@ -1,17 +1,32 @@
-You awaken in a haze,
-the surroundings,
-they're different,
-and kind of not staying still.
+--- Original brainstorming lines for the opening section ---
+[used]You awaken in a haze,
+[draft]the surroundings,
+[draft]they're different,
+[draft]and kind of not staying still.
+[replacement] or is it still a dream?
 
+[replacement]
+Other than yourself, and the hoverbed you're laying on
+there is only a great magnificent vortex of light descending from above,
+flowing around and under you
+
+[used]
 You feel calm.
 Very calm.
 
+[Draft]
 Maybe too calm, given you can barely see, barely move and what you can see is ... floaty and not anything you remember seeing before.
+[Used]
+Maybe too calm, given you can barely see, and what you can see is not your normal reality.
+
+[Added during development]
+Maybe we should start trying to figure some things out.
 
 What's your name?
 
 [enter name]
 
+[Drafted but later decided the fourth wall breaking element didn't work]
 Ahh nice to meet you, I'm Derek your new internal monologue. Or perhaps if this is a game then you could say I'm the narrator for this little story. 
 Apologies, I'll try to fix up that fourth wall again. It's not very good nar-ayyy err I mean that's not very helpful for an internal monologue. 
 Don't worry, you're not crazy. 
@@ -27,3 +42,12 @@ What happened last night? Is there a chance you wheren't your regular self? (Pic
 
 ["I can't quite remember, but knowing me I wasn't .. exactly sober", "All I remember is having a quiet night in alone", "I was out with my mates but staying sober - someones got to keep everyone safe", "Duuuude like that was like yesterday man. I think the cosmos was calling out. Yeah, that's it! The cosmos was calling out to me, inviting me to bask in it's radiance down the beach, so I went down there and just sat looking out onto the waves man!"]
 
+
+--- Mulling ideas for after player has moved around a bit ---
+	- inner monologue goes back to the tone of thinking everything through
+		- recaps what is known 
+		- starts putting things together
+		- move story towards next level - we need the story to give a reason for being able to see again 
+	I'll take on the text based adventure idea J suggested, and there's that medical drips suggestion M said - that could be a cool mechanic 
+
+Ok so ... we're in a padded room, that we don't remember going into, on a hoverbed
