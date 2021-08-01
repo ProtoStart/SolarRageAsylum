@@ -1,4 +1,4 @@
-/** Last used for: spin effect toggle
+/** Last used for: level 2 experimenting
 **/
 
 /*Global Variables
@@ -179,7 +179,7 @@ var globals = {
 			"nextBtn" : function() {
 				nextScreen("screen017","screen018");
 				//Set the focus to the first button
-				document.getElementById("firstCanYouHearChoice").focus();
+				document.getElementById("canYouHearChoiceA").focus();
 			}
 		},
 		"screen018" : { 

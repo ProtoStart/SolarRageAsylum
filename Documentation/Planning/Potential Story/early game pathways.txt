@@ -1,0 +1,40 @@
+Logical early game, story pathways
+
+Hello there. Can you hear me okay?
+	A)Yes.
+		Ah good. Can you see me or is your vision messed up?
+			"Messed up" is one way to describe it.
+				All darkness and spinning lights?? It's a common side effect, but at least you're not in a rage anymore. This extra shot should fix it. [goes to fixing the vision]
+			I can only really see the hoverbed and myself.
+				Ahh don't worry. We can fix it if you give me a second. [goes to fixing the vision]
+			Why??
+				Sometimes the meds you are on cause temporary problems with vision.
+				How many fingers am I holding up?
+					No idea, can't see.
+						Okay we'll soon have the sorted [goes to fixing the vision]
+					(random guess)
+						Ha! trick question! You clearly cannot see. [goes to fixing the vision]
+					Trick question?
+						sure sure, you got me, but I don't think you can see. [goes to fixing the vision]
+	B)Yes, though I can't see you!
+		Ah yes, temporary vision loss can occur unfortunately. It'll return shortly.
+	c)Is someone there??
+		Yes, I'm here next to you
+	D)(Remain silent)
+		(1st run)Hmm, no immediate response. Pulse seems good. Brain activity is a little unusual, but nothing we wouldn't expect from their condition and the meds they're on. I'll check the others and try again in a minute 
+			(walks out, doors close behind
+				(back to "Hello there. ..." and add to a silence counter)
+		(2nd run) 
+		
+	E)EFUGY BLA BLORP FORP!!! (whilst throwing arms around)
+		Oh dear, looks like this one isn't responding well to the meds, better try something else. Guard, would you restrain their left arm so that I can get a dose of this in.
+			NO NO NO, I'm fine now!
+				Ahh ha! Just a ruse was it?! You scum of the moon! 
+				You've just earnt yourself another trip to happyville.
+					(accept fate)
+					(Try to escape on the hoverbed)
+						hoverbed action bit
+			(Try to escape on the hoverbed)
+				hoverbed action bit [Would need visual clues to where the door is before this point]
+			BLORP A FORP QUART! DOE FLOE MAPPA FLAPPA WAG! (writhe manically)
+			
