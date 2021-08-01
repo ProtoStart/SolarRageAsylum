@@ -198,6 +198,11 @@ h2{
   /*box-shadow: 1px 1px 1px 1px white;*/ /*So that focus is still visible on black backgrounds*/
   /*background-color: gold;*/
 }
+/*choiceBtns are divs that contain buttons for player choices*/
+.choiceBtns button{
+	margin-bottom: 2px; /*I needed a tiny bit more vertical margin on this kind of button, so that focus outline is never partially obscured. I tried fixing the issue with z-indexs but that got way more complex than this issue warranted*/
+}
+
 /*Colourful text to differentiate beeps and voices*/
 .redBeep{
 	color: red;
