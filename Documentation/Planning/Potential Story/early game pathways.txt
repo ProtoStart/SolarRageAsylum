@@ -4,9 +4,11 @@ Hello there. Can you hear me okay?
 	A)Yes.
 		Ah good. Can you see me or is your vision messed up?
 			"Messed up" is one way to describe it.
-				All darkness and spinning lights?? It's a common side effect, but at least you're not in a rage anymore. This extra shot should fix it. [goes to fixing the vision]
+				All darkness and spinning lights?? It's a common side effect, but at least you're not in a rage anymore. 
+				This extra shot should fix your vision. You'll feel a little prick right about...
+				... Now [pulse of colour, vision fixes]
 			I can only really see the hoverbed and myself.
-				Ahh don't worry. We can fix it if you give me a second. [goes to fixing the vision]
+				Ahh don't worry. We can fix it if you give me a second. [goes to "This extra shot..."]
 			Why??
 				Sometimes the meds you are on cause temporary problems with vision.
 				How many fingers am I holding up?
@@ -37,4 +39,5 @@ Hello there. Can you hear me okay?
 			(Try to escape on the hoverbed)
 				hoverbed action bit [Would need visual clues to where the door is before this point]
 			BLORP A FORP QUART! DOE FLOE MAPPA FLAPPA WAG! (writhe manically)
+				NOW! (GRABBED ... dose goes in, effect takes ahold)
 			
