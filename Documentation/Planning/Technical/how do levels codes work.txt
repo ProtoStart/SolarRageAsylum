@@ -1,0 +1,55 @@
+#How do level codes work?
+AAAAAARGH THIS IS HARDER THAN IT LOOKS (from how it looked at first glance anyway)
+(Actually no, it turns out it's not hard, it just required some thought and research)
+
+##Basic gist of what I had in mind
+When you finish a level, you get given a code, that you can type into the box on the homepage to immediatly skip to that level. 
+
+Level codes would be a fun, retro feeling, easy way to implement:
+	- letting players come back to where they where if they temporarily stop playing
+	- letting players pick up where they left off on a different device
+	- letting players effectively save their progress via pen and paper or in a file they back up themselves
+	- letting players share codes with each other, and maybe "cheat" if they want. (Since this is single player with no leader boards, as I see it, it's actually good for the game if people share cheat codes and level codes. They'll know that they're skipping to a certain point, but if they're stuck and they want to skip ahead, they'll be able to - but only if they can find a good level code) 
+	
+This was based on some assumptions:
+ We wouldn't really need to have an inventory saved, since if you'd got to the end of the level you would always
+
+##Issues/challenges
+###1) codes are put into the home page, but (currently), the home page, alpha game and beta game are all seperate pages.
+
+We'll need a way to pass data from one page to another - there are plenty of ways available to us as web developers. So this just means we have to look at our options, pick something, implement it and see if that does the job well.
+
+A solution that allows the code to work in alpha and beta, would be great, as that would mean people could finish in Beta and if they know the access code for Alpha, they could carry on in there.
+
+###2) This game will have branching
+I was initially thinking this game would be linear, made of seperate numbered levels with some story between. It feels like adding branches adds complications to level codes.
+
+Can you store all the info about what branches where taken? Do we need to store that? Could we have codes that represent all the relevant bits of info for the pathway taken?
+
+###3) We'll want an actual inventory, and status's too - so that players can pick up stuff to help them escape, and have status effects that last between sections
+
+##Solution options:
+###Potential solution, A - Cookie? (seems reasonable for challenges 1 & 2, maybe for 3)
+When the player puts their code into the box on the homepage, they'd get a confirm saying they can set a cookie that will allow them to skip to said level. 
+Each game start page would have an onload function that checks for that cookie. If present it reads the value, and sets the JSON and view as appropriate. How much info can you pass in cookies though? 
+
+###Chosen solution, B - HTML5 Local storage (probably best)
+seems pretty simple to use, good browser support, isn't controversial, allows far more data storage than cookies. The standard 5MB of HTML5 local storage, is about 1MB less than the size of the entire repo so far, and would allow 2,500,000 characters of storage if each character is 2 bytes. - All HTML5 local storage is in strings in key value pairs.
+
+If it's as easy as it looks to use, I might as well use local storage as the place to store status effects, inventory 
+
+Usage references:
+https://www.w3schools.com/html/html5_webstorage.asp
+https://diveinto.html5doctor.com/storage.html (a bit out of date)
+
+###Overkill solution, C - IndexedDB
+A database seems overkill for this game. I like databases, and I do feel it's been a while since I've had a good chance to flex my SQL skills, but honestly where am I going to need that power? 
+
+###Ruled out solution, D - Separate pages for each section you might skip to
+I'm not sure that would work with the branching. Certainly not going to let people pick up different items or have different effects on them.
+
+###Quickly ruled out solution, E - E-tags
+I don't really understand them, or really know if they make up a potential solution - I briefly looked into them because they where on a list of alternatives to cookies, though they're part of the HTTP protocol which I don't really deal with usually, and this seems out of my skill area - possibly useful thing to learn for a better solution to cacheing issues from continuous releasing, but not something I'm going to read in detail for a solution to the task in hand.
+
+### Potential solution, F - Query strings
+The URL generated could include a query string that is ready to set up the page directly. Then people would be able to share exact points in the game they reached. Would make URLs ugly and people might share their place in the game accidently when wanting to just share the game.

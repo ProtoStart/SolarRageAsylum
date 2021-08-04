@@ -1,0 +1,13 @@
+Quality improvements I'd like to add
+  This file is basically notes of little improvements I've thought of, that I'd like to make at some point in the future. They are different from suggestions because these are coming from me as the developer who wants his creation to be great. The suggestions file represents things that I know would make the game better for those people who suggested it
+
+
+- Choice of where/if the on-screen buttons are shown
+	lefty mode - buttons always on the left
+	spread around - left button on the left, right button on the right; up, down and rotate would have to be at the bottom in the middle since theres text at the top
+	players might want them off if their using a keyboard - or if I add swipe controls mobile users might prefer that
+	
+- Swipe controls
+	- how would that work?
+	Swipe and hold to keep going a direction? - this seems most like the other control schemes
+	Swipe to start going, and then tap again to stop?

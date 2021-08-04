@@ -1,0 +1,18 @@
+WORLD MAP CONCEPT   - Work In Progress
+- this is written to my intuition, and not necessarily what I'll go with in the end
+- I'll add to this as development goes on
+
+Rec = Recovery room (Rec 3 is start), C = Corridor, GPC = Guard Post in Corridor, Mon = Monitoring station, Lck = Locked door, Exit - Exit/entrance to the asylum, Rcp = "Reception"
+(grid lines)
+|	|	|	|	|	|	|	|	|	|	
+	
+Rec5  C	Rec6				
+Rec3  C Rec4
+Rec1  C	Rec2
+Mon GPC
+	Lck			Rcp
+	  C  C 	 C 	 C 	 C 	
+				 C
+				 C
+				GPC
+				Exit

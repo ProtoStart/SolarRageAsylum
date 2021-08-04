@@ -1,0 +1,25 @@
+Level building and world building overall plan.
+	Now that I'm going for a non-linear game, and we're at the point where our character will be able to try to escape, I think it makes sense to start planning out the layout of the Asylum. 
+	
+	Later on this might lead to the world outside, and get to cultural details about the world to make it feel more 3d. For now though we can keep the player contrained to a fairly small area, that doesn't have a need for a huge amount of lore. 
+	
+	We're really just expanding the playable area a little bit. Once we've got that area into the game, we can expand out again. In fact we can keep doing that - essentially now, instead of "levels" we have areas that the players can get to. 
+	
+So at first we just had the padded room. The player can't even see the room initially.
+	Once they start talking to the person who checks on them, player choices could allow a bunch of different changes to what they can access. However in the interest of frequent game updates, rather than wait for development of every possible choice and outcome, I'm going to drip release possibilities. Players will be able to see that there are options that are still in development, but not activate them. Basically some options of conversation will have disabled buttons, and we'll have some text explaining that the other options will be added soon. So fairly soon we will need to have layout that would be neeeded by each of the options from this conversation, but for now I'll pick some conversation pathways and only build in that.
+	
+	However that shouldn't limit me from putting stuff here if I have inspiration for something. I just won't force myself to think of things outside of that current scope.
+	
+	I guess this was an initial recovery room. That makes sense with the story, given that the PC starts the game by waking up here. In modern day hospitals, there are wards for patients to recover from operations. An asylum would probably have dedicated rooms just for patients to recover in from being given injections to knock them out.
+	There would probably be a bunch of these rooms all attached by a single corridor, in a secure wing of the asylum.
+	They'd each be numbered [or have a letter identifier? numbers probably makes most sense]. So you'd have recovery room 1, recovery room 2 and so on, up to recovery room 6?? Yeah that works, maybe they'd have more recovery rooms, but they'd be off of another corridor.
+	They'd each have cameras inside, and the footage from all of these rooms would be vieable in a monitoring room. 
+	
+
+
+In my mind, the doorway from our starting room is to the right of the screen, and then there'd be a hallway outside. The doorway being on the right side of the screen, probably comes from the video game convention that characters travel to the right - Mario runs to the right in most of the 2d games, I think Samus and Lara Croft both run to the right in their 2d games, basicallly all side scrolling games go to the right. 
+	- I found an interesting discussion on this, that supports this view and also seems to add that for most games that came out after the original Mario, going from right to left is used deliberately for effect after going left to right, either to show that you are back tracking, or for an extra bit of difficulty because you're now used to going one way https://forum.digitpress.com/forum/showthread.php?63304-Side-Scrollers-that-scroll-from-Right-to-Left
+
+I'll divide the world into a grid.
+	Do I make one map and actually plan it all out, or do I go to the lengths of having some of it randomised?? I think I'll plan it out --- oooh yes I'll plan this starting asylum out and then maybe in the distant future we'll have a randomly generated asylum so that it's different each time.
+	Do I go with how it instinctively feels it should be, or should I go against that - would that make it a bit harder for people who have played games before, or would that be frustrating?

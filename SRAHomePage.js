@@ -27,7 +27,7 @@ function codeUnlockFunc(){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttempt.includes("osebud")){ //Sims "rosebud" cheat - I've left off the r as an easy way to allow for people putting a capital R instead - though equally "nosebud" would pass this lol.
 		//TODO: make the simoleans actually get added to the players game inventory!
-		alert("1000 Simoleans added to your characters wallet. Simoleans aren't the currency in SRA so they are useless!");
+		alert("Once these codes impact the game, this will add 1000 Simoleans to your characters wallet. Simoleans aren't the currency in SRA so they are kinda useless!");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
 	} else if (codeAttempt.includes("letmein") || codeAttempt.includes("Letmein") ||codeAttempt == "Iwannaplay"|| codeAttempt.includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
@@ -39,7 +39,7 @@ function codeUnlockFunc(){
 	} else if (codeAttempt.includes("uuddlrlrba") || codeAttempt.includes("wwssadadba") || codeAttempt.includes("upupdowndownleftrightleftright") || codeAttempt.includes("up up down down left right left right")|| codeAttempt.includes("UUDDLRLRBA")){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code" - a few permutations allowed including use of includes so that there can be other things like start, and on the longer ones I've made it be forgiving of missing the end letters or getting them wrong
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
 	} else if (codeAttempt.includes("I know where you hid the body")){
-		alert("it's not hidden! it's right there in view source!"); //An HTML joke I made up
+		alert("it's not hidden! it's right there in view source! (this joke is probably vaguely amusing if you're a web developers)"); //An HTML joke I made up
 	} else if (codeAttempt.includes("lime") || codeAttempt.includes("colour") || codeAttempt.includes("color")){
 		alert("BEHOLD! here be the greatest colour");
 		document.getElementById("mainContent").classList.add("lime");
@@ -47,6 +47,9 @@ function codeUnlockFunc(){
 		alert("Raiding party!!"); 
 	} else if (codeAttempt.includes("i r winner")){ //Age of Empires 2 reference
 		alert("All hail, king of the losers!"); 
+	} else if (codeAttempt.includes("padded") || codeAttempt.includes("PADDED")){
+		/** LEVEL CODE TO SKIP TO THE INTRO **/
+		alert("Level codes are still being implemented"); 
 	} else {
 		alert("NOPE that code ain't right! There is no limit on attempts currently, so keep trying. Maybe get your friends to help guess??");
 	}
