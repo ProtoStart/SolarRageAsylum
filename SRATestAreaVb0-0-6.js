@@ -1,4 +1,4 @@
-/** Last used for: level 2 experimenting
+/** Last used for: level codes basic testing
 **/
 
 /*Global Variables
@@ -233,6 +233,7 @@ function closeFullscreen() {
 }
 
 function pageStart(){
+	alert(localStorage.getItem("padded"));
 	setTimeout(function(){
 		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
 			nextScreen("screen001", "screen002");

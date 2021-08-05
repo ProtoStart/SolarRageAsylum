@@ -49,9 +49,23 @@ function codeUnlockFunc(){
 		alert("All hail, king of the losers!"); 
 	} else if (codeAttempt.includes("padded") || codeAttempt.includes("PADDED")){
 		/** LEVEL CODE TO SKIP TO THE INTRO **/
-		alert("Level codes are still being implemented"); 
+		alert("Level codes are still being implemented, this might save that you've activated this code and might be recognised in the test area"); 
+		saveToLocalStorage("padded","true");
 	} else {
 		alert("NOPE that code ain't right! There is no limit on attempts currently, so keep trying. Maybe get your friends to help guess??");
+	}
+}
+
+/** Local storage **/
+function saveToLocalStorage(key,value){
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just just local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand it https://diveinto.html5doctor.com/storage.html
+	if (typeof(Storage) !== "undefined") {
+	//Storage is there, so we'll save it
+	localStorage.setItem(key, value);
+	
+	} else {
+	  //No Web Storage support - TODO: is this a good experience??
+	  alert("couldn't save, browser doesn't support local storage");
 	}
 }
 
