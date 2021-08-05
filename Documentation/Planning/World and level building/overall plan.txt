@@ -1,14 +1,25 @@
 Level building and world building overall plan.
 	Now that I'm going for a non-linear game, and we're at the point where our character will be able to try to escape, I think it makes sense to start planning out the layout of the Asylum. 
 	
-	Later on this might lead to the world outside, and get to cultural details about the world to make it feel more 3d. For now though we can keep the player contrained to a fairly small area, that doesn't have a need for a huge amount of lore. 
+	Later on this might lead to the world outside, and to things that give more indications about the world to make it feel more 3d. For now though we can keep the player contained to a small area, that doesn't have a need for a huge amount of lore. 
 	
-	We're really just expanding the playable area a little bit. Once we've got that area into the game, we can expand out again. In fact we can keep doing that - essentially now, instead of "levels" we have areas that the players can get to. 
+	Essentially now, instead of incrementally adding "levels", we are incrementally adding areas that the players can get to. 
+	
+	We'll use locked doors, guards doing their job and other kinds of blockade to make it temporarily impossible to get beyond certain areas. Then when we want to widen the play area a bit more, we add in dialogue choices and events that would let players get through the blockades.
+	
+General Plan
+	0) (already built before this planning) - Just the starting room - recovery room 3, no vision, and it's empty
+	1) Want a very small expansion - develop one of these: either just be able to see the room, or just try to escape blindly but be caught very easily when you collide
+	2) Build both sides to that
+	3) a slightly bigger expansion
+	
+I should still note things in here that aren't relevant yet.
+	If I have inspiration for something, I should make use of that creativity moment and note down those ideas here. I just won't force myself to think beyond the current scope, or delay the current focused thing beyond the time taken to note down ideas. It's never a good idea to let inspiration go to waste, but it's a worse thing to go down a rabbit hole and delay releases.	
 	
 So at first we just had the padded room. The player can't even see the room initially.
 	Once they start talking to the person who checks on them, player choices could allow a bunch of different changes to what they can access. However in the interest of frequent game updates, rather than wait for development of every possible choice and outcome, I'm going to drip release possibilities. Players will be able to see that there are options that are still in development, but not activate them. Basically some options of conversation will have disabled buttons, and we'll have some text explaining that the other options will be added soon. So fairly soon we will need to have layout that would be neeeded by each of the options from this conversation, but for now I'll pick some conversation pathways and only build in that.
 	
-	However that shouldn't limit me from putting stuff here if I have inspiration for something. I just won't force myself to think of things outside of that current scope.
+
 	
 	I guess this was an initial recovery room. That makes sense with the story, given that the PC starts the game by waking up here. In modern day hospitals, there are wards for patients to recover from operations. An asylum would probably have dedicated rooms just for patients to recover in from being given injections to knock them out.
 	There would probably be a bunch of these rooms all attached by a single corridor, in a secure wing of the asylum.
