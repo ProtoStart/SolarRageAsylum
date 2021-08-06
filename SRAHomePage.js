@@ -18,36 +18,37 @@ function codeUnlockFunc(){
 	document.getElementById("mainContent").classList.remove("lime");
 	//get the contents of the input with id codeUnlock - tested works
 	var codeAttempt = document.getElementById("codeUnlock").value;
+	var codeAttemptLower = codeAttempt.toLowerCase();
 	//test it against various secret codes (if's will work to start)
 	if (codeAttempt == ""){
 		alert("You gotta type something fool!");
 	} else if (codeAttempt == "hunter2"){
-		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters, the last 6 of which in lower case");
-	} else if (codeAttempt.includes("RHCP") || codeAttempt.toLowerCase().includes("chili peppers")){
+		alert("Nice password! - but it's not correct - try demanding entry in three words but combined into one for 7 characters (in any combination of upper or lower case letters)");
+	} else if (codeAttempt.includes("RHCP") || codeAttemptLower.includes("chili peppers")){
 		alert("by the way I tried to say I'd be there, waiting for");
-	} else if (codeAttempt.toLowerCase().includes("rosebud")){ //Sims "rosebud" cheat
+	} else if (codeAttemptLower.includes("rosebud")){ //Sims "rosebud" cheat
 		//TODO: make the simoleans actually get added to the players game inventory!
 		alert("Once these codes impact the game, this will add 1000 Simoleans to your characters wallet. Simoleans aren't the currency in SRA so they are kinda useless!");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
-	} else if (codeAttempt.toLowerCase().includes("letmein") ||codeAttempt == "Iwannaplay"|| codeAttempt.toLowerCase().includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
+	} else if (codeAttemptLower.includes("letmein") ||codeAttempt == "Iwannaplay"|| codeAttemptLower.includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
 		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
 			if (confirm("Wanna come into our testing area?")){
 				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
 			};
 		};
-	} else if (codeAttempt.toLowerCase().includes("uuddlrlrba") || codeAttempt.toLowerCase().includes("wwssadadba") || codeAttempt.toLowerCase().includes("upupdowndownleftrightleftright") || codeAttempt.toLowerCase().includes("up up down down left right left right")){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code" - a few permutations allowed including use of includes so that there can be other things like start, and on the longer ones I've made it be forgiving of missing the end letters or getting them wrong
+	} else if (codeAttemptLower.includes("uuddlrlrba") || codeAttemptLower.includes("wwssadadba") || codeAttemptLower.includes("upupdowndownleftrightleftright") || codeAttemptLower.includes("up up down down left right left right")){//Up, Up, Down, Down, Left, Right, Left, Right, B, A - reference to "the Konami code" - a few permutations allowed including use of includes so that there can be other things like start, and on the longer ones I've made it be forgiving of missing the end letters or getting them wrong
 		alert("Cheat code accepted! It doesn't do anything yet except tell you this: try letmein");
-	} else if (codeAttempt.toLowerCase().includes("i know where you hid the body")){
-		alert("it's not hidden! it's right there in view source! (this joke is probably vaguely amusing if you're a web developers)"); //An HTML joke I made up
-	} else if (codeAttempt.toLowerCase().includes("lime") || codeAttempt.toLowerCase().includes("colour") || codeAttempt.includes("color")){
+	} else if (codeAttemptLower.includes("i know where you hid the body")){
+		alert("it's not hidden! it's right there in view source! (this joke is probably vaguely amusing if you're a web developer)"); //An HTML joke I made up
+	} else if (codeAttemptLower.includes("lime") || codeAttemptLower.includes("colour") || codeAttempt.includes("color")){
 		alert("BEHOLD! here be the greatest colour");
 		document.getElementById("mainContent").classList.add("lime");
-	} else if (codeAttempt.toLowerCase().includes("furious the monkey boy")){ //Age of Empires 2 reference
+	} else if (codeAttemptLower.includes("furious the monkey boy")){ //Age of Empires 2 reference
 		alert("Raiding party!!"); 
-	} else if (codeAttempt.toLowerCase().includes("i r winner")){ //Age of Empires 2 reference
+	} else if (codeAttemptLower.includes("i r winner")){ //Age of Empires 2 reference
 		alert("All hail, king of the losers!"); 
-	} else if (codeAttempt.toLowerCase().includes("padded")){
+	} else if (codeAttemptLower.includes("padded")){
 		/** LEVEL CODE TO SKIP TO THE INTRO **/
 		if( saveToLocalStorage("padded","true")){
 			alert("You've activated this code for this browser now, but level codes are still being implemented. "); 
