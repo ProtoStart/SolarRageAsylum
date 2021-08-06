@@ -27,8 +27,8 @@ function codeUnlockFunc(){
 	} else if (codeAttempt.includes("RHCP") || codeAttemptLower.includes("chili peppers")){
 		alert("by the way I tried to say I'd be there, waiting for");
 	} else if (codeAttemptLower.includes("rosebud")){ //Sims "rosebud" cheat
-		//TODO: make the simoleans actually get added to the players game inventory!
-		alert("Once these codes impact the game, this will add 1000 Simoleans to your characters wallet. Simoleans aren't the currency in SRA so they are kinda useless!");
+		alert("Your characters Simolean bank account set to having 1000 Simoleans. You won't actually be able to withdraw or spend them, so they are kinda useless!");
+		saveToLocalStorage("simoleans","1000");
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
 	} else if (codeAttemptLower.includes("letmein") ||codeAttempt == "Iwannaplay"|| codeAttemptLower.includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
@@ -59,12 +59,12 @@ function codeUnlockFunc(){
 }
 
 /** Local storage **/
-function saveToLocalStorage(key,value){
-	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just just local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand it https://diveinto.html5doctor.com/storage.html
+function saveToLocalStorage(key,value){ /*Returns true if successful, alerts if not*/
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just just local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
 	if (typeof(Storage) !== "undefined") {
 	//Storage is there, so we'll save it
 		localStorage.setItem(key, value);
-		return true;
+		return true; //lets us display a relevant success message or carry on doing things
 	} else {
 	  //No Web Storage support - TODO: is this a good experience??
 	  alert("couldn't save, browser doesn't support local storage");
