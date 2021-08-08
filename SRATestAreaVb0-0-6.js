@@ -255,6 +255,7 @@ function loadSectionFromClean(section){
 		globals.Screens.loadFrom = "screen010";
 	}
 	alert("Game will show after these reminders");
+	openFullscreen();
 	nextScreen("loadGameScreen", "controlsInfo");
 }
 
