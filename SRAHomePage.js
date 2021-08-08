@@ -59,8 +59,9 @@ function codeUnlockFunc(){
 }
 
 /** Local storage **/
-function saveToLocalStorage(key,value){ /*Returns true if successful, alerts if not*/
-	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just just local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
+function saveToLocalStorage(key,value){ 
+/*Returns true if successful, alerts if not*/
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just check local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
 	if (typeof(Storage) !== "undefined") {
 	//Storage is there, so we'll save it
 		localStorage.setItem(key, value);

@@ -1,4 +1,4 @@
-BETA NOTES (keep this professional-ish!)
+BETA NOTES (visible in online documentation)
 Known imperfections:
 Game isn't finished
 Developer isn't earning off it yet

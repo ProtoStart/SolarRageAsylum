@@ -148,6 +148,7 @@ var globals = {
 			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
 			"nextBtn" : function() {
 				nextScreen("screen010","screen011");
+				saveToLocalStorage("padded","true");
 				/*go to "cut screen" 
 					- hide game buttons
 					- turn off keyboard controls
@@ -231,6 +232,7 @@ function startNewGame() {
 		so that that is completely done before seemlessly moving into the story opening
 	*/
 	openFullscreen();
+	globals.Screens.loadFrom = "screen003b";
 	nextScreen("screen002","controlsInfo");
 }
 
@@ -250,7 +252,7 @@ function loadSectionFromClean(section){
 		- a choice of seeing the controls again
 	Then after that, we load in whatever screen is at the start of the given section
 	*/
-	//use the parameter to know which section the player wishes to skip to, and therefore which screen id to remember later once the 
+	//use the parameter to know which section the player wishes to skip to, and therefore which screen id to remember for when the pre-game screens are finished and we're ready to skip on 
 	if(section == 2){
 		globals.Screens.loadFrom = "screen010";
 	}
@@ -744,4 +746,17 @@ function showControlsPage(){
 	}
 	//make controlsInfo visible
 	showViaClass("controlsInfo");
+}
+
+function saveToLocalStorage(key,value){ 
+/*Returns true if successful, alerts if not*/
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just check local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
+	if (typeof(Storage) !== "undefined") {
+	//Storage is there, so we'll save it
+		localStorage.setItem(key, value);
+		return true; //lets us display a relevant success message or carry on doing things
+	} else {
+	  //No Web Storage support - TODO: is this a good experience??
+	  alert("couldn't save, browser doesn't support local storage");
+	}
 }
