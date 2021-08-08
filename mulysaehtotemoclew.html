@@ -64,13 +64,15 @@
 		</div>
 		<div id="screen002" class="hidden openingScreen">
 			<h1>Solar Rage Asylum</h1>
-			<h2>(TEST AREA - Adding level codes)</h2>
-			<p><b>Testing from 5th Aug 2021</b> I'm working on adding level codes to the game at the moment. You'll have just seen an alert pop up - it should say null if you've not used the code "padded" in the level codes box on the landing page, or true if you have. This helps me check if my local storage code works by just showing that this page has that value. Soon, that value will decide under the hood, if the page displays a way to skip to just after exploring the first room.</p>
+			<h2>(TEST AREA - Improving level codes)</h2>
+			<p><b>Testing 8th Aug 2021</b> Level codes work now! There's only one level code right now, and there's a few bits of polish still to do</p>
 			<p>A 2D top down indy game about escaping an Asylum.</p>
 			<p>Releasing new levels as they are built.</p>
 			<p><b>So far:</b> in both Alpha and Beta: Opening story, with first bit of movement; then just in Alpha: starts of story branching</p>
-			<p><b>Coming in next few weeks:</b> more branches of plot</p>
+			<p><b>Coming in next few weeks:</b> improvements to the how level codes feel to use, more branches of plot</p>
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
+			<button onclick="showLoadGameScreen()">Load Game</button>
+			<button onclick="startNewGame()">Start New Game</button>
 		</div>
 		<div id="controlsInfo" class="hidden middleWhiteTxt">
 			<h2>Controls</h2><!--This screen isn't mobile friendly!!-->
@@ -92,6 +94,11 @@
 				The game automatically sets keyboard focus to the "Next" button <br/>
 				or the first text box / option if the screen has choices.<br/>
 			</p>
+		</div>
+		<div id="loadGameScreen" class="hidden middleWhiteTxt">
+			<h2>(under construction) Load Game?</h2>
+			<p>buttons will be disabled if you've not unlocked that save point. If you have a level code from playing on another browser or device (or maybe you want to cheat) you can activate the code in the box at <a href="http://solarrageasylumbeta.protostart.net/" target="_blank">http://solarrageasylumbeta.protostart.net/</a></p>
+			<p><button id="loadSection2Btn" disabled="true" onclick="loadSectionFromClean(2)">End of section 1</button></p>
 		</div>
 		<div id="screen003" class="hidden middleWhiteTxt">
 			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours</br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>

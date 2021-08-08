@@ -2,6 +2,7 @@ BETA NOTES (keep this professional-ish!)
 Known imperfections:
 Game isn't finished
 Developer isn't earning off it yet
+When I played it in the browser on my Xbox hooked up to my TV the rainbow width and height was huge, which caused it to look obviously like a square with rounded corners
 --I'm sure there's some other stuff, but basically I'm pretty darn proud of where I've managed to get this project
 
 FIXES  AND IMPROVEMENTS!! YAY!!  -- Newer updates at the bottom of this

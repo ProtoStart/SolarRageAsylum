@@ -33,14 +33,25 @@ Can you store all the info about what branches where taken? Do we need to store 
 When the player puts their code into the box on the homepage, they'd get a confirm saying they can set a cookie that will allow them to skip to said level. 
 Each game start page would have an onload function that checks for that cookie. If present it reads the value, and sets the JSON and view as appropriate. How much info can you pass in cookies though? 
 
-###Chosen solution, B - HTML5 Local storage (probably best)
-seems pretty simple to use, good browser support, isn't controversial, allows far more data storage than cookies. The standard 5MB of HTML5 local storage, is about 1MB less than the size of the entire repo so far, and would allow 2,500,000 characters of storage if each character is 2 bytes. - All HTML5 local storage is in strings in key value pairs.
+###Chosen solution, B - HTML5 Local storage (probably best, seems good during early usage)
+seems pretty simple to use, good browser support, isn't controversial, allows far more data storage than cookies. The standard 5MB of HTML5 local storage, is about 1MB less than the size of the entire repo so far, and would allow 2,500,000 characters of storage if each character is 2 bytes. - All HTML5 local storage is in strings in key value pairs. So presumably that means if the average key value pair between them uses 50 chars we'd have room for 50,000 sets, or if 500 chars average then 5,000 sets - feels very comfortable enough.
 
-If it's as easy as it looks to use, I might as well use local storage as the place to store status effects, inventory 
+If it's as easy as it looks to use, I might as well use local storage as the place to store status effects, inventory, and also save progress directly.
 
 Usage references:
 https://www.w3schools.com/html/html5_webstorage.asp
 https://diveinto.html5doctor.com/storage.html (a bit out of date)
+
+If a code is found we'll still want to show:
+		- the opening title card (screen001)
+		- screen002
+		- Some form of epilepsy warning and spin effect opt out
+		- Some form of reminder for phone users to put their phone in landscape mode 
+We'll also want to give players a choice of seeing the controls again.
+
+We don't actually need the page load function to do anything new!
+I'll add to screen002, a button to show a page that will display activated codes, and handle the jump from there
+I'll also need to make the "Next" button show "start new" instead of "Next" just for screen002
 
 ###Overkill solution, C - IndexedDB
 A database seems overkill for this game. I like databases, and I do feel it's been a while since I've had a good chance to flex my SQL skills, but honestly where am I going to need that power? 

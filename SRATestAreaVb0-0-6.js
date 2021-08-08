@@ -43,6 +43,7 @@ var globals = {
 		"W" : false
 	},
 	"Screens": {
+		"loadFrom": "screen003b", //Default is the screen where game play in a new game starts from. This var is altered when players choose to load the game at some other point, stored here for when they've got through the screens we want to show the players each time. To access this use globals.Screens.loadFrom
 		"current" : "screen001", //Override each transition, to keep track - globals.Screens.current to access 
 		//Annotated template at bottom!
 		"screen001" : {
@@ -50,15 +51,12 @@ var globals = {
 			"nextBtn" : "screen002"
 		},
 		"screen002" : {
-			"prevBtn" : "screen001",
-			"nextBtn" : function() {
-				/*This will take player from opening screens, into a fairly blank screen briefly
-					while browser full screen mode takes effect fully
-					so that that is completely done before seemlessly moving into the story opening
-				*/
-				openFullscreen();
-				nextScreen("screen002","controlsInfo");
-			}
+			"prevBtn" : false, /* Would be weird to have a Previous button and not a Next button - TODO add a "credits" button */
+			"nextBtn" : false /*This screen now has Load and Start New Game buttons */
+		},
+		"loadGameScreen" : { /* The screen for choosing which place to load the game from*/
+			"prevBtn" : "screen002",
+			"nextBtn" : false
 		},
 		"controlsInfo" : { //Shows as a screen right after we go to full screen - when shown as a modal we won't use this block
 			"prevBtn" : function() {
@@ -73,6 +71,7 @@ var globals = {
 		"screen003" : { //has an epilepsy warning in the centre of the screen
 			"prevBtn" : "controlsInfo", 
 			"nextBtn" : function() {
+				/**Set spin settings depending on check box checked**/
 				if(document.getElementById('useSpin').checked){
 				//checkbox labelled "Use spin effect?" is checked
 					globals.playerSettings.spin = true;
@@ -80,8 +79,15 @@ var globals = {
 				//checkbox labelled "Use spin effect?" is not checked
 					globals.playerSettings.spin = false;
 				}
-				showAwakening();
-				nextScreen("screen003","screen003b");
+				/**Launching into the actual game - different screens need different things to be happening when they load along with the text**/
+				if (globals.Screens.loadFrom == "screen003b"){
+					showAwakening();
+				} else if (globals.Screens.loadFrom == "screen010"){
+					skipToScreen010Prep();
+				}
+				//resetGameArea();
+				
+				nextScreen("screen003", globals.Screens.loadFrom);
 			}
 		}, 
 		"screen003b" : {  //Game starts here
@@ -151,7 +157,10 @@ var globals = {
 			}
 		},
 		"screen011" : { 
-			"prevBtn" : "screen010", //TODO check that that's ok to do
+			"prevBtn" : function() {
+				skipToScreen010Prep();
+				nextScreen("screen011","screen010");
+			},
 			"nextBtn" : "screen012"
 		},
 		"screen012" : { 
@@ -208,6 +217,47 @@ var globals = {
 	height: 400px;
 */
 
+function pageStart(){
+	setTimeout(function(){
+		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
+			nextScreen("screen001", "screen002");
+		}
+	}, 3000);
+}
+
+function startNewGame() {
+	/*This will take player from opening screens, into a fairly blank screen briefly
+		while browser full screen mode takes effect fully
+		so that that is completely done before seemlessly moving into the story opening
+	*/
+	openFullscreen();
+	nextScreen("screen002","controlsInfo");
+}
+
+function showLoadGameScreen() {
+	nextScreen("screen002","loadGameScreen");
+	if(localStorage.getItem("padded") == "true"){ //"true" as a string because localStorage stores everything as strings
+		//enable loadSection2Btn
+		document.getElementById("loadSection2Btn").disabled = false;
+	}
+}
+
+function loadSectionFromClean(section){
+	/*Used by the buttons in the load game screen. Loads a given section from not having anything loaded and also makes sure player sees screens they should see every game session
+	By this point, players have already seen the title card and screen002, but we still need:
+		- Some form of epilepsy warning and spin effect opt out
+		- Some form of reminder for phone users to put their phone in landscape mode
+		- a choice of seeing the controls again
+	Then after that, we load in whatever screen is at the start of the given section
+	*/
+	//use the parameter to know which section the player wishes to skip to, and therefore which screen id to remember later once the 
+	if(section == 2){
+		globals.Screens.loadFrom = "screen010";
+	}
+	alert("Game will show after these reminders");
+	nextScreen("loadGameScreen", "controlsInfo");
+}
+
 function openFullscreen() {
 //opens the browser in full screen - particularly wanted on mobile so that we have a bit more screen to work with
 //found on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
@@ -230,15 +280,6 @@ function closeFullscreen() {
   } else if (document.msExitFullscreen) { /* IE11 */
     document.msExitFullscreen();
   }
-}
-
-function pageStart(){
-	alert(localStorage.getItem("padded"));
-	setTimeout(function(){
-		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
-			nextScreen("screen001", "screen002");
-		}
-	}, 3000);
 }
 
 function masterPrevBtnClick(){
@@ -601,6 +642,14 @@ function undoAwakening(){
 	hideViaClass("mainContent");
 }
 
+function allowMovement(){
+	//display the control buttons
+	showViaClass("gameBtns");
+	
+	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
+	document.addEventListener("keydown", keyTap);
+}
+
 function launchLevelOne(){
 	//move onto the controls explanation div via nextScreen
 	nextScreen('screen005', 'screen006');
@@ -611,11 +660,18 @@ function launchLevelOne(){
 	//apply class="ExtraBorder" to gameArea
 	document.getElementById("gameArea").classList.add("ExtraBorder");
 	
-	//display the control buttons
-	showViaClass("gameBtns");
-	
-	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
-	document.addEventListener("keydown", keyTap);
+	allowMovement();
+}
+
+function skipToScreen010Prep(){
+	showViaClass("mainContent");
+	//apply class="ExtraBorder" to gameArea
+	document.getElementById("gameArea").classList.add("ExtraBorder");
+	globals.WallsBumped.N = true;
+	globals.WallsBumped.S = true;
+	globals.WallsBumped.E = true;
+	globals.WallsBumped.W = true;
+	allowMovement();
 }
 
 function resetGameArea(){
