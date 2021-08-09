@@ -44,6 +44,11 @@
 			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
+				<div id="northWall" class="invisible paddedWall"></div>
+				<div id="southWall" class="invisible paddedWall"></div>
+				<div id="eastWall" class="invisible paddedWall"></div>
+				<div id="westWall" class="invisible paddedWall"></div>
+				
 			</div>
 			<div id="gameBtns" class="hidden"><!-- game buttons -->
 				<span id="highBtns">
@@ -99,6 +104,7 @@
 			<h2>Load Game?</h2>
 			<p>Buttons will be disabled if you've not unlocked that save point. If you have a level code from playing on another browser or device (or maybe you want to cheat) you can activate the code in the box at <a href="http://solarrageasylumbeta.protostart.net/" target="_blank">http://solarrageasylumbeta.protostart.net/</a></p>
 			<p>More buttons will be added to this screen as the game is developed.</p>
+			<p><button id="loadHiDerekBtn" disabled="true" onclick="loadSectionFromClean(1)">Nice to meet you</button></p>
 			<p><button id="loadSection2Btn" disabled="true" onclick="loadSectionFromClean(2)">End of section 1</button></p>
 		</div>
 		<div id="screen003" class="hidden middleWhiteTxt">

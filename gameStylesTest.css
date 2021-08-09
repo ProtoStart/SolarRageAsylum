@@ -6,7 +6,6 @@ body{
 	width: 600px;
 	height: 390px;
 	
-	
 	position:fixed;
 	
 	background-color: black;	
@@ -240,6 +239,53 @@ h2{
 
 p.employee1Voice{
 	color: green;
+}
+
+/** wall colours **/
+.paddedWall{
+	border-width:0;
+	color:lime;
+	background-color:lime;
+	/*position: fixed;*/
+}
+
+.invisible{
+	/*As opposed to the "hidden" class https://www.w3schools.com/css/css_display_visibility.asp section Hide an Element - display:none or visibility:hidden? for more info plus a demo of the difference. TODO: I immediatly dislike the class namings for hidden and invisible as I'm putting this in - is it too late to change the old hidden class to notDisplayed or something like that??*/
+	visibility: hidden;
+}
+
+.visible{
+	visibility: visible;
+}
+
+/* TODO: ideally - set top etc via javascript to match where the code believes the boundary is for collision detection,  
+		"top": "99",
+		"right": "658",
+		"bottom": "439",
+		"left": "90"*/
+#northWall{
+	top: -147px;
+	left: 0%;
+	height: 2px;
+	width: 100%;
+}
+#eastWall{
+	left: 658px;
+	top: -50%;
+	height: 100%;
+	width: 2px;
+}
+#southWall{
+	bottom: -180px;
+	left: 0%;
+	height: 2px;
+	width: 100%;
+}
+#westWall{
+	left: 90px;
+	top: -150%;
+	height: 100%;
+	width: 2px;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!

@@ -82,6 +82,9 @@ var globals = {
 				/**Launching into the actual game - different screens need different things to be happening when they load along with the text**/
 				if (globals.Screens.loadFrom == "screen003b"){
 					showAwakening();
+				} else if (globals.Screens.loadFrom == "screen005"){
+				//This loadFrom exists for developer convenience
+					showAwakening();
 				} else if (globals.Screens.loadFrom == "screen010"){
 					skipToScreen010Prep();
 				}
@@ -126,6 +129,7 @@ var globals = {
 			"nextBtn" : function() {
 				//we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent
 				launchLevelOne();
+				saveToLocalStorage("Derek","true");
 			}
 		},
 		"screen006" : {  //screen number matching div id that this refers to
@@ -238,6 +242,10 @@ function startNewGame() {
 
 function showLoadGameScreen() {
 	nextScreen("screen002","loadGameScreen");
+	if(localStorage.getItem("Derek") == "true"){ //"true" as a string because localStorage stores everything as strings
+		//enable loadHiDerekBtn
+		document.getElementById("loadHiDerekBtn").disabled = false;
+	}
 	if(localStorage.getItem("padded") == "true"){ //"true" as a string because localStorage stores everything as strings
 		//enable loadSection2Btn
 		document.getElementById("loadSection2Btn").disabled = false;
@@ -253,9 +261,13 @@ function loadSectionFromClean(section){
 	Then after that, we load in whatever screen is at the start of the given section
 	*/
 	//use the parameter to know which section the player wishes to skip to, and therefore which screen id to remember for when the pre-game screens are finished and we're ready to skip on 
-	if(section == 2){
+	if(section == 1){
+		globals.Screens.loadFrom = "screen005";
+	} else if(section == 2){
 		globals.Screens.loadFrom = "screen010";
 	}
+	
+	
 	alert("Game will show after these reminders");
 	openFullscreen();
 	nextScreen("loadGameScreen", "controlsInfo");
@@ -526,7 +538,10 @@ function move(dir){ //dir = direction
 }
 
 function isInBounds(yTop, xLeft, yBase, xRight){
-	/*literally just output true if the given co-ords are within the bounds of the play area, and false if not
+	/*
+		1)original use - output true if the given co-ords are within the bounds of the play area, and false if not
+		2)for a while before I altered this comment also - record which walls have been bumped into
+		3) TODO: Make a visible effect occur whenever bumps happen
 		Params: 
 			yTop is the y axis of the top of the object 
 			xLeft is the x axis of the left edge of the object
@@ -540,19 +555,20 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
-		//alert("top bounds");
+		//WORKING HERE
+		makeVisible("northWall");
 		globals.WallsBumped.N = true;
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
-		//alert("right bounds");
+		makeVisible("eastWall");
 		globals.WallsBumped.E = true;
 		return false;
 	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
-		//alert("bottom bounds");
+		makeVisible("southWall");
 		globals.WallsBumped.S = true;
 		return false;
 	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
-		//alert("left bounds");
+		makeVisible("westWall");
 		globals.WallsBumped.W = true;
 		return false;
 	};
@@ -572,8 +588,18 @@ function showViaClass(id){
 Use in conjuction with showViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */
 function hideViaClass(id){
-  document.getElementById(id).classList.remove("showing");
-  document.getElementById(id).classList.add("hidden");
+	document.getElementById(id).classList.remove("showing");
+	document.getElementById(id).classList.add("hidden");
+}
+
+function makeVisible(id){
+	document.getElementById(id).classList.remove("invisible");
+	document.getElementById(id).classList.add("visible");
+}
+
+function makeInvisible(id){
+	document.getElementById(id).classList.remove("visible");
+	document.getElementById(id).classList.add("invisible");	
 }
 
 /** Level 1 / opening story specific stuff  - it probably should be in t's own separate file, but here's fine for now**/
