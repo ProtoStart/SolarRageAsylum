@@ -156,7 +156,6 @@ var globals = {
 				/*go to "cut screen" 
 					- hide game buttons
 					- turn off keyboard controls
-					- move the character to the centre of the screen
 				*/
 				resetGameArea();
 			}
@@ -166,10 +165,14 @@ var globals = {
 				skipToScreen010Prep();
 				nextScreen("screen011","screen010");
 			},
+			"nextBtn" : "screen011b"
+		},
+		"screen011b" : { 
+			"prevBtn" : "screen011",
 			"nextBtn" : "screen012"
 		},
 		"screen012" : { 
-			"prevBtn" : "screen011",
+			"prevBtn" : "screen011b",
 			"nextBtn" : "screen013"
 		},
 		"screen013" : { 
@@ -719,17 +722,17 @@ function resetGameArea(){
 	hideViaClass("screen009");
 	hideViaClass("screen010");
 	//remove the extra border
-	document.getElementById("gameArea").classList.remove("ExtraBorder");
+	//document.getElementById("gameArea").classList.remove("ExtraBorder");
 	/*set the positions back to the starting place
 		#mockPC 		left: 300px;	top: 195px;
 		#viewableArea	left: 210px;	top: 62px;
 	*/
 	document.getElementById("mockPC").style.left = "300px";
-	document.getElementById("mockPC").style.top = "195px";
+	document.getElementById("mockPC").style.top = "245px";
 	document.getElementById("viewableArea").style.left = "210px";
-	document.getElementById("viewableArea").style.top = "62px";
+	document.getElementById("viewableArea").style.top = "112px";
 }
-
+s
 function exitGame(){
 	if(confirm("Exit back to title screens?")){
 		resetGameArea();

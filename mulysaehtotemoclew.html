@@ -172,13 +172,18 @@
 		</div>
 		<!--End of "level one" - or the movement controls practice bit-->
 		<!--Start of piecing together what is going on, ramping towards player choice-->
-		<div id="screen011" class="hidden storyTxt" onclick="nextScreen('screen011', 'screen012')">
+		<div id="screen011" class="hidden storyTxt" onclick="nextScreen('screen011', 'screen011b')">
 		<!-- So by this point we know:
 				- we're on a hoverbed
 				- theres confusion about what is going on
 				- you're in a padded room
 				- you're either crazy,
 					or under the influence of some kind of hallucinagen
+		-->
+			<p><i>A short time passes, and you've moved back to somewhere near the middle of the room</i></p>
+		</div>
+		<div id="screen011b" class="hidden storyTxt" onclick="nextScreen('screen011b', 'screen012')">
+		<!-- This was previously on screen011 but we needed the text now in that screen there instead, so that players don't feel that their character jumped for no reason. Then the pacing didn't feel right, so I've added in this screen between 011 and 012	
 		-->
 			<p>Ok so ... we're in a padded room, that we don't remember going into, on a white hoverbed...</p>
 		</div>
