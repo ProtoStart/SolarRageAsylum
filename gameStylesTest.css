@@ -244,9 +244,9 @@ p.employee1Voice{
 /** wall colours **/
 .paddedWall{
 	border-width:0;
-	color:lime;
-	background-color:lime;
-	/*position: fixed;*/
+	background-color:rgba(30,230,30,0.25);
+	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
+	
 }
 
 .invisible{
