@@ -699,10 +699,16 @@ function skipToScreen010Prep(){
 	showViaClass("mainContent");
 	//apply class="ExtraBorder" to gameArea
 	document.getElementById("gameArea").classList.add("ExtraBorder");
+	//Set the WallsBumped values to true so that the bump messages can't get shown
 	globals.WallsBumped.N = true;
 	globals.WallsBumped.S = true;
 	globals.WallsBumped.E = true;
 	globals.WallsBumped.W = true;
+	makeVisible("northWall");
+	makeVisible("southWall");
+	makeVisible("eastWall");
+	makeVisible("westWall");
+	
 	allowMovement();
 }
 
