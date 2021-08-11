@@ -115,19 +115,18 @@ button,input{
 
 .middleWhiteTxt{
 /*
-	
-	After a while of trying to figure a solution that fit requirements...
-		...I adapted this from stackoverflow 
-		- https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
-		- top: 50%; sets the top to 50% of the screen height
-		- then transform: translateY(-50%) shifts it up by half of whatever the height of this is
+	We now only attempt to centre these if the screen is small laptop sized or bigger
+
 */
-	position: absolute;
-    top: 50%;
+	position:fixed;
     left: 0px;
-    -moz-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+	right:0px;
+	bottom: 10px;
+	top: 2px;
+	height: 100%;
+	max-width: 334px; /*Overidden on larger screens*/
+	overflow-y: auto;
+	
 	margin-left: 2%;
 	margin-right: 2%;
 	color:white;
@@ -178,6 +177,11 @@ button,input{
 
 #footer{
 	background-color: rgba(30,30,30,0.9);
+}
+
+.footerFiller{
+	height: 24px;
+	width: 100%;
 }
 
 h1{
@@ -316,7 +320,30 @@ p.employee1Voice{
 }
 @media only screen and (min-width: 769px) {
 /*769px: The start size of laptops, small monitors*/
-
+	.middleWhiteTxt{
+		/*	After a while of trying to figure a solution that fit requirements...
+		...I adapted this from stackoverflow 
+		- https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
+		- top: 50%; sets the top to 50% of the screen height
+		- then transform: translateY(-50%) shifts it up by half of whatever the height of this is
+		
+		the small version has:
+			position:fixed;
+			left: 0px;
+			right:0px;
+			bottom: 10px;
+			top: 2px;
+			height: 100%;
+		*/
+		position: absolute;
+		top: 50%;
+		height: 98%; /*Avoids having toolbars unless needed*/
+		max-height: 600px; /*The centred effect only comes in when the height of the div is noticeably bigger than the height. note that this MQ is on width not height which is what we want right now*/
+		max-width: 100%; /*override the narrow max-width - it's only there so that on small screens other buttons won't cover over this text*/
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
 }
 @media only screen and (min-width: 1024px) {
 	/**/
