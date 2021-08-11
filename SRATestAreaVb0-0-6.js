@@ -48,7 +48,11 @@ var globals = {
 		//Annotated template at bottom!
 		"screen001" : {
 			"prevBtn" : false,  //this is the first screen unless we include for example the landing page
-			"nextBtn" : "screen002"
+			"nextBtn" : function() {
+				/*The next button intentionally does not show on first load of the page, but in some circumstances we might go back to that screen and we also now use the next button function for the text onclick since it was a convenient way to implement the load game button having focus*/
+				nextScreen("screen001", "screen002");
+				document.getElementById("loadGameBtn").focus();
+			}
 		},
 		"screen002" : {
 			"prevBtn" : false, /* Would be weird to have a Previous button and not a Next button - TODO add a "credits" button */
@@ -65,7 +69,7 @@ var globals = {
 			}, 
 			"nextBtn" : function() {
 				nextScreen("controlsInfo","screen003");
-				document.getElementById("useSpin").focus()
+				document.getElementById("useSpin").focus();
 			}
 		},
 		"screen003" : { //has an epilepsy warning in the centre of the screen
@@ -229,6 +233,7 @@ function pageStart(){
 	setTimeout(function(){
 		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
 			nextScreen("screen001", "screen002");
+			document.getElementById("loadGameBtn").focus();
 		}
 	}, 3000);
 }
@@ -558,7 +563,6 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
-		//WORKING HERE
 		makeVisible("northWall");
 		globals.WallsBumped.N = true;
 		return false;
