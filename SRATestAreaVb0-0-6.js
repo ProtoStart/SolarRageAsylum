@@ -565,6 +565,10 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
 		makeVisible("northWall");
 		globals.WallsBumped.N = true;
+		//added complexity - the walls are initially shown as longer than they actually are  how they are shown represents the patients guess at where the edge of the room is
+		/*if (){
+			
+		}*/
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
 		makeVisible("eastWall");

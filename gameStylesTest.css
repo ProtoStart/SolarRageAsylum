@@ -246,6 +246,7 @@ p.employee1Voice{
 }
 
 /** wall colours **/
+.westwall,
 .paddedWall{
 	border-width:0;
 	background-color:rgba(30,230,30,0.25);
@@ -290,6 +291,10 @@ p.employee1Voice{
 	top: -150%;
 	height: 100%;
 	width: 2px;
+}
+#westWallTopOverlap{
+	top: 0px;
+	bottom: 147px;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!
