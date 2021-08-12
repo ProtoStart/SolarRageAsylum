@@ -89,8 +89,10 @@ var globals = {
 				} else if (globals.Screens.loadFrom == "screen005"){
 				//This loadFrom exists for developer convenience
 					showAwakening();
+					hazeInstantClear()
 				} else if (globals.Screens.loadFrom == "screen010"){
 					skipToScreen010Prep();
+					hazeInstantClear();
 				}
 				//resetGameArea();
 				
@@ -653,6 +655,11 @@ function hazeClears(){
 	document.getElementById("viewableArea").classList.add("noHaze");
 }
 
+function hazeInstantClear(){
+	document.getElementById("viewableArea").classList.remove("haze");
+	document.getElementById("viewableArea").classList.add("noHaze");
+}
+
 function showAwakening(){
 	/* showAwakening handles a screen transition where our character wakes up
 		while the narration is going on.
@@ -759,9 +766,9 @@ function resetGameArea(){
 		#viewableArea	left: 210px;	top: 62px;
 	*/
 	document.getElementById("mockPC").style.left = "300px";
-	document.getElementById("mockPC").style.top = "245px";
+	document.getElementById("mockPC").style.top = "275px";
 	document.getElementById("viewableArea").style.left = "210px";
-	document.getElementById("viewableArea").style.top = "112px";
+	document.getElementById("viewableArea").style.top = "142px";
 }
 s
 function exitGame(){
