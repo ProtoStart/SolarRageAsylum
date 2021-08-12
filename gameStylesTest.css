@@ -246,11 +246,32 @@ p.employee1Voice{
 }
 
 /** wall colours **/
-.paddedWall{
+.paddedWallVert{
 	border-width:0;
 	background-color:rgba(30,230,30,0.25);
+	/* https://css-tricks.com/stripes-css/ was really helpful for this this way of making a striped effect */
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(30,230,30,0.25),
+		rgba(30,230,30,0.25) 18px,
+		rgba(255,255,255,0) 10px,
+		rgba(255,255,255,0) 28px
+	);
 	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
+}
+
+.paddedWallHoriz{
+	border-width:0;
+	/* https://css-tricks.com/stripes-css/ was really helpful for this method of making a striped effect */
+	background: repeating-linear-gradient(
+		to right,
+		rgba(30,230,30,0.25),
+		rgba(30,230,30,0.25) 18px,
+		rgba(255,255,255,0) 10px,
+		rgba(255,255,255,0) 28px
+	);
 	
+	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
 }
 
 .invisible{
@@ -274,13 +295,13 @@ p.employee1Voice{
 	width: 100%;
 }
 #eastWall{
-	left: 658px;
+	left: 652px;
 	top: -50%;
 	height: 100%;
 	width: 2px;
 }
 #southWall{
-	bottom: -180px;
+	bottom: -170px;
 	left: 0%;
 	height: 2px;
 	width: 100%;
