@@ -53,6 +53,7 @@ body{
 	left: 300px;
 	top: 195px;
 	z-index: 2; /* In front of viewable area*/
+	box-shadow: 0 10px 8px 0 rgba(0, 0, 250, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /*Gives a blue hover light effect, it's very subtle against the rainbow background, but I think it does give a bit of depth. It is noticeable against the haze, so since that comes first, I think perceptive people will notice theres something*/
 }
 
 .ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
