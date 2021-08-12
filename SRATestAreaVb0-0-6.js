@@ -97,19 +97,29 @@ var globals = {
 				nextScreen("screen003", globals.Screens.loadFrom);
 			}
 		}, 
-		"screen003b" : {  //Game starts here
+		"screen003b" : {  //Game starts here - You awaken in a haze...
 			"prevBtn" : function() {
 				//neatly handle going back a screen
 				undoAwakening(); //contains code for moving back a screen
 			}, 
 			"nextBtn" : function() {
-				hazeClears();
+				hazeStartsToClear();
 				nextScreen("screen003b", "screen003b2"); //yes I know the screen naming is getting silly
 			}
 		}, 
-		"screen003b2" : {  //screen number matching div id that this refers to
+		"screen003b2" : {  //"The haze begins to clear"
 			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
-			"nextBtn" : "screen003c"
+			"nextBtn" : function() {
+				hazeClearsABitMore();
+				nextScreen("screen003b2", "screen003b3"); 
+			} 
+		}, 
+		"screen003b3" : {  //"Out from the haze, a swirl of colours emerges"
+			"prevBtn" : "screen003b2", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : function() {
+				hazeClears();
+				nextScreen("screen003b3", "screen003c"); 
+			} 
 		}, 
 		"screen003c" : {  //screen number matching div id that this refers to
 			"prevBtn" : "screen003b2", //div id of the previous screen (used for onscreen back button)
@@ -628,8 +638,18 @@ function namePC(){
 	nextScreen('screen004', 'screen005');
 }
 
-function hazeClears(){
+function hazeStartsToClear(){
 	document.getElementById("viewableArea").classList.remove("haze");
+	document.getElementById("viewableArea").classList.add("mediumHaze");
+}
+
+function hazeClearsABitMore(){
+	document.getElementById("viewableArea").classList.remove("mediumHaze");
+	document.getElementById("viewableArea").classList.add("lowHaze");
+}
+
+function hazeClears(){
+	document.getElementById("viewableArea").classList.remove("lowHaze");
 	document.getElementById("viewableArea").classList.add("noHaze");
 }
 

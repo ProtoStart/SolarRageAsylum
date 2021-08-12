@@ -33,7 +33,7 @@ body{
 	left: 210px;
 	top: 62px;
 	z-index: 1; /* Behind mockPC*/
-	transition: filter 50s; /*This combined with javascript swapping two classes that each have filter blurs gives the effect of the haze clearing*/
+	transition: filter 14s; /*This combined with javascript swapping two classes that each have filter blurs gives the effect of the haze clearing*/
 }
 
 .rainbowVortex img,
@@ -142,6 +142,14 @@ button,input{
 	left: 0px;
 	height: 100%;
 	width: 100%;
+}
+
+.mediumHaze{
+	filter: blur(30px);
+}
+
+.lowHaze{
+	filter: blur(10px);
 }
 
 .noHaze{
