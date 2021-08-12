@@ -102,10 +102,17 @@ var globals = {
 				//neatly handle going back a screen
 				undoAwakening(); //contains code for moving back a screen
 			}, 
-			"nextBtn" : "screen003c" //div id of the next screen
+			"nextBtn" : function() {
+				hazeClears();
+				nextScreen("screen003b", "screen003b2"); //yes I know the screen naming is getting silly
+			}
+		}, 
+		"screen003b2" : {  //screen number matching div id that this refers to
+			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : "screen003c"
 		}, 
 		"screen003c" : {  //screen number matching div id that this refers to
-			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"prevBtn" : "screen003b2", //div id of the previous screen (used for onscreen back button)
 			"nextBtn" : "screen003d" //div id of the next screen
 		}, 
 		"screen003d" : {  //screen number matching div id that this refers to
@@ -621,16 +628,9 @@ function namePC(){
 	nextScreen('screen004', 'screen005');
 }
 
-function openInAHaze(){
-	//CURRENTLY BUTCHERED WHILE I FIGURE OUT SOME ASPECTS OF GAME DESIGN
-	nextScreen('screen002', 'screen003');
-	//TODO: improve this opening more!
-	/*setTimeout(function(){ //adapted from the code for moving from screen001 to screen002
-		if(globals.Screens.current == "screen003"){
-			nextScreen("screen003", "screen003b");
-			showAwakening();
-		}
-	}, 2000);*/
+function hazeClears(){
+	document.getElementById("viewableArea").classList.remove("haze");
+	document.getElementById("viewableArea").classList.add("noHaze");
 }
 
 function showAwakening(){
@@ -665,6 +665,7 @@ function showAwakening(){
 	showViaClass("mainContent");
 	rotatePC("dir");
 	startRainbowRotate("cw");
+	
 	
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation

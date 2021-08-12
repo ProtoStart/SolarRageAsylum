@@ -33,6 +33,7 @@ body{
 	left: 210px;
 	top: 62px;
 	z-index: 1; /* Behind mockPC*/
+	transition: filter 50s; /*This combined with javascript swapping two classes that each have filter blurs gives the effect of the haze clearing*/
 }
 
 .rainbowVortex img,
@@ -132,15 +133,19 @@ button,input{
 	color:white;
 }
 
-/*Tested out and haven't managed to make an effect I like with it*/
+/*Magic happens with this, when it's applied to the rotating div with a brightly coloured image inside, and then the filter is changed via transition*/
 .haze{
-	box-shadow: inset 0 0 2000px rgba(250, 250, 250, .9);
+	box-shadow: inset 0 0 200px rgba(250, 250, 250, .9);
     filter: blur(60px);
 	position: fixed;
 	top:0px;
 	left: 0px;
 	height: 100%;
 	width: 100%;
+}
+
+.noHaze{
+	filter: blur(0px);
 }
 
 #gameBtns{

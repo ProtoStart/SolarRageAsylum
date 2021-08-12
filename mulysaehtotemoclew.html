@@ -43,7 +43,7 @@
 		<div id="mainContent" class="hidden">
 			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
-				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
+				<div id="viewableArea" class="haze"><img src="rainbowVortexInner.png" alt="Rainbow" class=""/></div>
 				<div id="northWall" class="invisible paddedWallHoriz"></div>
 				<div id="southWall" class="invisible paddedWallHoriz"></div>
 				<div id="eastWall" class="invisible paddedWallVert"></div>
@@ -120,6 +120,10 @@
 			or is it still a dream?
 			</p>
 		</div>
+		<div id="screen003b2" class="hidden storyTxt" onclick="masterNextBtnClick()">
+			<p>The haze begins to clear.
+			</p>
+		</div>
 		<div id="screen003c" class="hidden storyTxt" onclick="nextScreen('screen003c', 'screen003d')">
 			<p>Other than yourself, and the hoverbed you're laying on </br>
 			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
@@ -161,7 +165,7 @@
 			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
 		</div>
 		<div id="screen007" class="hidden gameplayTopText" >
-			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
+			<p>Oh, theres a wall here, I still can't see it but it seems padded</p>
 		</div>
 		<div id="screen008" class="hidden gameplayTopText" >
 			<p>This wall feels padded too</p>
