@@ -70,6 +70,11 @@ button,input{
 	/*min-width:100px;*/
 	z-index: 10;
 }
+
+.doubleLineBtn{
+	height: 76px;
+}
+
 .gameplayTopText,
 .storyTxt{
 /*	Both classes are primarily for text (sometimes inputs too) at the top of the screen,

@@ -1,6 +1,7 @@
 Quality improvements I'd like to add
   This file is basically notes of little improvements I've thought of, that I'd like to make at some point in the future. They are different from suggestions because these are coming from me as the developer who wants his creation to be great. The suggestions file represents things that I know would make the game better for those people who suggested it
 
+- more branching options + a failure state where you can either load from a checkpoint/levelcode or the start of the game
 
 - Choice of where/if the on-screen buttons are shown
 	lefty mode - buttons always on the left
@@ -11,3 +12,9 @@ Quality improvements I'd like to add
 	- how would that work?
 	Swipe and hold to keep going a direction? - this seems most like the other control schemes
 	Swipe to start going, and then tap again to stop?
+	
+- Game highlights
+	- shows the best moments of your game so far
+	- Lets players see fun effects again
+	- Lets players relive particular glory moments
+	- Recap for if they've forgotten something
