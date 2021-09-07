@@ -60,29 +60,39 @@ var globals = {
 		"W" : false
 	},
 	"Screens": {
+		"loadFrom": "screen003b", //Default is the screen where game play in a new game starts from. This var is altered when players choose to load the game at some other point, stored here for when they've got through the screens we want to show the players each time. To access this use globals.Screens.loadFrom
 		"current" : "screen001", //Override each transition, to keep track - globals.Screens.current to access 
 		//Annotated template at bottom!
 		"screen001" : {
 			"prevBtn" : false,  //this is the first screen unless we include for example the landing page
-			"nextBtn" : "screen002"
-		},
-		"screen002" : {
-			"prevBtn" : "screen001",
 			"nextBtn" : function() {
-				/*This will take player from opening screens, into a fairly blank screen briefly
-					while browser full screen mode takes effect fully
-					so that that is completely done before seemlessly moving into the story opening
-				*/
-				openFullscreen();
-				nextScreen("screen002","screen003");
+				/*The next button intentionally does not show on first load of the page, but in some circumstances we might go back to that screen and we also now use the next button function for the text onclick since it was a convenient way to implement the load game button having focus*/
+				nextScreen("screen001", "screen002");
+				document.getElementById("loadGameBtn").focus();
 			}
 		},
-		"screen003" : { //Shows while browsers shift to full screen - has an epilepsy warning in the centre of the screen
+		"screen002" : {
+			"prevBtn" : false, /* Would be weird to have a Previous button and not a Next button - TODO add a "credits" button */
+			"nextBtn" : false /*This screen now has Load and Start New Game buttons */
+		},
+		"loadGameScreen" : { /* The screen for choosing which place to load the game from*/
+			"prevBtn" : "screen002",
+			"nextBtn" : false
+		},
+		"controlsInfo" : { //Shows as a screen right after we go to full screen - when shown as a modal we won't use this block
 			"prevBtn" : function() {
 				closeFullscreen();
-				nextScreen("screen003","screen002");
+				nextScreen("controlsInfo","screen002");
 			}, 
 			"nextBtn" : function() {
+				nextScreen("controlsInfo","screen003");
+				document.getElementById("useSpin").focus();
+			}
+		},
+		"screen003" : { //has an epilepsy warning in the centre of the screen
+			"prevBtn" : "controlsInfo", 
+			"nextBtn" : function() {
+				/**Set spin settings depending on check box checked**/
 				if(document.getElementById('useSpin').checked){
 				//checkbox labelled "Use spin effect?" is checked
 					globals.playerSettings.spin = true;
@@ -90,19 +100,48 @@ var globals = {
 				//checkbox labelled "Use spin effect?" is not checked
 					globals.playerSettings.spin = false;
 				}
-				showAwakening();
-				nextScreen("screen003","screen003b");
+				/**Launching into the actual game - different screens need different things to be happening when they load along with the text**/
+				if (globals.Screens.loadFrom == "screen003b"){
+					showAwakening();
+				} else if (globals.Screens.loadFrom == "screen005"){
+				//This loadFrom exists for developer convenience
+					showAwakening();
+					hazeInstantClear()
+				} else if (globals.Screens.loadFrom == "screen010"){
+					skipToScreen010Prep();
+					hazeInstantClear();
+				}
+				//resetGameArea();
+				
+				nextScreen("screen003", globals.Screens.loadFrom);
 			}
 		}, 
-		"screen003b" : {  //Game starts here
+		"screen003b" : {  //Game starts here - You awaken in a haze...
 			"prevBtn" : function() {
 				//neatly handle going back a screen
 				undoAwakening(); //contains code for moving back a screen
 			}, 
-			"nextBtn" : "screen003c" //div id of the next screen
+			"nextBtn" : function() {
+				hazeStartsToClear();
+				nextScreen("screen003b", "screen003b2"); //yes I know the screen naming is getting silly
+			}
+		}, 
+		"screen003b2" : {  //"The haze begins to clear"
+			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : function() {
+				hazeClearsABitMore();
+				nextScreen("screen003b2", "screen003b3"); 
+			} 
+		}, 
+		"screen003b3" : {  //"Out from the haze, a swirl of colours emerges"
+			"prevBtn" : "screen003b2", //div id of the previous screen (used for onscreen back button)
+			"nextBtn" : function() {
+				hazeClears();
+				nextScreen("screen003b3", "screen003c"); 
+			} 
 		}, 
 		"screen003c" : {  //screen number matching div id that this refers to
-			"prevBtn" : "screen003b", //div id of the previous screen (used for onscreen back button)
+			"prevBtn" : "screen003b2", //div id of the previous screen (used for onscreen back button)
 			"nextBtn" : "screen003d" //div id of the next screen
 		}, 
 		"screen003d" : {  //screen number matching div id that this refers to
@@ -130,6 +169,7 @@ var globals = {
 			"nextBtn" : function() {
 				//we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent
 				launchLevelOne();
+				saveToLocalStorage("Derek","true");
 			}
 		},
 		"screen006" : {  //screen number matching div id that this refers to
@@ -150,7 +190,58 @@ var globals = {
 		},
 		"screen010" : {  //screen number matching div id that this refers to
 			"prevBtn" : false, //the div id of the previous screen (used for onscreen back button)
-			"nextBtn" : false //false as we need to run launchLevelOne() when done, as it includes some level setup stuff, including showing mainContent show
+			"nextBtn" : false /* We'll uncomment this when ready to allow Beta area into the next section function() {
+				nextScreen("screen010","screen011");
+				saveToLocalStorage("padded","true");
+				/*go to "cut screen" 
+					- hide game buttons
+					- turn off keyboard controls
+				*//*
+				resetGameArea();
+			}*/
+		},
+		"screen011" : { 
+			"prevBtn" : function() {
+				skipToScreen010Prep();
+				nextScreen("screen011","screen010");
+			},
+			"nextBtn" : "screen011b"
+		},
+		"screen011b" : { 
+			"prevBtn" : "screen011",
+			"nextBtn" : "screen012"
+		},
+		"screen012" : { 
+			"prevBtn" : "screen011b",
+			"nextBtn" : "screen013"
+		},
+		"screen013" : { 
+			"prevBtn" : "screen012",
+			"nextBtn" : "screen014"
+		},
+		"screen014" : { 
+			"prevBtn" : "screen013",
+			"nextBtn" : "screen015"
+		},
+		"screen015" : { 
+			"prevBtn" : "screen014",
+			"nextBtn" : "screen016"
+		},
+		"screen016" : { 
+			"prevBtn" : "screen015",
+			"nextBtn" : "screen017"
+		},
+		"screen017" : { 
+			"prevBtn" : "screen016",
+			"nextBtn" : function() {
+				nextScreen("screen017","screen018");
+				//Set the focus to the first button
+				document.getElementById("canYouHearChoiceA").focus();
+			}
+		},
+		"screen018" : { 
+			"prevBtn" : "screen017",
+			"nextBtn" : false /*Divergent choices*/
 		},
 		/* Annotated Template
 		"screen002" : {  //screen number matching div id that this refers to
@@ -174,6 +265,58 @@ var globals = {
 	height: 400px;
 */
 
+function pageStart(){
+	setTimeout(function(){
+		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
+			nextScreen("screen001", "screen002");
+			document.getElementById("loadGameBtn").focus();
+		}
+	}, 3000);
+}
+
+function startNewGame() {
+	/*This will take player from opening screens, into a fairly blank screen briefly
+		while browser full screen mode takes effect fully
+		so that that is completely done before seemlessly moving into the story opening
+	*/
+	openFullscreen();
+	globals.Screens.loadFrom = "screen003b";
+	nextScreen("screen002","controlsInfo");
+}
+
+function showLoadGameScreen() {
+	nextScreen("screen002","loadGameScreen");
+	if(localStorage.getItem("Derek") == "true"){ //"true" as a string because localStorage stores everything as strings
+		//enable loadHiDerekBtn
+		document.getElementById("loadHiDerekBtn").disabled = false;
+	}
+	if(localStorage.getItem("padded") == "true"){ //"true" as a string because localStorage stores everything as strings
+		//enable loadSection2Btn
+		document.getElementById("loadSection2Btn").disabled = false;
+	}
+}
+
+function loadSectionFromClean(section){
+	/*Used by the buttons in the load game screen. Loads a given section from not having anything loaded and also makes sure player sees screens they should see every game session
+	By this point, players have already seen the title card and screen002, but we still need:
+		- Some form of epilepsy warning and spin effect opt out
+		- Some form of reminder for phone users to put their phone in landscape mode
+		- a choice of seeing the controls again
+	Then after that, we load in whatever screen is at the start of the given section
+	*/
+	//use the parameter to know which section the player wishes to skip to, and therefore which screen id to remember for when the pre-game screens are finished and we're ready to skip on 
+	if(section == 1){
+		globals.Screens.loadFrom = "screen005";
+	} else if(section == 2){
+		globals.Screens.loadFrom = "screen010";
+	}
+	
+	
+	alert("Game will show after these reminders");
+	openFullscreen();
+	nextScreen("loadGameScreen", "controlsInfo");
+}
+
 function openFullscreen() {
 //opens the browser in full screen - particularly wanted on mobile so that we have a bit more screen to work with
 //found on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
@@ -196,14 +339,6 @@ function closeFullscreen() {
   } else if (document.msExitFullscreen) { /* IE11 */
     document.msExitFullscreen();
   }
-}
-
-function pageStart(){
-	setTimeout(function(){
-		if(globals.Screens.current == "screen001"){  //Only want to show screen002 if automatically if we're still on screen001 at that time, otherwise glitches occur
-			nextScreen("screen001", "screen002");
-		}
-	}, 3000);
 }
 
 function masterPrevBtnClick(){
@@ -295,6 +430,7 @@ function startRotate(dir){  //Allows continuous movement, until endMove called
 	//clearInterval lines here are to allow players to "unstick" movement or rotation glitches caused by mouseup or touchend events not firing
 	clearInterval(rotatePCInterval);
 	clearInterval(movePCInterval);
+
 	//starts off the continuous rotation
 	rotatePCInterval = setInterval(function(){ rotate(dir); }, 40);
 }
@@ -446,7 +582,10 @@ function move(dir){ //dir = direction
 }
 
 function isInBounds(yTop, xLeft, yBase, xRight){
-	/*literally just output true if the given co-ords are within the bounds of the play area, and false if not
+	/*
+		1)original use - output true if the given co-ords are within the bounds of the play area, and false if not
+		2)for a while before I altered this comment also - record which walls have been bumped into
+		3) TODO: Make a visible effect occur whenever bumps happen
 		Params: 
 			yTop is the y axis of the top of the object 
 			xLeft is the x axis of the left edge of the object
@@ -460,19 +599,19 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
-		//alert("top bounds");
+		makeVisible("northWall");
 		globals.WallsBumped.N = true;
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
-		//alert("right bounds");
+		makeVisible("eastWall");
 		globals.WallsBumped.E = true;
 		return false;
 	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
-		//alert("bottom bounds");
+		makeVisible("southWall");
 		globals.WallsBumped.S = true;
 		return false;
 	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
-		//alert("left bounds");
+		makeVisible("westWall");
 		globals.WallsBumped.W = true;
 		return false;
 	};
@@ -492,8 +631,18 @@ function showViaClass(id){
 Use in conjuction with showViaClass(id) and css classes called "hidden" and "showing" that have css to hide/show things
 */
 function hideViaClass(id){
-  document.getElementById(id).classList.remove("showing");
-  document.getElementById(id).classList.add("hidden");
+	document.getElementById(id).classList.remove("showing");
+	document.getElementById(id).classList.add("hidden");
+}
+
+function makeVisible(id){
+	document.getElementById(id).classList.remove("invisible");
+	document.getElementById(id).classList.add("visible");
+}
+
+function makeInvisible(id){
+	document.getElementById(id).classList.remove("visible");
+	document.getElementById(id).classList.add("invisible");	
 }
 
 /** Level 1 / opening story specific stuff  - it probably should be in t's own separate file, but here's fine for now**/
@@ -508,16 +657,24 @@ function namePC(){
 	nextScreen('screen004', 'screen005');
 }
 
-function openInAHaze(){
-	//CURRENTLY BUTCHERED WHILE I FIGURE OUT SOME ASPECTS OF GAME DESIGN
-	nextScreen('screen002', 'screen003');
-	//TODO: improve this opening more!
-	/*setTimeout(function(){ //adapted from the code for moving from screen001 to screen002
-		if(globals.Screens.current == "screen003"){
-			nextScreen("screen003", "screen003b");
-			showAwakening();
-		}
-	}, 2000);*/
+function hazeStartsToClear(){
+	document.getElementById("viewableArea").classList.remove("haze");
+	document.getElementById("viewableArea").classList.add("mediumHaze");
+}
+
+function hazeClearsABitMore(){
+	document.getElementById("viewableArea").classList.remove("mediumHaze");
+	document.getElementById("viewableArea").classList.add("lowHaze");
+}
+
+function hazeClears(){
+	document.getElementById("viewableArea").classList.remove("lowHaze");
+	document.getElementById("viewableArea").classList.add("noHaze");
+}
+
+function hazeInstantClear(){
+	document.getElementById("viewableArea").classList.remove("haze");
+	document.getElementById("viewableArea").classList.add("noHaze");
 }
 
 function showAwakening(){
@@ -553,6 +710,7 @@ function showAwakening(){
 	rotatePC("dir");
 	startRainbowRotate("cw");
 	
+	
 	//startRotate("dir");
 	//rotateRainbow("cw"); //clockwise rotation
 }
@@ -565,6 +723,14 @@ function undoAwakening(){
 	hideViaClass("mainContent");
 }
 
+function allowMovement(){
+	//display the control buttons
+	showViaClass("gameBtns");
+	
+	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
+	document.addEventListener("keydown", keyTap);
+}
+
 function launchLevelOne(){
 	//move onto the controls explanation div via nextScreen
 	nextScreen('screen005', 'screen006');
@@ -575,11 +741,24 @@ function launchLevelOne(){
 	//apply class="ExtraBorder" to gameArea
 	document.getElementById("gameArea").classList.add("ExtraBorder");
 	
-	//display the control buttons
-	showViaClass("gameBtns");
+	allowMovement();
+}
+
+function skipToScreen010Prep(){
+	showViaClass("mainContent");
+	//apply class="ExtraBorder" to gameArea
+	document.getElementById("gameArea").classList.add("ExtraBorder");
+	//Set the WallsBumped values to true so that the bump messages can't get shown
+	globals.WallsBumped.N = true;
+	globals.WallsBumped.S = true;
+	globals.WallsBumped.E = true;
+	globals.WallsBumped.W = true;
+	makeVisible("northWall");
+	makeVisible("southWall");
+	makeVisible("eastWall");
+	makeVisible("westWall");
 	
-	//Add the event listener for keytaps - we don't want this active before the game screen is shown!!
-	document.addEventListener("keydown", keyTap);
+	allowMovement();
 }
 
 function resetGameArea(){
@@ -598,17 +777,17 @@ function resetGameArea(){
 	hideViaClass("screen009");
 	hideViaClass("screen010");
 	//remove the extra border
-	document.getElementById("gameArea").classList.remove("ExtraBorder");
+	//document.getElementById("gameArea").classList.remove("ExtraBorder");
 	/*set the positions back to the starting place
 		#mockPC 		left: 300px;	top: 195px;
 		#viewableArea	left: 210px;	top: 62px;
 	*/
 	document.getElementById("mockPC").style.left = "300px";
-	document.getElementById("mockPC").style.top = "195px";
+	document.getElementById("mockPC").style.top = "275px";
 	document.getElementById("viewableArea").style.left = "210px";
-	document.getElementById("viewableArea").style.top = "62px";
+	document.getElementById("viewableArea").style.top = "142px";
 }
-
+s
 function exitGame(){
 	if(confirm("Exit back to title screens?")){
 		resetGameArea();
@@ -618,4 +797,50 @@ function exitGame(){
 		closeFullscreen();
 		pageStart();
 	};
+}
+
+function showControlsPage(){
+//TODO: UNTESTED should show the controls page as a "modal" over the other content
+	// Get the modal
+	var modal = document.getElementById("controlsInfo");
+	/* Commented out: 
+	adapted this function from a startup function in my TeaRounder project
+	probably won't have a single button that opens the modal
+	
+	// Get the button that opens the modal
+	var infoButton = document.getElementById("infoButton");
+	// When the user clicks the button, open the modal 
+	infoButton.onclick = function() {
+		//modal.innerHTML = "<div>content from info.html</div>"; //This would be my preference rather than using a iFrame but I can't figure it out at time of writing
+		modalIFrame.src = "info.html";
+		modal.style.display = "block";
+	}
+	
+	*/
+	// When the user clicks on the x span, close the modal
+	document.getElementsById("closeControls").onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+	//make controlsInfo visible
+	showViaClass("controlsInfo");
+}
+
+function saveToLocalStorage(key,value){ 
+/*Returns true if successful, alerts if not*/
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just check local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
+	if (typeof(Storage) !== "undefined") {
+	//Storage is there, so we'll save it
+		localStorage.setItem(key, value);
+		return true; //lets us display a relevant success message or carry on doing things
+	} else {
+	  //No Web Storage support - TODO: is this a good experience??
+	  alert("couldn't save, browser doesn't support local storage");
+	}
 }

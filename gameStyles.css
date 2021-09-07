@@ -6,7 +6,6 @@ body{
 	width: 600px;
 	height: 390px;
 	
-	
 	position:fixed;
 	
 	background-color: black;	
@@ -34,6 +33,7 @@ body{
 	left: 210px;
 	top: 62px;
 	z-index: 1; /* Behind mockPC*/
+	transition: filter 14s; /*This combined with javascript swapping two classes that each have filter blurs gives the effect of the haze clearing*/
 }
 
 .rainbowVortex img,
@@ -53,6 +53,7 @@ body{
 	left: 300px;
 	top: 195px;
 	z-index: 2; /* In front of viewable area*/
+	box-shadow: 0 10px 8px 0 rgba(0, 0, 250, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /*Gives a blue hover light effect, it's very subtle against the rainbow background, but I think it does give a bit of depth. It is noticeable against the haze, so since that comes first, I think perceptive people will notice theres something*/
 }
 
 .ExtraBorder{ /*Extra border class to have on the game area, as a means of absorbing the rainbowVortex viewableArea effect*/
@@ -70,6 +71,11 @@ button,input{
 	/*min-width:100px;*/
 	z-index: 10;
 }
+
+.doubleLineBtn{
+	height: 76px;
+}
+
 .gameplayTopText,
 .storyTxt{
 /*	Both classes are primarily for text (sometimes inputs too) at the top of the screen,
@@ -116,33 +122,44 @@ button,input{
 
 .middleWhiteTxt{
 /*
-	
-	After a while of trying to figure a solution that fit requirements...
-		...I adapted this from stackoverflow 
-		- https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
-		- top: 50%; sets the top to 50% of the screen height
-		- then transform: translateY(-50%) shifts it up by half of whatever the height of this is
+	We now only attempt to centre these if the screen is small laptop sized or bigger
+
 */
-	position: absolute;
-    top: 50%;
+	position:fixed;
     left: 0px;
-    -moz-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+	right:0px;
+	bottom: 10px;
+	top: 2px;
+	height: 100%;
+	max-width: 334px; /*Overidden on larger screens*/
+	overflow-y: auto;
+	
 	margin-left: 2%;
 	margin-right: 2%;
 	color:white;
 }
 
-/*Tested out and haven't managed to make an effect I like with it*/
+/*Magic happens with this, when it's applied to the rotating div with a brightly coloured image inside, and then the filter is changed via transition*/
 .haze{
-	box-shadow: inset 0 0 2000px rgba(250, 250, 250, .9);
+	box-shadow: inset 0 0 200px rgba(250, 250, 250, .9);
     filter: blur(60px);
 	position: fixed;
 	top:0px;
 	left: 0px;
 	height: 100%;
 	width: 100%;
+}
+
+.mediumHaze{
+	filter: blur(30px);
+}
+
+.lowHaze{
+	filter: blur(10px);
+}
+
+.noHaze{
+	filter: blur(0px);
 }
 
 #gameBtns{
@@ -181,6 +198,11 @@ button,input{
 	background-color: rgba(30,30,30,0.9);
 }
 
+.footerFiller{
+	height: 24px;
+	width: 100%;
+}
+
 h1{
 	font-size: 60pt;
 	color: #ff850a;
@@ -192,8 +214,122 @@ h2{
 }
 
 :focus {
-  outline: 1px dashed black; /*Makes it a bit more discreet than the standard settings*/
-  box-shadow: 1px 1px 1px 1px white; /*So that focus is still visible on black backgrounds*/
+	outline: 3px solid gold;
+	z-index: 50;
+  /*outline: 1px dashed black;*/ /*Makes it a bit more discreet than the standard settings*/
+  /*box-shadow: 1px 1px 1px 1px white;*/ /*So that focus is still visible on black backgrounds*/
+  /*background-color: gold;*/
+}
+/*choiceBtns are divs that contain buttons for player choices*/
+.choiceBtns button{
+	margin-bottom: 2px; /*I needed a tiny bit more vertical margin on this kind of button, so that focus outline is never partially obscured. I tried fixing the issue with z-indexs but that got way more complex than this issue warranted*/
+}
+
+/*Colourful text to differentiate beeps and voices*/
+.redBeep{
+	color: red;
+}
+.orangeBeep{
+	color: orange;
+}
+.yellowBeep{
+	color: yellow;
+}
+.greenBeep{
+	color: green;
+}
+.blueBeep{
+	color: blue;
+}
+.indigoBeep{
+	color: indigo;
+}
+.violetBeep{
+	color: violet;
+}
+.goldBeep{
+	color: gold;
+}
+.silverBeep{
+	color: silver;
+}
+.bronzeBeep{
+	color: bronze;
+}
+.limeBeep{
+	color: lime;
+}
+
+p.employee1Voice{
+	color: green;
+}
+
+/** wall colours **/
+.paddedWallVert{
+	border-width:0;
+	background-color:rgba(30,230,30,0.25);
+	/* https://css-tricks.com/stripes-css/ was really helpful for this this way of making a striped effect */
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(30,230,30,0.25),
+		rgba(30,230,30,0.25) 18px,
+		rgba(255,255,255,0) 10px,
+		rgba(255,255,255,0) 28px
+	);
+	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
+}
+
+.paddedWallHoriz{
+	border-width:0;
+	/* https://css-tricks.com/stripes-css/ was really helpful for this method of making a striped effect */
+	background: repeating-linear-gradient(
+		to right,
+		rgba(30,230,30,0.25),
+		rgba(30,230,30,0.25) 18px,
+		rgba(255,255,255,0) 10px,
+		rgba(255,255,255,0) 28px
+	);
+	
+	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
+}
+
+.invisible{
+	/*As opposed to the "hidden" class https://www.w3schools.com/css/css_display_visibility.asp section Hide an Element - display:none or visibility:hidden? for more info plus a demo of the difference. TODO: I immediatly dislike the class namings for hidden and invisible as I'm putting this in - is it too late to change the old hidden class to notDisplayed or something like that??*/
+	visibility: hidden;
+}
+
+.visible{
+	visibility: visible;
+}
+
+/* TODO: ideally - set top etc via javascript to match where the code believes the boundary is for collision detection,  
+		"top": "99",
+		"right": "658",
+		"bottom": "439",
+		"left": "90"*/
+#northWall{
+	top: -147px;
+	left: 0%;
+	height: 2px;
+	width: 100%;
+}
+#eastWall{
+	left: 652px;
+	top: -50%;
+	height: 100%;
+	width: 2px;
+}
+#southWall{
+	bottom: -170px;
+	left: 0%;
+	height: 2px;
+	width: 100%;
+}
+#westWall{
+	left: 90px;
+	top: -150%;
+	height: 100%;
+	width: 2px;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!
@@ -224,7 +360,30 @@ h2{
 }
 @media only screen and (min-width: 769px) {
 /*769px: The start size of laptops, small monitors*/
-
+	.middleWhiteTxt{
+		/*	After a while of trying to figure a solution that fit requirements...
+		...I adapted this from stackoverflow 
+		- https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
+		- top: 50%; sets the top to 50% of the screen height
+		- then transform: translateY(-50%) shifts it up by half of whatever the height of this is
+		
+		the small version has:
+			position:fixed;
+			left: 0px;
+			right:0px;
+			bottom: 10px;
+			top: 2px;
+			height: 100%;
+		*/
+		position: absolute;
+		top: 50%;
+		height: 98%; /*Avoids having toolbars unless needed*/
+		max-height: 600px; /*The centred effect only comes in when the height of the div is noticeably bigger than the height. note that this MQ is on width not height which is what we want right now*/
+		max-width: 100%; /*override the narrow max-width - it's only there so that on small screens other buttons won't cover over this text*/
+		-moz-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
 }
 @media only screen and (min-width: 1024px) {
 	/**/

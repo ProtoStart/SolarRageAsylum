@@ -43,7 +43,12 @@
 		<div id="mainContent" class="hidden">
 			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
-				<div id="viewableArea"><img src="rainbowVortexInner.png" alt="Rainbow"/></div>
+				<div id="viewableArea" class="haze"><img src="rainbowVortexInner.png" alt="Rainbow" class=""/></div>
+				<div id="northWall" class="invisible paddedWallHoriz"></div>
+				<div id="southWall" class="invisible paddedWallHoriz"></div>
+				<div id="eastWall" class="invisible paddedWallVert"></div>
+				<div id="westWall" class="invisible paddedWallVert"></div>
+				
 			</div>
 			<div id="gameBtns" class="hidden"><!-- game buttons -->
 				<span id="highBtns">
@@ -70,7 +75,39 @@
 			<p>3rd July released an update for the visuals - particularly for mobile</p>
 			<p><b>So far:</b> Opening story - though theres still a bit more to do on it, with first bit of movement</p>
 			<p><b>Coming in next few weeks:</b>Improvements to this opener - more story, a slightly more complex level</p>
+			<button id="loadGameBtn" onclick="showLoadGameScreen()">Load Game</button>
+			<button onclick="startNewGame()">Start New Game</button>
 			<p><a href="Documentation/Imperfections_list.txt" target="_blank">Our list of known imperfections</a> (it's easy to come back to them after playing)</p>
+		</div>
+		<div id="controlsInfo" class="hidden middleWhiteTxt">
+			<h2>Controls</h2><!--This screen isn't mobile friendly!!-->
+			<p>You can play this entire game using either: touch screens, mouse and keyboard, just keyboard or just a mouse.</p>
+			<h3>Touch screens and mouse:</h3>
+			<p>tap or click on the buttons shown on screen.<br/>
+			If a screen is just story, tapping/clicking on the story does the same as the Next button</p>
+			<h3>Keyboard:</h3>
+			<p>
+				<b>Action sections:</b> w,a,s & d or arrow keys for movement, e or space to rotate. <br/>
+				<b>Story sections:</b> 
+				
+				standard accessibility keys for your web browser can be used to cycle through and select options<br/>
+				Typically:<br/>
+				Tab cycles through options<br/>
+				Shift + Tab cycles through options in reverse<br/>
+				Space checks or unchecks checkboxes<br/>
+				Enter activates selected buttons.<br/>
+				The game automatically sets keyboard focus to the "Next" button <br/>
+				or the first text box / option if the screen has choices.<br/>
+			</p>
+			<div class="footerFiller"></div>
+		</div>
+		<div id="loadGameScreen" class="hidden middleWhiteTxt">
+			<h2>Load Game?</h2>
+			<p>Buttons will be disabled if you've not unlocked that save point. If you have a level code from playing on another browser or device (or maybe you want to cheat) you can activate the code in the box at <a href="http://solarrageasylumbeta.protostart.net/" target="_blank">http://solarrageasylumbeta.protostart.net/</a></p>
+			<p>More buttons will be added to this screen as the game is developed.</p>
+			<p><button id="loadHiDerekBtn" disabled="true" onclick="loadSectionFromClean(1)">Nice to meet you</button></p>
+			<p><button id="loadSection2Btn" disabled="true" onclick="loadSectionFromClean(2)">End of section 1</button></p>
+			<div class="footerFiller"></div>
 		</div>
 		<div id="screen003" class="hidden middleWhiteTxt">
 			<p><b>Epilepsy warning</b> - vivid contrasting spinning colours</br>(we've taken care to keep it slow, but cannot guarantee that is sufficient for all) </p>
@@ -83,13 +120,21 @@
 			or is it still a dream?
 			</p>
 		</div>
+		<div id="screen003b2" class="hidden storyTxt" onclick="masterNextBtnClick()">
+			<p>The haze begins to clear.
+			</p>
+		</div>
+		<div id="screen003b3" class="hidden storyTxt" onclick="masterNextBtnClick()">
+			<p>Out from the haze, a swirl of colours emerges
+			</p>
+		</div>
 		<div id="screen003c" class="hidden storyTxt" onclick="nextScreen('screen003c', 'screen003d')">
 			<p>Other than yourself, and the hoverbed you're laying on </br>
 			there is <i>only</i> a great magnificent vortex of light descending from above,</br>
 			flowing around and under you</br>
 			</p>
 		</div>
-		<div id="screen003d" class="hidden storyTxt" onclick="nextScreen('screen003d', 'screen00e')">
+		<div id="screen003d" class="hidden storyTxt" onclick="nextScreen('screen003d', 'screen003e')">
 			<p>
 			You feel calm.</br>
 			Very calm.
@@ -114,17 +159,17 @@
 		</div>
 		<div id="screen005" class="hidden storyTxt" onclick="launchLevelOne()">
 			<p>Ahh nice to meet you, I'm Derek, your new internal monologue. 
-			</p>
-			<p>
-			Oh, and don't worry, you're not crazy.</p>
-			<p>All the best people have internal monologues that give themselves names 
+			<br/><!-- Using br's because the positioning css sometimes overlaps multiple p's if they are long and the viewport is narrow (this was the only place where that still happened at end of beta 0.0.7)-->
+			Oh, and don't worry, you're not crazy.<br/>
+			All the best people have internal monologues that give themselves names 
 			like this.</p>
 		</div>
-		<div id="screen006" class="hidden gameplayTopText" > <!--  Level one playable from this screen-->
+		<!--  Level one playable from here-->
+		<div id="screen006" class="hidden gameplayTopText" > 
 			<p>Ah the rainbow has stopped. Lets try to move around, feeling for walls</p>
 		</div>
 		<div id="screen007" class="hidden gameplayTopText" >
-			<p>Oh, theres a wall here, I still can't see it and it seems padded</p>
+			<p>Oh, theres a wall here, I still can't see it but it seems padded</p>
 		</div>
 		<div id="screen008" class="hidden gameplayTopText" >
 			<p>This wall feels padded too</p>
@@ -133,10 +178,78 @@
 			<p>Padded. Just one wall left to check</p>
 		</div>
 		<div id="screen010" class="hidden gameplayTopText" >
-			<p>It's official, we're in a padded room. I wonder why?<a onclick="exitGame()"><i>That's the end of the taster beta for now.</i> Once level codes work, "padded" will continue from here. Right now, you can keep moving around or click here to go back to the titles.</a></p>
+			<p>It's official, we're in a padded room. I wonder why?<i><br/>this taster Beta currently ends here. In our test area however, you can see stuff that is being worked on (expect bugs and the game abruptly coming to a stop)</i>  <a onclick="exitGame()">click here to go back to the titles.</a> LEVEL CODE: "padded"</p>
 		</div>
+		<!--End of "level one" - or the movement controls practice bit-->
+		<!--Start of piecing together what is going on, ramping towards player choice-->
+		<div id="screen011" class="hidden storyTxt" onclick="nextScreen('screen011', 'screen011b')">
+		<!-- So by this point we know:
+				- we're on a hoverbed
+				- theres confusion about what is going on
+				- you're in a padded room
+				- you're either crazy,
+					or under the influence of some kind of hallucinagen
+		-->
+			<p><i>A short time passes, and you've moved back to somewhere near the middle of the room</i></p>
+		</div>
+		<div id="screen011b" class="hidden storyTxt" onclick="nextScreen('screen011b', 'screen012')">
+		<!-- This was previously on screen011 but we needed the text now in that screen there instead, so that players don't feel that their character jumped for no reason. Then the pacing didn't feel right, so I've added in this screen between 011 and 012	
+		-->
+			<p>Ok so ... we're in a padded room, that we don't remember going into, on a white hoverbed...</p>
+		</div>
+		<div id="screen012" class="hidden storyTxt" onclick="nextScreen('screen012', 'screen013')">
+			<p>the room feels empty, I'm pretty sure nobody else is in here, or any other large objects<br/> and ... we're probably hallucinating - certainly something majorly wrong with our vision. Are we crazy? Where we crazy? I don't think I'm normally crazy.</p>
+		</div>
+		<div id="screen013" class="hidden storyTxt" onclick="nextScreen('screen013', 'screen014')">
+			<p>Someone must suspect that we're crazy, or have seen us be crazy, at least recently. We wouldn't have put us, I mean I wouldn't have put myself into a padded room... <br/>would I??</p>
+		</div>
+		<div id="screen014" class="hidden storyTxt" onclick="nextScreen('screen014', 'screen015')">
+			<p>Could they have been correct? Maybe something came over me. Some kind of ... psionic ... warp field??</p>
+		</div>
+		<div id="screen015" class="hidden storyTxt" onclick="nextScreen('screen015', 'screen016')">
+			<p>I hear footsteps, outside the room. <br/> I think someone might be about to enter</p>
+		</div>
+		<div id="screen016" class="hidden storyTxt" onclick="nextScreen('screen016', 'screen017')">
+			<p>Sounds like a keypad, <span class="yellowBeep">beep</span> <span class="redBeep">beep</span> <span class="yellowBeep">beep</span> <span class="greenBeep">beep</span> <span class="limeBeep">beep</span> and on the final beep the door opened with a satisfying woosh. Be calm now </p>
+		</div>
+		<div id="screen017" class="hidden storyTxt" onclick="nextScreen('screen017', 'screen018')">
+			<p class="employee1Voice">Hello there. Can you hear me okay?</p>
+		</div>
+		<div id="screen018" class="hidden storyTxt">
+			<div class="choiceBtns">
+				<button id="canYouHearChoiceA">Yes.</button>
+				<!-- TODO: This is commented out temporarily to save space for small screens, since we won't be having all options coded for a while anyway, and we kinda need scrolling button area for the top line
+				<button id="canYouHearChoiceB">Yes, though I can't see you!</button> -->
+				<button id="canYouHearChoiceC">Is someone there??</button>
+				<button id="canYouHearChoiceD">(Remain silent)</button>
+				<br/>
+				<button id="canYouHearChoiceE" class="doubleLineBtn">EFUGY BLA BLORP FORP!!! <br/>(whilst throwing arms around)</button>
+				<!-- TODO: More options after Kickstarter?? / Future update??-->
+			</div>
+		</div>
+		<!--***NON-LINEAR SECTION - the first letter corresponds to the choice made on screen018*** -->
+		<div id="screen19a" class="hidden storyTxt ">
+			<p>Ah good. Can you see me or is your vision messed up?</p>
+		</div>
+		<div id="screen19b" class="hidden storyTxt ">
+			<p>Ah yes, temporary vision loss can occur unfortunately. It'll return shortly.</p>
+		</div>
+		<div id="screen19c" class="hidden storyTxt ">
+			<p>Yes, I'm here next to you</p>
+		</div>
+		<div id="screen19d" class="hidden storyTxt ">
+			<p>Hmm, no immediate response. Pulse seems good. Brain activity is a little unusual, but nothing we wouldn't expect from their condition and the meds they're on. I'll check the others and try again in a minute</p>
+		</div>
+		<div id="screen19e" class="hidden storyTxt ">
+			<p>Oh dear, looks like this one isn't responding well to the meds, better try something else. Guard, would you restrain their left arm so that I can get a dose of this in.</p>
+		</div>
+		<div id="screen19f" class="hidden storyTxt ">
+			<p></p>
+		</div>
+		
 	<!-- templates for copying
-		<div id="screen002" class="hidden storyTxt" onclick="nextScreen('screen002', 'screen003')">
+		you'll need to delete one of these classes: storyTxt, gameplayTopText
+		<div id="screen010" class="hidden storyTxt gameplayTopText" onclick="nextScreen('screen010', 'screen011')">
 			<p></p>
 		</div>
 		<h2> </h2>
@@ -159,7 +272,7 @@
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
 			<span id="GameName">Solar Rage Asylum</span>
-			<span id="Version">, Version: Beta 0.0.7 "Design, Responsive Design"</span>
+			<span id="Version"> Version: Beta 0.0.8 "The haze clears"</span>
 			<span id="BasicCredit"> - A ProtoStart game</span>
 			<span id="LeadBy"> lead by Phil Ganney</span>
 		</div>
