@@ -32,8 +32,8 @@ function codeUnlockFunc(){
 	} else if (codeAttempt == "CAJJLLLBCK" || codeAttempt == "FLCIKLMODO" || codeAttempt == "GINLNNIIJL"){ //lemmings level codes fun 1, fun 30 and mayhem 30 respectively
 		alert("Level codes aren't implemented yet, but try niemtel backwards instead");
 	} else if (codeAttemptLower.includes("letmein") ||codeAttempt == "Iwannaplay"|| codeAttemptLower.includes("let me in")){//display the hidden tab when "letmein", "Letmein" or "Iwannaplay" , or anything with the words "let me in"/ such as "please let me in" or "let me in please" is used as a code, and the user confirms our agreement. Added the "Letmein" variety because mobile browsers sometimes default to starting words with a capital letter and it's just annoying
-		if (confirm("Are you okay playing a game, in such early stages that it's probably a bit of a mess, and might not even have anything playable?")){
-			if (confirm("Wanna come into our testing area?")){
+		if (confirm("Wanna see our alpha testing area?")){
+			if (confirm("The game in the alpha test area is often in a very unfinished messy state while stuff is being tested for browser compatibility. Still ok?")){
 				hideAllXClassShowY("homePageTabs","mulysaehtotecnartne");
 			};
 		};
