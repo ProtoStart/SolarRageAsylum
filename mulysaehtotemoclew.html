@@ -64,6 +64,14 @@
 				<p id="keyboardHint">Keyboard:<br/>wasd or arrows move<br/>e or space rotate</p>
 			</div>
 		</div>
+		<!-- Modal -->
+		<div id="mainModal" class="modal hidden">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+			<span class="close">&times;</span>
+		  </div>
+		</div>
 		<div id="screen001" class="showing openingScreen" onload="pageStart()" onclick="masterNextBtnClick()"> <!-- Needs the masterNextBtnClick() so that the correct button is focused-->
 			<h2>Phil Ganney </br> & </br> PROTOSTART </br> are proud to introduce</h2>
 		</div>
@@ -215,35 +223,47 @@
 		<div id="screen017" class="hidden storyTxt" onclick="nextScreen('screen017', 'screen018')">
 			<p class="employee1Voice">Hello there. Can you hear me okay?</p>
 		</div>
-		<div id="screen018" class="hidden storyTxt">
+		<div id="screen018" class="hidden storyTxt" onclick="nextScreen('screen018', 'screen019')">
+			<p>		
+					(thinking quickly: there are multiple things I could say, or do)<br/>
+				<i>	
+					(however some options are still in development or are planned for the full release only)
+				</i>
+			</p>
+		</div>
+		<div id="screen019" class="hidden storyTxt">
 			<div class="choiceBtns">
-				<button id="canYouHearChoiceA" disabled="true">Yes.</button>
+				<button id="canYouHearChoiceA" disabled="true">"Yes."</button>
 				<!-- TODO: This is commented out temporarily to save space for small screens, since we won't be having all options coded for a while anyway, and we kinda need scrolling button area for the top line
 				<button id="canYouHearChoiceB">Yes, though I can't see you!</button> -->
-				<button id="canYouHearChoiceC" disabled="true">Is someone there??</button>
-				<button id="canYouHearChoiceD" disabled="true">(Remain silent)</button>
+				<button id="canYouHearChoiceC" disabled="true">"Is someone there??"</button>
+				<button id="canYouHearChoiceD" disabled="true">(Wait silently)</button>
 				<br/>
-				<button id="canYouHearChoiceE" class="doubleLineBtn" disabled="true">EFUGY BLA BLORP FORP!!! <br/>(whilst throwing arms around)</button>
+				<button id="canYouHearChoiceE" class="doubleLineBtn" disabled="true">"EFUGY BLA BLORP FORP!!!" <br/>(whilst throwing arms around)</button>
+				<button id="canYouHearChoicef" class="doubleLineBtn" onclick="startEarlyEscapeAttempt()">(ATTEMPT<br/>ESCAPE!!)</button>
 				<!-- TODO: More options after Kickstarter?? / Future update??-->
 			</div>
 		</div>
-		<!--***NON-LINEAR SECTION - the first letter corresponds to the choice made on screen018*** -->
-		<div id="screen19a" class="hidden storyTxt ">
+		<!--***NON-LINEAR SECTION - the first letter corresponds to the choice made on screen019*** -->
+		<div id="screen019a" class="hidden storyTxt ">
 			<p>Ah good. Can you see me or is your vision messed up?</p>
 		</div>
-		<div id="screen19b" class="hidden storyTxt ">
+		<div id="screen019b" class="hidden storyTxt ">
 			<p>Ah yes, temporary vision loss can occur unfortunately. It'll return shortly.</p>
 		</div>
-		<div id="screen19c" class="hidden storyTxt ">
+		<div id="screen019c" class="hidden storyTxt ">
 			<p>Yes, I'm here next to you</p>
 		</div>
-		<div id="screen19d" class="hidden storyTxt ">
+		<div id="screen019d" class="hidden storyTxt ">
 			<p>Hmm, no immediate response. Pulse seems good. Brain activity is a little unusual, but nothing we wouldn't expect from their condition and the meds they're on. I'll check the others and try again in a minute</p>
 		</div>
-		<div id="screen19e" class="hidden storyTxt ">
+		<div id="screen019e" class="hidden storyTxt ">
 			<p>Oh dear, looks like this one isn't responding well to the meds, better try something else. Guard, would you restrain their left arm so that I can get a dose of this in.</p>
 		</div>
-		<div id="screen19f" class="hidden storyTxt ">
+		<div id="screen019f" class="hidden storyTxt ">
+			<p>(Door to the right, halfway down wall??)</p>
+		</div>
+		<div id="screen019g" class="hidden storyTxt ">
 			<p></p>
 		</div>
 		
@@ -271,7 +291,7 @@
 		<div id="cookiePopupContainer"></div>
 		<div id="footer">
 			<span id="GameName">Solar Rage Asylum</span>
-			<span id="Version">, (Test area: 08/09/2021)</span>
+			<span id="Version"> (Test area: 10/09/2021)</span>
 			<span id="BasicCredit"> - A ProtoStart game</span>
 			<span id="LeadBy"> lead by Phil Ganney</span>
 		</div>

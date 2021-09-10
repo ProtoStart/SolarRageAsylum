@@ -20,6 +20,7 @@ Rainbow
 	height: 230px;
 */
 var globals = {
+	"GameStage": "start",  // access with globals.GameStage - represents a broad stage of the game - for example, though not finalised yet: start, middle, end
 	"bounds": { //The edges of the playable area, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
 		"top": "99",
 		"right": "658",
@@ -181,6 +182,7 @@ var globals = {
 					- turn off keyboard controls
 				*/
 				resetGameArea();
+				globals.GameStage = "middle";
 			}
 		},
 		"screen011" : { 
@@ -224,7 +226,15 @@ var globals = {
 		},
 		"screen018" : { 
 			"prevBtn" : "screen017",
+			"nextBtn" : "screen019"
+		},
+		"screen019" : { 
+			"prevBtn" : "screen018",
 			"nextBtn" : false /*Divergent choices*/
+		},
+		"screen019f" : { 
+			"prevBtn" : false, /*No going back!*/
+			"nextBtn" : false /*Action section*/
 		},
 		/* Annotated Template
 		"screen002" : {  //screen number matching div id that this refers to
@@ -480,7 +490,7 @@ function endMove(){  //Stops movement caused by startMove
 	clearInterval(movePCInterval);
 }
 
-function move(dir){ //dir = direction
+function move(dir){  //dir = direction
 	let moveAmount = 30; //the amount of px (pixels) that something will move by in one movement, if it can.
 	//alert("Should move " + dir);  //a line for quick debugging purposes
 	//find #mockPC co-ords (here before we check the direction, as every movement attempt will need the starting co-ords, so this saves repitition) -- x axis is from the left to the right, y axis is from top downwards
@@ -536,31 +546,33 @@ function move(dir){ //dir = direction
 		clearInterval(movePCInterval);
 		clearInterval(rotatePCInterval);
 		
-		//count up how many different walls player has bumped into
-		var iWalls = 0; //Holds our number of walls player has bumped into
-		if (globals.WallsBumped.N == true){
-			iWalls++;
-		};
-		if (globals.WallsBumped.E == true){
-			iWalls++;
-		};
-		if (globals.WallsBumped.S == true){
-			iWalls++;
-		};
-		if (globals.WallsBumped.W == true){
-			iWalls++;
-		};
-		//Now we know how many walls bumped into, we can give a message accordingly
-		if (iWalls == 4){
-			nextScreen("screen009", "screen010");
-			//Previously used a confirm, but now we show in screen10 a link to go back
-		} else if (iWalls == 3){
-			nextScreen("screen008", "screen009");
-		} else if (iWalls == 2){
-			nextScreen("screen007", "screen008");
-		} else if (iWalls == 1){
-			nextScreen("screen006", "screen007");
-		} 
+		if (globals.GameStage == "start"){  //This bit is only useful for when the character is waking up in the recovery room - possibly even only on the first time that happens
+			//count up how many different walls player has bumped into
+			var iWalls = 0; //Holds our number of walls player has bumped into
+			if (globals.WallsBumped.N == true){
+				iWalls++;
+			};
+			if (globals.WallsBumped.E == true){
+				iWalls++;
+			};
+			if (globals.WallsBumped.S == true){
+				iWalls++;
+			};
+			if (globals.WallsBumped.W == true){
+				iWalls++;
+			};
+			//Now we know how many walls bumped into, we can give a message accordingly
+			if (iWalls == 4){
+				nextScreen("screen009", "screen010");
+				//Previously used a confirm, but now we show in screen10 a link to go back
+			} else if (iWalls == 3){
+				nextScreen("screen008", "screen009");
+			} else if (iWalls == 2){
+				nextScreen("screen007", "screen008");
+			} else if (iWalls == 1){
+				nextScreen("screen006", "screen007");
+			} 
+		}
 	};
 }
 
@@ -724,6 +736,14 @@ function launchLevelOne(){
 	//apply class="ExtraBorder" to gameArea
 	document.getElementById("gameArea").classList.add("ExtraBorder");
 	
+	allowMovement();
+}
+
+
+function startEarlyEscapeAttempt(){
+	//swap out the first choice screen with the screen with thoughts screen via nextScreen
+	nextScreen('screen019', 'screen019f');
+	//let them move
 	allowMovement();
 }
 
