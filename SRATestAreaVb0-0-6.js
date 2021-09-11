@@ -27,6 +27,60 @@ var globals = {
 		"bottom": "439",
 		"left": "90"
 	},
+	"bumpCoords": { // "Hit-box" co-ordinates of anything the player character might collide with. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+		/*
+		"exampleObject" : {  Objects are rectangular or at least their hitboxes / "bumpCoords" are
+			"top": "104",  //where the top of the object is
+			"right": "658", //where the right most edge of the object is
+			"bottom": "99",  //where the bottom of the object is
+			"left": "90",    //where the left most edge of the object is
+			"state": "solid" //info about the object used to know if the character would bounce 
+		},
+		*/
+		
+		"topWall" : {  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
+			"top": "104",  //5 higher than bottom, so that the wall is 5px thick  - Represents where the top of this object is
+			"right": "658", //
+			"bottom": "99",  //match bounds.top
+			"left": "90",
+			"state": "solid"
+		},
+		"rightWallTop" : {
+			"top": "99",
+			"right": "658",  //match bounds.right
+			"bottom": "439",
+			"left": "90",
+			"state": "solid"
+		},
+		"doorToCorridor" : {
+			"top": "",
+			"right": "658",  //match bounds.right
+			"bottom": "",
+			"left": "",
+			"state": "solid" //shut doors are solid -- open 
+		},
+		"rightWallBottom" : {
+			"top": "99",
+			"right": "658",  //match bounds.right
+			"bottom": "439",
+			"left": "90",
+			"state": "solid"
+		},
+		"bottomWall" : {
+			"top": "99",  //match bounds.bottom
+			"right": "658",
+			"bottom": "439",  
+			"left": "90",
+			"state": "solid"
+		},
+		"leftWall" : {
+			"top": "99",
+			"right": "658",   //match bounds.left
+			"bottom": "439",
+			"left": "90",
+			"state": "solid"
+		},
+	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),
 		//I'll need a setter to set this programattically
@@ -576,8 +630,35 @@ function move(dir){  //dir = direction
 	};
 }
 
+function checkMovement(yTop, xLeft, yBase, xRight){
+	/*	A more sophisticated version of isInBounds   (Todo: HERE!!)
+		
+		isInBounds is tightly coupled with the very simple starting room - it was only built with that in mind (intentionally: to keep the development of it simple at the time)
+		isInBounds works great for the opening bit where:
+			you are entirely locked into a room with four walls to bump into
+			you are just sussing out where the walls are
+			there is no possibility that the player can see the suroundings already
+			there are no other objects, people or creatures in the room with you
+			
+		Note: isInBounds could made better for that start, and help transition to developing this, by being able to detect where the door is
+			
+			
+		current limitations: 
+			we currently have no way to set that there are open doorways at specific locations
+				we don't yet recognise the difference between wall area and door area
+					we don't yet show the difference between wall area and door area
+					we don't yet display a different message when the player gets to a place where a door is (closed or open)
+				we don't have a way of a recording or showing if a door is open
+				we have no way to transition on to a new area when an open doorway is travelled through
+			this doesn't cover objects or any other kind of thing restricting movement ...
+				... as an area that can be approached from different angles
+				... as an area that can be navigated around
+	*/
+}
+
+
 function isInBounds(yTop, xLeft, yBase, xRight){
-	/*
+	/* Only for the starting room, while the doors are shut - a more complex and sophisticated version is in checkMovement
 		1)original use - output true if the given co-ords are within the bounds of the play area, and false if not
 		2)for a while before I altered this comment also - record which walls have been bumped into
 		3) TODO: Make a visible effect occur whenever bumps happen
