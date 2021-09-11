@@ -34,7 +34,8 @@ var globals = {
 			"right": "658", //where the right most edge of the object is
 			"bottom": "99",  //where the bottom of the object is
 			"left": "90",    //where the left most edge of the object is
-			"state": "solid" //info about the object used to know if the character would bounce 
+			"state": "solid" //info about the object used to show how it will respond to the player going into it
+			//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
 		},
 		*/
 		
@@ -43,42 +44,42 @@ var globals = {
 			"right": "658", //
 			"bottom": "99",  //match bounds.top
 			"left": "90",
-			"state": "solid"
+			"state": "padded"
 		},
 		"rightWallTop" : {
 			"top": "99",
 			"right": "658",  //match bounds.right
 			"bottom": "439",
 			"left": "90",
-			"state": "solid"
+			"state": "padded"
 		},
 		"doorToCorridor" : {
 			"top": "",
 			"right": "658",  //match bounds.right
 			"bottom": "",
 			"left": "",
-			"state": "solid" //shut doors are solid -- open 
+			"state": "locked" //it defaults as a locked shut door
 		},
 		"rightWallBottom" : {
 			"top": "99",
 			"right": "658",  //match bounds.right
 			"bottom": "439",
 			"left": "90",
-			"state": "solid"
+			"state": "padded"
 		},
 		"bottomWall" : {
 			"top": "99",  //match bounds.bottom
 			"right": "658",
 			"bottom": "439",  
 			"left": "90",
-			"state": "solid"
+			"state": "padded"
 		},
 		"leftWall" : {
 			"top": "99",
 			"right": "658",   //match bounds.left
 			"bottom": "439",
 			"left": "90",
-			"state": "solid"
+			"state": "padded"
 		},
 	},
 	"PC": { /* PC == Player Character */
