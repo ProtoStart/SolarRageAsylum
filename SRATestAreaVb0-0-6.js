@@ -40,47 +40,47 @@ var globals = {
 		*/
 		
 		"topWall" : {  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
-			"top": "104",  //5 higher than bottom, so that the wall is 5px thick  - Represents where the top of this object is
-			"right": "658", //
-			"bottom": "99",  //match bounds.top
-			"left": "90",
-			"state": "padded"
-		},
-		"rightWallTop" : {
-			"top": "99",
-			"right": "658",  //match bounds.right
-			"bottom": "439",
-			"left": "90",
-			"state": "padded"
-		},
-		"doorToCorridor" : {
-			"top": "",
-			"right": "658",  //match bounds.right
-			"bottom": "",
-			"left": "",
-			"state": "locked" //it defaults as a locked shut door
-		},
-		"rightWallBottom" : {
-			"top": "99",
-			"right": "658",  //match bounds.right
-			"bottom": "439",
-			"left": "90",
-			"state": "padded"
-		},
-		"bottomWall" : {
-			"top": "99",  //match bounds.bottom
-			"right": "658",
-			"bottom": "439",  
-			"left": "90",
-			"state": "padded"
+			"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
+			"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
+			"bottom": "99",  //match bounds.top (NOT bounds.bottom) because this is the wall that makes up the top boundary, and it's the bottom of the bumpCoords for the wall that the Player Character will collide with
+			"left": "90", //match bounds.left because this wall goes up from the left most wall to the right
+			"state": "padded" //it's a padded wall
 		},
 		"leftWall" : {
 			"top": "99",
-			"right": "658",   //match bounds.left
+			"right": "90",   //match bounds.left
 			"bottom": "439",
-			"left": "90",
+			"left": "85",
 			"state": "padded"
 		},
+		"rightWallTop" : {
+			"top": "99", //match bounds.top as the top of this wall ends there
+			"right": "663",  //left + 5 to make it 5px thick 
+			"bottom": "149", //match the top of "doorToCorridor"  
+			"left": "658",  //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+			"state": "padded" //it's a padded wall
+		},
+		"doorToCorridor" : {
+			"top": "149", //match bottom of "rightWallTop"
+			"right": "663",  
+			"bottom": "169",
+			"left": "658",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+			"state": "locked" //it defaults as a locked shut door - state should change to open when they check in on you
+		},
+		"rightWallBottom" : {
+			"top": "169", //match bottom of "doorToCorridor"
+			"right": "663",  
+			"bottom": "439",
+			"left": "658", //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+			"state": "padded"
+		},
+		"bottomWall" : {
+			"top": "439",  //match bounds.bottom
+			"right": "658",
+			"bottom": "444",  
+			"left": "90",
+			"state": "padded"
+		}
 	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),

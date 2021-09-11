@@ -1,0 +1,42 @@
+topWall
+
+"top": "94",
+"right": "658",
+"bottom" "99",
+"left": "90",
+
+leftWall
+"top": "99",
+"right": "90",
+"bottom": "439",
+"left": "85"
+
+rightWallTop
+"top":  "99",
+"right": "663",
+"bottom": "149",
+"left": "658"
+
+
+doorToCorridor
+"top": "149",
+"right": "663",
+"bottom": "169",
+"left": "658"
+
+rightWallBottom
+"top": "169",
+"right": "663",
+"bottom": "439",
+"left": "658"
+
+bottomWall
+"top": "439",
+"right": "658",
+"bottom": "444"
+"left": "90"
+
+
+
+
+

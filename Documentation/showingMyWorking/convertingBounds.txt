@@ -1,0 +1,59 @@
+(Doing workings in a seperate files so that I can check and double check all these values) 
+bounds:	
+		"top": "99",
+		"right": "658",
+		"bottom": "439",
+		"left": "90"
+
+
+top wall
+
+"bottom" "99"
+"left": "90"
+"right": "658",
+"top": "94"
+
+right wall
+full coords would be:
+
+"left": "658"
+"top": "99"
+"bottom": "439"
+"right": "663"
+
+but this wall is split in three
+"left" and "right" will stay the same on all parts
+"top" of the top part fits with the top of the full coords
+"bottom" of bottom part fits with the bottom of the full coords
+assign the door "top" and "bottom" to place it close to middle of the total and 20 width (can adjust later if it's too wide or narrow)
+match "bottom" of the top section to "top" of the door
+match "top" of the bottom section to "bottom" of the door
+
+	rightWallTop
+		"top":  "99"
+		"bottom": "149"
+		"left": "658"
+		"right": "663"
+	doorToCorridor
+		"top": "149"
+		"bottom": "169"
+		"left": "658"
+		"right": "663"
+	rightWallBottom
+		"top": "169"
+		"bottom": "439"
+		"left": "658"
+		"right": "663"
+
+left wall
+
+"right": "90",
+"top": "99",
+"bottom": "439",
+"left": "85"
+
+bottom wall
+"top": "439",
+"left": "90",
+"right": "658",
+"bottom": "444"
