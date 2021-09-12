@@ -695,15 +695,11 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 		(yTop, xLeft, yBase, xRight)
 	*/
 	//Check for vertical collisions: if yTop (the top of what is moving) will be higher than the bottom of the door, at the same time as the base of what is moving is below the top of the door
-	if (yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top){
-		alert("vertical collision");
+	if ((yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top )&&(xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left)){
+		alert("door collision");
 		//return globals.bumpCoords.doorToCorridor.state;
 	};
-	
-	if (xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left){
-		alert("horizontal collision");
-		//return globals.bumpCoords.doorToCorridor.state;
-	};	
+
 	//if nothing  is found here it's clear (in theory anyway)
 	return "clear";
 }
