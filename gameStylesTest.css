@@ -293,6 +293,36 @@ p.employee1Voice{
 	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
 }
 
+#keypad{
+	position:absolute;
+	top: 170px;
+	left: 663px;
+}
+
+.keypad{
+	color: green;  /*text colour*/ 
+	height: 6px;
+	width: 6px;
+}
+
+/*
+	"doorToCorridor" : {
+		"top": "149", //match bottom of "rightWallTop"
+		"right": "663",  
+		"bottom": "169",
+		"left": "658",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+		"state": "open" //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+	},
+*/
+#doorToCorridor{
+	position:absolute;
+	color: green;  /*text colour*/ 
+	top: 248px;
+	left: 663px;
+	height: 20px;
+	width: 5px;
+}
+
 .invisible{
 	/*As opposed to the "hidden" class https://www.w3schools.com/css/css_display_visibility.asp section Hide an Element - display:none or visibility:hidden? for more info plus a demo of the difference. TODO: I immediatly dislike the class namings for hidden and invisible as I'm putting this in - is it too late to change the old hidden class to notDisplayed or something like that??*/
 	visibility: hidden;
