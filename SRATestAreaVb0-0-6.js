@@ -635,18 +635,18 @@ function move(dir){  //dir = direction
 			}
 		};
 	} else {
-		/*switch(checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
-			case 
+		switch(checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+			case "clear": 
+				document.getElementById("mockPC").style.left = attemptLeftX + "px";
+				document.getElementById("mockPC").style.top = attemptTopY + "px";
+				//Also move the swirly background with you
+				document.getElementById("viewableArea").style.left = attViewX + "px";
+				document.getElementById("viewableArea").style.top = attViewY + "px";
+				break;
 			
+
 			
-			//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
-			document.getElementById("mockPC").style.left = attemptLeftX + "px";
-			document.getElementById("mockPC").style.top = attemptTopY + "px";
-			//Also move the swirly background with you
-			document.getElementById("viewableArea").style.left = attViewX + "px";
-			document.getElementById("viewableArea").style.top = attViewY + "px";
-			
-		} */
+		}
 	}
 }
 
@@ -673,7 +673,10 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 			this doesn't cover objects or any other kind of thing restricting movement ...
 				... as an area that can be approached from different angles
 				... as an area that can be navigated around
+				
 	*/
+	
+	return "clear";
 }
 
 
