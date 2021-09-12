@@ -61,10 +61,22 @@ var globals = {
 			"state": "padded" //it's a padded wall
 		},
 		"doorToCorridor" : {
-			"top": "149", //match bottom of "rightWallTop"
-			"right": "663",  
-			"bottom": "169",
-			"left": "658",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+			
+			/*
+			old values before visual adjustment:
+				"top": "149"
+				"right": "663"
+				"bottom": "169",
+				"left": "658"
+			css after visual ajustment:
+				top: 248px;
+				left: 663px;
+			
+			*/
+			"top": "248", //match bottom of "rightWallTop"
+			"right": "668",  //left + 5
+			"bottom": "268",  //top + 20
+			"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
 			"state": "open" //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
 		},
 		"rightWallBottom" : {
