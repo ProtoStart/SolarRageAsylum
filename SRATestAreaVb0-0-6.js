@@ -56,7 +56,7 @@ var globals = {
 		"rightWallTop" : {
 			"top": "99", //match bounds.top as the top of this wall ends there
 			"right": "663",  //left + 5 to make it 5px thick 
-			"bottom": "149", //match the top of "doorToCorridor"  
+			"bottom": "248", //match the top of "doorToCorridor"  
 			"left": "658",  //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
 			"state": "padded" //it's a padded wall
 		},
@@ -648,12 +648,16 @@ function move(dir){  //dir = direction
 		};
 	} else {
 		switch(checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
-			case "clear": 
+			case "clear": //nothing detected
 				document.getElementById("mockPC").style.left = attemptLeftX + "px";
 				document.getElementById("mockPC").style.top = attemptTopY + "px";
 				//Also move the swirly background with you
 				document.getElementById("viewableArea").style.left = attViewX + "px";
 				document.getElementById("viewableArea").style.top = attViewY + "px";
+				break;
+			case "open":  //an open door
+				//TODO: how do we know where the door takes us??? surely we need some data for that or a function coming back to move the game onto the next place?
+				alert("door is open");
 				break;
 			
 
@@ -708,8 +712,8 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 	*/
 	//Check for vertical collisions: if yTop (the top of what is moving) will be higher than the bottom of the door, at the same time as the base of what is moving is below the top of the door
 	if ((yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top )&&(xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left)){
-		alert("door collision");
-		//return globals.bumpCoords.doorToCorridor.state;
+		
+		return globals.bumpCoords.doorToCorridor.state;
 	};
 
 	//if nothing  is found here it's clear (in theory anyway)
