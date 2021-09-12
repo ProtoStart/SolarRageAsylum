@@ -587,21 +587,23 @@ function move(dir){  //dir = direction
 	var attemptRightX = attemptLeftX + globals.PC.width;
 	var attemptBottomY = attemptTopY + globals.PC.height;
 	
-	//If the values this is attempting will still be in bounds, change the styles of our Player Character div to show it where we want it to move to
-	//function isInBounds(yTop, xLeft, yBase, xRight)
-	if(isInBounds(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
-		//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
-		document.getElementById("mockPC").style.left = attemptLeftX + "px";
-		document.getElementById("mockPC").style.top = attemptTopY + "px";
-		//Also move the swirly background with you
-		document.getElementById("viewableArea").style.left = attViewX + "px";
-		document.getElementById("viewableArea").style.top = attViewY + "px";
-	} else {
-		//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
-		clearInterval(movePCInterval);
-		clearInterval(rotatePCInterval);
+	if (globals.GameStage == "start"){  //This bit is only useful for when the character is waking up in the recovery room - possibly even only on the first time that happens
 		
-		if (globals.GameStage == "start"){  //This bit is only useful for when the character is waking up in the recovery room - possibly even only on the first time that happens
+		//If the values this is attempting will still be in bounds, change the styles of our Player Character div to show it where we want it to move to
+		//function isInBounds(yTop, xLeft, yBase, xRight)
+		if(isInBounds(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+			//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
+			document.getElementById("mockPC").style.left = attemptLeftX + "px";
+			document.getElementById("mockPC").style.top = attemptTopY + "px";
+			//Also move the swirly background with you
+			document.getElementById("viewableArea").style.left = attViewX + "px";
+			document.getElementById("viewableArea").style.top = attViewY + "px";
+			
+		} else {
+			//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
+			clearInterval(movePCInterval);
+			clearInterval(rotatePCInterval);
+					
 			//count up how many different walls player has bumped into
 			var iWalls = 0; //Holds our number of walls player has bumped into
 			if (globals.WallsBumped.N == true){
@@ -627,8 +629,11 @@ function move(dir){  //dir = direction
 			} else if (iWalls == 1){
 				nextScreen("screen006", "screen007");
 			} 
-		}
-	};
+			
+		};
+	} else {
+		alert();//just testing
+	}
 }
 
 function checkMovement(yTop, xLeft, yBase, xRight){
