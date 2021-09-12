@@ -38,8 +38,8 @@ var globals = {
 			//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
 		},
 		*/
-		
-		"topWall" : {  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
+		  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
+		"topWall" : { //access this with globals.bumpCoords.topWall
 			"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
 			"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
 			"bottom": "99",  //match bounds.top (NOT bounds.bottom) because this is the wall that makes up the top boundary, and it's the bottom of the bumpCoords for the wall that the Player Character will collide with
@@ -675,7 +675,36 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 				... as an area that can be navigated around
 				
 	*/
+	/*
+	 eventually we want to loop through all of the bumpCoords  - globals.bumpCoords
+	 for now I'll just check for the door, then when that's working I'll wrap it in a more generic for
+	 Loop will be something like below commented code, but maybe a different path
+		for(var item in globals.bumpCoords){
+			
+		}
+		
+	 and here's a ref for the data for the door	
+		"doorToCorridor" : {
+			"top": "149", //match bottom of "rightWallTop"
+			"right": "663",  
+			"bottom": "169",
+			"left": "658",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+			"state": "open" //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+		},
+		
+		(yTop, xLeft, yBase, xRight)
+	*/
+	//Check for vertical collisions: if yTop (the top of what is moving) will be higher than the bottom of the door, at the same time as the base of what is moving is below the top of the door
+	if (yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top){
+		alert("vertical collision");
+		//return globals.bumpCoords.doorToCorridor.state;
+	};
 	
+	if (xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left){
+		alert("horizontal collision");
+		//return globals.bumpCoords.doorToCorridor.state;
+	};	
+	//if nothing  is found here it's clear (in theory anyway)
 	return "clear";
 }
 
