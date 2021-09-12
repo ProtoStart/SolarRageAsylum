@@ -619,20 +619,34 @@ function move(dir){  //dir = direction
 				iWalls++;
 			};
 			//Now we know how many walls bumped into, we can give a message accordingly
-			if (iWalls == 4){
-				nextScreen("screen009", "screen010");
-				//Previously used a confirm, but now we show in screen10 a link to go back
-			} else if (iWalls == 3){
-				nextScreen("screen008", "screen009");
-			} else if (iWalls == 2){
-				nextScreen("screen007", "screen008");
-			} else if (iWalls == 1){
-				nextScreen("screen006", "screen007");
-			} 
-			
+			switch(iWalls){
+				case 1:
+					nextScreen("screen006", "screen007");
+					break;
+				case 2:
+					nextScreen("screen007", "screen008");
+					break;
+				case 3:
+					nextScreen("screen008", "screen009");
+					break;
+				case 4:
+					nextScreen("screen009", "screen010");
+					break;	
+			}
 		};
 	} else {
-		alert();//just testing
+		/*switch(checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+			case 
+			
+			
+			//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
+			document.getElementById("mockPC").style.left = attemptLeftX + "px";
+			document.getElementById("mockPC").style.top = attemptTopY + "px";
+			//Also move the swirly background with you
+			document.getElementById("viewableArea").style.left = attViewX + "px";
+			document.getElementById("viewableArea").style.top = attViewY + "px";
+			
+		} */
 	}
 }
 
