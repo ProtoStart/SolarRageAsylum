@@ -93,7 +93,7 @@ var globals = {
 			"bottom": "268",  //top + 20
 			"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
 			"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
-			"doorTo": "corridorOne" //only doors have doorTo data, it's literally just a way of knowing where the player should be taken as they go through
+			"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
 		},
 		"rightWallBottom" : {
 			"top": "169", //match bottom of "doorToCorridor"

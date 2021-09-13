@@ -4,14 +4,33 @@ WORLD MAP CONCEPT   - Work In Progress
 
 Rec = Recovery room (Rec 3 is start), C = Corridor, GPC = Guard Post in Corridor, Mon = Monitoring station, Lck = Locked door, Exit - Exit/entrance to the asylum, Rcp = Reception, Tri = Triage/assessment room, Wa = Waiting area, Wc = WC - toilet facilities, Off = Office
 (grid columns below)
-row | 1	| 2	| 3	| 4	| 5	| 6	| 7	| 8	| 9	|	
- 1	Rec5  C	Rec6         		
- 2	Rec3  C Rec4         C
- 3	Rec1  C	Rec2         C
- 4	Mon GPC Wc		Off  C
- 5		Lck	Tri	Tri	Rcp GPC
- 6		  C  C 	 C 	 C 	 C 	
- 7				Wa	 C   Wc
- 8					 C
- 9					GPC
-10					Exit
+row | 0	| 1	| 2	| 3	| 4	| 5	| 6	| 7	| 8	| 9	|	
+ 0	Rec5  C	Rec6         		
+ 1	Rec3  C Rec4         C
+ 2	Rec1  C	Rec2         C
+ 3	Mon GPC Wc		Off  C
+ 4		Lck	Tri	Tri	Rcp GPC
+ 5		  C  C 	 C 	 C 	 C 	
+ 6				Wa	 C   Wc
+ 7					 C
+ 8					GPC
+ 9					Exit
+
+
+	00	01 	02 	03	04	05	06	07	08	09
+	10	11	12	13	14	15	16	17	18	19
+	20	21	22	23	24	25	26	27	28	29
+	30	31	32	33	34	35	36	37	38	39
+	40	41	42	43	44	45	46	47	48	49
+	50	51	52	53	54	55	56	57	58	59
+	60	61	62	63	64	65	66	67	68	69
+	70	71	72	73	74	75	76	77	78	79
+	80	81	82	83	84	85	86	87	88	89
+	90	91	92	93	94	95	96	97	98	99
+	With this as our grid, we can use tens for row and unit for column if using two digits.
+	It is quite a small map, but I think I should keep it that way at least until we have a full (ie not "beta" release). Maybe if we get to a point where this game can be really ambitious, this could just be considered the "starter" asylum, or show that this is just one small wing of the asylum - we could add in extra digits or characters to let asylums be bigger. Then row 4 column 3 in the starter asylum could map to A43, while wing 6 column 5 row 7 of the 3rd asylum could be C657
+	
+	Other potential ways of doing grids considered:
+	(awkward) I could do hexadecimal to extend that to 16 each way but that doesn't seem worth the extra complication - I'm not sure JS even really does hex as var type, this is largely as either ints or strings anyway, and lets face it hex would be awkward for human developers to use for grid refs. 
+	Grid refs based on letters (eg's: FZ, QE, AB)
+	Columns in letters and rows in numbers or vice-versa - eh I'm not feeling it.
