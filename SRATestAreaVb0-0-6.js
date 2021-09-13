@@ -663,7 +663,8 @@ function move(dir){  //dir = direction
 			}
 		};
 	} else {
-		switch(checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+		var whatsThere = checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX);
+		switch(whatsThere[0]){  //looks at the "state" returned back in the whatsThere array index 0 to decide which case to follow. Initially as I was developing this, the state just came back from checkMovement as a single string, but in some cases such as doors we need more info when we get to that particular case, like where a door goes to
 			case "clear": //nothing detected
 				document.getElementById("mockPC").style.left = attemptLeftX + "px";
 				document.getElementById("mockPC").style.top = attemptTopY + "px";
@@ -683,7 +684,7 @@ function move(dir){  //dir = direction
 }
 
 function checkMovement(yTop, xLeft, yBase, xRight){
-	/*	A more sophisticated version of isInBounds   (Todo: HERE!!)
+	/*	A more sophisticated version of isInBounds for proper collision detection rather than if it's just inside 1 single square.  (Todo: HERE!!)
 		
 		isInBounds is tightly coupled with the very simple starting room - it was only built with that in mind (intentionally: to keep the development of it simple at the time)
 		isInBounds works great for the opening bit where:
@@ -729,11 +730,11 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 	//Check for vertical collisions: if yTop (the top of what is moving) will be higher than the bottom of the door, at the same time as the base of what is moving is below the top of the door
 	if ((yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top )&&(xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left)){
 		
-		return globals.bumpCoords.doorToCorridor.state;
+		return [globals.bumpCoords.doorToCorridor.state, globals.bumpCoords.doorToCorridor]; //TODO: maybe this function could be improved by always just bringing back an object, even when nothing is found - just use a mostly empty object with  "state": "clear" for when there is nothing. To actually know which is best, I think I'd have to code both, run them and monitor the results. A large amount of the time it will just be clear. I only really want to optimise this if its a problem, or if it's noticeable
 	};
 
-	//if nothing  is found here it's clear (in theory anyway)
-	return "clear";
+	//if nothing  is found here it's clear (in theory anyway - assuming the object has been added, and there's also no bugs here)
+	return ["clear"];
 }
 
 
