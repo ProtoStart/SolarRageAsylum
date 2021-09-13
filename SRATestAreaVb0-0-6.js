@@ -696,8 +696,9 @@ function move(dir){  //dir = direction
 				document.getElementById("viewableArea").style.top = attViewY + "px";
 				break;
 			case "open":  //an open door
-				//TODO: how do we know where the door takes us??? surely we need some data for that or a function coming back to move the game onto the next place?
-				alert("door is open");
+				var fullObject = whatsThere[1];
+				alert(fullObject.doorTo)
+				
 				break;
 			
 
