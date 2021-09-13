@@ -3,7 +3,8 @@ WORLD MAP CONCEPT   - Work In Progress
 - I'll add to this as development goes on
 
 Rec = Recovery room (Rec 3 is start), C = Corridor, GPC = Guard Post in Corridor, Mon = Monitoring station, Lck = Locked door, Exit - Exit/entrance to the asylum, Rcp = Reception, Tri = Triage/assessment room, Wa = Waiting area, Wc = WC - toilet facilities, Off = Office
-(grid columns below)
+	Grid columns marked with | at the top, and spaced in this regular text file by using 4 spaces or 1 tab - if it looks wonky than either you aren't viewing this in a monospace font (where every character and space has the same width as each other) or you have a tab representing a different size than 4 spaces. 
+	Game starts in Rec3 - which is in grid square 10 or row 1 column 0, from there you can move into a corridor in grid square 11 which is row 1 column 1.
 row | 0	| 1	| 2	| 3	| 4	| 5	| 6	| 7	| 8	| 9	|	
  0	Rec5  C	Rec6         		
  1	Rec3  C Rec4         C

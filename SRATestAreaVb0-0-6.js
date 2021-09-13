@@ -27,87 +27,110 @@ var globals = {
 		"bottom": "439",
 		"left": "90"
 	},
-	"bumpCoords": { // "Hit-box" co-ordinates of anything the player character might collide with. Remember co-ords in JS/CSS are done with 0,0 being the top left.
-		/*
-		"exampleObject" : {  Objects are rectangular or at least their hitboxes / "bumpCoords" are
-			"top": "104",  //where the top of the object is
-			"right": "658", //where the right most edge of the object is
-			"bottom": "99",  //where the bottom of the object is
-			"left": "90",    //where the left most edge of the object is
-			"state": "solid" //info about the object used to show how it will respond to the player going into it
-			//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
-		},
-		
-		todo: group bumpCoords by room ID - by nesting them within a structure along the lines of 
-			globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum - maybe by grid ref, or maybe just number them all line by line from the top left - so if it's a 10 by 10 grid and we start at 0 you'd get:
-
-				0	1 	2 	3	4	5	6	7	8	9
-				10	11	12	13	14	15	16	17	18	19
-				20	21	22	23	24	25	26	27	28	29
-				30	31	32	33	34	35	36	37	38	39
-				40	41	42	43	44	45	46	47	48	49
-				50	51	52	53	54	55	56	57	58	59
-				60	61	62	63	64	65	66	67	68	69
-				70	71	72	73	74	75	76	77	78	79
-				80	81	82	83	84	85	86	87	88	89
-				90	91	92	93	94	95	96	97	98	99
-				That actually gives an interesting thought - if this is my grid, we can use tens for row and unit for column if we force it to 2 digits (eg 01 instead of 1)
-		*/
-		  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
-		"topWall" : { //access this with globals.bumpCoords.topWall
-			"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
-			"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
-			"bottom": "99",  //match bounds.top (NOT bounds.bottom) because this is the wall that makes up the top boundary, and it's the bottom of the bumpCoords for the wall that the Player Character will collide with
-			"left": "90", //match bounds.left because this wall goes up from the left most wall to the right
-			"state": "padded" //it's a padded wall
-		},
-		"leftWall" : {
-			"top": "99",
-			"right": "90",   //match bounds.left
-			"bottom": "439",
-			"left": "85",
-			"state": "padded"
-		},
-		"rightWallTop" : {
-			"top": "99", //match bounds.top as the top of this wall ends there
-			"right": "663",  //left + 5 to make it 5px thick 
-			"bottom": "248", //match the top of "doorToCorridor"  
-			"left": "658",  //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
-			"state": "padded" //it's a padded wall
-		},
-		"doorToCorridor" : {
-			
-			/*
-			old values before visual adjustment:
-				"top": "149"
-				"right": "663"
-				"bottom": "169",
-				"left": "658"
-			css after visual ajustment:
-				top: 248px;
-				left: 663px;
-			
+	"rooms": {
+		"10": {
+			/* STARTING ROOM  - Rec3 - recovery room 3
+				can exit to 11 (corridor running north south) via a usually locked door if opened
 			*/
-			"top": "248", //match bottom of "rightWallTop"
-			"right": "668",  //left + 5
-			"bottom": "268",  //top + 20
-			"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
-			"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
-			"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+			"bumpCoords": { // "Hit-box" co-ordinates of anything the player character might collide with. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+				/*
+				"exampleObject" : {  Objects are rectangular or at least their hitboxes / "bumpCoords" are
+					"top": "104",  //where the top of the object is
+					"right": "658", //where the right most edge of the object is
+					"bottom": "99",  //where the bottom of the object is
+					"left": "90",    //where the left most edge of the object is
+					"state": "solid" //info about the object used to show how it will respond to the player going into it
+					//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
+				},
+				New structure of bumpCoords:
+					globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum - maybe by grid ref, or maybe just number them all line by line from the top left - so if it's a 10 by 10 grid and we start at 0 you'd get:
+
+						0	1 	2 	3	4	5	6	7	8	9
+						10	11	12	13	14	15	16	17	18	19
+						20	21	22	23	24	25	26	27	28	29
+						30	31	32	33	34	35	36	37	38	39
+						40	41	42	43	44	45	46	47	48	49
+						50	51	52	53	54	55	56	57	58	59
+						60	61	62	63	64	65	66	67	68	69
+						70	71	72	73	74	75	76	77	78	79
+						80	81	82	83	84	85	86	87	88	89
+						90	91	92	93	94	95	96	97	98	99
+						That actually gives an interesting thought - if this is my grid, we can use tens for row and unit for column if we force it to 2 digits (eg 01 instead of 1)
+				*/
+				  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
+				"topWall" : { //access this with globals.rooms["10"].bumpCoords.topWall
+					"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
+					"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
+					"bottom": "99",  //match bounds.top (NOT bounds.bottom) because this is the wall that makes up the top boundary, and it's the bottom of the bumpCoords for the wall that the Player Character will collide with
+					"left": "90", //match bounds.left because this wall goes up from the left most wall to the right
+					"state": "padded" //it's a padded wall
+				},
+				"leftWall" : {
+					"top": "99",
+					"right": "90",   //match bounds.left
+					"bottom": "439",
+					"left": "85",
+					"state": "padded"
+				},
+				"rightWallTop" : {
+					"top": "99", //match bounds.top as the top of this wall ends there
+					"right": "663",  //left + 5 to make it 5px thick 
+					"bottom": "248", //match the top of "doorToCorridor"  
+					"left": "658",  //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "padded" //it's a padded wall
+				},
+				"doorToCorridor" : {
+					
+					/*
+					old values before visual adjustment:
+						"top": "149"
+						"right": "663"
+						"bottom": "169",
+						"left": "658"
+					css after visual ajustment:
+						top: 248px;
+						left: 663px;
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				"rightWallBottom" : {
+					"top": "169", //match bottom of "doorToCorridor"
+					"right": "663",  
+					"bottom": "439",
+					"left": "658", //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "padded"
+				},
+				"bottomWall" : {
+					"top": "439",  //match bounds.bottom
+					"right": "658",
+					"bottom": "444",  
+					"left": "90",
+					"state": "padded"
+				}
+			},
 		},
-		"rightWallBottom" : {
-			"top": "169", //match bottom of "doorToCorridor"
-			"right": "663",  
-			"bottom": "439",
-			"left": "658", //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
-			"state": "padded"
-		},
-		"bottomWall" : {
-			"top": "439",  //match bounds.bottom
-			"right": "658",
-			"bottom": "444",  
-			"left": "90",
-			"state": "padded"
+		"11": {  //Part of a corridor going North to South. 
+			/*
+			Can be entered from:
+				01	(the northern end of this corridor) by walking south through the corridor
+				10	(Rec3 - recovery room 3 - the starting room) by going through door once opened by nurse 
+				12	(Rec4) on return
+				21	(the southern end of this corridor)
+			Can exit to:
+				01
+				10
+				12
+				21
+			*/
+			"bumpCoords": {
+				
+			}
 		}
 	},
 	"PC": { /* PC == Player Character */
@@ -709,10 +732,10 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 				
 	*/
 	/*
-	 eventually we want to loop through all of the bumpCoords  - globals.bumpCoords
+	 eventually we want to loop through all of the bumpCoords of the current room - eg: globals.rooms["10"].bumpCoords
 	 for now I'll just check for the door, then when that's working I'll wrap it in a more generic for
 	 Loop will be something like below commented code, but maybe a different path
-		for(var item in globals.bumpCoords){
+		for(var item in globals.rooms["10"].bumpCoords){
 			
 		}
 		
@@ -728,9 +751,9 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 		(yTop, xLeft, yBase, xRight)
 	*/
 	//Check for vertical collisions: if yTop (the top of what is moving) will be higher than the bottom of the door, at the same time as the base of what is moving is below the top of the door
-	if ((yTop < globals.bumpCoords.doorToCorridor.bottom  && yBase > globals.bumpCoords.doorToCorridor.top )&&(xLeft < globals.bumpCoords.doorToCorridor.right  && xRight > globals.bumpCoords.doorToCorridor.left)){
+	if ((yTop < globals.rooms["10"].bumpCoords.doorToCorridor.bottom  && yBase > globals.rooms["10"].bumpCoords.doorToCorridor.top )&&(xLeft < globals.rooms["10"].bumpCoords.doorToCorridor.right  && xRight > globals.rooms["10"].bumpCoords.doorToCorridor.left)){
 		
-		return [globals.bumpCoords.doorToCorridor.state, globals.bumpCoords.doorToCorridor]; //TODO: maybe this function could be improved by always just bringing back an object, even when nothing is found - just use a mostly empty object with  "state": "clear" for when there is nothing. To actually know which is best, I think I'd have to code both, run them and monitor the results. A large amount of the time it will just be clear. I only really want to optimise this if its a problem, or if it's noticeable
+		return [globals.rooms["10"].bumpCoords.doorToCorridor.state, globals.rooms["10"].bumpCoords.doorToCorridor]; //TODO: maybe this function could be improved by always just bringing back an object, even when nothing is found - just use a mostly empty object with  "state": "clear" for when there is nothing. To actually know which is best, I think I'd have to code both, run them and monitor the results. A large amount of the time it will just be clear. I only really want to optimise this if its a problem, or if it's noticeable
 	};
 
 	//if nothing  is found here it's clear (in theory anyway - assuming the object has been added, and there's also no bugs here)
