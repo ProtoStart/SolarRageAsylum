@@ -37,6 +37,21 @@ var globals = {
 			"state": "solid" //info about the object used to show how it will respond to the player going into it
 			//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
 		},
+		
+		todo: group bumpCoords by room ID - by nesting them within a structure along the lines of 
+			globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum - maybe by grid ref, or maybe just number them all line by line from the top left - so if it's a 10 by 10 grid and we start at 0 you'd get:
+
+				0	1 	2 	3	4	5	6	7	8	9
+				10	11	12	13	14	15	16	17	18	19
+				20	21	22	23	24	25	26	27	28	29
+				30	31	32	33	34	35	36	37	38	39
+				40	41	42	43	44	45	46	47	48	49
+				50	51	52	53	54	55	56	57	58	59
+				60	61	62	63	64	65	66	67	68	69
+				70	71	72	73	74	75	76	77	78	79
+				80	81	82	83	84	85	86	87	88	89
+				90	91	92	93	94	95	96	97	98	99
+				That actually gives an interesting thought - if this is my grid, we can use tens for row and unit for column if we force it to 2 digits (eg 01 instead of 1)
 		*/
 		  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
 		"topWall" : { //access this with globals.bumpCoords.topWall
@@ -77,7 +92,8 @@ var globals = {
 			"right": "668",  //left + 5
 			"bottom": "268",  //top + 20
 			"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
-			"state": "open" //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+			"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+			"doorTo": "corridorOne" //only doors have doorTo data, it's literally just a way of knowing where the player should be taken as they go through
 		},
 		"rightWallBottom" : {
 			"top": "169", //match bottom of "doorToCorridor"
