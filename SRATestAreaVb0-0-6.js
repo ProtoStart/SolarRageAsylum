@@ -28,6 +28,7 @@ var globals = {
 		"left": "90"
 	},
 	"rooms": {
+		"current": "10", //access with globals.rooms.current - keeps track of which room the player is in, defaults to "10" since we start at grid ref 10
 		"10": {
 			/* STARTING ROOM  - Rec3 - recovery room 3
 				can exit to 11 (corridor running north south) via a usually locked door if opened
@@ -705,6 +706,10 @@ function move(dir){  //dir = direction
 			
 		}
 	}
+}
+
+function unloadRoom(){
+	
 }
 
 function loadRoom(gridRef){
