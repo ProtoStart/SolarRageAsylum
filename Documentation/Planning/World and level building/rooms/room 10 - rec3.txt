@@ -1,0 +1,6 @@
+Rec3 grid-ref 10
+First room - room you wake up in
+(coded before realising having a plan text file for each room would be useful)
+
+4 padded walls - rectangular room. Just one door - on the east about halfway down.
+No objects to bump into
