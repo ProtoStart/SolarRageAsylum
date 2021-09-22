@@ -35,3 +35,10 @@ row | 0	| 1	| 2	| 3	| 4	| 5	| 6	| 7	| 8	| 9	|
 	(awkward) I could do hexadecimal to extend that to 16 each way but that doesn't seem worth the extra complication - I'm not sure JS even really does hex as var type, this is largely as either ints or strings anyway, and lets face it hex would be awkward for human developers to use for grid refs. 
 	Grid refs based on letters (eg's: FZ, QE, AB)
 	Columns in letters and rows in numbers or vice-versa - eh I'm not feeling it.
+	
+	
+	- While we want some rooms to be the same kind of room, we do still want variety in them - we don't want the place to feel samey
+	- A games location must also facilititate the game mechanics that the game promises.
+		- In SRA's case this means we need some rooms with areas of natural light where solar rage could happen
+	- a games location should fit any promises that a new player is hoping for from the game name or description. In this case, obviously the majority of the world has to be an asylum.
+	

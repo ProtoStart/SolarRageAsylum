@@ -58,7 +58,7 @@ var globals = {
 						90	91	92	93	94	95	96	97	98	99
 						That actually gives an interesting thought - if this is my grid, we can use tens for row and unit for column if we force it to 2 digits (eg 01 instead of 1)
 				*/
-				  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways
+				  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways - Todo: actually this feels like quite a lot of aggro for each room - it's great for mini walls that go within the screen area that you might approach from any angle, but it's overkill to do this for all the outer walls for every single room in the entire asylum. Ideally we want a seperate section for screen sides - maybe an expanded version of the bounds section for each room, with what is at each bound: wall, wall with doorway, open bit that you walk through to another grid ref, wall with archway
 				"topWall" : { //access this with globals.rooms["10"].bumpCoords.topWall
 					"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
 					"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
@@ -130,6 +130,38 @@ var globals = {
 				21
 			*/
 			"bumpCoords": {
+				/*TODO: do we need bumpcoords for the edges to find the next bit of corridor? 2 possibilities that would mean you don't - either the corridor is mapped as one big room, that uses some other way of going across multiple coordinates (tricky not much benifit??), or we set that the entire boundary on those sides is open and moves you over (though wouldn't that be a bumpcoords-lite? we would need to have room specific bounds values to make that work )*/
+				"doorToRec3" : {
+					
+					/*
+					TODO: adjust top, right, bottom and left values to match the left wall - started this from a copy of the values of the original door
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					
+					
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "10" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				
+				"doorToRec2" : {
+					
+					/*
+					TODO: adjust top, right, bottom and left values to match the right wall of the corridor- started this from a copy of the values of the original door
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					
+					
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "12" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
 				
 			}
 		}
