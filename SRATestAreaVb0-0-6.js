@@ -42,7 +42,7 @@ var globals = {
 			
 			"bounds": { //The edges of the playable area for this room, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
 				"top": {
-					"val": "99",
+					"val": "99",  //access with: globals.rooms.10.bounds.top.val
 					"known": "no",   //known to the player character
 					"type":"wall", //wall = continuous wall with no archway or door
 				},
@@ -701,8 +701,8 @@ function move(dir){  //dir = direction
 	if (globals.GameStage == "start"){  //This bit is specifically for when the character is waking up in the recovery room - possibly even only on the first time that happens. There's no objects to collide with other than walls, and we want messages to display for each increment of the amount of different walls bumped into, not a message for each bump
 		
 		//If the values this is attempting will still be in bounds, change the styles of our Player Character div to show it where we want it to move to
-		//function isInBounds(yTop, xLeft, yBase, xRight)
-		if(isInBounds(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
+		//function isInStartBounds(yTop, xLeft, yBase, xRight)   was originally called isInBounds
+		if(isInBoundsStart(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX)){
 			//alert("x: " + attemptLeftX + ", y :" + attemptTopY);
 			document.getElementById("mockPC").style.left = attemptLeftX + "px";
 			document.getElementById("mockPC").style.top = attemptTopY + "px";
@@ -718,7 +718,25 @@ function move(dir){  //dir = direction
 			startingRoomWallBumps();
 		};
 	} else {
-		var whatsThere = checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX);
+		//we need to find out what the character would be moving into - we use two functions, detectBoundsGeneral for the edge of the viewable game area, and checkMovement for objects
+		var whatsThere = "";
+		//check the basic detectBoundsGeneral first HERE
+		whatsThere = detectBoundsGeneral(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX);
+		if(whatsThere === "None"){
+			//if this is inside the bounds for this grid ref
+			
+		}else{
+			//if it would be outside of one of the bounds
+			
+			//stop the character movement intervals
+			clearInterval(movePCInterval);
+			clearInterval(rotatePCInterval);
+			//alert();
+			//TODO: NEXT HERE: 
+			return;
+		};
+		
+		whatsThere = checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX);
 		switch(whatsThere[0]){  //looks at the "state" returned back in the whatsThere array index 0 to decide which case to follow. Initially as I was developing this, the state just came back from checkMovement as a single string, but in some cases such as doors we need more info when we get to that particular case, like where a door goes to
 			case "clear": //nothing detected
 				document.getElementById("mockPC").style.left = attemptLeftX + "px";
@@ -1009,12 +1027,9 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 }
 
 
-function isInBounds(yTop, xLeft, yBase, xRight){
-	/* Altering this so that it can be used for all rooms, at all stages of the game, to detect if the player will get to the edge of the room/grid-square, and then if they do, find what should happen at that edge
+function isInBoundsStart(yTop, xLeft, yBase, xRight){
+	/* A function for detecting if the character is in bounds, that is specifically just for use in the start of the game, it only returns either true or false plus also sets some data flags that are specific to the opening of the game. A more general purpose version is called detectBoundsGeneral 
 	
-		1)original use - output true if the given co-ords are within the bounds of the play area, and false if not
-		2)for a while before I altered this comment also - record which walls have been bumped into
-		3) TODO: Make a visible effect occur whenever bumps happen
 		Params: 
 			yTop is the y axis of the top of the object 
 			xLeft is the x axis of the left edge of the object
@@ -1029,7 +1044,6 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
 		makeVisible("northWall");
-		//HERE
 		globals.WallsBumped.N = true;
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
@@ -1046,6 +1060,42 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 		return false;
 	};
 	return true; //To get here none of the out of bounds conditions would have been met
+}
+function detectBoundsGeneral(yTop, xLeft, yBase, xRight){
+	/* A function for general purpose detection of if a moving thing is in the bounds of veiwing window for the given grid cell. To be used in most rooms and stages of the game, to detect if the player will get to the edge of the room/grid-square, and report what kind of bounds has been encountered if any. Not to be confused with the isInBoundsStart function which is specifically for the start of the game and reports just true or false.
+	
+		Params: 
+			yTop is the y axis of the top of the object 
+			xLeft is the x axis of the left edge of the object
+			yBase is the y axis of the base (bottom) of the object
+			xRight is the x axis of the right edge of the object
+		We need to compare the co-ords given in params with our boundary that we have stored in our global data
+		All our global data is in a JSON format var called "globals" up the top of the file.
+		< means the thing on the left is less than the thing on the right  (the crocodile bites the bigger thing!)
+		> means the thing on the left is more than the thing on the right
+		x axis is left to right
+		y axis is up and down (Phil messed this up when he initially wrote the function! woops! Fixed now!)
+	*/
+	
+	//TODO: I'm temporarily using globals.rooms[10].bounds.top.val, rather than the globals.bounds Really we should use globals.bounds values here and alter them during gridref loading with specific rooms values from places such as globals.rooms.10.bounds.top.val (which represents the value in px of the top bounds for the room on gridref 10)
+	if(yTop < parseInt(globals.rooms["10"].bounds.top.val)){ //the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
+		makeVisible("northWall");
+		//globals.WallsBumped.N = true;
+		return globals.rooms["10"].bounds.top;
+	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
+		makeVisible("eastWall");
+		//globals.WallsBumped.E = true;
+		return globals.rooms["10"].bounds.right;
+	} else if (yBase > parseInt(globals.bounds.bottom)){ //globals.bounds.bottom is the bottom boundary - value is 400, y co-ords of the base greater than 400 would be beyond the bottom boundary
+		makeVisible("southWall");
+		//globals.WallsBumped.S = true;
+		return globals.rooms["10"].bounds.bottom;
+	} else if (xLeft < parseInt(globals.bounds.left)){ //globals.bounds.left is the left boundary - value is 0, left most x co-ords less than 0 would be beyond the left boundary
+		makeVisible("westWall");
+		//globals.WallsBumped.W = true;
+		return globals.rooms["10"].bounds.left;
+	};
+	return "None"; //To get here none of the out of bounds conditions would have been met
 }
 
 
