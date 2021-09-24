@@ -714,36 +714,8 @@ function move(dir){  //dir = direction
 			//one part of a mitigation strategy for an occasional bug caused by mouseup or touchend events not firing - now only really happens when people click hold then move cursor while still holding and release away from the button - having these lines here, mean that at least you stop trying to move there if you collide - (if player taps any button it will also end the old movement)
 			clearInterval(movePCInterval);
 			clearInterval(rotatePCInterval);
-					
-			//count up how many different walls player has bumped into
-			var iWalls = 0; //Holds our number of walls player has bumped into
-			if (globals.WallsBumped.N == true){
-				iWalls++;
-			};
-			if (globals.WallsBumped.E == true){
-				iWalls++;
-			};
-			if (globals.WallsBumped.S == true){
-				iWalls++;
-			};
-			if (globals.WallsBumped.W == true){
-				iWalls++;
-			};
-			//Now we know how many walls bumped into, we can give a message accordingly
-			switch(iWalls){
-				case 1:
-					nextScreen("screen006", "screen007");
-					break;
-				case 2:
-					nextScreen("screen007", "screen008");
-					break;
-				case 3:
-					nextScreen("screen008", "screen009");
-					break;
-				case 4:
-					nextScreen("screen009", "screen010");
-					break;	
-			}
+			//refactored out a chunk
+			startingRoomWallBumps();
 		};
 	} else {
 		var whatsThere = checkMovement(attemptTopY, attemptLeftX, attemptBottomY, attemptRightX);
@@ -764,6 +736,40 @@ function move(dir){  //dir = direction
 
 			
 		}
+	}
+}
+
+function startingRoomWallBumps(){
+	//originally part of move(dir) - refactored out since this is a unique case, and that function is going to get very complex as I add moving between areas (slight performance penalty for the start area, but shouldn't ever be noticeable)
+	
+	//count up how many different walls player has bumped into
+	var iWalls = 0; //Holds our number of walls player has bumped into
+	if (globals.WallsBumped.N == true){
+		iWalls++;
+	};
+	if (globals.WallsBumped.E == true){
+		iWalls++;
+	};
+	if (globals.WallsBumped.S == true){
+		iWalls++;
+	};
+	if (globals.WallsBumped.W == true){
+		iWalls++;
+	};
+	//Now we know how many walls bumped into, we can give a message accordingly
+	switch(iWalls){
+		case 1:
+			nextScreen("screen006", "screen007");
+			break;
+		case 2:
+			nextScreen("screen007", "screen008");
+			break;
+		case 3:
+			nextScreen("screen008", "screen009");
+			break;
+		case 4:
+			nextScreen("screen009", "screen010");
+			break;	
 	}
 }
 
