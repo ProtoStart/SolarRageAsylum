@@ -44,14 +44,17 @@
 			<div id="gameArea" class="gameArea">
 				<div id="mockPC"><img src="layingSprawl.png" alt="You"/></div><!-- PC refers to Player Character, we where using the word "yo" but now we're using CSS to set this div to a specific width and height to be square, and setting it to have a red background - to give the effect of a red square (which is handy for doing collision detection-->
 				<div id="viewableArea" class="haze"><img src="rainbowVortexInner.png" alt="Rainbow" class=""/></div>
-				<!-- "invisible" class divs not shown initially, still effects other layout while not shown, unlike the "hidden" class-->
-				<div id="northWall" class="invisible paddedWallHoriz"></div>
-				<div id="southWall" class="invisible paddedWallHoriz"></div>
-				<div id="eastWall" class="invisible paddedWallVert"></div>
-				<div id="westWall" class="invisible paddedWallVert"></div>
+				<!-- "invisible" class divs not shown initially, still effects other layout while not shown, unlike the "hidden" class. This prevents other objects moving around when you toggle between showing and not showing. We use the same gameArea HTML for representing as many of the areas of the Asylum as possible. This means we simply move walls, doors and other objects when we load areas. While player characters are blind, they discover what is in each room and where by bumping into them or "hearing" staff or other patients interacting with the environment.-->
+				<div id="northWall" class="invisible paddedWallHoriz bounds"></div>
+				<div id="southWall" class="invisible paddedWallHoriz bounds"></div>
+				<div id="eastWall" class="invisible paddedWallVert bounds"></div>
+				<div id="westWall" class="invisible paddedWallVert bounds"></div>
 				<!--  -->
-				<div id="keypad" class="keypad">key<br/>pad</div>
-				<div id="doorToCorridor" class="door">door</div>
+				<div id="keypad1" class="keypad">key<br/>pad</div>
+				<div id="keypad2" class="invisible keypad">key<br/>pad</div>
+				<div id="door1" class="door rightDoor">door</div> <!--rightDoor to swap to a css class for whichever positioning the door should appear in -->
+				<div id="door2" class="invisible door leftDoor">door</div> <!--leftDoor to swap to a css class for whichever positioning the door should appear in. Some grid areas, such as corridor sections, will have two doors, but many will only have one. We move each door positioning as needed, this allows us to have these two divs for doors and move them to any room configuration-->
+				
 			</div>
 			<div id="gameBtns" class="hidden"><!-- game buttons -->
 				<span id="highBtns">

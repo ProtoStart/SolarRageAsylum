@@ -293,10 +293,16 @@ p.employee1Voice{
 	/*TODO: Does it need a z-index so that it's above the rainbowVortex? maybe even the top text?*/
 }
 
-#keypad{
+#keypad1{
 	position:absolute;
 	top: 170px;
 	left: 663px;
+}
+
+#keypad2{
+	position:absolute;
+	top: 170px;
+	left: 90px;
 }
 
 .keypad{
@@ -314,13 +320,21 @@ p.employee1Voice{
 		"state": "open" //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
 	},
 */
-#doorToCorridor{
+#door1, #door2{
 	position:absolute;
 	color: green;  /*text colour*/ 
-	top: 248px;
-	left: 663px;
 	height: 20px;
 	width: 5px;
+}
+
+.rightDoor{
+	top: 248px;
+	left: 663px;
+}
+
+.leftDoor{
+	top: 248px;
+	left: 90px;
 }
 
 .invisible{
