@@ -21,7 +21,13 @@ Rainbow
 */
 var globals = {
 	"GameStage": "start",  // access with globals.GameStage - represents a broad stage of the game - for example, though not finalised yet: start, middle, end
-	"bounds": { //The edges of the playable area, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+	"bounds": { //The edges of the playable area CURRENTLY, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left. These can be overwritten on room load, with similar values.
+		"top": "99",
+		"right": "658",
+		"bottom": "439",
+		"left": "90"
+	},
+	"boundsDefaults": { //The default values for bounds, in px, to be used if for some reason bounds are not found.
 		"top": "99",
 		"right": "658",
 		"bottom": "439",
@@ -33,6 +39,35 @@ var globals = {
 			/* STARTING ROOM  - Rec3 - recovery room 3
 				can exit to 11 (corridor running north south) via a usually locked door if opened
 			*/
+			
+			"bounds": { //The edges of the playable area for this room, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+				"top": {
+					"val": "99",
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+				"right": {
+					"val": "658",
+					"known": "no",   //known to the player character
+					"type":"keypadDoor", //a wall with a keypad activated door
+					"doorValLow": "248", //the lower of the two vals for door positioning
+					"doorValHigh": "268", //the higher of the two vals for door positioning
+					"state": "locked", //
+					"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				"bottom": {
+					"val": "439",
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+				"left": {
+					"val": "90",
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+			},
+			
+			
 			"bumpCoords": { // "Hit-box" co-ordinates of anything the player character might collide with. Remember co-ords in JS/CSS are done with 0,0 being the top left.
 				/*
 				"exampleObject" : {  Objects are rectangular or at least their hitboxes / "bumpCoords" are
@@ -44,19 +79,9 @@ var globals = {
 					//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
 				},
 				New structure of bumpCoords:
-					globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum - maybe by grid ref, or maybe just number them all line by line from the top left - so if it's a 10 by 10 grid and we start at 0 you'd get:
+					globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum
 
-						0	1 	2 	3	4	5	6	7	8	9
-						10	11	12	13	14	15	16	17	18	19
-						20	21	22	23	24	25	26	27	28	29
-						30	31	32	33	34	35	36	37	38	39
-						40	41	42	43	44	45	46	47	48	49
-						50	51	52	53	54	55	56	57	58	59
-						60	61	62	63	64	65	66	67	68	69
-						70	71	72	73	74	75	76	77	78	79
-						80	81	82	83	84	85	86	87	88	89
-						90	91	92	93	94	95	96	97	98	99
-						That actually gives an interesting thought - if this is my grid, we can use tens for row and unit for column if we force it to 2 digits (eg 01 instead of 1)
+						With the 10 by 10 grid shown in "world map concept" we can use tens for row and unit for column. Rows and collumns are both 0-9 - which means this can have an array from 00 to 99
 				*/
 				  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways - Todo: actually this feels like quite a lot of aggro for each room - it's great for mini walls that go within the screen area that you might approach from any angle, but it's overkill to do this for all the outer walls for every single room in the entire asylum. Ideally we want a seperate section for screen sides - maybe an expanded version of the bounds section for each room, with what is at each bound: wall, wall with doorway, open bit that you walk through to another grid ref, wall with archway
 				"topWall" : { //access this with globals.rooms["10"].bumpCoords.topWall
@@ -176,7 +201,9 @@ var globals = {
 		"angle": 3,
 		"viewSpinAngle": 0
 	},
-	"WallsBumped": { //all start off false, and change when PC bumps into them
+	"WallsBumped": { 
+		//DEPRECATING IN FAVOUR OF A MORE GENERIC EQUIVALENT
+		//all start off false, and change when PC bumps into them
 		"N" : false,  //globals.WallsBumped.N  North wall  -- the top
 		"E" : false,
 		"S" : false,
@@ -671,7 +698,7 @@ function move(dir){  //dir = direction
 	var attemptRightX = attemptLeftX + globals.PC.width;
 	var attemptBottomY = attemptTopY + globals.PC.height;
 	
-	if (globals.GameStage == "start"){  //This bit is only useful for when the character is waking up in the recovery room - possibly even only on the first time that happens
+	if (globals.GameStage == "start"){  //This bit is specifically for when the character is waking up in the recovery room - possibly even only on the first time that happens. There's no objects to collide with other than walls, and we want messages to display for each increment of the amount of different walls bumped into, not a message for each bump
 		
 		//If the values this is attempting will still be in bounds, change the styles of our Player Character div to show it where we want it to move to
 		//function isInBounds(yTop, xLeft, yBase, xRight)
@@ -741,11 +768,20 @@ function move(dir){  //dir = direction
 }
 
 function unloadRoom(){
-	
+
 }
 
 function loadRoom(gridRef){
+	//change the room number that is stored
+	globals.rooms.current = gridRef;
+	//unload the room you just left, so we can load in the game that the player has arrived in
+	unloadRoom();
+	
+	
+	
 	//The biggest switch case I've ever written! (copy and paste got me started - filling in each case as I get to designing each room, and I stopped after 8 rows of 10 where done). Each case goes to a grid ref - see the documentation "world map concept.txt" for a diagram of the asylum
+	
+	/* commented out because I don't think a huge switch statement is necessary or a good way of doing this
 	switch(gridRef){
 		case "00":
 			break;
@@ -769,8 +805,8 @@ function loadRoom(gridRef){
 			break;
 		case "10":  //STARTING ROOM
 			break;
-		case "11":  //Corridor going from North to South
-			alert("case 11 BOOM");
+		case "11":  //HERE Corridor going from North to South
+			
 			break;
 		case "12":
 			break;
@@ -909,7 +945,7 @@ function loadRoom(gridRef){
 		case "79":
 			break;
 	}
-	
+	*/
 }
 
 function checkMovement(yTop, xLeft, yBase, xRight){
@@ -968,7 +1004,8 @@ function checkMovement(yTop, xLeft, yBase, xRight){
 
 
 function isInBounds(yTop, xLeft, yBase, xRight){
-	/* Only for the starting room, while the doors are shut - a more complex and sophisticated version is in checkMovement
+	/* Altering this so that it can be used for all rooms, at all stages of the game, to detect if the player will get to the edge of the room/grid-square, and then if they do, find what should happen at that edge
+	
 		1)original use - output true if the given co-ords are within the bounds of the play area, and false if not
 		2)for a while before I altered this comment also - record which walls have been bumped into
 		3) TODO: Make a visible effect occur whenever bumps happen
@@ -986,6 +1023,7 @@ function isInBounds(yTop, xLeft, yBase, xRight){
 	*/
 	if(yTop < parseInt(globals.bounds.top)){ //globals.bounds.top is the top boundary - value is 0, top y co-ords less than 0 would mean it's above the top boundary
 		makeVisible("northWall");
+		//HERE
 		globals.WallsBumped.N = true;
 		return false;
 	} else if (xRight > parseInt(globals.bounds.right)){ //globals.bounds.right is the right boundary - value is 600, right most x co-ords greater than 600 would be beyond the right boundary
