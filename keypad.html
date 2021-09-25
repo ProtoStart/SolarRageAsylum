@@ -3,8 +3,8 @@
     <head>
 		<!-- meta tags state some kind of "Metadata". In this case the "charset" which is short for "character set" which is also known as the files "character encoding". Don't change or remove this line unless you know what you're doing.-->
         <meta charset="utf-8">
-		<!-- Tag below appears in search engine results as the pages title, is shown in the browser tab on most browsers (or as the title bar in browsers without tabs) and is usually what browsers list the page as in history and bookmarks. Generally you always want to have a title tag. For games it makes sense to match up with the game name, or maybe sometimes have it say the level or area name -->
-        <title>Solar Rage Asylum (test area)</title>
+		<!-- Tag below appears in search engine results as the pages title, is shown in the browser tab on most browsers ('or as the title bar in browsers without tabs') and is usually what browsers list the page as in history and bookmarks. Generally you always want to have a title tag. For games it makes sense to match up with the game name, or maybe sometimes have it say the level or area name -->
+        <title>Solar Rage Asylum ('test area')</title>
 		<meta name="description" content="Solar Rage Asylum test area"></meta>
 		<!-- Prevent search engines showing this hidden page - note if a search engine has already included the page before this was added, it will only take effect when they next "crawl" the page - you can request Google recrawl using there URL inspection tool others might have something similar-->
 		<meta name="robots" content="noindex">
@@ -13,41 +13,94 @@
 		Link elements tell the browser that it needs to download another file. 
 		The rel attribute specifies the kind of relationship between the current file and the linked file. 
 		In this case it's the main icon symbolising the page. 
-		It's often called the favicon (short for Favourites Icon)- since in the early days of the web it's main use was as the icon used in favourites menus. 
+		It's often called the favicon ('short for Favourites Icon')- since in the early days of the web it's main use was as the icon used in favourites menus. 
 		In modern browsers it also appears in the tab next to the title, as well as in users browser history and any anywhere else where something would need an icon to represent the page. 
-		The href attribute gives a "relative address" for it (meaning an address that is based on the address that this file is at, so it doesn't need to include all the folders above. 
+		The href attribute gives a "relative address" for it ('meaning an address that is based on the address that this file is at, so it doesn't need to include all the folders above. 
 		Files in the same folder are simply the filename and extension, to start the filepath from two folders above where this file is start with ../../ and to start at the "root" start with / 
 		-->
 		<link rel="icon" href="favicon.png" type="image/x-icon"></link>
-		<!-- Another link element - in this case a stylesheet (literally a file that defines how things look).  -->
+		<!-- Another link element - in this case a stylesheet ('literally a file that defines how things look').  -->
 		<link rel="stylesheet" href="generalStyles.css"> </link>
 		<!-- Stylesheet specificly for gameplay -->
 		<link rel="stylesheet" href="gameStylesTest.css"> </link>
-		<!-- script tags are for JavaScript - you technically can directly put JavaScript code into these tags, but usually it's easier for devs to work with a seperate file. Notice that the attribute on script tags to state a filepath is src not href (this catches out the best of us sometimes!) -->
+		<!-- Javascript -->
+		<script>
+			//Todo: this code ain't pretty, also beeps??
+			var keypadNumberEntered = "";
+			var standinCode = "1234"; //I'll have to alter this as part of hooking this into the game, and add separate passcodes to each the actual room data
+			function beeps(button){
+				alert("beep");
+				
+				switch(button){
+					
+					case "1":
+						keypadNumberEntered += "1"; //string appending!
+						break;
+					case "2":
+						keypadNumberEntered += "2"; //string appending!
+						break;
+					case "3":
+						keypadNumberEntered += "3"; //string appending!
+						break;
+					case "4":
+						keypadNumberEntered += "4"; //string appending!
+						break;
+					case "5":
+						keypadNumberEntered += "5"; //string appending!
+						break;
+					case "6":
+						keypadNumberEntered += "6"; //string appending!
+						break;
+					case "7":
+						keypadNumberEntered += "7"; //string appending!
+						break;
+					case "8":
+						keypadNumberEntered += "8"; //string appending!
+						break;
+					case "9":
+						keypadNumberEntered += "9"; //string appending!
+						break;
+					case "0":
+						keypadNumberEntered += "0"; //string appending!
+						break;
+					case "Clear":
+						keypadNumberEntered = ""; //clear removes all presses
+						break;
+					case "Enter":
+						if (keypadNumberEntered == standinCode){
+							alert("da na na daaaaaaaa");
+						} else {
+							alert("nope");
+						}
+						keypadNumberEntered = "";
+						//code for trying the code
+						break;
+				}
+			}
+		</script>
     </head>
 	<body>
 		<div id="keypad">
 			<div class="keyRow">
-				<button class="keypadBtn">1</button>
-				<button class="keypadBtn">2</button>
-				<button class="keypadBtn">3</button>
+				<button class="keypadBtn" onclick="beeps('1')">1</button>
+				<button class="keypadBtn" onclick="beeps('2')">2</button>
+				<button class="keypadBtn" onclick="beeps('3')">3</button>
 			</div>
 			<div class="keyRow">
-				<button class="keypadBtn">4</button>
-				<button class="keypadBtn">5</button>
-				<button class="keypadBtn">6</button>
+				<button class="keypadBtn" onclick="beeps('4')">4</button>
+				<button class="keypadBtn" onclick="beeps('5')">5</button>
+				<button class="keypadBtn" onclick="beeps('6')">6</button>
 			</div>
 			<div class="keyRow">
-				<button class="keypadBtn">7</button>
-				<button class="keypadBtn">8</button>
-				<button class="keypadBtn">9</button>
+				<button class="keypadBtn" onclick="beeps('7')">7</button>
+				<button class="keypadBtn" onclick="beeps('8')">8</button>
+				<button class="keypadBtn" onclick="beeps('9')">9</button>
 			</div>
 			<div class="keyRow">
-				<button class="keypadBtn">Clear</button>
-				<button class="keypadBtn">0</button>
-				<button class="keypadBtn">Enter</button>
+				<button class="keypadBtn" onclick="beeps('Clear')">Clear</button>
+				<button class="keypadBtn" onclick="beeps('0')">0</button>
+				<button class="keypadBtn" onclick="beeps('Enter')">Enter</button>
 			</div>
-			
 		</div>
 	</body>
 </html>
