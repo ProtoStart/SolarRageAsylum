@@ -731,8 +731,10 @@ function move(dir){  //dir = direction
 			//stop the character movement intervals
 			clearInterval(movePCInterval);
 			clearInterval(rotatePCInterval);
-			//alert();
-			//TODO: NEXT HERE: 
+			
+			//TODO: display a message for what kind of bounds it is
+			
+			//TODO: LOGIC FOR EACH FORM OF BOUNDS - Moving to new gridref through archway/corridor, checking if a door is open (and moving to new grid ref if it is, or giving a keypad puzzle if not).
 			return;
 		};
 		

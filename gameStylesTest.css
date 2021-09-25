@@ -263,6 +263,15 @@ h2{
 p.employee1Voice{
 	color: green;
 }
+p.employee2Voice{
+	color: purple;
+}
+p.employee3Voice{
+	color: lilac;
+}
+p.employee4Voice{
+	color: Chocolate;
+}
 
 /** wall colours **/
 .paddedWallVert{
