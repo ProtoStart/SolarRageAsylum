@@ -29,39 +29,48 @@
 			var keypadNumberEntered = "";
 			var standinCode = "1234"; //I'll have to alter this as part of hooking this into the game, and add separate passcodes to each the actual room data
 			function beeps(button){
-				alert("beep");
+				document.getElementById("speakerRow").classList = "";
 				
 				switch(button){
-					
 					case "1":
 						keypadNumberEntered += "1"; //string appending!
+						document.getElementById("speakerRow").classList.add("redBeep");
 						break;
 					case "2":
 						keypadNumberEntered += "2"; //string appending!
+						document.getElementById("speakerRow").classList.add("orangeBeep");
 						break;
 					case "3":
 						keypadNumberEntered += "3"; //string appending!
+						document.getElementById("speakerRow").classList.add("yellowBeep");
 						break;
 					case "4":
 						keypadNumberEntered += "4"; //string appending!
+						document.getElementById("speakerRow").classList.add("greenBeep");
 						break;
 					case "5":
 						keypadNumberEntered += "5"; //string appending!
+						document.getElementById("speakerRow").classList.add("blueBeep");
 						break;
 					case "6":
 						keypadNumberEntered += "6"; //string appending!
+						document.getElementById("speakerRow").classList.add("indigoBeep");
 						break;
 					case "7":
 						keypadNumberEntered += "7"; //string appending!
+						document.getElementById("speakerRow").classList.add("violetBeep");
 						break;
 					case "8":
 						keypadNumberEntered += "8"; //string appending!
+						document.getElementById("speakerRow").classList.add("goldBeep");
 						break;
 					case "9":
 						keypadNumberEntered += "9"; //string appending!
+						document.getElementById("speakerRow").classList.add("silverBeep");
 						break;
 					case "0":
 						keypadNumberEntered += "0"; //string appending!
+						document.getElementById("speakerRow").classList.add("bronzeBeep");
 						break;
 					case "Clear":
 						keypadNumberEntered = ""; //clear removes all presses
@@ -73,9 +82,11 @@
 							alert("nope");
 						}
 						keypadNumberEntered = "";
-						//code for trying the code
+						document.getElementById("speakerRow").classList.add("limeBeep");
 						break;
 				}
+				//make the word beep go invisible again (since a beep is quick momentary sound)
+				//setTimeout(document.getElementById("speakerRow").classList.add("invisible"), 300);
 			}
 		</script>
     </head>
@@ -101,6 +112,7 @@
 				<button class="keypadBtn" onclick="beeps('0')">0</button>
 				<button class="keypadBtn" onclick="beeps('Enter')">Enter</button>
 			</div>
+			<div id="speakerRow" class="invisible">Beep</div>
 		</div>
 	</body>
 </html>
