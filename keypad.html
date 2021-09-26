@@ -28,6 +28,11 @@
 			//Todo: this code ain't pretty, also beeps??
 			var keypadNumberEntered = "";
 			var standinCode = "1234"; //I'll have to alter this as part of hooking this into the game, and add separate passcodes to each the actual room data
+			
+			function endBeep(){
+				document.getElementById("speakerRow").classList.add("invisible");
+			}
+			
 			function beeps(button){
 				document.getElementById("speakerRow").classList = "";
 				
@@ -86,7 +91,7 @@
 						break;
 				}
 				//make the word beep go invisible again (since a beep is quick momentary sound)
-				//setTimeout(document.getElementById("speakerRow").classList.add("invisible"), 300);
+				window.setTimeout(endBeep, 350);
 			}
 		</script>
     </head>
