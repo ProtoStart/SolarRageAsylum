@@ -30,11 +30,13 @@
 			var standinCode = "1234"; //I'll have to alter this as part of hooking this into the game, and add separate passcodes to each the actual room data
 			
 			function endBeep(){
-				document.getElementById("speakerRow").classList.add("invisible");
+				document.getElementById("speakerRow").classList.add("hidden");
 			}
 			
 			function beeps(button){
 				document.getElementById("speakerRow").classList = "";
+				document.getElementById("successRow").classList = "hidden";
+				document.getElementById("failRow").classList = "hidden";
 				
 				switch(button){
 					case "1":
@@ -82,9 +84,15 @@
 						break;
 					case "Enter":
 						if (keypadNumberEntered == standinCode){
-							alert("da na na daaaaaaaa");
+							//correct passcode
+							document.getElementById("successRow").classList.remove("hidden");
+							document.getElementById("successRow").classList.add("showing");
+							document.getElementById("successRow").classList.add("limeBeep");
 						} else {
-							alert("nope");
+							//wrong passcode
+							document.getElementById("failRow").classList.remove("hidden");
+							document.getElementById("failRow").classList.add("showing");
+							document.getElementById("failRow").classList.add("limeBeep");
 						}
 						keypadNumberEntered = "";
 						document.getElementById("speakerRow").classList.add("limeBeep");
@@ -117,7 +125,9 @@
 				<button class="keypadBtn" onclick="beeps('0')">0</button>
 				<button class="keypadBtn" onclick="beeps('Enter')">Enter</button>
 			</div>
-			<div id="speakerRow" class="invisible">Beep</div>
+			<div id="successRow" class="hidden">The door opens</div>
+			<div id="failRow" class="hidden">FAIL</div>
+			<div id="speakerRow" class="hidden">Beep</div>
 		</div>
 	</body>
 </html>
