@@ -25,9 +25,70 @@
 		<link rel="stylesheet" href="gameStylesTest.css"> </link>
 		<!-- Javascript -->
 		<script>
-			//Todo: this code ain't pretty, also beeps??
+			document.addEventListener("keydown", keypadTap);
+	
+			
 			var keypadNumberEntered = "";
 			var standinCode = "1234"; //I'll have to alter this as part of hooking this into the game, and add separate passcodes to each the actual room data
+			
+			function keypadTap(event){
+				//alert(event.keyCode);
+				//0-9 number keys run from keycodes 48-57 inclusive, with 0 key as keycode 48 &  9 as keycode 57
+				//enter is keycode 13
+				//C is 67
+				
+				//var keycodeInt = parseInt(event.keyCode);
+				
+				switch(event.keyCode.toString()){
+					case "48": 
+						beeps("0");
+						break;
+					case "49": 
+						beeps("1");
+						break;
+					case "50":
+						beeps("2");
+						break;
+					case "51":
+						beeps("3");
+						break;
+					case "52":
+						beeps("4");
+						break;
+					case "53":
+						beeps("5");
+						break;
+					case "54":
+						beeps("6");
+						break;
+					case "55":
+						beeps("7");
+						break;
+					case "56":
+						beeps("8");
+						break;
+					case "57":
+						beeps("9");
+						break;
+					case "13": //Enter key
+						beeps("Enter");
+						break;
+					case "67":  //c key
+						beeps("Clear");
+						break;
+				}
+				/* --- A neater approach that I couldn't get working: 
+				var keycodeInt = parseInt(event.keyCode);
+				if (keycodeInt > 47 && keycodeInt < 58){
+					beeps(keycodeInt - 48);
+				} else if (keycodeInt == 13){
+					beeps("Enter");
+				} else if (keycodeInt == 67){
+					beeps("Clear");
+				}*/
+			}
+			
+			
 			
 			function endBeep(){
 				document.getElementById("speakerRow").classList.add("hidden");
@@ -101,6 +162,7 @@
 				//make the word beep go invisible again (since a beep is quick momentary sound)
 				window.setTimeout(endBeep, 350);
 			}
+			
 		</script>
     </head>
 	<body>
