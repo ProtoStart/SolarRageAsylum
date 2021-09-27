@@ -70,7 +70,7 @@
 					case "57":
 						beeps("9");
 						break;
-					case "13": //Enter key
+					case "69": //e key  - using e so that it doesn't cause problems for people using tab and enter to activate buttons
 						beeps("Enter");
 						break;
 					case "67":  //c key
@@ -144,6 +144,7 @@
 						keypadNumberEntered = ""; //clear removes all presses
 						break;
 					case "Enter":
+						//alert(keypadNumberEntered);
 						if (keypadNumberEntered == standinCode){
 							//correct passcode
 							document.getElementById("successRow").classList.remove("hidden");
@@ -182,10 +183,10 @@
 				<button class="keypadBtn" onclick="beeps('8')">8</button>
 				<button class="keypadBtn" onclick="beeps('9')">9</button>
 			</div>
-			<div class="keyRow">
-				<button class="keypadBtn" onclick="beeps('Clear')">Clear</button>
+			<div class="keyRow"><!--keyHint signals that you can just use that letter-->
+				<button class="keypadBtn" onclick="beeps('Clear')"><span class="keyHint">C</span>lear</button>
 				<button class="keypadBtn" onclick="beeps('0')">0</button>
-				<button class="keypadBtn" onclick="beeps('Enter')">Enter</button>
+				<button class="keypadBtn" onclick="beeps('Enter')"><span class="keyHint">E</span>nter</button>
 			</div>
 			<div id="successRow" class="hidden">The door opens</div>
 			<div id="failRow" class="hidden">FAIL</div>

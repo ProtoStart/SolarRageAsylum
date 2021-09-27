@@ -355,6 +355,11 @@ p.employee4Voice{
 	visibility: visible;
 }
 
+.keyHint{
+	text-decoration: underline;
+	font-size: 102%;
+}
+
 /* TODO: ideally - set top etc via javascript to match where the code believes the boundary is for collision detection,  
 		"top": "99",
 		"right": "658",
