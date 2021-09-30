@@ -376,7 +376,10 @@ var globals = {
 		},
 		"screen015" : { 
 			"prevBtn" : "screen014",
-			"nextBtn" : "screen016"
+			"nextBtn" : function() {
+				nextScreen("screen015","screen016");
+				beepsAndDoorWoosh(); 
+			}
 		},
 		"screen016" : { 
 			"prevBtn" : "screen015",
@@ -1157,6 +1160,14 @@ function hazeClears(){
 function hazeInstantClear(){
 	document.getElementById("viewableArea").classList.remove("haze");
 	document.getElementById("viewableArea").classList.add("noHaze");
+}
+
+function beepsAndDoorWoosh(){
+	//show the keypad location -- keypad1
+	makeVisible("keypad1");
+	//show the door location -- door1 -- Todo: put this on a timer so that hits at the correct beat with reading
+	
+	makeVisible("door1");
 }
 
 function showAwakening(){
