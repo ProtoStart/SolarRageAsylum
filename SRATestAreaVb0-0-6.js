@@ -1165,9 +1165,8 @@ function hazeInstantClear(){
 function beepsAndDoorWoosh(){
 	//show the keypad location -- keypad1
 	makeVisible("keypad1");
-	//show the door location -- door1 -- Todo: put this on a timer so that hits at the correct beat with reading
-	
-	makeVisible("door1");
+	//show the door location -- door1 -- Todo: refine this timer so that hits at the correct beat with reading
+	setTimeout(function(){ makeVisible("door1");}, 700);
 }
 
 function showAwakening(){
