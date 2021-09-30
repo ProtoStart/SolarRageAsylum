@@ -77,7 +77,9 @@
 						beeps("Clear");
 						break;
 				}
-				/* --- A neater approach that I couldn't get working: 
+				/* --- Todo: in hindsight this code below is probably broken due to strings vs ints . Try converting the parameter used for beeps to a string. I was thinking types wouldn't matter there but maybe they do. Not sure if that would actually make the code better overall when factoring in performance, legibility and code reuse practicality.
+				
+				A neater approach that I couldn't get working: 
 				var keycodeInt = parseInt(event.keyCode);
 				if (keycodeInt > 47 && keycodeInt < 58){
 					beeps(keycodeInt - 48);
