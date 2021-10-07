@@ -1,0 +1,5 @@
+Room builder tool
+
+Purpose: make it easy to create rooms within an Asylum - both to make it easy for me to create the game world, and for others, even non-developers to make their own. 
+Scope of the tool: This tool is specifically for ...(unfinished thought)
+	Easy/MVP (Minimum Viable Product - the least:

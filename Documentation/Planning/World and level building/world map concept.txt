@@ -2,18 +2,18 @@ WORLD MAP CONCEPT   - Work In Progress
 - this is written to my intuition, and subject to revision and edits
 - I'll add to this as development goes on
 
-Rec = Recovery room (Rec 3 is start), C = Corridor, GPC = Guard Post in Corridor, Mon = Monitoring station, Lck = Locked door, Exit - Exit/entrance to the asylum, Rcp = Reception, Tri = Triage/assessment room, Wa = Waiting area, Wc = WC - toilet facilities, Off = Office
+Rec = Recovery room (Rec 3 is start), C = Corridor, GPC = Guard Post in Corridor, Mon = Monitoring station, Lck = Locked door, Exit - Exit/entrance to the asylum, Rcp = Reception, Tri = Triage/assessment room, Wa = Waiting area, Wc = WC - toilet facilities, Off = Office, Str = storage room (depending on what it's near stores: medical supplies, hoverbeds or office supplies)
 	Grid columns marked with | at the top, and spaced in this regular text file by using 4 spaces or 1 tab - if it looks wonky than either you aren't viewing this in a monospace font (where every character and space has the same width as each other) or you have a tab representing a different size than 4 spaces. 
 	Game starts in Rec3 - which is in grid square 10 or row 1 column 0, from there you can move into a corridor in grid square 11 which is row 1 column 1.
 row | 0	| 1	| 2	| 3	| 4	| 5	| 6	| 7	| 8	| 9	|	
  0	Rec5  C	Rec6         		
- 1	Rec3  C Rec4         C
- 2	Rec1  C	Rec2         C
- 3	Mon GPC Wc		Off  C
+ 1	Rec3  C3Rec4         C4
+ 2	Rec1  C	Rec2         C4
+ 3	Mon GPC Wc		Off  C4
  4		Lck	Tri	Tri	Rcp GPC
- 5		  C  C 	 C 	 C 	 C 	
- 6				Wa	 C   Wc
- 7					 C
+ 5		  C2 C2	C2 	C1,2 C2 	
+ 6		Str1	Wa	 C1  Wc
+ 7					 C1
  8					GPC
  9					Exit
 

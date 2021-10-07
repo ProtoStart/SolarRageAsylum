@@ -1,0 +1,71 @@
+These are grouped together, because NPCs are a special form of game object.
+A game object is something physically in the game world, that our protagonist might see or hear or interact with (even if its just bumping into it with the hoverbed!). NPCs (Non-Player Characters) are game objects that also have dialogue, schedules, possibly some feelings or attitude about the PC (Player Character). Items are game objects that the PC might intentionally interact with, out of curiosity or part of their escape plan, but are also often "set dressing" there to make the game world feel more real. I think eventually even walls will be game objects, though for now we just use grid ref boundaries- see planning file "walls as Game Objects".
+
+Game objects all have these properties or things that we need to track for the game: 
+	- Positioning (the position may change, but if they are in the game at that time, they have some location and the game engine needs to track it so that it when the game knows what to show and where). With a game world that is divided up into a grid, position will need to include a grid ref part as well as coordinates for where in that grid ref. Not all grid refs are the same dimensions - corridors are often either tall but thin or wide but short, wheras most rooms will fill the maximum area I can reasonably fit on a mobile screen. Since some items can be picked up, their positioning can be in the inventory of the player or an NPC. Items might also be inside other items such as drawers
+	- Collision type of some form - the game needs to know what to do if the player collides with it. Will the character bump off it, knock it out the way, shove it a little, go into outer padding a little and then stop? NPCs would also have a variety of different verbal reactions
+	- Interactions that the player can do with it (if it's a person then maybe the player can talk to them, if its something like a book the player could pick it up, maybe it can be thrown, maybe theres words on it that can be read, maybe it can be eaten or ingested in some way to give some ability)
+	
+Some game objects will also have these properties:
+	- Is it moving right now
+	NPCs can move by themselves, items might be thrown or picked up but walls do not move.
+	if an object is moving:
+		- How fast? What direction? - possibly best represented as velocities in x and y axes - quite possibly with some conversions from speed in a straight line if we're allowing diagonal movement
+		- Some types of objects such as NPC's will have control of how they move - whats the intended destination, and whats the attempted path - what do they do if the path is blocked?
+		
+	
+The above sections are quite generic - not going deep into how I want Solar Rage Asylum to work. Going deeper, by asking myself some questions about the game, and following thoughts and answers:
+	should the game track HP of objects? (in this case, defining HP as a value of how many more hits it can take before it breaks. HP being short for Hit Points)  Yes.
+		Is destruction something that players can do in this game? Yes at some point, maybe not early on, some things should be much harder to destroy than others.
+			1) destruction can be fun and the "Rage" in the game name defo points to destroying stuff.
+			2) this game is about coming up with a way to escape and putting it into action. There should probably be a few contrasting routes: Smash your way out (either finding a weak spot where you can also rage or stay in a powerful enough rage to smash your way through anything), Sneak your way out, maybe Talk/Trick your way out?, disguise yourself to get out or maybe even actually go through asylum treatment (Recover your way out).
+		Is destruction a "boolean" thing or an amount? Do we need to bother tracking specific numbers of amounts of damage, or are they simply fully working or broken/fainted/dead - Using numbers under the hood isn't much different to booleans considering this is javascript. We can start allowing destruction with 1 = fine, 0 =broken and add in 2 = something that takes 2 hits or what have you later if that seems usefuls. We can add that in later easily enough. It could also represent the amount of destructive power needed to destroy something - perhaps walls could have a high number that represents you need a poweful rage or something to make an explosion or powerful force to break it - we can effectively making it so that the player can't chip away at objects so that it's all or nothing, by having the code for apllying damage ignore tiny damage against high HP stuff. Example psuedocode:
+			if ((damageBeingAttempted < 3 ) AND (HP > 9)) {
+				don't do damage, instead tell player that that the attempt was too weak to damage this thing
+			}
+		Do we track HP for people?
+			What would the game do if an NPCs HP dropped to 0? 
+				that NPC would either faint or get mad at whoever/whatever they thought the culprit was (ie you break their patience rather than their physical body, causing them to act irresponsibly). I don't think I'd want them to actually die.
+				other NPCs who saw it would react
+					if they are any kind of staff and you are still bed bound, they'd try to disable your bed
+					if they are a guard in charge of keeping you in, they'd activate a lockdown
+			What would the game do, if a player did any kind of attack on an NPC?
+				What kind of attacks could the player possibly do?
+			What would the game do if the player managed to set up some kind of accident to befall a guard or staff?
+			
+			How should the game show the HP of people if at all?
+				Having numbers that directly show hp as a value is lame. I don't want that in the game.
+				
+		Do we track HP for Items? - Probably?? Maybe??
+			What items are we thinking of having in the game?
+				Items to make the asylum feel like it's a realistic asylum. In fact items should only be there if they have a realistic reason to be in the asylum - either because the asylum needs them or because staff or patients may have brought them in. What items would you expect to find in the ..
+					Recovery rooms: 1 Hoverbed per patient (max 1 patient per room, some rooms don't have a patient - if no patient then no hoverbed - those would be stored in a storage room), attached to hoverbed: patient chart, any drips or detectors (some would be in use and attached to the patient, some would be there in case of need), CCTV camera, Pinpad for opening door from inside (players could possibly smash them as part of a plan to lock staff in a room)
+					Corridors: maybe the odd potted plant, grid square 01 might have a set of blinds to block out sunlight
+					Monitoring rooms: CCTV monitors, desk(s) deskchairs
+					WCs: loos, taps, dryers
+					Storage rooms: Empty hoverbeds, various medicines and painkillers, Uniforms OR office supplies
+			Do any of those items seem like there'd be an advantage to the gameplay or feeling from the game if they can be damaged? Yes
+				Pinpads - locking staff in rooms/ preventing them from following. These are stationary - does that make a difference in the implementation??
+				CCTV camera - security can't see exactly what is going on in that room - again stationary
+				Monitoring stations - security can't use that station at all - maybe they have a backup though?
+				Generally test out your smashing ability  on an a nearby item
+				Limit usage of something - eg: you can only throw a potted plant once before the pot breaks open
+				Gives a way for players to make a mistake
+				
+		Do we track HP for walls & doors?	- Eventually, but not in any update coming before the kickstarter.
+			1) Smashing down a wall or door should be possible at some point in the game, but not early on. I think that would require the top end of the destructive powers available in the game - once you have the ability to easily break walls, you're surely on the end game.
+			2) Tracking HP for every wall and door would be a pain to implement in my current way of making rooms, but quite easy with the room creator tool that is planned.
+		Is there a benifit to it being possible (if varying difficulty) to destroy literally anything in the game world?
+			Yes. It can make game worlds feel more real, it would add to the notion that you can smash your way out of the Asylum - and that in turn makes the other options more interesting to people that like do stuff their way.
+	
+How best to implement all this.
+	So far in development of this game, I've stored everything in one big global JSON object, with default values that I type in directly. That is not going to work well for having lots and lots of game items and NPCs and doesn't lend itself towards non-developers making their own asylums. It was a good approach for the early stage of development, but clearly if I continue with that approach, the globals object will end up thousands of lines long and will be a nightmare for anyone new to get to grips with.
+	
+	A big part of the original plan for Solar Rage Asylum, back when I was thinking this would be a linear, level based game, was that other developers, including rookies and hobbyists, would be encouraged to join in with creating parts of this game. It would be a big collaborative effort that I merely got the ball rolling on, and then helped to steer and keep going. I'd get the project going with some opening levels, an inspiring theme and a little "hey you, why don't you look at our Github and join in?". I've realised that a much better idea is to have an asylum builder tool, a room building tool, an object creation tool, and an NPC creation tool - and just have the code base as a place for people who want to delve in further than those tools allow. These new tools would be easy enough to use, that anyone, even people with no interest in coding, could use to have fun making their own asylum. I could use them for creating much of the starting Asylum - in fact I should use them: 1) I'll be able to refine the tools, 2) The tools will be a much more enjoyable and playful way for me to create the basic Asylum (which in turn should mean that I'll be able to produce something more imaginitive and high quality than I otherwise would, and possibly faster since there'd be less creative blocks)
+	
+GameObject = {
+	"RoomID": "",
+	"Position": "",
+	"": "",
+	"": "",
+}

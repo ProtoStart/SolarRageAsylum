@@ -1,0 +1,23 @@
+Game Making Tools overview
+
+I want to make it easy and fun for people (including myself, non-developers and other developers alike) to make different Asylums, with different: overall layouts, room designs, NPCs, items and maybe even status effects from medicines.
+
+All of those things need tools, so that people can easily make them, and quickly see the progress and improvements to their Asylum. Immediate visual feedback and seperation from technical complexity is really important for unhindering creativity, and reducing the learning curve of development.
+
+We'll need an:
+	asylum layout tool (for the big picture of how all the seperate rooms fit together)
+	room design tool - with two similar views
+		- template view (for creating templates that can be reused)
+		- unique room view (for using a template to create a specific room)
+	NPC creation tool (for making Non-Player Characters such as: guards, Doctors, Nurses, Other patients. Names, proffessions, schedule?, Dialogue)  
+	Item design tool (for creating actual items)
+	and possibly a status effect/medicine tool.
+	
+	
+
+	
+	
+	
+	
+	
+	

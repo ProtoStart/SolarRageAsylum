@@ -1,0 +1,16 @@
+Asylum layout tool
+ 
+ This is the tool that people can use to assemble an Asylum from rooms that have been created, or are about to be created. It gives the designer the big picture of their asylum.
+ 
+We have a grid and people can place rooms into the grid. It's likely that when people use this, they will want to switch between this and the room design tool as they go - they'll probably start building an Asylum on this tool, and fill in spaces by creating rooms. Being browser based we could easily make the room design tool open in a new browser tab when they select that they want to edit a room.
+
+First thoughts for a design for this:
+
+- One page tool (ie: a single page app) -- maybe all the tools should be in one page?? - decide after a small amount of dev
+	- though that's just for the overall layout (the Asylum Layout Tool). The other tools are conceptually connected. There is no Asylum without rooms, and it would be a very plain asylum without items and NPCs. Local storage to connect them in the free beta?? 
+- Tool could create a JSON file, that holds all the data for the Asylum, once complete it can be exported as a single file for adding to the game.  Developers would be able to read the file themselves, and understand it.
+	- How would it be read by the game, in a manner that is easy for non-devs to use, and doesn't require server side code?!
+		- I don't have an answer yet! This makes me feel a bit worried - it must be possible but I can only think of things that require servers or some kind of manual thing. I guess initially I can make it so that people have to send it to me or to a pull request on github, but for full release it will need server side code!
+- Layout idea 1:
+	grid of squares, each square indicates what kind of room it is via a label, which grid square side has doors, gaps or walls is marked via simple graphics. My sketch, indicates that even on my fairly large screen phone, we'll probably get 5*5 grid squares of the smallest practical size before it gets to the right hand pane or off the bottom - assuming theres always present collumn/row numbers at top and left edges.
+	Pane on right hand side with context menu/ info. Content vertically scrolls.

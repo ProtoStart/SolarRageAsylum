@@ -1,0 +1,17 @@
+When I started typing this (6th Oct 2021) I was undecided if walls should count as game objects or not. While typing my thoughts out below, I decided "not right now, but at some point, possibly very soon, possibly for the full release".
+
+ The decision is largely about implementation scope - if making each and every section of wall a gameobject is a big effort that provides little value for players, then this should be left out until I run out of other things to put into the game, or if creativity could be gained from walls being game objects. 
+
+Walls match some of my definition for what constitutes a game object: 
+	"A game object is something physically in the game world, that our protagonist might see or hear or interact with (even if its just bumping into it with the hoverbed!)"
+ Clearly they are physical and our PC will bump into them and would see them when not blind, but are they in the game world or are they just the boundaries of each room in the game world? This isn't some purely philosophical question, as a game developer I have control over the answer - they are in the game world if players can destroy them or do some action using them and they are merely the boundary if all they do is prevent things from moving through a space.
+ 
+
+ 
+ Thing that would be easier to implement if walls where game objects: 
+	let players destroy walls - could be a fun escape plan that becomes possible when players can get hold of a sledgehammer or super powerful rage. That's a "full game" kind of thing, not a "free trial beta" kind of thing.
+	do other interactions beyond bumping into them
+		knock on them? draw on them? - no compelling interactions so far
+	place walls into rooms in the room builder tool
+		rather than only choosing where walls, doorways and archways are by picking a preset configuration 
+		THIS - this is a powerful reason to have them as game objects sooner rather than later
