@@ -21,13 +21,15 @@
 		<link rel="icon" href="favicon.png" type="image/x-icon"></link>
 		<!-- Another link element - in this case a stylesheet ('literally a file that defines how things look').  -->
 		<link rel="stylesheet" href="../generalStyles.css"> </link>
+		<link rel="stylesheet" href="asylumBuilder.css"> </link>
 		<!-- Javascript -->
 		<script>
 
 		</script>
     </head>
 	<body>
-		<div id="">
+		<div id="asylumGridContainer" class="leftPanel">
+		<div id="asylumGrid" class="grid">
 			<div class="gridRow">
 				<button class="gridCell" onclick="viewCell('00')">00</button>
 				<button class="gridCell" onclick="viewCell('01')">01</button>
@@ -148,9 +150,11 @@
 				<button class="gridCell" onclick="viewCell('98')">98</button>
 				<button class="gridCell" onclick="viewCell('99')">99</button>
 			</div>
-			<div class="panel hidden"><!--keyHint signals that you can just use that letter-->
-				
-			</div>
+
+		</div>
+		</div>
+		<div class="rightPanel"><!--hidden-->
+			Context panel
 		</div>
 	</body>
 </html>

@@ -1,0 +1,28 @@
+.leftPanel{
+	background-color: blue;
+	position: fixed;
+		bottom: 0px;
+		top: 0px;
+	left: 0px;
+	width: 70%;
+	overflow: auto;
+}
+.rightPanel{
+	background-color: red;
+	position: fixed;
+		bottom: 0px;
+		top: 0px;
+	right: 0px;
+	width: 30%;
+}
+
+.grid{
+	width:  900px;
+	height:	900px;
+}
+.gridCell{
+	min-height: 80px;
+	min-width: 80px;
+	width:  80px;
+	height:	80px;
+}
