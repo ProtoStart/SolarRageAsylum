@@ -26,7 +26,7 @@
     </head>
 	<body>
 		<div id="asylumGridContainer" class="leftPanel">
-		<div id="asylumGrid" class="grid">
+		<div id="asylumGrid" class="grid hidden">
 			<div class="gridRow">
 				<button class="gridCell" onclick="viewCell('00')">00</button>
 				<button class="gridCell" onclick="viewCell('01')">01</button>
@@ -152,16 +152,24 @@
 		</div>
 		<div class="rightPanel"><!--hidden-->
 			<div id="welcome" class="rightPanelView">
-				Welcome to the Asylum Layout tool. <br/>
-				Each grid square can have a room or part of a corridor, or blank space.
-				Tap a square to see details of it here.
+				<h3>Welcome to the Asylum Layout tool.</h3> <br/>
+				<br/>
+				This tool is still being built, and will go through a few stages before it's fully ready for other people to use.<br/>
+				<ol>
+					<li>Non-functional basic layout of the tool</li>
+					<li>A tool fit for Phil to use to create the simpler parts of the starter asylum</li>
+					<li>A tool fit for Phil to use to create the rest of the starter asylum</li>
+					<li>A tool fit for non-developers to create their own Asylums</li>
+				</ol>
+				<button class="" onclick="createRooms()">Create New Asylum Outline</button>
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
 				Currently an empty cell<br/>
 				
-				This tool is still being built.<br/>
 				
 				
+				Each grid square can have a room or part of a corridor, or blank space.
+				Tap a square to see details of it here.
 			</div>
 		</div>
 	</body>
