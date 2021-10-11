@@ -34,13 +34,15 @@ var asylumData = {
 }
 
 function createRooms(){
-	
+	let jsonOutput = "";
 	for (let i = 0; i < 100; i++) {
 		//alert(parseInt(i));
-		
 		asylumData.rooms[parseInt(i)] = {};
+		jsonOutput += parseInt(i);
 	}
-	showViaClass("asylumGrid");
+	  document.getElementById("jsonDisplayer").innerHTML  = jsonOutput;
+	//showViaClass("asylumGrid");
+	showViaClass("jsonDisplayer");
 }
 
 function viewCell(cellID){
