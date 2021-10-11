@@ -1,9 +1,9 @@
 var asylumData = {
 	"rooms":{
-	
+		
 	},
-	"defaultRoom": {
-		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.
+	"defaultRoom": { //access with asylumData.defaultRoom
+		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
 				"val": "99",   //val is short for value - in this case the amount of px from the top of the movement area
 				"known": "no", //no means not known to the player character
@@ -34,14 +34,15 @@ var asylumData = {
 }
 
 function createRooms(){
+	//note: this will wipe over anything already stored
 	//let jsonOutput = "";
 	for (let i = 0; i < 100; i++) {
 		//alert(parseInt(i));
-		asylumData.rooms[parseInt(i)] = {};
+		asylumData.rooms[parseInt(i)] = {}; 
 		//jsonOutput += parseInt(i);
 	}
 	//JSON.stringify(obj)
-	  document.getElementById("jsonDisplayer").innerHTML  = JSON.stringify(asylumData.rooms);
+	  document.getElementById("jsonDisplayer").innerHTML  = JSON.stringify(asylumData.rooms, null, "<br/>"); //JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
 	//showViaClass("asylumGrid");
 	
 	showViaClass("jsonDisplayer");
