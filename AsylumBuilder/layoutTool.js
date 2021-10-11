@@ -34,14 +34,16 @@ var asylumData = {
 }
 
 function createRooms(){
-	let jsonOutput = "";
+	//let jsonOutput = "";
 	for (let i = 0; i < 100; i++) {
 		//alert(parseInt(i));
 		asylumData.rooms[parseInt(i)] = {};
-		jsonOutput += parseInt(i);
+		//jsonOutput += parseInt(i);
 	}
-	  document.getElementById("jsonDisplayer").innerHTML  = jsonOutput;
+	//JSON.stringify(obj)
+	  document.getElementById("jsonDisplayer").innerHTML  = JSON.stringify(asylumData.rooms);
 	//showViaClass("asylumGrid");
+	
 	showViaClass("jsonDisplayer");
 }
 
