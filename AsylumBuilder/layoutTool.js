@@ -38,7 +38,7 @@ function createRooms(){
 	//let jsonOutput = "";
 	for (let i = 0; i < 100; i++) {
 		//alert(parseInt(i));
-		asylumData.rooms[parseInt(i)] = {}; 
+		asylumData.rooms[parseInt(i)] = asylumData.defaultRoom; 
 		//jsonOutput += parseInt(i);
 	}
 	//JSON.stringify(obj)
