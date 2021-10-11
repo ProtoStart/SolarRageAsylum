@@ -35,14 +35,20 @@ var asylumData = {
 
 function createRooms(){
 	//note: this will wipe over anything already stored
-	//let jsonOutput = "";
-	for (let i = 0; i < 100; i++) {
-		//alert(parseInt(i));
-		asylumData.rooms[parseInt(i)] = asylumData.defaultRoom; 
-		//jsonOutput += parseInt(i);
+	let gridRef = ""; //instantiate these before the loop so they only instatiate once
+	let iString = "";
+	let neatOutput = "";
+	for (let i = 0; i < 10; i++) {
+		iString = parseInt(i); //parse the first digit once
+		for (let j = 0; j < 10; j++) {
+			gridRef = iString + "" + parseInt(j); //string concatenation
+			asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
+			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef]) + ",<br/>"; //add to the string with what was added to the JSON for this, plus a comma and a line break
+		}
+		neatOutput += "<br/><br/>"; //add a double line break every 10 rooms, since that represents a row
 	}
 	//JSON.stringify(obj)
-	  document.getElementById("jsonDisplayer").innerHTML  = JSON.stringify(asylumData.rooms, null, "<br/>"); //JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
+	  document.getElementById("jsonDisplayer").innerHTML  = neatOutput;//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
 	//showViaClass("asylumGrid");
 	
 	showViaClass("jsonDisplayer");
