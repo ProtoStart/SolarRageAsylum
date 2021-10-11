@@ -14,6 +14,7 @@
 		top: 0px;
 		right: 0px;
 	width: 30%;
+	overflow-y: auto;
 }
 
 .grid{
