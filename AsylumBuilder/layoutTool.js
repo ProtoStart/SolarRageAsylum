@@ -35,6 +35,18 @@ var asylumData = {
 
 function createRooms(){
 	//note: this will wipe over anything already stored
+	let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
+	let iString = "";
+	for (let i = 0; i < 10; i++) {
+		iString = parseInt(i); //parse the first digit once
+		for (let j = 0; j < 10; j++) {
+			gridRef = iString + "" + parseInt(j); //string concatenation
+			asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
+		}
+	}
+}
+
+function displayAllJSON(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";
 	let neatOutput = "";
@@ -42,7 +54,6 @@ function createRooms(){
 		iString = parseInt(i); //parse the first digit once
 		for (let j = 0; j < 10; j++) {
 			gridRef = iString + "" + parseInt(j); //string concatenation
-			asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
 			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef]) + ",<br/>"; //add to the string with what was added to the JSON for this, plus a comma and a line break
 		}
 		neatOutput += "<br/><br/>"; //add a double line break every 10 rooms, since that represents a row
