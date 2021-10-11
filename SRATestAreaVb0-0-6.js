@@ -35,124 +35,162 @@ var globals = {
 	},
 	"rooms": {
 		"current": "10", //access with globals.rooms.current - keeps track of which room the player is in, defaults to "10" since we start at grid ref 10
-		"00": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"01": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"02": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"03": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"04": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"05": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"06": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"07": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"08": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"09": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
+		"10": {
+			/* STARTING ROOM  - Rec3 - recovery room 3
+				can exit to 11 (corridor running north south) via a usually locked door if opened
+			*/
+			
+			"bounds": { //The edges of the playable area for this room, in px. Originally based on the div gameArea size definition in gameStyles.css, and then altered from those values to fit. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+				"top": {
+					"val": "99",  //access with: globals.rooms.10.bounds.top.val
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+				"right": {
+					"val": "658",
+					"known": "no",   //known to the player character
+					"type":"keypadDoor", //a wall with a keypad activated door
+					"doorValLow": "248", //the lower of the two vals for door positioning
+					"doorValHigh": "268", //the higher of the two vals for door positioning
+					"state": "locked", //
+					"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				"bottom": {
+					"val": "439",
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+				"left": {
+					"val": "90",
+					"known": "no",   //known to the player character
+					"type":"wall", //wall = continuous wall with no archway or door
+				},
+			},
+			
+			
+			"bumpCoords": { // "Hit-box" co-ordinates of anything the player character might collide with. Remember co-ords in JS/CSS are done with 0,0 being the top left.
+				/*
+				"exampleObject" : {  Objects are rectangular or at least their hitboxes / "bumpCoords" are
+					"top": "104",  //where the top of the object is
+					"right": "658", //where the right most edge of the object is
+					"bottom": "99",  //where the bottom of the object is
+					"left": "90",    //where the left most edge of the object is
+					"state": "solid" //info about the object used to show how it will respond to the player going into it
+					//Some options: padded (like a padded wall), solid (a non-padded wall), locked (a door that is locked shut), open (an open door), shut (a shut but not locked door), standing (a person who is stood up), hoverbed
+				},
+				New structure of bumpCoords:
+					globals.rooms[roomCoords].bumpCoords   (where roomCoords relates to the location of the room on the full map of the Asylum
 
-
-"10": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"11": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"12": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"13": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"14": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"15": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"16": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"17": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"18": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"19": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"20": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"21": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"22": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"23": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"24": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"25": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"26": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"27": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"28": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"29": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"30": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"31": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"32": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"33": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"34": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"35": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"36": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"37": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"38": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"39": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"40": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"41": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"42": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"43": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"44": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"45": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"46": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"47": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"48": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"49": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"50": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"51": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"52": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"53": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"54": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"55": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"56": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"57": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"58": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"59": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"60": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"61": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"62": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"63": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"64": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"65": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"66": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"67": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"68": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"69": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"70": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"71": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"72": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"73": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"74": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"75": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"76": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"77": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"78": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"79": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"80": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"81": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"82": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"83": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"84": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"85": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"86": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"87": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"88": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"89": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-
-
-"90": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"91": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"92": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"93": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"94": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"95": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"96": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"97": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"98": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}},
-"99": {"bounds":{"top":{"val":"99","known":"no","type":"wall"},"right":{"val":"658","known":"no","type":"wall"},"bottom":{"val":"439","known":"no","type":"wall"},"left":{"val":"90","known":"no","type":"wall"}},"bumpCoords":{}}},
+						With the 10 by 10 grid shown in "world map concept" we can use tens for row and unit for column. Rows and collumns are both 0-9 - which means this can have an array from 00 to 99
+				*/
+				  //instead of bounds values for rooms, we can have bumpCoords for each wall, this way we can have gaps for doorways or archways - Todo: actually this feels like quite a lot of aggro for each room - it's great for mini walls that go within the screen area that you might approach from any angle, but it's overkill to do this for all the outer walls for every single room in the entire asylum. Ideally we want a seperate section for screen sides - maybe an expanded version of the bounds section for each room, with what is at each bound: wall, wall with doorway, open bit that you walk through to another grid ref, wall with archway
+				"topWall" : { //access this with globals.rooms["10"].bumpCoords.topWall
+					"top": "94",  //bottom -5, so that the wall is 5px thick  - Represents where the top of this object is
+					"right": "658", //match bounds.right because this wall goes up from the left most wall to the right
+					"bottom": "99",  //match bounds.top (NOT bounds.bottom) because this is the wall that makes up the top boundary, and it's the bottom of the bumpCoords for the wall that the Player Character will collide with
+					"left": "90", //match bounds.left because this wall goes up from the left most wall to the right
+					"state": "padded" //it's a padded wall
+				},
+				"leftWall" : {
+					"top": "99",
+					"right": "90",   //match bounds.left
+					"bottom": "439",
+					"left": "85",
+					"state": "padded"
+				},
+				"rightWallTop" : {
+					"top": "99", //match bounds.top as the top of this wall ends there
+					"right": "663",  //left + 5 to make it 5px thick 
+					"bottom": "248", //match the top of "doorToCorridor"  
+					"left": "658",  //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "padded" //it's a padded wall
+				},
+				"doorToCorridor" : {
+					
+					/*
+					old values before visual adjustment:
+						"top": "149"
+						"right": "663"
+						"bottom": "169",
+						"left": "658"
+					css after visual ajustment:
+						top: 248px;
+						left: 663px;
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "11" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				"rightWallBottom" : {
+					"top": "169", //match bottom of "doorToCorridor"
+					"right": "663",  
+					"bottom": "439",
+					"left": "658", //match bounds.right (NOT bounds.left) because this wall makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					"state": "padded"
+				},
+				"bottomWall" : {
+					"top": "439",  //match bounds.bottom
+					"right": "658",
+					"bottom": "444",  
+					"left": "90",
+					"state": "padded"
+				}
+			},
+		},
+		"11": {  //Part of a corridor going North to South. 
+			/*
+			Can be entered from:
+				01	(the northern end of this corridor) by walking south through the corridor
+				10	(Rec3 - recovery room 3 - the starting room) by going through door once opened by nurse 
+				12	(Rec4) on return
+				21	(the southern end of this corridor)
+			Can exit to:
+				01
+				10
+				12
+				21
+			*/
+			"bumpCoords": {
+				/*TODO: do we need bumpcoords for the edges to find the next bit of corridor? 2 possibilities that would mean you don't - either the corridor is mapped as one big room, that uses some other way of going across multiple coordinates (tricky not much benifit??), or we set that the entire boundary on those sides is open and moves you over (though wouldn't that be a bumpcoords-lite? we would need to have room specific bounds values to make that work )*/
+				"doorToRec3" : {
+					
+					/*
+					TODO: adjust top, right, bottom and left values to match the left wall - started this from a copy of the values of the original door
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					
+					
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "10" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				
+				"doorToRec2" : {
+					
+					/*
+					TODO: adjust top, right, bottom and left values to match the right wall of the corridor- started this from a copy of the values of the original door
+					
+					*/
+					"top": "248", //match bottom of "rightWallTop"
+					"right": "668",  //left + 5
+					"bottom": "268",  //top + 20
+					"left": "663",  //match bounds.right (NOT bounds.left) because this door (while locked) makes up part of the right boundary, and it's the left of the bumpCoords for this wall that the Player Character will collide with
+					
+					
+					"state": "open", //default as an open door since we don't use these until they check on you (we could have a section where they try to feel for a door, but that would probably be repetitive and dull)
+					"doorTo": "12" //The grid ref that the door will take you to if walked through. See "documentation/world map concept.txt" for more details
+				},
+				
+			}
+		}
+	},
 	"PC": { /* PC == Player Character */
 		//"element": document.getElementById("mockPC"),
 		//I'll need a setter to set this programattically
