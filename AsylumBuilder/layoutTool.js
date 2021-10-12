@@ -44,6 +44,7 @@ function createRooms(){
 				asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
 			}
 		}
+		document.getElementById("createRooms").innerHTML = "Reset Asylum";
 	}
 }
 
