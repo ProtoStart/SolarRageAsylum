@@ -34,14 +34,15 @@ var asylumData = {
 }
 
 function createRooms(){
-	//note: this will wipe over anything already stored
-	let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
-	let iString = "";
-	for (let i = 0; i < 10; i++) {
-		iString = parseInt(i); //parse the first digit once
-		for (let j = 0; j < 10; j++) {
-			gridRef = iString + "" + parseInt(j); //string concatenation
-			asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
+	if(JSON.stringify(asylumData.rooms) == "{}" || confirm("This tool only remembers one Asylum at a time, reset all progress?")){
+		let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
+		let iString = "";
+		for (let i = 0; i < 10; i++) {
+			iString = parseInt(i); //parse the first digit once
+			for (let j = 0; j < 10; j++) {
+				gridRef = iString + "" + parseInt(j); //string concatenation
+				asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
+			}
 		}
 	}
 }
