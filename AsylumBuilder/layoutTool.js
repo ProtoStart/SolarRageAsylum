@@ -51,15 +51,17 @@ function createRooms(){
 function displayAllJSON(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";
-	let neatOutput = "<pre>";
+	let neatOutput = "<pre>"; //<pre> tag wrapper needed for the JSON to be displayed neatly in new lines
 	for (let i = 0; i < 10; i++) {
 		iString = parseInt(i); //parse the first digit once
 		for (let j = 0; j < 10; j++) {
-			gridRef = iString + "" + parseInt(j); //string concatenation
-			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //add to the string with what was added to the JSON for this with 2 spaces , plus a comma and a line break
-			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
+			jString = parseInt(j);
+			gridRef = iString + "" + jString; //"" forces string concatenation
+			neatOutput += "//Row " + iString + " Column " + jString + "<br/>"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
+			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //turn the JSON for that specific cell into a string (stringify), with tabs ("&#9;"), and a line break (<br/>) after a seperating comma
+			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the asylumData, so that it can be displayed.
 		}
-		neatOutput += "<br/><br/>"; //add a double line break every 10 rooms, since that represents a row
+		neatOutput += "<br/>"; //add an extra line break every 10 rooms, since 10 rooms represents a row
 	}
 	//JSON.stringify(obj)
 	neatOutput += "</pre>";
