@@ -57,15 +57,21 @@ function displayAllJSON(){
 		for (let j = 0; j < 10; j++) {
 			gridRef = iString + "" + parseInt(j); //string concatenation
 			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //add to the string with what was added to the JSON for this with 2 spaces , plus a comma and a line break
+			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
 		}
 		neatOutput += "<br/><br/>"; //add a double line break every 10 rooms, since that represents a row
 	}
 	//JSON.stringify(obj)
 	neatOutput += "</pre>";
-	document.getElementById("jsonDisplayer").innerHTML  = neatOutput;//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the newly created asylumData, so that it can be displayed.
-	//showViaClass("asylumGrid");
+	document.getElementById("jsonDisplayer").innerHTML  = neatOutput;
+
+	hideAllXClassShowY("leftItem", "jsonDisplayer");
+}
+
+function displayGrid(){
+	//alert("we're still building this tool");
+	hideAllXClassShowY("leftItem", "asylumGrid");
 	
-	showViaClass("jsonDisplayer");
 }
 
 function viewCell(cellID){
