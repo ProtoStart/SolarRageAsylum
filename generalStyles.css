@@ -101,7 +101,7 @@ h2{
     overflow-y: scroll; /*No Scrollbar or overflow on the y axis*/
 }
 
-.Selected{ /* Potentially useful class for options that have been selected */ 
+.Selected{ /* class for options that have been selected - used in the homepage for the tabs */ 
 	border-style: inset; /* Makes it look like it's been pressed in */ 
 	/*background-color: #86af49; /* Sometimes it's good to change the bg colour of a selected option to stand out from the non selected, I've commented this out until we get round to choosing selection colours*/ 
 }
@@ -201,7 +201,7 @@ To make the effect you have a div of class modal which is partially seethrough a
 	height:60px;
 	min-width:60px;
 	}
-	input{/*input height should always match button*/
+	input{/*height of input elements usually needs to match the height of button elements, to prevent one looking too small or too big */
 	height:60px;
 	}
 }
