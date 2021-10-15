@@ -1,4 +1,6 @@
-/*The main style sheet for Solar Rage Asylum (SRA)
+/*A general purpose stylesheet adapted in parts to SRA.
+	Gives us a good starting point.
+	
 	To get started quickly, I pasted in the style sheet used in the ProtoStart staging area, then made a git commit with that, used the replace all function in notepad ++ to replace all the line endings with a comment saying "not altered for SRA" followed by a line ending (so that in effect I was inserting that comment at the end of every line), then I've gone through making any easy or obvious changes and removing stuff that probably won't be needed.
 */
 
@@ -9,7 +11,7 @@ html{ /* The outer tag of every page*/
 }
  
 body{ /* Full display area */ 
-    text-align: center; /* game content areas overrule this, handy for everything else */ 
+    text-align: center; /* game content areas and specific alignment classes overrule this, handy for everything else */ 
     width: 100%; /* not altered for SRA */ 
 	padding-top: 0px; /* not altered for SRA */ 
 	padding-right: 0px; /* not altered for SRA */ 
@@ -53,7 +55,7 @@ button, input{
 
 #Version,
 #LeadBy{
-	display: none; /*MediaQuery ovverrides this if the screen is big enough*/
+	display: none; /*MediaQuery overrides this if the screen is big enough*/
 }
 
 /* Smaller Sections */
@@ -81,20 +83,20 @@ h2{
 }
 
 /* Text adjustment classes*/
-.biggerText{ /* Potentially useful class for making text bigger */ 
+.biggerText{ /* Potentially useful class for making text bigger - not in use anywhere when checked on 15/10/2021 */ 
 	font-size: 105%; /* not altered for SRA */ 
 }
 
-.alignLeft{ /* Potentially useful class for aligning text to the left */ 
+.alignLeft{ /* useful class for aligning text to the left */ 
 	text-align: left; 
 } 
 
-.xScroll{ /* Potentially useful class for areas that should scroll on the x axis when they overflow*/ 
+.xScroll{ /* Potentially useful class for areas that should scroll on the x axis when they overflow  - not in use anywhere when checked on 15/10/2021 - though could be useful soon for asylum builder tools*/ 
     display: flex; /*Makes things on one line*/
 	overflow-x: scroll; /*Scrollbar on the x axis*/
     overflow-y: hidden; /*No Scrollbar or overflow on the y axis*/
 } 
-.yScroll{ /* Potentially useful class for areas that should scroll on the y axis when they overflow*/ 
+.yScroll{ /* Potentially useful class for areas that should scroll on the y axis when they overflow  - not in use anywhere when checked on 15/10/2021 - though could be useful soon for asylum builder tools*/ 
 	overflow-x: hidden; /*Scrollbar on the x axis*/
     overflow-y: scroll; /*No Scrollbar or overflow on the y axis*/
 }
@@ -105,10 +107,10 @@ h2{
 }
 
 /*Javascript can be used to apply .hidden and .showing as appropriate*/ 
-.hidden { /* Potentially useful class for things that will be programmatically toggled between hidden and shown */ 
+.hidden { /* used for things that are programmatically toggled between hidden and shown */ 
 	display: none;
 }
-.showing { /* Potentially useful class for things that will be programmatically toggled between hidden and shown */ 
+.showing { /* used for things that are programmatically toggled between hidden and shown */ 
 	display: block;  
 }
 
@@ -171,7 +173,7 @@ To make the effect you have a div of class modal which is partially seethrough a
   cursor: pointer; /* not altered for SRA */ 
 }
 
-.lime{ /*Useful in development for checking where the boundary of an element is visually, if it's overlapped, also if javascript is applying CSS okay*/
+.lime{ /*Used in one of the cheat code easter-eggs, and useful in development for checking where the boundary of an element is visually, if it's overlapped, also if javascript is applying CSS okay*/
 	background-color: lime;
 }
 
