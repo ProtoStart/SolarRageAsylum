@@ -46,6 +46,8 @@ function createRooms(){
 		}
 		document.getElementById("createRooms").innerHTML = "Reset Asylum";
 	}
+	showViaClass("viewAsylumJsonBtn");
+	showViaClass("viewAsylumGridBtn");
 }
 
 function displayAllJSON(){
