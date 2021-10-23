@@ -27,3 +27,11 @@
 	width:  80px;
 	height:	80px;
 }
+
+.inlineButton{
+	min-height: 1.2em;
+	min-width: default;
+	width:  default;
+	height:	1.2em;
+	font-size: 16pt;
+}

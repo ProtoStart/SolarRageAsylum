@@ -82,6 +82,17 @@ function viewCell(cellID){
 	
 }
 
+
+function moreInfoToggle(){
+
+	//SLIGHTLY WEIRD CODE: toggleHidden does 2 things: toggles the given element between hidden and shown, and also returns true if it just toggled to hidden or returns false if it just toggled to showing. so toggleHidden causes a change in UI but also provides us a bool with which to make a decision about what the text should say
+	if (toggleHidden("stagesList")){
+		document.getElementById("moreInfoDevStages").innerHTML = "More Info";
+	} else {
+		document.getElementById("moreInfoDevStages").innerHTML = "Less Info";
+	}
+}
+
 /** Our good old trusty show and hide functions that we use everywhere!!
 
 by "via class" we mean by swapping css classes that handle showing or hiding things
@@ -95,6 +106,17 @@ function showViaClass(id){
 function hideViaClass(id){
 	document.getElementById(id).classList.remove("showing");
 	document.getElementById(id).classList.add("hidden");
+}
+
+function toggleHidden(id){
+	//also returns bool: true for now hidden, used for toggling other UI accordingly
+	if (document.getElementById(id).classList.contains("showing")){
+		hideViaClass(id);
+		return true;
+	} else {
+		showViaClass(id);
+		return false;
+	}
 }
 
 /*Our slightly less often used hide everything of a certain class, show this one specified thing, function*/

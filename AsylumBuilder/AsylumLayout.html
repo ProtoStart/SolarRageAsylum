@@ -154,26 +154,31 @@
 		</div>
 		<div class="rightPanel"><!--hidden-->
 			<div id="welcome" class="rightPanelView">
-				<h3>Welcome to the Asylum Layout tool.</h3> <br/>
+				<h3>Welcome to the Asylum Layout tool.</h3>
 				<br/>
-				This tool is still being built, and will go through a few stages before it's fully ready for other people to use.<br/>
-				<ol>
-					<li>Non-functional basic layout of the tool</li>
+				This tool is still being built, and will go through a few stages before it's fully ready for other people to use.
+				<button id="moreInfoDevStages" class="inlineButton" onclick="moreInfoToggle()">More Info</button>
+				<ol id="stagesList" class="hidden">
+					<li><s>Non-functional basic layout of the tool</s> (Done)</li>
+					<li><s>A tool that can create an empty outline of an Asylum</s> (Done)</li>
 					<li>A tool fit for Phil to use to create the simpler parts of the starter asylum</li>
 					<li>A tool fit for Phil to use to create the rest of the starter asylum</li>
 					<li>A tool fit for non-developers to create their own Asylums</li>
 				</ol>
+			</div>
+			<div id="usage">
+				Each grid square can have a room or part of a corridor, or blank space.
+				Tap a square to see details of it here.
+			</div>
+			<div>
 				<button id="createRooms" class="" onclick="createRooms()">Create New Asylum Outline</button>
 				<button class="" onclick="displayAllJSON()">View Asylum JSON</button>
 				<button class="" onclick="displayGrid()">View Asylum grid</button>
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
-				Currently an empty cell<br/>
-				
-				
-				
-				Each grid square can have a room or part of a corridor, or blank space.
-				Tap a square to see details of it here.
+				<h3 id="cellNumber">Cell x</h3><br/>
+				<p id="cellDescription">Currently an empty cell</p><br/>
+				<button class="" onclick="displayGrid()">Edit Cell</button>
 			</div>
 		</div>
 	</body>
