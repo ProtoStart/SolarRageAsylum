@@ -177,13 +177,16 @@
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
 				<h3 id="cellNumber">Cell x</h3><br/>
-				<label for="cellLabel">Custom label for grid:</label>
-				<input type="text" name="cellLabel" id="cellLabel" value=""/><br/>
-				<label for="cellDescription">cellDescription:</label>
-				<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
-				<label for="cellDesignCompleteness">cellDesignCompleteness:</label>
-				<input type="text" name="cellDesignCompleteness" id="cellDesignCompleteness" value=""/><br/>
-				<button class="editCell()" onclick="">Save Changes</button>
+				<div>
+					<h4>Designers notes</h4><br/>
+					<label for="cellLabel">Custom label for grid:</label>
+					<input type="text" name="cellLabel" id="cellLabel" value=""/><br/>
+					<label for="cellDescription">Description:</label>
+					<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
+					<label for="cellDesignCompleteness">Design Completeness:</label>
+					<input type="text" name="cellDesignCompleteness" id="cellDesignCompleteness" value=""/><br/>
+					<button class="" onclick="saveCellEdits()">Save Changes</button>
+				</div>
 			</div>
 		</div>
 	</body>

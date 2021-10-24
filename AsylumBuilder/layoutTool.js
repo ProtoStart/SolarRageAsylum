@@ -6,7 +6,7 @@ var asylumData = {
 		"designersNotes" : {	
 			"label": "",
 			"description":"An empty cell", //access with asylumData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description  lets the user describe what is there or should be there
-			"designCompleteness":"Still the default", //access with asylumData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
+			"designCompleteness":"Not started", //access with asylumData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
 		},
 		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
@@ -51,7 +51,11 @@ function createRooms(){
 			iString = parseInt(i); //parse the first digit once
 			for (let j = 0; j < 10; j++) {
 				gridRef = iString + "" + parseInt(j); //string concatenation
-				asylumData.rooms[gridRef] = asylumData.defaultRoom; //actually create the new room in the JSON object
+				asylumData.rooms[gridRef] = JSON.parse(JSON.stringify(asylumData.defaultRoom)); /*actually create the new room in the JSON object - stringifying and then parsing here so that it actually duplicates rather than just putting in a reference to the default room object. THERE ARE LIMITATIONS TO THIS - as far as I can see it should be fine but see https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript
+				
+				Key part here:
+				Fast cloning with data loss - JSON.parse/stringify
+					If you do not use Dates, functions, undefined, Infinity, RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, sparse Arrays, Typed Arrays or other complex types within your object, a very simple one liner to deep clone an object is:*/
 			}
 		}
 		document.getElementById("createRooms").innerHTML = "Reset Asylum";
@@ -96,17 +100,17 @@ function viewCell(cellID){
 	document.getElementById("cellLabel").value = asylumData.rooms[cellID].designersNotes.label;
 	document.getElementById("cellDescription").value = asylumData.rooms[cellID].designersNotes.description;
 	//
-	document.getElementById("celldesignCompleteness").value = asylumData.rooms[cellID].designersNotes.designCompleteness;
+	document.getElementById("cellDesignCompleteness").value = asylumData.rooms[cellID].designersNotes.designCompleteness;
 	
 }
 
 function saveCellEdits(){
 	//save edits for the cell in toolData.currentCell
-	/*hideAllXClassShowY("rightPanelView", "cellView");
-	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
-	toolData.currentCell = cellID;
-	document.getElementById("cellDescription").innerHTML = asylumData.rooms[cellID].description;*/
-	
+	asylumData.rooms[toolData.currentCell].designersNotes.label = document.getElementById("cellLabel").value;
+	asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
+	//
+	asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
+	//alert( JSON.stringify(asylumData.defaultRoom));
 }
 
 function moreInfoToggle(){
