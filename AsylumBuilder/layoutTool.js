@@ -81,7 +81,7 @@ function displayGrid(){
 function viewCell(cellID){
 	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");
-	
+	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
 }
 
 
