@@ -3,6 +3,7 @@ var asylumData = {
 		
 	},
 	"defaultRoom": { //access with asylumData.defaultRoom
+		"description":"An empty cell", //access with asylumData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description
 		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
 				"val": "99",   //val is short for value - in this case the amount of px from the top of the movement area
@@ -30,6 +31,11 @@ var asylumData = {
 		}
 	},
 			
+	
+}
+
+var toolData = {
+	"currentCell": "" //the grid cell currently being viewed or edited. Access with toolData.currentCell
 	
 }
 
@@ -82,6 +88,9 @@ function viewCell(cellID){
 	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");
 	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
+	toolData.currentCell = cellID;
+	document.getElementById("cellDescription").innerHTML = asylumData.rooms[cellID].description;
+	
 }
 
 
