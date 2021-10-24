@@ -3,7 +3,11 @@ var asylumData = {
 		
 	},
 	"defaultRoom": { //access with asylumData.defaultRoom
-		"description":"An empty cell", //access with asylumData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description
+		"designersNotes" : {	
+			"label": "",
+			"description":"An empty cell", //access with asylumData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description  lets the user describe what is there or should be there
+			"designCompleteness":"Still the default", //access with asylumData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
+		},
 		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
 				"val": "99",   //val is short for value - in this case the amount of px from the top of the movement area
@@ -87,12 +91,23 @@ function displayGrid(){
 function viewCell(cellID){
 	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");
+	toolData.currentCell = cellID;//so that the save button knows which cell was altered
 	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
-	toolData.currentCell = cellID;
-	document.getElementById("cellDescription").innerHTML = asylumData.rooms[cellID].description;
+	document.getElementById("cellLabel").value = asylumData.rooms[cellID].designersNotes.label;
+	document.getElementById("cellDescription").value = asylumData.rooms[cellID].designersNotes.description;
+	//
+	document.getElementById("celldesignCompleteness").value = asylumData.rooms[cellID].designersNotes.designCompleteness;
 	
 }
 
+function saveCellEdits(){
+	//save edits for the cell in toolData.currentCell
+	/*hideAllXClassShowY("rightPanelView", "cellView");
+	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
+	toolData.currentCell = cellID;
+	document.getElementById("cellDescription").innerHTML = asylumData.rooms[cellID].description;*/
+	
+}
 
 function moreInfoToggle(){
 
