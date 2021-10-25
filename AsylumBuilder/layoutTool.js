@@ -44,7 +44,7 @@ var toolData = {
 
 function JSONstringifyInOrder(obj)
 {
-	//This function is a solution to a tricky problem of JSON stringifying in the wrong order, I tweaked this to my liking from  https://stackoverflow.com/a/53593328
+	//This function is a solution to a tricky problem of JSON stringifying in the wrong order, I tweaked this to my liking from  https://stackoverflow.com/a/53593328 and took care to go through and understand it, and explain how it works in comments.
     var allKeys = [];
     var seen = {};
 	//take our object run it through JSON.stringify but with a special function running inside, that copies all of the keys into an array. We don't use the result of this stringify, only the list of keys!
@@ -55,8 +55,8 @@ function JSONstringifyInOrder(obj)
         }
         return value;
     });
-    allKeys.sort(); //This sorts our list of keys - I was initially concerned that this would ruin the nesting, but it doesn't, because we're not actaully touching the structure, in fact the next stringify uses the original object as it was passed into the function, but it will be stringifyed with an ordered list as a filter. Since the filter list has all of the keys in there, it doesn't filter out anything, but since it places things in the order in which they are matched in the filter array, and our filter array is sorted, it has the effect of sorting each level of our object. This does mean that every key is ordered alphabetically within it's parent, but that consistency could make it easier for others to understand
-	return JSON.stringify(obj, allKeys, "&#9;"); //This is the stringify that actually creates our new object. It takes in the object as passed into this function, a sorted list of all the keys within, and the entity for a tab since we want it to use tabs for line starts
+    allKeys.sort(); //This sorts our list of keys - I was initially concerned that this would ruin the nesting, but it doesn't, because we're not actaully touching the structure, in fact the next stringify uses the original object as it was passed into the function, but it will be stringifyed with an ordered list as a filter. Since the filter list has all of the keys in there, it doesn't filter out anything, but since it places things in the order in which they are matched in the filter array, and our filter array is sorted, it has the effect of sorting each level of our object. This does mean that every key is ordered alphabetically within it's parent, but that consistency could make it easier for others to understand. This solution does mean we use the same full list of every key in the object for each nested part of the object, but the performance seems to be okay, so I'm not concerned about that.
+	return JSON.stringify(obj, allKeys, "	"); //This is the stringify that actually creates our new object. It takes in the object as passed into this function, a sorted list of all the keys within, and the entity for a tab since we want it to use tabs for line starts
 }
 
 function createRooms(){
@@ -101,9 +101,34 @@ function displayAllJSON(){
 	}*/
 	//JSON.stringify(obj)
 	neatOutput = JSONstringifyInOrder(asylumData);
-	document.getElementById("jsonTextArea").innerHTML  = neatOutput;
+	document.getElementById("jsonTextArea").value  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
 
 	hideAllXClassShowY("leftItem", "jsonEditor");
+}
+
+function saveJson(){
+	document.getElementById("jsonTextArea").focus();
+	//alert(document.getElementById("jsonTextArea").value);
+	try{
+		let saveAttempt = document.getElementById("jsonTextArea").value;
+		//TODO (IMPORTANT TO DO BEFORE RELEASE TO PUBLIC) SECURITY VALIDATION
+		asylumData = JSON.parse(saveAttempt);
+	} catch (error) {
+		let errorString = error.toString(); //need it in string form for string matching in the if statement
+		alert("Couldn't save, probably due to invalid JSON. \n Web browser thinks the error is: \n" + errorString);
+		document.getElementById("jsonTextArea").focus();
+		//some browsers (including chrome on PC) will give an error message for failed JSON parsing that includes which character caused the syntax error. This code attempts to check for an error message like that, and then select the problematic character
+		if(errorString.includes("at position")){
+			alert("Your web browsers error message seems to include the position where an error is, so we'll automatically select an area around that character to help show the rough area to look");
+			document.getElementById("jsonTextArea").focus();
+			let positionAtString = errorString.match(/(position) (\d)*/g); //gets a string within the errorString that matches "position " followed by an amount of number characters. This allows for a chance that the error message could include multiple sets of numbers, we only want it if it's describing position rather than line number or collumn. This alone isn't enough to use for the selectionStart and selectionEnd as it contains the string "position ". Note that match adds all matches to an array not a string - this stumped me for about an hour of debugging!!
+			//alert(positionAtString);
+			let errorPosNum = 0;
+			errorPosNum = parseInt( positionAtString[0].slice(9)); //[0] to just use the first (and hopefully only) index of the array, slice(9) to take just the part after the first 9 chars which is the "position " that comes before the actual number
+			document.getElementById("jsonTextArea").selectionStart = errorPosNum - 6;
+			document.getElementById("jsonTextArea").selectionEnd = errorPosNum + 6;
+		}
+	}
 }
 
 function displayGrid(){
@@ -125,6 +150,7 @@ function viewCell(cellID){
 }
 
 function saveCellEdits(){
+	//Todo (BEFORE PUBLIC RELEASE): SECURITY FEATURES
 	//save edits for the cell in toolData.currentCell
 	asylumData.rooms[toolData.currentCell].designersNotes.label = document.getElementById("cellLabel").value;
 	asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
