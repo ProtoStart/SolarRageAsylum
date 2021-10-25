@@ -64,6 +64,10 @@ function createRooms(){
 	showViaClass("viewAsylumGridBtn");
 }
 
+function importAsylum(){
+	hideAllXClassShowY("leftItem", "jsonEditor");
+}
+
 function displayAllJSON(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";

@@ -35,3 +35,13 @@
 	height:	1.2em;
 	font-size: 16pt;
 }
+
+#jsonEditor{
+	width:99%;
+	height: 99%;
+}
+
+#jsonTextArea{
+	width:99%;
+	height: calc(100% - 50px);
+}

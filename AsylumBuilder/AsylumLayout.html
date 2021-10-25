@@ -29,6 +29,11 @@
 			<div id="jsonDisplayer" class="leftItem alignLeft hidden">
 				
 			</div>
+			<div id="jsonEditor" class="leftItem alignLeft hidden">
+				<textarea id="jsonTextArea" class="" name="jsonTextArea" >
+				</textarea>
+				<button id="saveJson" class="inlineButton" onclick="saveJson()">Save</button>
+			</div>
 			<div id="asylumGrid" class="leftItem grid hidden">
 				<div class="gridRow">
 					<button class="gridCell" onclick="viewCell('00')">00</button>
@@ -172,6 +177,7 @@
 			</div>
 			<div>
 				<button id="createRooms" class="" onclick="createRooms()">Create New Asylum Outline</button>
+				<button id="importAsylum" class="" onclick="importAsylum()">Import Asylum</button>
 				<button id="viewAsylumJsonBtn" class="hidden" onclick="displayAllJSON()">View Asylum JSON</button>
 				<button id="viewAsylumGridBtn" class="hidden" onclick="displayGrid()">View Asylum grid</button>
 			</div>
