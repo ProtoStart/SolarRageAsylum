@@ -2,11 +2,16 @@ var asylumData = {
 	"rooms":{
 		
 	},
-	"defaultRoom": { //access with asylumData.defaultRoom
+
+}
+
+var toolData = {
+	"currentCell": "", //the grid cell currently being viewed or edited. Access with toolData.currentCell
+	"defaultRoom": { //access with toolData.defaultRoom
 		"designersNotes" : {	
 			"label": "",
-			"description":"An empty cell", //access with asylumData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description  lets the user describe what is there or should be there
-			"designCompleteness":"Not started", //access with asylumData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
+			"description":"An empty cell", //access with toolData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description  lets the user describe what is there or should be there
+			"designCompleteness":"Not started", //access with toolData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
 		},
 		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
@@ -34,13 +39,24 @@ var asylumData = {
 			
 		}
 	},
-			
 	
 }
 
-var toolData = {
-	"currentCell": "" //the grid cell currently being viewed or edited. Access with toolData.currentCell
-	
+function JSONstringifyInOrder(obj)
+{
+	//This function is a solution to a tricky problem of JSON stringifying in the wrong order, I tweaked this to my liking from  https://stackoverflow.com/a/53593328
+    var allKeys = [];
+    var seen = {};
+	//take our object run it through JSON.stringify but with a special function running inside, that copies all of the keys into an array. We don't use the result of this stringify, only the list of keys!
+    JSON.stringify(obj, function (key, value) {
+        if (!(key in seen)) {
+            allKeys.push(key);
+            seen[key] = null;
+        }
+        return value;
+    });
+    allKeys.sort(); //This sorts our list of keys - I was initially concerned that this would ruin the nesting, but it doesn't, because we're not actaully touching the structure, in fact the next stringify uses the original object as it was passed into the function, but it will be stringifyed with an ordered list as a filter. Since the filter list has all of the keys in there, it doesn't filter out anything, but since it places things in the order in which they are matched in the filter array, and our filter array is sorted, it has the effect of sorting each level of our object. This does mean that every key is ordered alphabetically within it's parent, but that consistency could make it easier for others to understand
+	return JSON.stringify(obj, allKeys, "&#9;"); //This is the stringify that actually creates our new object. It takes in the object as passed into this function, a sorted list of all the keys within, and the entity for a tab since we want it to use tabs for line starts
 }
 
 function createRooms(){
@@ -51,7 +67,7 @@ function createRooms(){
 			iString = parseInt(i); //parse the first digit once
 			for (let j = 0; j < 10; j++) {
 				gridRef = iString + "" + parseInt(j); //string concatenation
-				asylumData.rooms[gridRef] = JSON.parse(JSON.stringify(asylumData.defaultRoom)); /*actually create the new room in the JSON object - stringifying and then parsing here so that it actually duplicates rather than just putting in a reference to the default room object. THERE ARE LIMITATIONS TO THIS - as far as I can see it should be fine but see https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript
+				asylumData.rooms[gridRef] = JSON.parse(JSON.stringify(toolData.defaultRoom)); /*actually create the new room in the JSON object - stringifying and then parsing here so that it actually duplicates rather than just putting in a reference to the default room object. THERE ARE LIMITATIONS TO THIS - as far as I can see it should be fine but see https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript
 				
 				Key part here:
 				Fast cloning with data loss - JSON.parse/stringify
@@ -71,23 +87,23 @@ function importAsylum(){
 function displayAllJSON(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";
-	let neatOutput = "<pre>"; //<pre> tag wrapper needed for the JSON to be displayed neatly in new lines
-	for (let i = 0; i < 10; i++) {
+	let neatOutput = "";
+	/*for (let i = 0; i < 10; i++) {
 		iString = parseInt(i); //parse the first digit once
 		for (let j = 0; j < 10; j++) {
 			jString = parseInt(j);
 			gridRef = iString + "" + jString; //"" forces string concatenation
-			neatOutput += "//Row " + iString + " Column " + jString + "<br/>"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
+			neatOutput += "//Row " + iString + " Column " + jString + "/n"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
 			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //turn the JSON for that specific cell into a string (stringify), with tabs ("&#9;"), and a line break (<br/>) after a seperating comma
 			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the asylumData, so that it can be displayed.
 		}
 		neatOutput += "<br/>"; //add an extra line break every 10 rooms, since 10 rooms represents a row
-	}
+	}*/
 	//JSON.stringify(obj)
-	neatOutput += "</pre>";
-	document.getElementById("jsonDisplayer").innerHTML  = neatOutput;
+	neatOutput = JSONstringifyInOrder(asylumData);
+	document.getElementById("jsonTextArea").innerHTML  = neatOutput;
 
-	hideAllXClassShowY("leftItem", "jsonDisplayer");
+	hideAllXClassShowY("leftItem", "jsonEditor");
 }
 
 function displayGrid(){
@@ -114,7 +130,7 @@ function saveCellEdits(){
 	asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
 	//
 	asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
-	//alert( JSON.stringify(asylumData.defaultRoom));
+	//alert( JSON.stringify(toolData.defaultRoom));
 }
 
 function moreInfoToggle(){

@@ -26,11 +26,13 @@
     </head>
 	<body>
 		<div id="asylumGridContainer" class="leftPanel">
-			<div id="jsonDisplayer" class="leftItem alignLeft hidden">
-				
-			</div>
 			<div id="jsonEditor" class="leftItem alignLeft hidden">
-				<textarea id="jsonTextArea" class="" name="jsonTextArea" >
+			<!--
+			<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" style="display: none;">&lt;!DOCTYPE html&gt;
+
+</textarea>
+			-->
+				<textarea id="jsonTextArea" class="" name="jsonTextArea" spellcheck="false">
 				</textarea>
 				<button id="saveJson" class="inlineButton" onclick="saveJson()">Save</button>
 			</div>
@@ -185,12 +187,13 @@
 				<h3 id="cellNumber">Cell x</h3><br/>
 				<div>
 					<h4>Designers notes</h4><br/>
-					<label for="cellLabel">Custom label for grid:</label>
-					<input type="text" name="cellLabel" id="cellLabel" value=""/><br/>
 					<label for="cellDescription">Description:</label>
 					<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
 					<label for="cellDesignCompleteness">Design Completeness:</label>
 					<input type="text" name="cellDesignCompleteness" id="cellDesignCompleteness" value=""/><br/>
+					<label for="cellLabel">Custom label for grid:</label>
+					<input type="text" name="cellLabel" id="cellLabel" value=""/>
+					<br/>
 					<button class="" onclick="saveCellEdits()">Save Changes</button>
 				</div>
 			</div>
