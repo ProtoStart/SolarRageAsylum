@@ -119,6 +119,7 @@ function saveJson(){
 		document.getElementById("jsonTextArea").focus();
 		//some browsers (including chrome on PC) will give an error message for failed JSON parsing that includes which character caused the syntax error. This code attempts to check for an error message like that, and then select the problematic character
 		if(errorString.includes("at position")){
+			//will be the case in Chrome on Windows
 			alert("Your web browsers error message seems to include the position where an error is, so we'll automatically select an area around that character to help show the rough area to look");
 			document.getElementById("jsonTextArea").focus();
 			let positionAtString = errorString.match(/(position) (\d)*/g); //gets a string within the errorString that matches "position " followed by an amount of number characters. This allows for a chance that the error message could include multiple sets of numbers, we only want it if it's describing position rather than line number or collumn. This alone isn't enough to use for the selectionStart and selectionEnd as it contains the string "position ". Note that match adds all matches to an array not a string - this stumped me for about an hour of debugging!!
@@ -127,7 +128,15 @@ function saveJson(){
 			errorPosNum = parseInt( positionAtString[0].slice(9)); //[0] to just use the first (and hopefully only) index of the array, slice(9) to take just the part after the first 9 chars which is the "position " that comes before the actual number
 			document.getElementById("jsonTextArea").selectionStart = errorPosNum - 6;
 			document.getElementById("jsonTextArea").selectionEnd = errorPosNum + 6;
+		} else if (errorString.includes("at line ")){
+			//firefox on windows says "SyntaxError: JSON.parse: bad control character in string literal at line 6 column 19 of the JSON data"  We'll do similar stuff as for Chrome, but use a seperate function to select the line that is stated (it involves reading through the textarea contents counting lines). For simplicity, we'll ignore the column - most of the lines are fairly short anyway, so line alone is sufficient
+		alert("Your web browsers error message seems to include the line it couldn't read in, so we'll select that line automatically. If error isn't on that line check the lines just before, and then try searching for {{ or }}");
+			document.getElementById("jsonTextArea").focus();
+			let atLineString = errorString.match(/(at line) (\d)*/g);
+			let lineNum = parseInt( atLineString[0].slice(8));
+			selectTextAreaLine(document.getElementById("jsonTextArea"),lineNum);
 		}
+		
 	}
 }
 
@@ -208,3 +217,44 @@ function hideAllXClassShowY(x,y){
 	showViaClass(y);
 }
 
+
+function selectTextAreaLine(textArea,lineNum) {
+	//thanks to http://lostsource.com/2012/11/30/selecting-textextArea-line.html for this code snippet. I was hoping there would be a less lengthy approach but this seems to be the best. I've made some small adjustments for readability but thats all
+    lineNum--; // array starts at 0
+    var lines = textArea.value.split("\n");  // Reads everything in the textextArea value, splits it up by newlines
+
+    // calculate start/end
+    var startPos = 0, endPos = textArea.value.length; //Phil always forgets you can do this with variables in JS, set up muliple variables with one var statement, just seperating them with commas
+    for(var x = 0; x < lines.length; x++) {
+        if(x == lineNum) {
+            break;
+        }
+        startPos += (lines[x].length+1);
+    }
+
+    var endPos = lines[lineNum].length+startPos;
+
+    // do selection
+    // Chrome / Firefox
+
+    if(typeof(textArea.selectionStart) != "undefined") {
+        textArea.focus();
+        textArea.selectionStart = startPos;
+        textArea.selectionEnd = endPos;
+        return true;
+    }
+
+    // IE
+    if (document.selection && document.selection.createRange) {
+        textArea.focus();
+        textArea.select();
+        var range = document.selection.createRange();
+        range.collapse(true);
+        range.moveEnd("character", endPos);
+        range.moveStart("character", startPos);
+        range.select();
+        return true;
+    }
+
+    return false;
+}
