@@ -33,7 +33,8 @@
 </textarea>
 			-->
 				<textarea id="jsonTextArea" class="" autocomplete="off" name="jsonTextArea" spellcheck="false" value=""></textarea>
-				<button id="saveJson" class="inlineButton" onclick="saveJson()">Save</button>
+				<button id="applyJson" class="inlineButton" onclick="applyJson()">Apply changes locally</button>
+				<button id="localSaveJson" class="inlineButton" onclick="applyThenLocalSaveJson()">Save to browser storage</button>
 			</div>
 			<div id="asylumGrid" class="leftItem grid hidden">
 				<div class="gridRow">
@@ -179,6 +180,7 @@
 			<div>
 				<button id="createRooms" class="" onclick="createRooms()">Create New Asylum Outline</button>
 				<button id="importAsylum" class="" onclick="importAsylum()">Import Asylum</button>
+				<button id="localLoadAsylum" class="" onclick="localLoadAsylum()">Load Asylum from Browser Local Storage</button>
 				<button id="viewAsylumJsonBtn" class="hidden" onclick="displayAllJSON()">View Asylum JSON</button>
 				<button id="viewAsylumGridBtn" class="hidden" onclick="displayGrid()">View Asylum grid</button>
 			</div>
@@ -193,7 +195,7 @@
 					<label for="cellLabel">Custom label for grid:</label>
 					<input type="text" name="cellLabel" id="cellLabel" value=""/>
 					<br/>
-					<button class="" onclick="saveCellEdits()">Save Changes</button>
+					<button class="" onclick="applyCellEdits()">Apply Changes</button>
 				</div>
 			</div>
 		</div>

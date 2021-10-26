@@ -6,6 +6,7 @@ var asylumData = {
 }
 
 var toolData = {
+	"localStorageKeyName":"SolarAsylumBuilder", //HTML5 local storage uses key value pairs. We'll need to use the same key name when saving and using. Access with toolData.localStorageKeyName
 	"currentCell": "", //the grid cell currently being viewed or edited. Access with toolData.currentCell
 	"defaultRoom": { //access with toolData.defaultRoom
 		"designersNotes" : {	
@@ -106,7 +107,7 @@ function displayAllJSON(){
 	hideAllXClassShowY("leftItem", "jsonEditor");
 }
 
-function saveJson(){
+function applyJson(){
 	document.getElementById("jsonTextArea").focus();
 	//alert(document.getElementById("jsonTextArea").value);
 	try{
@@ -130,7 +131,7 @@ function saveJson(){
 			document.getElementById("jsonTextArea").selectionEnd = errorPosNum + 6;
 		} else if (errorString.includes("at line ")){
 			//firefox on windows says "SyntaxError: JSON.parse: bad control character in string literal at line 6 column 19 of the JSON data"  We'll do similar stuff as for Chrome, but use a seperate function to select the line that is stated (it involves reading through the textarea contents counting lines). For simplicity, we'll ignore the column - most of the lines are fairly short anyway, so line alone is sufficient
-		alert("Your web browsers error message seems to include the line it couldn't read in, so we'll select that line automatically. If error isn't on that line check the lines just before, and then try searching for {{ or }}");
+		alert("Your web browsers error message seems to state the line it couldn't read in, so we'll select that line automatically. If error isn't on that line check the lines just before, and then try searching for {{ or }}");
 			document.getElementById("jsonTextArea").focus();
 			let atLineString = errorString.match(/(at line) (\d)*/g);
 			let lineNum = parseInt( atLineString[0].slice(8));
@@ -138,6 +139,30 @@ function saveJson(){
 		}
 		
 	}
+}
+
+function applyThenLocalSaveJson(){
+	applyJson();
+	localSaveJson();
+}
+
+function localSaveJson(){
+	/*
+	use saveToLocalStorage(key,value);  -- a function for saving to HTML5 local storage
+	  with contents of toolData.localStorageKeyName as the key
+	  and asylumData as the value
+	*/
+	saveToLocalStorage(toolData.localStorageKeyName, asylumData);
+}
+
+function localLoadAsylum(){
+	try {
+		asylumData = localStorage.getItem(toolData.localStorageKeyName);
+	} catch {
+		alert("couldn't get data from local storage");
+	}
+	
+
 }
 
 function displayGrid(){
@@ -158,7 +183,7 @@ function viewCell(cellID){
 	
 }
 
-function saveCellEdits(){
+function applyCellEdits(){
 	//Todo (BEFORE PUBLIC RELEASE): SECURITY FEATURES
 	//save edits for the cell in toolData.currentCell
 	asylumData.rooms[toolData.currentCell].designersNotes.label = document.getElementById("cellLabel").value;
@@ -257,4 +282,17 @@ function selectTextAreaLine(textArea,lineNum) {
     }
 
     return false;
+}
+
+function saveToLocalStorage(key,value){ 
+/*Returns true if successful, alerts if not*/
+	//Before using web storage, check browser support for Storage (covers both localStorage and sessionStorage)  TODO: check if it would be better to just check local storage  - this link shows a potential alternative code block, though it relies on try catch, and right now I'm not confident I understand the code block fully https://diveinto.html5doctor.com/storage.html
+	if (typeof(Storage) !== "undefined") {
+	//Storage is there, so we'll save it
+		localStorage.setItem(key, value);
+		return true; //lets us display a relevant success message or carry on doing things
+	} else {
+	  //No Web Storage support - TODO: is this a good experience??
+	  alert("couldn't save, browser doesn't support local storage");
+	}
 }
