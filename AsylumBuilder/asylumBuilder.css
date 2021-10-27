@@ -17,6 +17,16 @@
 	overflow-y: auto;
 }
 
+.rightPanel div{
+	padding-bottom: 4px;
+}
+
+#welcome{
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+}
+
 .grid{
 	width:  900px;
 	height:	900px;
@@ -29,16 +39,16 @@
 }
 
 .inlineButton{
-	min-height: 1.2em;
+	min-height: 1.4em;
 	min-width: default;
 	width:  default;
-	height:	1.2em;
-	font-size: 16pt;
+	height:	1.4em;
+	font-size: 14pt;
 }
 .doublelineButton{
 	min-height: 3.2em;
-	min-width: default;
-	width:  default;
+	min-width: 120px;
+	width:  9em;
 	height:	3.2em;
 	font-size: 16pt;
 }

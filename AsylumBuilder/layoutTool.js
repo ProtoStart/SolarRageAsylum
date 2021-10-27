@@ -60,6 +60,11 @@ function JSONstringifyInOrder(obj)
 	return JSON.stringify(obj, allKeys, "	"); //This is the stringify that actually creates our new object. It takes in the object as passed into this function, a sorted list of all the keys within, and the entity for a tab since we want it to use tabs for line starts
 }
 
+function showViewAsylumBtns(){
+	showViaClass("viewAsylumJsonBtn");
+	showViaClass("viewAsylumGridBtn");
+}
+
 function createRooms(){
 	if(JSON.stringify(asylumData.rooms) == "{}" || confirm("This tool only remembers one Asylum at a time, reset all progress?")){
 		let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
@@ -75,14 +80,14 @@ function createRooms(){
 					If you do not use Dates, functions, undefined, Infinity, RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, sparse Arrays, Typed Arrays or other complex types within your object, a very simple one liner to deep clone an object is:*/
 			}
 		}
-		document.getElementById("createRooms").innerHTML = "Reset Asylum";
+		document.getElementById("createRooms").innerHTML = "Reset to Asylum Outline";
 	}
-	showViaClass("viewAsylumJsonBtn");
-	showViaClass("viewAsylumGridBtn");
+	showViewAsylumBtns();
 }
 
 function importAsylum(){
 	hideAllXClassShowY("leftItem", "jsonEditor");
+	showViewAsylumBtns();
 }
 
 function displayAllJSON(){
@@ -161,7 +166,7 @@ function localLoadAsylum(){
 	} catch {
 		alert("couldn't get data from local storage");
 	}
-	
+	showViewAsylumBtns();
 
 }
 
