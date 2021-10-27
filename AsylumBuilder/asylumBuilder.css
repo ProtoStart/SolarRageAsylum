@@ -35,6 +35,13 @@
 	height:	1.2em;
 	font-size: 16pt;
 }
+.doublelineButton{
+	min-height: 3.2em;
+	min-width: default;
+	width:  default;
+	height:	3.2em;
+	font-size: 16pt;
+}
 
 #jsonEditor{
 	width:99%;
