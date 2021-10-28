@@ -156,13 +156,16 @@ function localSaveJson(){
 	use saveToLocalStorage(key,value);  -- a function for saving to HTML5 local storage
 	  with contents of toolData.localStorageKeyName as the key
 	  and asylumData as the value
+	  HERE
 	*/
-	saveToLocalStorage(toolData.localStorageKeyName, asylumData);
+	
+	saveToLocalStorage(toolData.localStorageKeyName,  JSON.stringify(asylumData, null , "	"));
 }
 
 function localLoadAsylum(){
 	try {
-		asylumData = localStorage.getItem(toolData.localStorageKeyName);
+		//TODO: IMPORTANT BEFORE RELEASE: NEEDS MORE SECURITY!
+		asylumData = JSON.parse(localStorage.getItem(toolData.localStorageKeyName));
 	} catch {
 		alert("couldn't get data from local storage");
 	}
