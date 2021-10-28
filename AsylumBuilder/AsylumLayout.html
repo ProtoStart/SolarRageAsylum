@@ -158,6 +158,9 @@
 					<button class="gridCell" onclick="viewCell('99')">99</button>
 				</div>
 			</div>
+			<div id="roomViewer" class="leftItem hidden">
+				<p>placeholder</p>
+			</div>
 		</div>
 		<div class="rightPanel"><!--hidden-->
 			<div id="welcome" class="rightPanelView">
@@ -185,7 +188,8 @@
 				<button id="viewAsylumGridBtn" class="hidden" onclick="displayGrid()">View Asylum grid</button>
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
-				<h3 id="cellNumber">Cell x</h3><br/>
+				<h3 id="cellNumber">Cell x</h3>
+				<button id="showRoom" class="" onclick="displayRoomViewer()">Show Room</button><br/>
 				<div>
 					<h4>Designers notes</h4><br/>
 					<label for="cellDescription">Description:</label>
@@ -195,8 +199,53 @@
 					<label for="cellLabel">Custom label for grid:</label>
 					<input type="text" name="cellLabel" id="cellLabel" value=""/>
 					<br/>
-					<button class="" onclick="applyCellEdits()">Apply Changes</button>
+					
 				</div>
+				<div>
+					<h4>Bounds</h4>
+					<button id="showBoundsInfo" class="inlineButton" onclick="toggleHidden('boundsInfo')">How to use these</button>
+					<div id="boundsInfo" class="hidden">
+						<p>Bounds are the boundaries of the grid cell when shown in game. Every grid cell must have a top, right, bottom and left boundary even if the room continues to another gridcell. Currently the game doesn't allow for any more bounds - each cell is a rectangle, with no gaps - you can add extra walls as objects, but they do not count as a grid cells bounds and should not be stored in the bounds section of the Asylum JSON.</p>
+						<p>For each of a rooms bounds, we store at least: 
+						<ul>
+							<li>
+							'val': short for value, the number of pixels from the left or top that the boundary is on, within the gameplay area of the screen.
+							</li>
+							<li>
+							'known': wether the location of the boundary is known to the player character. In other words should it be shown on screen if the character cannot see. Generally this should kept as 'no' in this asylum builder tool, and the game will change it to 'yes' when the player discovers it. If this doesn't make sense, you need to play the starter Asylum!
+							</li>
+							<li>
+							'type': is it a wall, a wall with a doorway or where a corridor continues to another gridcell 
+							</li>
+						</ul>
+						</p>
+						<p>Different types of boundary need different additional info stored. If it's a wall with a doorway we need to know where the doorway is, if its locked and which grid ref the door leads to (the games inner logic can't yet figure this out, and maybe - this being a game about escaping an Asylum - the doorways don't always need to make sense. Or perhaps you don't want a 2d square asylum, and want to do something nifty if confusing to design like set aside some cells as secret cellars, or have secret staircases from one end of the asylum to another)
+						</p>
+						<p>Rooms can be different sizes, though there is a maximum size they can be before we would get issues when playing on small screens, and a minimum size to actually allow for the Player Character to physically fit</p>
+						</div>
+					<br/>
+					<label for="bottomBounds">Bottom:</label>
+					<input type="text" name="bottomBounds" id="bottomBounds" value="bottom bounds here"/><br/>
+					<label for="leftBounds">Left:</label>
+					<input type="text" name="leftBounds" id="leftBounds" value="left bounds here"/><br>
+					<label for="rightBounds">Right:</label>
+					<input type="text" name="rightBounds" id="rightBounds" value="right bounds here"/><br/>
+					<label for="topBounds">Top:</label>
+					<input type="text" name="topBounds" id="topBounds" value="top bounds here"/><br/>
+				</div>
+				<div>
+					<h4>Bump Coords</h4><br/>
+					<button id="addItemInstance" class="" onclick="addItemToRoom()">Add Item Instance</button>
+					<button id="addItemInstance" class="" onclick="addItemType()">Add New Item Type</button>
+					<button id="showRoomItemList" class="" onclick="showRoomItemList()">Show items</button>
+					<button id="showPhilsBumpCoordNotes" class="inlineButton" onclick="toggleHidden('bumpCoordsPhilsNotes')">Phils Notes</button>
+					<div id="bumpCoordsPhilsNotes" class="hidden">
+						<p>I might rename this section "items & NPCs" or have two seperate sections. Does the tool need to use the same name as the file system? or maybe the filesystem should be renamed. Bump Coords are what SRA calls hitboxes.  The game needs to store for each room, what are the things inside, where are they, are they moving, what happens if the player character collides with them, can the player interact with them</p>
+						<p>This part of the UI will be a bit more complex than the bounds and designers description sections. Originally I was planning on having a seperate tool for creating new items and NPCs, but perhaps it makes more sense to have that all in here. Items are probably best designed in situ with their first use, and would you really want these on different tabs??</p>
+					</div>
+					<p>We may need an entire view for adding items to the game, and another version of it for addings NPCs</p>
+				</div>
+				<button class="" onclick="applyCellEdits()">Apply Changes</button>
 			</div>
 		</div>
 	</body>

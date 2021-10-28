@@ -174,9 +174,11 @@ function localLoadAsylum(){
 }
 
 function displayGrid(){
-	//alert("we're still building this tool");
 	hideAllXClassShowY("leftItem", "asylumGrid");
-	
+}
+
+function displayRoomViewer(){
+	hideAllXClassShowY("leftItem", "roomViewer");
 }
 
 function viewCell(cellID){
