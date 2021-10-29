@@ -206,6 +206,31 @@ function changeRoomEditorPanel(){
 	
 	hideAllXClassShowY("roomEditorPanel", showDiv);
 }
+function changeBoundsType(){
+	let showDiv = "";
+	switch(document.getElementById("boundsType").value){
+		case "wall":
+			showDiv = "";
+			break;
+		case "regularDoor":
+			showDiv = "doorFields";
+			break;
+		case "keypadDoor":
+			showDiv = "doorFields";
+			break;
+		case "continueRoom":
+			showDiv = "";
+			break;
+		case "asylumExit":
+			showDiv = "";
+			break;
+		case "customCodedType":
+			showDiv = "";
+			break;
+	}
+	
+	hideAllXClassShowY("boundsTypeSpecific", showDiv);
+}
 
 function viewCell(cellID){
 	//alert("we're still building this tool");

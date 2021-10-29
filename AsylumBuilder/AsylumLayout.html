@@ -236,15 +236,15 @@
 					<label for="boundsKnown">Known:</label>
 					<input type="text" name="boundsKnown" id="boundsKnown" value="Bounds Known here"/><br>
 					<label for="boundsType">Type:</label>
-					<select name="boundsType" id="boundsType">
+					<select name="boundsType" id="boundsType" onchange="changeBoundsType()">
 						<option value="wall">wall</option>
 						<option value="regularDoor">regularDoor</option>
 						<option value="keypadDoor">keypadDoor</option>
 						<option value="continueRoom">continueRoom</option>
 						<option value="asylumExit">asylumExit</option>
-						<option value="customCode">customCodedType</option>
+						<option value="customCodedType">customCodedType</option>
 					</select>
-					<div id="doorFields" class="hidden">
+					<div id="doorFields" class="hidden boundsTypeSpecific">
 						<label for="doorValLow">doorValLow:</label>
 						<input type="text" name="doorValLow" id="doorValLow" value="door val low here"/>
 						<label for="doorValHigh">doorValHigh:</label>
