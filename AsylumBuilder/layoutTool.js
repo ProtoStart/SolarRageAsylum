@@ -175,6 +175,21 @@ function localLoadAsylum(){
 
 function displayGrid(){
 	hideAllXClassShowY("leftItem", "asylumGrid");
+	let grid = document.getElementById("asylumGrid");
+	grid.innerHTML ="";
+	let row = "";
+	for (let i = 0; i < 10; i++) {
+			iString = parseInt(i); //parse the first digit once
+			row = "<div class=\"gridRow\">";
+			
+			for (let j = 0; j < 10; j++) {
+				cellRef = iString + "" + parseInt(j); //using + "" + rather than + to force string concatenation
+				//grid.innerHTML += cellRef;
+				row += "<button class=\"gridCell\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
+			}
+			row += "</div>";
+			grid.innerHTML += row;
+	}
 }
 
 function displayRoomViewer(){
