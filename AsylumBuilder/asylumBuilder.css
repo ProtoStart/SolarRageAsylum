@@ -54,6 +54,10 @@
 	font-size: 16pt;
 }
 
+.shortTextbox{
+	width: 5em;
+}
+
 #jsonEditor{
 	width:99%;
 	height: 99%;

@@ -178,14 +178,18 @@ function displayGrid(){
 	let grid = document.getElementById("asylumGrid");
 	grid.innerHTML ="";
 	let row = "";
+	let lbl = "";
 	for (let i = 0; i < 10; i++) {
 			iString = parseInt(i); //parse the first digit once
 			row = "<div class=\"gridRow\">";
 			
 			for (let j = 0; j < 10; j++) {
 				cellRef = iString + "" + parseInt(j); //using + "" + rather than + to force string concatenation
-				//grid.innerHTML += cellRef;
-				row += "<button class=\"gridCell\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>MMMM" + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
+				lbl = asylumData.rooms[cellRef].designersNotes.label.slice(0,4);//limit it to four characters
+				if (lbl == ""){
+					lbl = "&nbsp;"; //put a non-breaking space for the label instead of nothing, so that browsers will always include a bottom line - this is an easy layout fix
+				}
+				row += "<button class=\"gridCell\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>" + lbl + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
 			}
 			row += "</div>";
 			grid.innerHTML += row;
