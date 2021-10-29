@@ -181,6 +181,32 @@ function displayRoomViewer(){
 	hideAllXClassShowY("leftItem", "roomViewer");
 }
 
+function changeRoomEditorPanel(){
+	let showDiv = "";
+	switch(document.getElementById("roomEditorPanelChoice").value){
+		case "designersNotes":
+			showDiv = "designersNotes";
+			break;
+		case "bottomBounds":
+			showDiv = "bounds";
+			break;
+		case "leftBounds":
+			showDiv = "bounds";
+			break;
+		case "rightBounds":
+			showDiv = "bounds";
+			break;
+		case "topBounds":
+			showDiv = "bounds";
+			break;
+		case "bumpCoords":
+			showDiv = "bumpCoords";
+			break;
+	}
+	
+	hideAllXClassShowY("roomEditorPanel", showDiv);
+}
+
 function viewCell(cellID){
 	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");

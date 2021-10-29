@@ -189,9 +189,16 @@
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
 				<h3 id="cellNumber">Cell x</h3>
-				<button id="showRoom" class="" onclick="displayRoomViewer()">Show Room</button><br/>
-				<div>
-					<h4>Designers notes</h4><br/>
+				<button id="showRoom" class="" onclick="displayRoomViewer()">Show Room</button><br/><br/>
+				<select id="roomEditorPanelChoice" onchange="changeRoomEditorPanel()">
+						<option value="designersNotes">Designers notes</option>
+						<option value="bottomBounds">Bottom Bounds</option>
+						<option value="leftBounds">Left Bounds</option>
+						<option value="rightBounds">Right Bounds</option>
+						<option value="topBounds">Top Bounds</option>
+						<option value="bumpCoords">Bump Coords</option>
+					</select>
+				<div id="designersNotes" class="roomEditorPanel">
 					<label for="cellDescription">Description:</label>
 					<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
 					<label for="cellDesignCompleteness">Design Completeness:</label>
@@ -201,10 +208,9 @@
 					<br/>
 					
 				</div>
-				<div>
-					<h4>Bounds</h4>
+				<div id="bounds" class="hidden roomEditorPanel">
 					<button id="showBoundsInfo" class="inlineButton" onclick="toggleHidden('boundsInfo')">How to use these</button>
-					<div id="boundsInfo" class="hidden">
+					<div id="boundsInfo" class="hidden roomEditorPanel">
 						<p>Bounds are the boundaries of the grid cell when shown in game. Every grid cell must have a top, right, bottom and left boundary even if the room continues to another gridcell. Currently the game doesn't allow for any more bounds - each cell is a rectangle, with no gaps - you can add extra walls as objects, but they do not count as a grid cells bounds and should not be stored in the bounds section of the Asylum JSON.</p>
 						<p>For each of a rooms bounds, we store at least: 
 						<ul>
@@ -224,12 +230,13 @@
 						<p>Rooms can be different sizes, though there is a maximum size they can be before we would get issues when playing on small screens, and a minimum size to actually allow for the Player Character to physically fit</p>
 						</div>
 					<br/>
-					<label for="bottomBoundsVal">Val:</label>
-					<input type="text" name="bottomBoundsVal" id="bottomBoundsVal" value="bottom Bounds Val here"/><br/>
-					<label for="bottomBoundsKnown">Known:</label>
-					<input type="text" name="bottomBoundsKnown" id="bottomBoundsKnown" value="bottom Bounds Known here"/><br>
-					<label for="bottomBoundsType">Type:</label>
-					<select name="bottomBoundsType" id="bottomBoundsType">
+					<div id="displayDescription">Description here</div>
+					<label for="boundsVal">Val:</label>
+					<input type="text" name="boundsVal" id="boundsVal" value="Bounds Val here"/><br/>
+					<label for="boundsKnown">Known:</label>
+					<input type="text" name="boundsKnown" id="boundsKnown" value="Bounds Known here"/><br>
+					<label for="boundsType">Type:</label>
+					<select name="boundsType" id="boundsType">
 						<option value="wall">wall</option>
 						<option value="regularDoor">regularDoor</option>
 						<option value="keypadDoor">keypadDoor</option>
@@ -238,22 +245,21 @@
 						<option value="customCode">customCodedType</option>
 					</select>
 					<div id="doorFields" class="hidden">
-						<label for="bottomBoundsDoorValLow">doorValLow:</label>
-						<input type="text" name="bottomBoundsDoorValLow" id="bottomBoundsDoorValLow" value="door val low here"/>
-						<label for="bottomBoundsDoorValHigh">doorValHigh:</label>
-						<input type="text" name="bottomBoundsDoorValHigh" id="bottomBoundsDoorValHigh" value="door val high here"/>
-						<label for="bottomBoundsState">State:</label>
-						<select name="bottomBoundsState" id="bottomBoundsState">
+						<label for="doorValLow">doorValLow:</label>
+						<input type="text" name="doorValLow" id="doorValLow" value="door val low here"/>
+						<label for="doorValHigh">doorValHigh:</label>
+						<input type="text" name="doorValHigh" id="doorValHigh" value="door val high here"/>
+						<label for="doorState">State:</label>
+						<select name="doorState" id="doorState">
 							<option value="locked">locked</option>
 							<option value="open">open</option>
 							<option value="shut">shut</option>
 						</select>
-						<label for="bottomBoundsDoorTo">doorTo:</label>
-						<input type="text" name="bottomBoundsDoorTo" id="bottomBoundsDoorTo" value="doorTo here"/>
+						<label for="doorTo">doorTo:</label>
+						<input type="text" name="doorTo" id="doorTo" value="doorTo here"/>
 					</div>
 				</div>
-				<div>
-					<h4>Bump Coords</h4><br/>
+				<div id="bumpCoords" class="hidden roomEditorPanel">
 					<button id="addItemInstance" class="" onclick="addItemToRoom()">Add Item Instance</button>
 					<button id="addItemInstance" class="" onclick="addItemType()">Add New Item Type</button>
 					<button id="showRoomItemList" class="" onclick="showRoomItemList()">Show items</button>

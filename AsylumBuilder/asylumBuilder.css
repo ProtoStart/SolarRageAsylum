@@ -62,3 +62,9 @@
 	width:99%;
 	height: calc(100% - 50px);
 }
+
+#roomEditorPanelChoice{
+	font-size: 20pt;
+	font-weight: 555;
+	padding: 6px;
+}
