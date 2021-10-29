@@ -224,14 +224,33 @@
 						<p>Rooms can be different sizes, though there is a maximum size they can be before we would get issues when playing on small screens, and a minimum size to actually allow for the Player Character to physically fit</p>
 						</div>
 					<br/>
-					<label for="bottomBounds">Bottom:</label>
-					<input type="text" name="bottomBounds" id="bottomBounds" value="bottom bounds here"/><br/>
-					<label for="leftBounds">Left:</label>
-					<input type="text" name="leftBounds" id="leftBounds" value="left bounds here"/><br>
-					<label for="rightBounds">Right:</label>
-					<input type="text" name="rightBounds" id="rightBounds" value="right bounds here"/><br/>
-					<label for="topBounds">Top:</label>
-					<input type="text" name="topBounds" id="topBounds" value="top bounds here"/><br/>
+					<label for="bottomBoundsVal">Val:</label>
+					<input type="text" name="bottomBoundsVal" id="bottomBoundsVal" value="bottom Bounds Val here"/><br/>
+					<label for="bottomBoundsKnown">Known:</label>
+					<input type="text" name="bottomBoundsKnown" id="bottomBoundsKnown" value="bottom Bounds Known here"/><br>
+					<label for="bottomBoundsType">Type:</label>
+					<select name="bottomBoundsType" id="bottomBoundsType">
+						<option value="wall">wall</option>
+						<option value="regularDoor">regularDoor</option>
+						<option value="keypadDoor">keypadDoor</option>
+						<option value="continueRoom">continueRoom</option>
+						<option value="asylumExit">asylumExit</option>
+						<option value="customCode">customCodedType</option>
+					</select>
+					<div id="doorFields" class="hidden">
+						<label for="bottomBoundsDoorValLow">doorValLow:</label>
+						<input type="text" name="bottomBoundsDoorValLow" id="bottomBoundsDoorValLow" value="door val low here"/>
+						<label for="bottomBoundsDoorValHigh">doorValHigh:</label>
+						<input type="text" name="bottomBoundsDoorValHigh" id="bottomBoundsDoorValHigh" value="door val high here"/>
+						<label for="bottomBoundsState">State:</label>
+						<select name="bottomBoundsState" id="bottomBoundsState">
+							<option value="locked">locked</option>
+							<option value="open">open</option>
+							<option value="shut">shut</option>
+						</select>
+						<label for="bottomBoundsDoorTo">doorTo:</label>
+						<input type="text" name="bottomBoundsDoorTo" id="bottomBoundsDoorTo" value="doorTo here"/>
+					</div>
 				</div>
 				<div>
 					<h4>Bump Coords</h4><br/>
