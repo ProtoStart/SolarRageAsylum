@@ -179,6 +179,7 @@ function displayGrid(){
 	grid.innerHTML ="";
 	let row = "";
 	let lbl = "";
+	let extraClasses = ""; //a variable to tap into via altering this code, to assign extra classes perhaps for styling things
 	for (let i = 0; i < 10; i++) {
 			iString = parseInt(i); //parse the first digit once
 			row = "<div class=\"gridRow\">";
@@ -186,10 +187,14 @@ function displayGrid(){
 			for (let j = 0; j < 10; j++) {
 				cellRef = iString + "" + parseInt(j); //using + "" + rather than + to force string concatenation
 				lbl = asylumData.rooms[cellRef].designersNotes.label.slice(0,4);//limit it to four characters
+				extraClasses = "";
 				if (lbl == ""){
 					lbl = "&nbsp;"; //put a non-breaking space for the label instead of nothing, so that browsers will always include a bottom line - this is an easy layout fix
+					extraClasses += " cellNoLbl";
+				} else {
+					extraClasses += " cellHasLbl";
 				}
-				row += "<button class=\"gridCell\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>" + lbl + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
+				row += "<button class=\"gridCell" + extraClasses +"\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>" + lbl + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
 			}
 			row += "</div>";
 			grid.innerHTML += row;
@@ -270,6 +275,7 @@ function applyCellEdits(){
 	asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
 	//
 	asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
+	displayGrid();
 	//alert( JSON.stringify(toolData.defaultRoom));
 }
 

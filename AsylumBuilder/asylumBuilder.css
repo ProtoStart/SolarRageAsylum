@@ -39,6 +39,14 @@
 	font-size:20px;
 }
 
+.cellHasLbl{
+	background-color: white;
+}
+ 
+.cellNoLbl{
+	background-color: grey;
+}
+
 .inlineButton{
 	min-height: 1.4em;
 	min-width: default;
