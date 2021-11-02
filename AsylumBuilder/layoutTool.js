@@ -173,8 +173,14 @@ function localLoadAsylum(){
 
 }
 
+function asylumGridColourCodeSelect(){
+	document.getElementById("asylumGrid").classList.remove("labelCCode","designersNotesCCode");
+	document.getElementById("asylumGrid").classList.add(document.getElementById("asylumGridColourCodeSelect").value); 
+	
+}
+
 function displayGrid(){
-	hideAllXClassShowY("leftItem", "asylumGrid");
+	hideAllXClassShowY("leftItem", "asylumGridOuter");
 	let grid = document.getElementById("asylumGrid");
 	grid.innerHTML ="";
 	let row = "";
@@ -190,9 +196,9 @@ function displayGrid(){
 				extraClasses = "";
 				if (lbl == ""){
 					lbl = "&nbsp;"; //put a non-breaking space for the label instead of nothing, so that browsers will always include a bottom line - this is an easy layout fix
-					//extraClasses += " cellNoLbl";
+					extraClasses += " cellNoLbl";
 				} else {
-					//extraClasses += " cellHasLbl";
+					extraClasses += " cellHasLbl";
 				}
 				extraClasses += " " + asylumData.rooms[cellRef].designersNotes.designCompleteness;
 				

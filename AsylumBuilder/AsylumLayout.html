@@ -36,7 +36,14 @@
 				<button id="applyJson" class="inlineButton" onclick="applyJson()">Apply changes locally</button>
 				<button id="localSaveJson" class="inlineButton" onclick="applyThenLocalSaveJson()">Save to browser storage</button>
 			</div>
-			<div id="asylumGrid" class="leftItem grid hidden">
+			<div id="asylumGridOuter" class="leftItem hidden">
+				<label for="asylumGridColourCodeSelect">Colour code by:</label>
+				<select id="asylumGridColourCodeSelect" name="asylumGridColourCodeSelect" onchange="asylumGridColourCodeSelect()">
+					<option value="labelCCode">Labels</option>
+					<option value="designersNotesCCode">Designers notes</option>
+				</select>
+				<div id="asylumGrid" class="grid labelCCode">
+				</div>
 			</div>
 			<div id="roomViewer" class="leftItem hidden">
 				<p>placeholder</p>
