@@ -77,12 +77,21 @@
 						<option value="rightBounds">Right Bounds</option>
 						<option value="topBounds">Top Bounds</option>
 						<option value="bumpCoords">Bump Coords</option>
-					</select>
+				</select>
 				<div id="designersNotes" class="roomEditorPanel">
 					<label for="cellDescription">Description:</label>
 					<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
 					<label for="cellDesignCompleteness">Design Completeness:</label>
-					<input type="text" name="cellDesignCompleteness" id="cellDesignCompleteness" value=""/><br/>
+					<select id="cellDesignCompleteness" name="cellDesignCompleteness" >
+						<option value="cellDefault">Still the default</option>
+						<option value="cellStarted">Started</option>
+						<option value="cellDescribed"> Described but not implemented</option>
+						<option value="cellAlphaReady">Alpha ready</option>
+						<option value="cellBetaReady">Beta Ready</option>
+						<option value="cellBetaQuibbles">Beta Quibbles</option>
+						<option value="cellComplete">Complete</option>
+				</select>
+					<br/>
 					<label for="cellLabel">Label for grid:</label>
 					<input type="text" name="cellLabel" id="cellLabel" class="shortTextbox" value="" maxlength="4"/>
 					<br/>

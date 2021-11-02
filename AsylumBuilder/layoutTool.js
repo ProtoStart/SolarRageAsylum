@@ -12,7 +12,7 @@ var toolData = {
 		"designersNotes" : {	
 			"label": "",
 			"description":"An empty cell", //access with toolData.defaultRoom.description, in an actual room access with asylumData.rooms[roomID].description  lets the user describe what is there or should be there
-			"designCompleteness":"Not started", //access with toolData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
+			"designCompleteness":"cellDefault", //access with toolData.defaultRoom.designCompleteness, in an actual room access with asylumData.rooms[roomID].designCompleteness
 		},
 		"bounds": { //Bounds are the edges of the playable area for a room, in px, and what kind of boundary is there - just wall, doorway, archway etc. To create these I took the values used for the first room used in the original asylum (room 10 - Rec3), and then converted them to all full walls - much of this will be overriden during editing anyway, but this gives us our basic structure.	
 			"top": {
@@ -190,10 +190,14 @@ function displayGrid(){
 				extraClasses = "";
 				if (lbl == ""){
 					lbl = "&nbsp;"; //put a non-breaking space for the label instead of nothing, so that browsers will always include a bottom line - this is an easy layout fix
-					extraClasses += " cellNoLbl";
+					//extraClasses += " cellNoLbl";
 				} else {
-					extraClasses += " cellHasLbl";
+					//extraClasses += " cellHasLbl";
 				}
+				extraClasses += " " + asylumData.rooms[cellRef].designersNotes.designCompleteness;
+				
+				
+				
 				row += "<button class=\"gridCell" + extraClasses +"\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>" + lbl + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
 			}
 			row += "</div>";

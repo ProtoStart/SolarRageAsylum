@@ -38,13 +38,44 @@
 	height:	80px;
 	font-size:20px;
 }
-
+ 
+/* Basic cell colour coding by labels --TODO: Commented out currently while implementing other colour coding, but it would be cool to have a choice of what colour coding was in use*/
 .cellHasLbl{
-	background-color: white;
+	/*background-color: white;*/
 }
  
 .cellNoLbl{
+	/*background-color: grey;*/
+}
+
+/*cell colour coding by design completeness, initially just set by the designer in a dropdown, later we might add the feature that the value changes to started when any value has been changed, and described when there are more than a set number of words in the description or maybe when they save a change to the description it prompts. Would be really awesome if it could go as far as being realted to rool out too, but I think that's beyond my skill at the moment. Starting this with a grey scale for default to described and then maybe traffic light and gold for cellComplete?*/
+.cellDefault{
+	/*cell is still the default*/
 	background-color: grey;
+}
+.cellStarted{
+	/*Some changes have been made to some form of data, might just be the label*/
+	background-color: white;
+}
+.cellDescribed{
+	/*We know the purpose of the cell, and know whats going to be in there. You could say it's been designed but not implemented, in as much as we've thoroughly thought it through, but it's not yet ready to try out in alpha*/
+	background-color: red;
+}
+.cellAlphaReady{
+	/*cell is implemented to a basic level that is good enough for the alpha area. We always check it in alpha and make sure if it needs more polish before we move it to Beta*/
+	background-color: yellow;
+}
+.cellBetaReady{
+	/*cell has been in alpha, designer has played with it, thought it through and feels it's ready for Beta*/
+	background-color: green;
+}
+.cellBetaQuibbles{
+	/*cell is in Beta and there are one or more things that players don't like about it, or theres some feeling of it still needing some work*/
+	background-color: silver;
+}
+.cellComplete{
+	/*cell has been in Beta, non-designers have played it and all quibbles and frustrations have been looked at*/
+	background-color: gold;
 }
 
 .inlineButton{
