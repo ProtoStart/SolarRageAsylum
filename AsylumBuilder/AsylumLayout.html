@@ -87,7 +87,9 @@
 				</select>
 				<div id="designersNotes" class="roomEditorPanel">
 					<label for="cellDescription">Description:</label>
-					<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
+					<textarea name="cellDescription" id="cellDescription" value="Cell description here">
+					</textarea>
+					<br/>
 					<label for="cellDesignCompleteness">Design Completeness:</label>
 					<select id="cellDesignCompleteness" name="cellDesignCompleteness" onchange="applyCellEdits()">
 						<option value="cellDefault">Still the default</option>
