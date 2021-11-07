@@ -1,4 +1,5 @@
 var asylumData = {
+	"asylumNotes": "",
 	"rooms":{
 		
 	},
@@ -61,8 +62,7 @@ function JSONstringifyInOrder(obj)
 }
 
 function showViewAsylumBtns(){
-	showViaClass("viewAsylumJsonBtn");
-	showViaClass("viewAsylumGridBtn");
+	showViaClass("viewAsylumBtns");
 }
 
 function createRooms(){
@@ -94,17 +94,6 @@ function displayAllJSON(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";
 	let neatOutput = "";
-	/*for (let i = 0; i < 10; i++) {
-		iString = parseInt(i); //parse the first digit once
-		for (let j = 0; j < 10; j++) {
-			jString = parseInt(j);
-			gridRef = iString + "" + jString; //"" forces string concatenation
-			neatOutput += "//Row " + iString + " Column " + jString + "/n"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
-			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //turn the JSON for that specific cell into a string (stringify), with tabs ("&#9;"), and a line break (<br/>) after a seperating comma
-			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the asylumData, so that it can be displayed.
-		}
-		neatOutput += "<br/>"; //add an extra line break every 10 rooms, since 10 rooms represents a row
-	}*/
 	//JSON.stringify(obj)
 	neatOutput = JSONstringifyInOrder(asylumData);
 	document.getElementById("jsonTextArea").value  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
@@ -213,6 +202,15 @@ function displayGrid(){
 
 function displayRoomViewer(){
 	hideAllXClassShowY("leftItem", "roomViewer");
+}
+
+function displayAsylumNotes(){
+	hideAllXClassShowY("leftItem", "asylumNotesTab");
+	document.getElementById("asylumNotes").value = asylumData.asylumNotes;
+}
+
+function applyAsylumNotes(){
+	asylumData.asylumNotes = document.getElementById("asylumNotes").value;
 }
 
 function changeRoomEditorPanel(){
