@@ -1,5 +1,25 @@
 var asylumData = {
 	"asylumNotes": "",
+	"startConditions":{
+		"time": "3",
+		"cell": "10",
+		"weatherOutside": "clear"
+	},
+	"worldConstants":{
+		"dayLength": "10", //Asylums don't have to be on earth. A 10 hr dayLength means a brand new day starts every 10 hrs on that planet/moon/asteroid/whatever OR at least the repating pattern of natural light found in sunStrengthByHour repeats this often. An asylum with constant amounts of sunlight (always lit, or never lit) could put any number for dayLength and just have that many values in sunStrengthByHour set as whatever strength of sun works.
+		"sunStrengthByHour": [0,0,6,8,10,10,8, 6, 2,0], //0 is pitch black night, 10 is as strong as midday sun in Madrid in July .
+		"daysOfWeek": ["Klihl", "Slark", "Funata", "Rophis","Memphiso","Rhock","Flark", "Quill"], // 8 days, each with weird names!
+		"nmlWorkWeekLength": "6",
+		"nmlWorkDayLength": "5",
+		"weatherChances": {
+			"clear": 50,
+			"hammering": 10,
+			"thunder": 15,
+			"scorching": 25
+		}
+		//"": "",
+		
+	},
 	"rooms":{
 		
 	},
