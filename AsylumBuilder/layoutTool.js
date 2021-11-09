@@ -92,11 +92,9 @@ function showViewAsylumBtns(){
 function createRooms(){
 	if(JSON.stringify(asylumData.rooms) == "{}" || confirm("This tool only remembers one Asylum at a time, reset all progress?")){
 		let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
-		let iString = "";
 		for (let i = 0; i < 10; i++) {
-			iString = parseInt(i); //parse the first digit once
 			for (let j = 0; j < 10; j++) {
-				gridRef = iString + "" + parseInt(j); //string concatenation
+				gridRef = i + "" + j; //string concatenation
 				asylumData.rooms[gridRef] = JSON.parse(JSON.stringify(toolData.defaultRoom)); /*actually create the new room in the JSON object - stringifying and then parsing here so that it actually duplicates rather than just putting in a reference to the default room object. THERE ARE LIMITATIONS TO THIS - as far as I can see it should be fine but see https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript
 				
 				Key part here:
