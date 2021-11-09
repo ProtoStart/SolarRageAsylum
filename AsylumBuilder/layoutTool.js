@@ -210,7 +210,16 @@ function localLoadAsylum(){
 function asylumGridColourCodeSelect(){
 	document.getElementById("asylumGrid").classList.remove("labelCCode","designersNotesCCode");
 	document.getElementById("asylumGrid").classList.add(document.getElementById("asylumGridColourCodeSelect").value); 
-	
+}
+function asylumGridBoundsColourCodeSelect(){
+	//alert();
+	if (document.getElementById("asylumGridBoundsColourCodeSelect").value == "true"){
+		document.getElementById("asylumGrid").classList.add("boundsCCodeOn");
+		//alert("on");
+	} else {
+		document.getElementById("asylumGrid").classList.remove("boundsCCodeOn");
+		//alert("off");
+	}
 }
 
 function displayGrid(){
@@ -235,9 +244,20 @@ function displayGrid(){
 					extraClasses += " cellHasLbl";
 				}
 				extraClasses += " " + asylumData.rooms[cellRef].designersNotes.designCompleteness;
+				if (asylumData.rooms[cellRef].bounds.bottom.type == "wall"){
+					extraClasses += " bottomWall";
+				}
+				if (asylumData.rooms[cellRef].bounds.left.type == "wall"){
+					extraClasses += " leftWall";
+				}
+				if (asylumData.rooms[cellRef].bounds.right.type == "wall"){
+					extraClasses += " rightWall";
+				}
+				if (asylumData.rooms[cellRef].bounds.top.type == "wall"){
+					extraClasses += " topWall";
+				}
 				
-				
-				
+
 				row += "<button class=\"gridCell" + extraClasses +"\" onclick=\"viewCell('" + cellRef + "')\">" + cellRef + "<br/>" + lbl + "</button>	"; //the tab after the buttons closing tag was an easy way to keep the same spacing as we had when the grid was static HTML (as that was each on new lines with tabs, and browsers condense space down
 			}
 			row += "</div>";

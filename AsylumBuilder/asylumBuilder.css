@@ -78,6 +78,27 @@
 	background-color: gold;
 }
 
+.boundsCCodeOn .bottomWall{
+	border-bottom-width: 2px;
+	border-bottom-color: red;
+	border-bottom-style: solid;
+}
+.boundsCCodeOn .leftWall{
+	border-left-width: 2px;
+	border-left-color: red;
+	border-left-style: solid;
+}
+.boundsCCodeOn .rightWall{
+	border-right-width: 2px;
+	border-right-color: red;
+	border-right-style: solid;
+}
+.boundsCCodeOn .topWall{
+	border-top-width: 2px;
+	border-top-color: red;
+	border-top-style: solid;
+}
+
 .inlineButton{
 	min-height: 1.4em;
 	min-width: default;
