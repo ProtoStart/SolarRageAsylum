@@ -5,21 +5,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 10,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 1,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -35,21 +39,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 11,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 0,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 2,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -65,21 +73,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 12,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 1,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 3,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -95,21 +107,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 13,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 2,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 4,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -125,21 +141,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 14,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 3,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 5,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -155,21 +175,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 15,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 4,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 6,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -185,21 +209,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 16,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 5,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 7,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -215,21 +243,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 17,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 6,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 8,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -245,21 +277,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 18,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 7,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 9,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -275,21 +311,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 19,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 8,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": "outTop",
 					"type": "wall",
 					"val": "99"
 				}
@@ -305,21 +345,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 20,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 11,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 0,
 					"type": "wall",
 					"val": "99"
 				}
@@ -335,21 +379,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 21,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 10,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 12,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 1,
 					"type": "wall",
 					"val": "99"
 				}
@@ -365,21 +413,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 22,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 11,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 13,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 2,
 					"type": "wall",
 					"val": "99"
 				}
@@ -395,21 +447,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 23,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 12,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 14,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 3,
 					"type": "wall",
 					"val": "99"
 				}
@@ -425,21 +481,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 24,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 13,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 15,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 4,
 					"type": "wall",
 					"val": "99"
 				}
@@ -455,21 +515,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 25,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 14,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 16,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 5,
 					"type": "wall",
 					"val": "99"
 				}
@@ -485,21 +549,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 26,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 15,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 17,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 6,
 					"type": "wall",
 					"val": "99"
 				}
@@ -515,21 +583,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 27,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 16,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 18,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 7,
 					"type": "wall",
 					"val": "99"
 				}
@@ -545,21 +617,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 28,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 17,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 19,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 8,
 					"type": "wall",
 					"val": "99"
 				}
@@ -575,21 +651,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 29,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 18,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 9,
 					"type": "wall",
 					"val": "99"
 				}
@@ -605,21 +685,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 30,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 21,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 10,
 					"type": "wall",
 					"val": "99"
 				}
@@ -635,21 +719,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 31,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 20,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 22,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 11,
 					"type": "wall",
 					"val": "99"
 				}
@@ -665,21 +753,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 32,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 21,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 23,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 12,
 					"type": "wall",
 					"val": "99"
 				}
@@ -695,21 +787,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 33,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 22,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 24,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 13,
 					"type": "wall",
 					"val": "99"
 				}
@@ -725,21 +821,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 34,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 23,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 25,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 14,
 					"type": "wall",
 					"val": "99"
 				}
@@ -755,21 +855,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 35,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 24,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 26,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 15,
 					"type": "wall",
 					"val": "99"
 				}
@@ -785,21 +889,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 36,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 25,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 27,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 16,
 					"type": "wall",
 					"val": "99"
 				}
@@ -815,21 +923,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 37,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 26,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 28,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 17,
 					"type": "wall",
 					"val": "99"
 				}
@@ -845,21 +957,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 38,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 27,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 29,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 18,
 					"type": "wall",
 					"val": "99"
 				}
@@ -875,21 +991,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 39,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 28,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 19,
 					"type": "wall",
 					"val": "99"
 				}
@@ -905,21 +1025,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 40,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 31,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 20,
 					"type": "wall",
 					"val": "99"
 				}
@@ -935,21 +1059,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 41,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 30,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 32,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 21,
 					"type": "wall",
 					"val": "99"
 				}
@@ -965,21 +1093,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 42,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 31,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 33,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 22,
 					"type": "wall",
 					"val": "99"
 				}
@@ -995,21 +1127,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 43,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 32,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 34,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 23,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1025,21 +1161,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 44,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 33,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 35,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 24,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1055,21 +1195,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 45,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 34,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 36,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 25,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1085,21 +1229,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 46,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 35,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 37,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 26,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1115,21 +1263,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 47,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 36,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 38,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 27,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1145,21 +1297,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 48,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 37,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 39,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 28,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1175,21 +1331,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 49,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 38,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 29,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1205,21 +1365,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 50,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 41,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 30,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1235,21 +1399,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 51,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 40,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 42,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 31,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1265,21 +1433,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 52,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 41,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 43,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 32,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1295,21 +1467,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 53,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 42,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 44,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 33,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1325,28 +1501,32 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 54,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 43,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 45,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 34,
 					"type": "wall",
 					"val": "99"
 				}
 			},
 			"bumpCoords": {},
 			"designersNotes": {
-				"description": "Reception - should have a calendar or similar purpose item that has the days of the week for this planet visible. This can trigger PC to know that they are on a specific planet and maybe know what Asylum they are in, as well as know what day it is today - maybe having a moment where they realise how long they have been here",
+				"description": "Reception",
 				"designCompleteness": "cellStarted",
 				"label": "Rcp"
 			}
@@ -1355,21 +1535,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 55,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 44,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 46,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 35,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1385,21 +1569,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 56,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 45,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 47,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 36,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1415,21 +1603,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 57,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 46,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 48,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 37,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1445,21 +1637,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 58,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 47,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 49,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 38,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1475,21 +1671,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 59,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 48,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 39,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1505,21 +1705,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 60,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 51,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 40,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1535,21 +1739,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 61,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 50,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 52,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 41,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1565,21 +1773,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 62,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 51,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 53,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 42,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1595,21 +1807,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 63,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 52,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 54,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 43,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1625,21 +1841,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 64,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 53,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 55,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 44,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1655,21 +1875,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 65,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 54,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 56,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 45,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1685,21 +1909,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 66,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 55,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 57,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 46,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1715,21 +1943,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 67,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 56,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 58,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 47,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1745,21 +1977,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 68,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 57,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 59,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 48,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1775,21 +2011,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 69,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 58,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 49,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1805,21 +2045,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 70,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 61,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 50,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1835,21 +2079,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 71,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 60,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 62,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 51,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1865,21 +2113,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 72,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 61,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 63,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 52,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1895,21 +2147,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 73,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 62,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 64,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 53,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1925,21 +2181,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 74,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 63,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 65,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 54,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1955,21 +2215,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 75,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 64,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 66,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 55,
 					"type": "wall",
 					"val": "99"
 				}
@@ -1985,21 +2249,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 76,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 65,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 67,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 56,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2015,21 +2283,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 77,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 66,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 68,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 57,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2045,21 +2317,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 78,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 67,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 69,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 58,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2075,21 +2351,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 79,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 68,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 59,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2105,21 +2385,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 80,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 71,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 60,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2135,21 +2419,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 81,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 70,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 72,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 61,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2165,21 +2453,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 82,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 71,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 73,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 62,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2195,21 +2487,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 83,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 72,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 74,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 63,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2225,21 +2521,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 84,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 73,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 75,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 64,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2255,21 +2555,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 85,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 74,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 76,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 65,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2285,21 +2589,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 86,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 75,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 77,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 66,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2315,21 +2623,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 87,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 76,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 78,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 67,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2345,21 +2657,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 88,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 77,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 79,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 68,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2375,21 +2691,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 89,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 78,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 69,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2405,21 +2725,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 90,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 81,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 70,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2435,21 +2759,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 91,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 80,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 82,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 71,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2465,21 +2793,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 92,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 81,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 83,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 72,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2495,21 +2827,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 93,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 82,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 84,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 73,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2525,21 +2861,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 94,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 83,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 85,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 74,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2555,21 +2895,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 95,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 84,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 86,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 75,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2585,21 +2929,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 96,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 85,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 87,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 76,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2615,21 +2963,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 97,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 86,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 88,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 77,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2645,21 +2997,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 98,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 87,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 89,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 78,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2675,21 +3031,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": 99,
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 88,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 79,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2705,21 +3065,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": "outLeft",
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 91,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 80,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2735,21 +3099,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 90,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 92,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 81,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2765,21 +3133,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 91,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 93,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 82,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2795,21 +3167,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 92,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 94,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 83,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2825,21 +3201,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 93,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 95,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 84,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2855,21 +3235,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 94,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 96,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 85,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2885,21 +3269,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 95,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 97,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 86,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2915,21 +3303,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 96,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 98,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 87,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2945,21 +3337,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 97,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": 99,
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 88,
 					"type": "wall",
 					"val": "99"
 				}
@@ -2975,21 +3371,25 @@
 			"bounds": {
 				"bottom": {
 					"known": "no",
+					"nextCell": "outBottom",
 					"type": "wall",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
+					"nextCell": 98,
 					"type": "wall",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
+					"nextCell": "outRight",
 					"type": "wall",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
+					"nextCell": 89,
 					"type": "wall",
 					"val": "99"
 				}

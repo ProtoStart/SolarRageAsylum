@@ -40,21 +40,25 @@ var toolData = {
 				"val": "99",   //val is short for value - in this case the amount of px from the top of the movement area
 				"known": "no", //no means not known to the player character
 				"type":"wall", //wall = continuous wall with no archway or door
+				"nextCell":""
 			},
 			"right": {
 				"val": "658", //val is short for value - in this case the amount of px from the left edge of the movement area
 				"known": "no", //no means not known to the player character
 				"type":"wall", //wall = continuous wall with no archway or door
+				"nextCell":""
 			},
 			"bottom": {
 				"val": "439",  //val is short for value - in this case the amount of px from the top of the movement area
 				"known": "no", //no means not known to the player character
 				"type":"wall", //wall = continuous wall with no archway or door
+				"nextCell":""
 			},
 			"left": {
 				"val": "90",   //val is short for value - in this case the amount of px from the left edge of the movement area
 				"known": "no", //no means not known to the player character
 				"type":"wall", //wall = continuous wall with no archway or door
+				"nextCell":""
 			},
 		},
 		"bumpCoords": {
@@ -98,6 +102,28 @@ function createRooms(){
 				Key part here:
 				Fast cloning with data loss - JSON.parse/stringify
 					If you do not use Dates, functions, undefined, Infinity, RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, sparse Arrays, Typed Arrays or other complex types within your object, a very simple one liner to deep clone an object is:*/
+				
+				//Add in default nextCell data to every bounds - this data will be used in game for knowing where to go if player character can go through a bounds. By default, movement adheres to the grid as you'd expect - eg, going through top bounds will take you to the cell above unless that would take you out of the grid. Having these in the data rather than calculated in the game engine, allows us to override it at design time if we wish and also means these calculations are only done during Asylum design - good for performance.
+				if (i == 9){
+					asylumData.rooms[gridRef].bounds.bottom.nextCell = "outBottom";
+				} else {
+					asylumData.rooms[gridRef].bounds.bottom.nextCell = parseInt(gridRef) + 10;
+				};
+				if (j == 0){
+					asylumData.rooms[gridRef].bounds.left.nextCell =  "outLeft";
+				} else {
+					asylumData.rooms[gridRef].bounds.left.nextCell =  parseInt(gridRef) - 1;
+				};
+				if (j == 9){
+					asylumData.rooms[gridRef].bounds.right.nextCell =  "outRight";
+				} else {
+					asylumData.rooms[gridRef].bounds.right.nextCell =  parseInt(gridRef) + 1;
+				};
+				if (i == 0){
+					asylumData.rooms[gridRef].bounds.top.nextCell = "outTop";
+				} else {
+					asylumData.rooms[gridRef].bounds.top.nextCell =  parseInt(gridRef) - 10;
+				};
 			}
 		}
 		document.getElementById("createRooms").innerHTML = "Reset to Asylum Outline";
@@ -175,6 +201,7 @@ function localLoadAsylum(){
 	try {
 		//TODO: IMPORTANT BEFORE RELEASE: NEEDS MORE SECURITY!
 		asylumData = JSON.parse(localStorage.getItem(toolData.localStorageKeyName));
+		//addNextCells(); //special case - only needed if the local storage asylum doesn't have nextCell data for every bounds - which should never happen in production unless someone intentionally removes it or some unlikely unforeseen bug
 	} catch {
 		alert("couldn't get data from local storage");
 	}
@@ -409,4 +436,44 @@ function saveToLocalStorage(key,value){
 	  //No Web Storage support - TODO: is this a good experience??
 	  alert("couldn't save, browser doesn't support local storage");
 	}
+}
+
+
+/** **/
+
+function addNextCells(){
+	//This function might well only ever be run once - to add nextCell data to the starter asylum file since it was created without, and manually adding would take a long time
+	
+
+	let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
+	let iString = "";
+	for (let i = 0; i < 10; i++) {
+		iString = parseInt(i); //parse the first digit once
+		for (let j = 0; j < 10; j++) {
+			gridRef = iString + "" + parseInt(j); //string concatenation
+			
+
+			if (i == 9){
+				asylumData.rooms[gridRef].bounds.bottom.nextCell = "outBottom";
+			} else {
+				asylumData.rooms[gridRef].bounds.bottom.nextCell = parseInt(gridRef) + 10;
+			};
+			if (j == 0){
+				asylumData.rooms[gridRef].bounds.left.nextCell =  "outLeft";
+			} else {
+				asylumData.rooms[gridRef].bounds.left.nextCell =  parseInt(gridRef) - 1;
+			};
+			if (j == 9){
+				asylumData.rooms[gridRef].bounds.right.nextCell =  "outRight";
+			} else {
+				asylumData.rooms[gridRef].bounds.right.nextCell =  parseInt(gridRef) + 1;
+			};
+			if (i == 0){
+				asylumData.rooms[gridRef].bounds.top.nextCell = "outTop";
+			} else {
+				asylumData.rooms[gridRef].bounds.top.nextCell =  parseInt(gridRef) - 10;
+			};
+		}
+	}
+
 }
