@@ -277,6 +277,25 @@ function setBoundsEditorData(bound){
 	
 }
 
+function saveBoundsEditorData(bound){
+	/*
+		"known": "no",
+		"nextCell": 65,
+		"type": "wall",
+		"val": "439"
+	*/
+	//boundsKnown known
+	asylumData.rooms[toolData.currentCell].bounds[bound].known = document.getElementById("boundsKnown").value;
+	//(TODO: add boundsNextCell HTML)nextCell
+	// asylumData.rooms[toolData.currentCell].bounds[bound].type = document.getElementById("boundsType").value;
+	//boundsType type
+	asylumData.rooms[toolData.currentCell].bounds[bound].type = document.getElementById("boundsType").value ;
+	//boundsVal val
+	asylumData.rooms[toolData.currentCell].bounds[bound].val = document.getElementById("boundsVal").value;
+	//alert(asylumData.rooms[toolData.currentCell].bounds[bound].known);
+	
+}
+
 function changeRoomEditorPanel(){
 	let showDiv = "";
 	switch(document.getElementById("roomEditorPanelChoice").value){
@@ -349,14 +368,39 @@ function viewCell(cellID){
 }
 
 function applyCellEdits(){
+	/*save edits for the mini panel being shown for a part of the cell data in toolData.currentCell*/
 	//Todo (BEFORE PUBLIC RELEASE): SECURITY FEATURES
-	//save edits for the cell in toolData.currentCell
-	asylumData.rooms[toolData.currentCell].designersNotes.label = document.getElementById("cellLabel").value;
-	asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
-	//
-	asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
-	displayGrid();
+	//roomEditorPanelChoice is the select that controls which panel is shown, so its value tells us which set of info to save and what it relates to
+	switch (document.getElementById("roomEditorPanelChoice").value){
+		case "designersNotes":
+			asylumData.rooms[toolData.currentCell].designersNotes.label = document.getElementById("cellLabel").value;
+			asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
+			//
+			asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
+			displayGrid();
+			break;
+		case "bottomBounds":
+			saveBoundsEditorData("bottom");
+			break;
+		case "leftBounds":
+			saveBoundsEditorData("left");
+			break;
+		case "rightBounds":
+			saveBoundsEditorData("right");
+			break;
+		case "topBounds":
+			saveBoundsEditorData("top");
+			break;
+		case "bumpCoords":
+			alert("bump coords haven't been implemented");
+			break;
+		
+	}
+	/*
+	
 	//alert( JSON.stringify(toolData.defaultRoom));
+	
+	 */
 }
 
 function moreInfoToggle(){

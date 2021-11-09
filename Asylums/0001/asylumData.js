@@ -358,7 +358,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 11,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -380,31 +380,31 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 21,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
 					"nextCell": 10,
-					"type": "wall",
-					"val": "90"
+					"type": "keypadDoor",
+					"val": "100"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 12,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
 					"nextCell": 1,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
 			"bumpCoords": {},
 			"designersNotes": {
-				"description": "Corridor 3 - with recovery rooms 3 & 4 via keypad doors",
+				"description": "Corridor 3 - with recovery rooms 3 & 4 via keypad doors to left and right, more corridor above and below",
 				"designCompleteness": "cellStarted",
 				"label": "C3"
 			}
