@@ -78,25 +78,43 @@
 	background-color: gold;
 }
 
+.boundsCCodeOn .gridCell{
+	border-bottom-width: 1px;
+	border-bottom-color: white;
+	border-bottom-style: single;
+
+	border-left-width: 1px;
+	border-left-color: white;
+	border-left-style: single;
+
+	border-right-width: 1px;
+	border-right-color: white;
+	border-right-style: single;
+
+	border-top-width: 1px;
+	border-top-color: white;
+	border-top-style: single;
+}
+
 .boundsCCodeOn .bottomWall{
-	border-bottom-width: 2px;
-	border-bottom-color: red;
-	border-bottom-style: solid;
+	border-bottom-width: 3px;
+	border-bottom-color: black;
+	border-bottom-style: double;
 }
 .boundsCCodeOn .leftWall{
-	border-left-width: 2px;
-	border-left-color: red;
-	border-left-style: solid;
+	border-left-width: 3px;
+	border-left-color: black;
+	border-left-style: double;
 }
 .boundsCCodeOn .rightWall{
-	border-right-width: 2px;
-	border-right-color: red;
-	border-right-style: solid;
+	border-right-width: 3px;
+	border-right-color: black;
+	border-right-style: double;
 }
 .boundsCCodeOn .topWall{
-	border-top-width: 2px;
-	border-top-color: red;
-	border-top-style: solid;
+	border-top-width: 3px;
+	border-top-color: black;
+	border-top-style: double;
 }
 
 .inlineButton{

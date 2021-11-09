@@ -18,7 +18,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 1,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -720,7 +720,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 31,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
@@ -738,7 +738,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 11,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
@@ -1060,7 +1060,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 41,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
@@ -1078,7 +1078,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 21,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
@@ -1400,7 +1400,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 51,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "439"
 				},
 				"left": {
@@ -1418,7 +1418,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 31,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
