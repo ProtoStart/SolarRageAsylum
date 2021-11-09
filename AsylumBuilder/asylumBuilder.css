@@ -96,25 +96,46 @@
 	border-top-style: single;
 }
 
-.boundsCCodeOn .bottomWall{
+.boundsCCodeOn .bottom-wall{
 	border-bottom-width: 3px;
 	border-bottom-color: black;
 	border-bottom-style: double;
 }
-.boundsCCodeOn .leftWall{
+.boundsCCodeOn .left-wall{
 	border-left-width: 3px;
 	border-left-color: black;
 	border-left-style: double;
 }
-.boundsCCodeOn .rightWall{
+.boundsCCodeOn .right-wall{
 	border-right-width: 3px;
 	border-right-color: black;
 	border-right-style: double;
 }
-.boundsCCodeOn .topWall{
+.boundsCCodeOn .top-wall{
 	border-top-width: 3px;
 	border-top-color: black;
 	border-top-style: double;
+}
+
+.boundsCCodeOn .bottom-regularDoor{
+	border-bottom-width: 3px;
+	border-bottom-color: black;
+	border-bottom-style: dashed;
+}
+.boundsCCodeOn .left-regularDoor{
+	border-left-width: 3px;
+	border-left-color: black;
+	border-left-style: dashed;
+}
+.boundsCCodeOn .right-regularDoor{
+	border-right-width: 3px;
+	border-right-color: black;
+	border-right-style: dashed;
+}
+.boundsCCodeOn .top-regularDoor{
+	border-top-width: 3px;
+	border-top-color: black;
+	border-top-style: dashed;
 }
 
 .inlineButton{

@@ -244,17 +244,85 @@ function displayGrid(){
 					extraClasses += " cellHasLbl";
 				}
 				extraClasses += " " + asylumData.rooms[cellRef].designersNotes.designCompleteness;
-				if (asylumData.rooms[cellRef].bounds.bottom.type == "wall"){
-					extraClasses += " bottomWall";
+				switch (asylumData.rooms[cellRef].bounds.bottom.type ){
+					case "wall":
+						extraClasses += " bottom-wall";
+						break;
+					case "regularDoor":
+						extraClasses += " bottom-regularDoor";
+						break;
+					case "keypadDoor":
+						extraClasses += " bottom-keypadDoor";
+						break;
+					case "continueRoom":
+						extraClasses += " bottom-continueRoom";
+						break;
+					case "asylumExit":
+						extraClasses += " bottom-asylumExit";
+						break;
+					case "customCodedType":
+						extraClasses += " bottom-customCodedType";
+						break;
 				}
-				if (asylumData.rooms[cellRef].bounds.left.type == "wall"){
-					extraClasses += " leftWall";
+				switch (asylumData.rooms[cellRef].bounds.left.type ){
+					case "wall":
+						extraClasses += " left-wall";
+						break;
+					case "regularDoor":
+						extraClasses += " left-regularDoor";
+						break;
+					case "keypadDoor":
+						extraClasses += " left-keypadDoor";
+						break;
+					case "continueRoom":
+						extraClasses += " left-continueRoom";
+						break;
+					case "asylumExit":
+						extraClasses += " left-asylumExit";
+						break;
+					case "customCodedType":
+						extraClasses += " left-customCodedType";
+						break;
 				}
-				if (asylumData.rooms[cellRef].bounds.right.type == "wall"){
-					extraClasses += " rightWall";
+				switch (asylumData.rooms[cellRef].bounds.right.type ){
+					case "wall":
+						extraClasses += " right-wall";
+						break;
+					case "regularDoor":
+						extraClasses += " right-regularDoor";
+						break;
+					case "keypadDoor":
+						extraClasses += " right-keypadDoor";
+						break;
+					case "continueRoom":
+						extraClasses += " right-continueRoom";
+						break;
+					case "asylumExit":
+						extraClasses += " right-asylumExit";
+						break;
+					case "customCodedType":
+						extraClasses += " right-customCodedType";
+						break;
 				}
-				if (asylumData.rooms[cellRef].bounds.top.type == "wall"){
-					extraClasses += " topWall";
+				switch (asylumData.rooms[cellRef].bounds.top.type ){
+					case "wall":
+						extraClasses += " top-wall";
+						break;
+					case "regularDoor":
+						extraClasses += " top-regularDoor";
+						break;
+					case "keypadDoor":
+						extraClasses += " top-keypadDoor";
+						break;
+					case "continueRoom":
+						extraClasses += " top-continueRoom";
+						break;
+					case "asylumExit":
+						extraClasses += " top-asylumExit";
+						break;
+					case "customCodedType":
+						extraClasses += " top-customCodedType";
+						break;
 				}
 				
 
