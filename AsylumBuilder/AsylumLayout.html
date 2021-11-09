@@ -26,138 +26,47 @@
     </head>
 	<body>
 		<div id="asylumGridContainer" class="leftPanel">
-			<div id="jsonDisplayer" class="leftItem alignLeft hidden">
-				
+			<div id="jsonEditor" class="leftItem alignLeft hidden">
+			<!--
+			<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" style="display: none;">&lt;!DOCTYPE html&gt;
+
+</textarea>
+			-->
+				<textarea id="jsonTextArea" class="" autocomplete="off" name="jsonTextArea" spellcheck="false" value=""></textarea>
+				<button id="applyJson" class="inlineButton" onclick="applyJson()">Apply changes locally</button>
+				<button id="localSaveJson" class="inlineButton" onclick="applyThenLocalSaveJson()">Save to browser storage</button>
 			</div>
-			<div id="asylumGrid" class="leftItem grid hidden">
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('00')">00</button>
-					<button class="gridCell" onclick="viewCell('01')">01</button>
-					<button class="gridCell" onclick="viewCell('02')">02</button>
-					<button class="gridCell" onclick="viewCell('03')">03</button>
-					<button class="gridCell" onclick="viewCell('04')">04</button>
-					<button class="gridCell" onclick="viewCell('05')">05</button>
-					<button class="gridCell" onclick="viewCell('06')">06</button>
-					<button class="gridCell" onclick="viewCell('07')">07</button>
-					<button class="gridCell" onclick="viewCell('08')">08</button>
-					<button class="gridCell" onclick="viewCell('09')">09</button>
+			<div id="asylumGridOuter" class="leftItem hidden">
+				<label for="asylumGridColourCodeSelect">Colour code by:</label>
+				<select id="asylumGridColourCodeSelect" name="asylumGridColourCodeSelect" onchange="asylumGridColourCodeSelect()">
+					<option value="labelCCode">Labels</option>
+					<option value="designersNotesCCode">Designers notes</option>
+				</select>
+				<label for="asylumGridBoundsColourCodeSelect">Bounds Colour codes?</label>
+				<select id="asylumGridBoundsColourCodeSelect" name="asylumGridBoundsColourCodeSelect" onchange="asylumGridBoundsColourCodeSelect()">
+					<option value="false">No</option>
+					<option value="true">Yes</option>
+				</select>
+				<div id="asylumGrid" class="grid labelCCode">
 				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('10')">10</button>
-					<button class="gridCell" onclick="viewCell('11')">11</button>
-					<button class="gridCell" onclick="viewCell('12')">12</button>
-					<button class="gridCell" onclick="viewCell('13')">13</button>
-					<button class="gridCell" onclick="viewCell('14')">14</button>
-					<button class="gridCell" onclick="viewCell('15')">15</button>
-					<button class="gridCell" onclick="viewCell('16')">16</button>
-					<button class="gridCell" onclick="viewCell('17')">17</button>
-					<button class="gridCell" onclick="viewCell('18')">18</button>
-					<button class="gridCell" onclick="viewCell('19')">19</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('20')">20</button>
-					<button class="gridCell" onclick="viewCell('21')">21</button>
-					<button class="gridCell" onclick="viewCell('22')">22</button>
-					<button class="gridCell" onclick="viewCell('23')">23</button>
-					<button class="gridCell" onclick="viewCell('24')">24</button>
-					<button class="gridCell" onclick="viewCell('25')">25</button>
-					<button class="gridCell" onclick="viewCell('26')">26</button>
-					<button class="gridCell" onclick="viewCell('27')">27</button>
-					<button class="gridCell" onclick="viewCell('28')">28</button>
-					<button class="gridCell" onclick="viewCell('29')">29</button>
-				</div>			
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('30')">30</button>
-					<button class="gridCell" onclick="viewCell('31')">31</button>
-					<button class="gridCell" onclick="viewCell('32')">32</button>
-					<button class="gridCell" onclick="viewCell('33')">33</button>
-					<button class="gridCell" onclick="viewCell('34')">34</button>
-					<button class="gridCell" onclick="viewCell('35')">35</button>
-					<button class="gridCell" onclick="viewCell('36')">36</button>
-					<button class="gridCell" onclick="viewCell('37')">37</button>
-					<button class="gridCell" onclick="viewCell('38')">38</button>
-					<button class="gridCell" onclick="viewCell('39')">39</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('40')">40</button>
-					<button class="gridCell" onclick="viewCell('41')">41</button>
-					<button class="gridCell" onclick="viewCell('42')">42</button>
-					<button class="gridCell" onclick="viewCell('43')">43</button>
-					<button class="gridCell" onclick="viewCell('44')">44</button>
-					<button class="gridCell" onclick="viewCell('45')">45</button>
-					<button class="gridCell" onclick="viewCell('46')">46</button>
-					<button class="gridCell" onclick="viewCell('47')">47</button>
-					<button class="gridCell" onclick="viewCell('48')">48</button>
-					<button class="gridCell" onclick="viewCell('49')">49</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('50')">50</button>
-					<button class="gridCell" onclick="viewCell('51')">51</button>
-					<button class="gridCell" onclick="viewCell('52')">52</button>
-					<button class="gridCell" onclick="viewCell('53')">53</button>
-					<button class="gridCell" onclick="viewCell('54')">54</button>
-					<button class="gridCell" onclick="viewCell('55')">55</button>
-					<button class="gridCell" onclick="viewCell('56')">56</button>
-					<button class="gridCell" onclick="viewCell('57')">57</button>
-					<button class="gridCell" onclick="viewCell('58')">58</button>
-					<button class="gridCell" onclick="viewCell('59')">59</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('60')">60</button>
-					<button class="gridCell" onclick="viewCell('61')">61</button>
-					<button class="gridCell" onclick="viewCell('62')">62</button>
-					<button class="gridCell" onclick="viewCell('63')">63</button>
-					<button class="gridCell" onclick="viewCell('64')">64</button>
-					<button class="gridCell" onclick="viewCell('65')">65</button>
-					<button class="gridCell" onclick="viewCell('66')">66</button>
-					<button class="gridCell" onclick="viewCell('67')">67</button>
-					<button class="gridCell" onclick="viewCell('68')">68</button>
-					<button class="gridCell" onclick="viewCell('69')">69</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('70')">70</button>
-					<button class="gridCell" onclick="viewCell('71')">71</button>
-					<button class="gridCell" onclick="viewCell('72')">72</button>
-					<button class="gridCell" onclick="viewCell('73')">73</button>
-					<button class="gridCell" onclick="viewCell('74')">74</button>
-					<button class="gridCell" onclick="viewCell('75')">75</button>
-					<button class="gridCell" onclick="viewCell('76')">76</button>
-					<button class="gridCell" onclick="viewCell('77')">77</button>
-					<button class="gridCell" onclick="viewCell('78')">78</button>
-					<button class="gridCell" onclick="viewCell('79')">79</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('80')">80</button>
-					<button class="gridCell" onclick="viewCell('81')">81</button>
-					<button class="gridCell" onclick="viewCell('82')">82</button>
-					<button class="gridCell" onclick="viewCell('83')">83</button>
-					<button class="gridCell" onclick="viewCell('84')">84</button>
-					<button class="gridCell" onclick="viewCell('85')">85</button>
-					<button class="gridCell" onclick="viewCell('86')">86</button>
-					<button class="gridCell" onclick="viewCell('87')">87</button>
-					<button class="gridCell" onclick="viewCell('88')">88</button>
-					<button class="gridCell" onclick="viewCell('89')">89</button>
-				</div>
-				<div class="gridRow">
-					<button class="gridCell" onclick="viewCell('90')">90</button>
-					<button class="gridCell" onclick="viewCell('91')">91</button>
-					<button class="gridCell" onclick="viewCell('92')">92</button>
-					<button class="gridCell" onclick="viewCell('93')">93</button>
-					<button class="gridCell" onclick="viewCell('94')">94</button>
-					<button class="gridCell" onclick="viewCell('95')">95</button>
-					<button class="gridCell" onclick="viewCell('96')">96</button>
-					<button class="gridCell" onclick="viewCell('97')">97</button>
-					<button class="gridCell" onclick="viewCell('98')">98</button>
-					<button class="gridCell" onclick="viewCell('99')">99</button>
-				</div>
+			</div>
+			<div id="roomViewer" class="leftItem hidden">
+				<p>placeholder (roomViewer)</p>
+			</div>
+			<div id="asylumNotesTab" class="leftItem hidden">
+				<h3>Asylum Notes</h3>
+				<p>What is this asylum about? - is there a feeling you want to give this map? Does it have a story based purpose?</p>
+				<p>What game experiences do you want this Asylum to have?</p>
+				<p>What rooms does this Asylum need? - to feel realistic enough to fit what it's about, whilst also being the kind of game experience you want it to be?</p>
+				<textarea name="asylumNotes" id="asylumNotes" value=""></textarea>
+				<button class="" onclick="applyAsylumNotes()">Apply Changes</button>
 			</div>
 		</div>
 		<div class="rightPanel"><!--hidden-->
 			<div id="welcome" class="rightPanelView">
 				<h3>Welcome to the Asylum Layout tool.</h3>
 				<br/>
-				This tool is still being built, and will go through a few stages before people can create a playable Asylum with it. Feel free to have a look at what's to come!
-				<button id="moreInfoDevStages" class="inlineButton" onclick="moreInfoToggle()">More Info</button>
+				This tool is still being built, and will go through a few stages before people can create a playable Asylum with it. Feel free to have a play with it though!&nbsp;<button id="moreInfoDevStages" class="inlineButton" onclick="moreInfoToggle()">More Info</button>
 				<ol id="stagesList" class="hidden">
 					<li><s>Non-functional basic layout of the tool</s> (Done)</li>
 					<li><s>A tool that can create an empty outline of an Asylum</s> (Done)</li>
@@ -165,25 +74,115 @@
 					<li>A tool fit for Phil to use for fine tuning and adding complexities</li>
 					<li>A tool fit for non-developers to create their own Asylums</li>
 				</ol>
+				<br/>
 			</div>
 			<div id="usage" class="hidden">
 				Each grid square can have a room or part of a corridor, or blank space.
 				Tap a square to see details of it here.
 			</div>
 			<div>
-				<button id="createRooms" class="" onclick="createRooms()">Create New Asylum Outline</button>
-				<button id="viewAsylumJsonBtn" class="hidden" onclick="displayAllJSON()">View Asylum JSON</button>
-				<button id="viewAsylumGridBtn" class="hidden" onclick="displayGrid()">View Asylum grid</button>
+				<button id="createRooms" class="doublelineButton" onclick="createRooms()">Create New Asylum Outline</button>
+				<button id="importAsylum" class="doublelineButton" onclick="importAsylum()">Import<br/>Asylum</button>
+				<button id="localLoadAsylum" class="doublelineButton" onclick="localLoadAsylum()">Load from Browser Storage</button>
+				<div id="viewAsylumBtns" class="hidden">
+					<button id="viewAsylumJsonBtn" onclick="displayAllJSON()">Asylum JSON</button>
+					<button id="viewAsylumGridBtn" onclick="displayGrid()">Asylum Grid</button>
+					<button id="viewAsylumNotes" onclick="displayAsylumNotes()">Asylum Notes</button>
+				</div>
 			</div>
 			<div id="cellView" class="rightPanelView hidden">
-				<h3 id="cellNumber">Cell x</h3><br/>
-				<label for="cellLabel">Custom label for grid:</label>
-				<input type="text" name="cellLabel" id="cellLabel" value=""/><br/>
-				<label for="cellDescription">cellDescription:</label>
-				<input type="text" name="cellDescription" id="cellDescription" value="Cell description here"/><br/>
-				<label for="cellDesignCompleteness">cellDesignCompleteness:</label>
-				<input type="text" name="cellDesignCompleteness" id="cellDesignCompleteness" value=""/><br/>
-				<button class="editCell()" onclick="">Save Changes</button>
+				<h3 id="cellNumber">Cell x</h3>
+				<button id="showRoom" class="" onclick="displayRoomViewer()">Show Room</button><br/><br/>
+				<select id="roomEditorPanelChoice" onchange="changeRoomEditorPanel()">
+						<option value="designersNotes">Designers notes</option>
+						<option value="bottomBounds">Bottom Bounds</option>
+						<option value="leftBounds">Left Bounds</option>
+						<option value="rightBounds">Right Bounds</option>
+						<option value="topBounds">Top Bounds</option>
+						<option value="bumpCoords">Bump Coords</option>
+				</select>
+				<div id="designersNotes" class="roomEditorPanel">
+					<label for="cellDescription">Description:</label>
+					<textarea name="cellDescription" id="cellDescription" value="Cell description here">
+					</textarea>
+					<br/>
+					<label for="cellDesignCompleteness">Design Completeness:</label>
+					<select id="cellDesignCompleteness" name="cellDesignCompleteness" onchange="applyCellEdits()">
+						<option value="cellDefault">Still the default</option>
+						<option value="cellStarted">Started</option>
+						<option value="cellDescribed"> Described but not implemented</option>
+						<option value="cellAlphaReady">Alpha ready</option>
+						<option value="cellBetaReady">Beta Ready</option>
+						<option value="cellBetaQuibbles">Beta Quibbles</option>
+						<option value="cellComplete">Complete</option>
+					</select>
+					<br/>
+					<label for="cellLabel">Label for grid:</label>
+					<input type="text" name="cellLabel" id="cellLabel" class="shortTextbox" value="" maxlength="4"/>
+					<br/>
+					
+				</div>
+				<div id="bounds" class="hidden roomEditorPanel">
+					<button id="showBoundsInfo" class="inlineButton" onclick="toggleHidden('boundsInfo')">How to use these</button>
+					<div id="boundsInfo" class="hidden roomEditorPanel">
+						<p>Bounds are the boundaries of the grid cell when shown in game. Every grid cell must have a top, right, bottom and left boundary even if the room continues to another gridcell. Currently the game doesn't allow for any more bounds - each cell is a rectangle, with no gaps - you can add extra walls as objects, but they do not count as a grid cells bounds and should not be stored in the bounds section of the Asylum JSON.</p>
+						<p>For each of a rooms bounds, we store at least: 
+						<ul>
+							<li>
+							'val': short for value, the number of pixels from the left or top that the boundary is on, within the gameplay area of the screen.
+							</li>
+							<li>
+							'known': wether the location of the boundary is known to the player character. In other words should it be shown on screen if the character cannot see. Generally this should kept as 'no' in this asylum builder tool, and the game will change it to 'yes' when the player discovers it. If this doesn't make sense, you need to play the starter Asylum!
+							</li>
+							<li>
+							'type': is it a wall, a wall with a doorway or where a corridor continues to another gridcell 
+							</li>
+						</ul>
+						</p>
+						<p>Different types of boundary need different additional info stored. If it's a wall with a doorway we need to know where the doorway is, if its locked and which grid ref the door leads to (the games inner logic can't yet figure this out, and maybe - this being a game about escaping an Asylum - the doorways don't always need to make sense. Or perhaps you don't want a 2d square asylum, and want to do something nifty if confusing to design like set aside some cells as secret cellars, or have secret staircases from one end of the asylum to another)
+						</p>
+						<p>Rooms can be different sizes, though there is a maximum size they can be before we would get issues when playing on small screens, and a minimum size to actually allow for the Player Character to physically fit</p>
+						</div>
+					<br/>
+					<div id="displayDescription">Description here</div>
+					<label for="boundsVal">Val:</label>
+					<input type="text" name="boundsVal" id="boundsVal" value="Bounds Val here"/><br/>
+					<label for="boundsKnown">Known:</label>
+					<input type="text" name="boundsKnown" id="boundsKnown" value="Bounds Known here"/><br>
+					<label for="boundsType">Type:</label>
+					<select name="boundsType" id="boundsType" onchange="changeBoundsType()">
+						<option value="wall">wall</option>
+						<option value="regularDoor">regularDoor</option>
+						<option value="keypadDoor">keypadDoor</option>
+						<option value="continueRoom">continueRoom</option>
+						<option value="asylumExit">asylumExit</option>
+						<option value="customCodedType">customCodedType</option>
+					</select>
+					<div id="doorFields" class="hidden boundsTypeSpecific">
+						<label for="doorValLow">doorValLow:</label>
+						<input type="text" name="doorValLow" id="doorValLow" value="door val low here"/>
+						<label for="doorValHigh">doorValHigh:</label>
+						<input type="text" name="doorValHigh" id="doorValHigh" value="door val high here"/>
+						<label for="doorState">State:</label>
+						<select name="doorState" id="doorState">
+							<option value="locked">locked</option>
+							<option value="open">open</option>
+							<option value="shut">shut</option>
+						</select>
+					</div>
+				</div>
+				<div id="bumpCoords" class="hidden roomEditorPanel">
+					<button id="addItemInstance" class="" onclick="addItemToRoom()">Add Item Instance</button>
+					<button id="addItemInstance" class="" onclick="addItemType()">Add New Item Type</button>
+					<button id="showRoomItemList" class="" onclick="showRoomItemList()">Show items</button>
+					<button id="showPhilsBumpCoordNotes" class="inlineButton" onclick="toggleHidden('bumpCoordsPhilsNotes')">Phils Notes</button>
+					<div id="bumpCoordsPhilsNotes" class="hidden">
+						<p>I might rename this section "items & NPCs" or have two seperate sections. Does the tool need to use the same name as the file system? or maybe the filesystem should be renamed. Bump Coords are what SRA calls hitboxes.  The game needs to store for each room, what are the things inside, where are they, are they moving, what happens if the player character collides with them, can the player interact with them</p>
+						<p>This part of the UI will be a bit more complex than the bounds and designers description sections. Originally I was planning on having a seperate tool for creating new items and NPCs, but perhaps it makes more sense to have that all in here. Items are probably best designed in situ with their first use, and would you really want these on different tabs??</p>
+					</div>
+					<p>We may need an entire view for adding items to the game, and another version of it for addings NPCs</p>
+				</div>
+				<button class="" onclick="applyCellEdits()">Apply Changes</button>
 			</div>
 		</div>
 	</body>

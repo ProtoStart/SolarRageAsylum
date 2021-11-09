@@ -17,6 +17,16 @@
 	overflow-y: auto;
 }
 
+.rightPanel div{
+	padding-bottom: 4px;
+}
+
+#welcome{
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+}
+
 .grid{
 	width:  900px;
 	height:	900px;
@@ -26,12 +36,127 @@
 	min-width: 80px;
 	width:  80px;
 	height:	80px;
+	font-size:20px;
+}
+ 
+/* Basic cell colour coding by labels. These styling rules are written as classes within specific classes to allow us to just change the class of the grid element to swap between colour code systems. The user chooses colour coding scheme via a select that swaps a class on the grid. Cells are given classes in the grid creation function, regardless of what kind of colour coding is in use, and those classes only need change when the data they are based on changes. */
+.labelCCode .cellHasLbl{
+	background-color: white;
+}
+ 
+.labelCCode .cellNoLbl{
+	background-color: grey;
+}
+
+/*cell colour coding by design completeness, initially just set by the designer in a dropdown, later we might add the feature that the value changes to started when any value has been changed, and described when there are more than a set number of words in the description or maybe when they save a change to the description it prompts. Would be really awesome if it could go as far as being realted to roll out too, but I think that's beyond my skill at the moment. Starting this with a grey scale for default to described and then maybe traffic light and gold for cellComplete?*/
+.designersNotesCCode .cellDefault{
+	/*cell is still the default*/
+	background-color: grey;
+}
+.designersNotesCCode .cellStarted{
+	/*Some changes have been made to some form of data, might just be the label*/
+	background-color: white;
+}
+.designersNotesCCode .cellDescribed{
+	/*We know the purpose of the cell, and know whats going to be in there. You could say it's been designed but not implemented, in as much as we've thoroughly thought it through, but it's not yet ready to try out in alpha*/
+	background-color: red;
+}
+.designersNotesCCode .cellAlphaReady{
+	/*cell is implemented to a basic level that is good enough for the alpha area. We always check it in alpha and make sure if it needs more polish before we move it to Beta*/
+	background-color: yellow;
+}
+.designersNotesCCode .cellBetaReady{
+	/*cell has been in alpha, designer has played with it, thought it through and feels it's ready for Beta*/
+	background-color: green;
+}
+.designersNotesCCode .cellBetaQuibbles{
+	/*cell is in Beta and there are one or more things that players don't like about it, or theres some feeling of it still needing some work*/
+	background-color: silver;
+}
+.designersNotesCCode .cellComplete{
+	/*cell has been in Beta, non-designers have played it and all quibbles and frustrations have been looked at*/
+	background-color: gold;
+}
+
+.boundsCCodeOn .gridCell{
+	border-bottom-width: 1px;
+	border-bottom-color: white;
+	border-bottom-style: single;
+
+	border-left-width: 1px;
+	border-left-color: white;
+	border-left-style: single;
+
+	border-right-width: 1px;
+	border-right-color: white;
+	border-right-style: single;
+
+	border-top-width: 1px;
+	border-top-color: white;
+	border-top-style: single;
+}
+
+.boundsCCodeOn .bottomWall{
+	border-bottom-width: 3px;
+	border-bottom-color: black;
+	border-bottom-style: double;
+}
+.boundsCCodeOn .leftWall{
+	border-left-width: 3px;
+	border-left-color: black;
+	border-left-style: double;
+}
+.boundsCCodeOn .rightWall{
+	border-right-width: 3px;
+	border-right-color: black;
+	border-right-style: double;
+}
+.boundsCCodeOn .topWall{
+	border-top-width: 3px;
+	border-top-color: black;
+	border-top-style: double;
 }
 
 .inlineButton{
-	min-height: 1.2em;
+	min-height: 1.4em;
 	min-width: default;
 	width:  default;
-	height:	1.2em;
+	height:	1.4em;
+	font-size: 14pt;
+}
+.doublelineButton{
+	min-height: 3.2em;
+	min-width: 120px;
+	width:  9em;
+	height:	3.2em;
 	font-size: 16pt;
+}
+
+.shortTextbox{
+	width: 5em;
+}
+
+#jsonEditor{
+	width:99%;
+	height: 99%;
+}
+
+#jsonTextArea{
+	width:99%;
+	height: calc(100% - 50px);
+}
+
+#roomEditorPanelChoice{
+	font-size: 20pt;
+	font-weight: 555;
+	padding: 6px;
+}
+
+#cellDescription{
+	width: 98%;
+}
+
+#asylumNotes{
+	width: 98%;
+	height: 12em;
 }
