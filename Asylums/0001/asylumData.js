@@ -1,5 +1,5 @@
 {
-	"asylumNotes": "This Asylum is the main starting asylum, that will be most early players first experience of Solar Rage Asylum. It will need to bring the player into the general concept of the game, and have a feeling that fulfil the promises given by the title \"solar rage asylum\".\n\nPromises given by the title \"solar rage asylum\":\n - \"solar raging\" - it needs areas where natural light can get in at set times of day, to trigger off the rages. That also needs to pair up with useful times as well as challenging times - it's a double edge sword mechanic\n - \"solar\" hints towards sci-fi, \"asylum\" hints towards a dystopia. It should feel sci-fi! It should feel dystopian!! The game has hoverbeds as a clearly sci-fi marker, what other sci-fi things might work well in an Asylum, and feel dystopian? Data-pads of some kind, electronic doors that go upwards or maybe downwards, CCTV and monitoring, maybe some kind of HAL/\"friend computer\", rockets where a car park would be!!\n\n",
+	"asylumNotes": "Possible names: Solaris Asylum. The Rage Asylum - Solaris. The Solar Rage Asylum. Solaris.\n\nThis Asylum is the main starting asylum, that will be most early players first experience of Solar Rage Asylum. It will need to bring the player into the general concept of the game, and have a feeling that fulfils the promises given by the game title \"solar rage asylum\". The other big goal is to interest people into making their own Asylums.\n\nPromises given by the title \"solar rage asylum\":\n - \"solar raging\" - it needs areas where natural light can get in at set times of day, to trigger off the rages. That also needs to pair up with useful times as well as challenging times - it's a double edge sword mechanic, and also part of what game designers call \"systemic design\" where there's  an environment and surrounding that players can use to their advantage.\n - \"solar\" hints towards sci-fi, \"asylum\" hints towards a dystopia. It should feel sci-fi! It should feel dystopian!! The game has hoverbeds as a clearly sci-fi marker, what other sci-fi things might work well in an Asylum, and feel dystopian? Data-pads of some kind, electronic doors that go upwards or maybe downwards, CCTV and monitoring, maybe some kind of HAL/\"friend computer\", rockets where a car park would be!! Ridiculous shifts for the people working at the Asylum?\n\nWhat might interest someone to build their own Asylum?",
 	"rooms": {
 		"00": {
 			"bounds": {
@@ -40,19 +40,19 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 11,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
 					"nextCell": 0,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 2,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -80,7 +80,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 1,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
@@ -420,7 +420,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 11,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
@@ -698,7 +698,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 21,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -726,13 +726,13 @@
 				"left": {
 					"known": "no",
 					"nextCell": 20,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 22,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -760,7 +760,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 21,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
@@ -936,7 +936,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 28,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
@@ -964,7 +964,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 27,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
@@ -1038,7 +1038,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 31,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -1066,13 +1066,13 @@
 				"left": {
 					"known": "no",
 					"nextCell": 30,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 32,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -1100,7 +1100,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 31,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
@@ -1276,7 +1276,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 38,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
@@ -1378,7 +1378,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 41,
-					"type": "wall",
+					"type": "regularDoor",
 					"val": "658"
 				},
 				"top": {
@@ -1406,7 +1406,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 40,
-					"type": "wall",
+					"type": "regularDoor",
 					"val": "90"
 				},
 				"right": {
@@ -1434,7 +1434,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 52,
-					"type": "wall",
+					"type": "regularDoor",
 					"val": "439"
 				},
 				"left": {
@@ -1752,13 +1752,13 @@
 				"right": {
 					"known": "no",
 					"nextCell": 52,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
 					"nextCell": 41,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "99"
 				}
 			},
@@ -1780,7 +1780,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 51,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
