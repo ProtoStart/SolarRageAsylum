@@ -258,6 +258,25 @@ function applyAsylumNotes(){
 	asylumData.asylumNotes = document.getElementById("asylumNotes").value;
 }
 
+function setBoundsEditorData(bound){
+	/*
+		"known": "no",
+		"nextCell": 65,
+		"type": "wall",
+		"val": "439"
+	*/
+	//boundsKnown known
+	document.getElementById("boundsKnown").value = asylumData.rooms[toolData.currentCell].bounds[bound].known;
+	//(TODO: add boundsNextCell HTML)nextCell
+	//document.getElementById("boundsType").value = asylumData.rooms[toolData.currentCell].bounds[bound].type;
+	//boundsType type
+	document.getElementById("boundsType").value = asylumData.rooms[toolData.currentCell].bounds[bound].type;
+	//boundsVal val
+	document.getElementById("boundsVal").value = asylumData.rooms[toolData.currentCell].bounds[bound].val;
+	//alert(asylumData.rooms[toolData.currentCell].bounds[bound].known);
+	
+}
+
 function changeRoomEditorPanel(){
 	let showDiv = "";
 	switch(document.getElementById("roomEditorPanelChoice").value){
@@ -265,15 +284,19 @@ function changeRoomEditorPanel(){
 			showDiv = "designersNotes";
 			break;
 		case "bottomBounds":
+			setBoundsEditorData("bottom");
 			showDiv = "bounds";
 			break;
 		case "leftBounds":
+			setBoundsEditorData("left");
 			showDiv = "bounds";
 			break;
 		case "rightBounds":
+			setBoundsEditorData("right");
 			showDiv = "bounds";
 			break;
 		case "topBounds":
+			setBoundsEditorData("top");
 			showDiv = "bounds";
 			break;
 		case "bumpCoords":
@@ -313,6 +336,10 @@ function viewCell(cellID){
 	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");
 	toolData.currentCell = cellID;//so that the save button knows which cell was altered
+	
+	//Show designers notes section immediately
+	document.getElementById("roomEditorPanelChoice").value = "designersNotes";
+	changeRoomEditorPanel();
 	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
 	document.getElementById("cellLabel").value = asylumData.rooms[cellID].designersNotes.label;
 	document.getElementById("cellDescription").value = asylumData.rooms[cellID].designersNotes.description;
