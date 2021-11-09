@@ -164,7 +164,7 @@ function applyJson(){
 			let positionAtString = errorString.match(/(position) (\d)*/g); //gets a string within the errorString that matches "position " followed by an amount of number characters. This allows for a chance that the error message could include multiple sets of numbers, we only want it if it's describing position rather than line number or collumn. This alone isn't enough to use for the selectionStart and selectionEnd as it contains the string "position ". Note that match adds all matches to an array not a string - this stumped me for about an hour of debugging!!
 			//alert(positionAtString);
 			let errorPosNum = 0;
-			errorPosNum = parseInt( positionAtString[0].slice(9)); //[0] to just use the first (and hopefully only) index of the array, slice(9) to take just the part after the first 9 chars which is the "position " that comes before the actual number
+			errorPosNum = positionAtString[0].slice(9); //[0] to just use the first (and hopefully only) index of the array, slice(9) to take just the part after the first 9 chars which is the "position " that comes before the actual number
 			document.getElementById("jsonTextArea").selectionStart = errorPosNum - 6;
 			document.getElementById("jsonTextArea").selectionEnd = errorPosNum + 6;
 		} else if (errorString.includes("at line ")){
@@ -172,7 +172,7 @@ function applyJson(){
 		alert("Your web browsers error message seems to state the line it couldn't read in, so we'll select that line automatically. If error isn't on that line check the lines just before, and then try searching for {{ or }}");
 			document.getElementById("jsonTextArea").focus();
 			let atLineString = errorString.match(/(at line) (\d)*/g);
-			let lineNum = parseInt( atLineString[0].slice(8));
+			let lineNum = atLineString[0].slice(8);
 			selectTextAreaLine(document.getElementById("jsonTextArea"),lineNum);
 		}
 		
@@ -220,12 +220,12 @@ function displayGrid(){
 	let row = "";
 	let lbl = "";
 	let extraClasses = ""; //a variable to tap into via altering this code, to assign extra classes perhaps for styling things
+	let cellRef = "";
 	for (let i = 0; i < 10; i++) {
-			iString = parseInt(i); //parse the first digit once
 			row = "<div class=\"gridRow\">";
 			
 			for (let j = 0; j < 10; j++) {
-				cellRef = iString + "" + parseInt(j); //using + "" + rather than + to force string concatenation
+				cellRef = i + "" + j; //using + "" + rather than + to force string concatenation
 				lbl = asylumData.rooms[cellRef].designersNotes.label.slice(0,4);//limit it to four characters
 				extraClasses = "";
 				if (lbl == ""){
@@ -442,13 +442,10 @@ function saveToLocalStorage(key,value){
 function addNextCells(){
 	//This function might well only ever be run once - to add nextCell data to the starter asylum file since it was created without, and manually adding would take a long time
 	
-
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once, we fill over the value again and again
-	let iString = "";
 	for (let i = 0; i < 10; i++) {
-		iString = parseInt(i); //parse the first digit once
 		for (let j = 0; j < 10; j++) {
-			gridRef = iString + "" + parseInt(j); //string concatenation
+			gridRef = i + "" + j; //string concatenation
 			
 
 			if (i == 9){
