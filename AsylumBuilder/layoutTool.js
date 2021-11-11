@@ -466,7 +466,6 @@ function applyCellEdits(){
 			asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
 			//
 			asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
-			displayGrid();
 			break;
 		case "bottomBounds":
 			saveBoundsEditorData("bottom");
@@ -485,6 +484,7 @@ function applyCellEdits(){
 			break;
 		
 	}
+	displayGrid();
 	/*
 	
 	//alert( JSON.stringify(toolData.defaultRoom));
