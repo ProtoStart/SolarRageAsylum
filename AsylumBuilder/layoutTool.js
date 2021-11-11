@@ -686,7 +686,7 @@ function toggleFullScreen() {
 function openFullscreen() {
 //opens the browser in full screen - particularly wanted on mobile so that we have a bit more screen to work with
 //found on https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_fullscreen
-	var elem = document.documentElement;
+	var elem = document.getElementById("all");
 	if (elem.requestFullscreen) {
 		elem.requestFullscreen();
 	} else if (elem.webkitRequestFullscreen) { /* Safari */
