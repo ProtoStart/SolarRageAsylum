@@ -118,6 +118,27 @@
 	border-top-color: black;
 	border-top-style: double;
 }
+/* fence */
+.boundsCCodeOn .bottom-fence{
+	border-bottom-width: 3px;
+	border-bottom-color: cyan;
+	border-bottom-style: solid;
+}
+.boundsCCodeOn .left-fence{
+	border-left-width: 3px;
+	border-left-color: cyan;
+	border-left-style: solid;
+}
+.boundsCCodeOn .right-fence{
+	border-right-width: 3px;
+	border-right-color: cyan;
+	border-right-style: solid;
+}
+.boundsCCodeOn .top-fence{
+	border-top-width: 3px;
+	border-top-color: cyan;
+	border-top-style: solid;
+}
 
 /*regularDoor*/
 .boundsCCodeOn .bottom-regularDoor{
@@ -246,6 +267,11 @@
 
 .shortTextbox{
 	width: 5em;
+}
+
+#boundTypes select{
+	right: 0px;
+	position: absolute;
 }
 
 #jsonEditor{

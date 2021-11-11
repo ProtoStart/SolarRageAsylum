@@ -95,6 +95,7 @@
 				<button id="showRoom" class="" onclick="displayRoomViewer()">Show Room</button><br/><br/>
 				<select id="roomEditorPanelChoice" onchange="changeRoomEditorPanel()">
 						<option value="designersNotes">Designers notes</option>
+						<option value="boundTypes">Bound Types</option>
 						<option value="bottomBounds">Bottom Bounds</option>
 						<option value="leftBounds">Left Bounds</option>
 						<option value="rightBounds">Right Bounds</option>
@@ -121,6 +122,56 @@
 					<input type="text" name="cellLabel" id="cellLabel" class="shortTextbox" value="" maxlength="4"/>
 					<br/>
 					
+				</div>
+				<div id="boundTypes" class="hidden roomEditorPanel alignLeft">
+					<div>
+						<label for="topBoundsType">Top:</label>
+						<select name="topBoundsType" id="topBoundsType" onchange="changeBoundsType()">
+							<option value="wall">wall</option>
+							<option value="fence">fence</option>
+							<option value="regularDoor">regularDoor</option>
+							<option value="keypadDoor">keypadDoor</option>
+							<option value="continueRoom">continueRoom</option>
+							<option value="asylumExit">asylumExit</option>
+							<option value="customCodedType">customCodedType</option>
+						</select>
+					</div>
+					<div>
+						<label for="rightBoundsType">Right:</label>
+						<select name="rightBoundsType" id="rightBoundsType" onchange="changeBoundsType()">
+							<option value="wall">wall</option>
+							<option value="fence">fence</option>
+							<option value="regularDoor">regularDoor</option>
+							<option value="keypadDoor">keypadDoor</option>
+							<option value="continueRoom">continueRoom</option>
+							<option value="asylumExit">asylumExit</option>
+							<option value="customCodedType">customCodedType</option>
+						</select>
+					</div>
+					<div>
+						<label for="bottomBoundsType">Bottom:</label>
+						<select name="bottomBoundsType" id="bottomBoundsType" onchange="changeBoundsType()">
+							<option value="wall">wall</option>
+							<option value="fence">fence</option>
+							<option value="regularDoor">regularDoor</option>
+							<option value="keypadDoor">keypadDoor</option>
+							<option value="continueRoom">continueRoom</option>
+							<option value="asylumExit">asylumExit</option>
+							<option value="customCodedType">customCodedType</option>
+						</select>
+					</div>
+					<div>
+						<label for="leftBoundsType">Left:</label>
+						<select name="leftBoundsType" id="leftBoundsType" onchange="changeBoundsType()">
+							<option value="wall">wall</option>
+							<option value="fence">fence</option>
+							<option value="regularDoor">regularDoor</option>
+							<option value="keypadDoor">keypadDoor</option>
+							<option value="continueRoom">continueRoom</option>
+							<option value="asylumExit">asylumExit</option>
+							<option value="customCodedType">customCodedType</option>
+						</select>
+					</div>
 				</div>
 				<div id="bounds" class="hidden roomEditorPanel">
 					<button id="showBoundsInfo" class="inlineButton" onclick="toggleHidden('boundsInfo')">How to use these</button>
@@ -152,6 +203,7 @@
 					<label for="boundsType">Type:</label>
 					<select name="boundsType" id="boundsType" onchange="changeBoundsType()">
 						<option value="wall">wall</option>
+						<option value="fence">fence</option>
 						<option value="regularDoor">regularDoor</option>
 						<option value="keypadDoor">keypadDoor</option>
 						<option value="continueRoom">continueRoom</option>

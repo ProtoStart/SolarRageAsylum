@@ -249,6 +249,9 @@ function displayGrid(){
 					case "wall":
 						extraClasses += " bottom-wall";
 						break;
+					case "fence":
+						extraClasses += " bottom-fence";
+						break;
 					case "regularDoor":
 						extraClasses += " bottom-regularDoor";
 						break;
@@ -268,6 +271,9 @@ function displayGrid(){
 				switch (asylumData.rooms[cellRef].bounds.left.type ){
 					case "wall":
 						extraClasses += " left-wall";
+						break;
+					case "fence":
+						extraClasses += " left-fence";
 						break;
 					case "regularDoor":
 						extraClasses += " left-regularDoor";
@@ -289,6 +295,9 @@ function displayGrid(){
 					case "wall":
 						extraClasses += " right-wall";
 						break;
+					case "fence":
+						extraClasses += " right-fence";
+						break;
 					case "regularDoor":
 						extraClasses += " right-regularDoor";
 						break;
@@ -308,6 +317,9 @@ function displayGrid(){
 				switch (asylumData.rooms[cellRef].bounds.top.type ){
 					case "wall":
 						extraClasses += " top-wall";
+						break;
+					case "fence":
+						extraClasses += " top-fence";
 						break;
 					case "regularDoor":
 						extraClasses += " top-regularDoor";
@@ -345,6 +357,27 @@ function displayAsylumNotes(){
 
 function applyAsylumNotes(){
 	asylumData.asylumNotes = document.getElementById("asylumNotes").value;
+}
+
+function setBoundTypesData(){
+	//bottom
+	document.getElementById("bottomBoundsType").value = asylumData.rooms[toolData.currentCell].bounds["bottom"].type;
+	//left
+	document.getElementById("leftBoundsType").value = asylumData.rooms[toolData.currentCell].bounds["left"].type;
+	//right
+	document.getElementById("rightBoundsType").value = asylumData.rooms[toolData.currentCell].bounds["right"].type;
+	//top
+	document.getElementById("topBoundsType").value = asylumData.rooms[toolData.currentCell].bounds["top"].type;
+}
+function saveBoundTypesData(){
+	//bottom
+	asylumData.rooms[toolData.currentCell].bounds["bottom"].type = document.getElementById("bottomBoundsType").value;
+	//left
+	asylumData.rooms[toolData.currentCell].bounds["left"].type = document.getElementById("leftBoundsType").value;
+	//right
+	asylumData.rooms[toolData.currentCell].bounds["right"].type = document.getElementById("rightBoundsType").value;
+	//top
+	asylumData.rooms[toolData.currentCell].bounds["top"].type = document.getElementById("topBoundsType").value;
 }
 
 function setBoundsEditorData(bound){
@@ -391,6 +424,10 @@ function changeRoomEditorPanel(){
 		case "designersNotes":
 			showDiv = "designersNotes";
 			break;
+		case "boundTypes":
+			setBoundTypesData();
+			showDiv = "boundTypes";
+			break;
 		case "bottomBounds":
 			setBoundsEditorData("bottom");
 			showDiv = "bounds";
@@ -418,6 +455,9 @@ function changeBoundsType(){
 	let showDiv = "";
 	switch(document.getElementById("boundsType").value){
 		case "wall":
+			showDiv = "";
+			break;
+		case "fence":
 			showDiv = "";
 			break;
 		case "regularDoor":
@@ -465,6 +505,9 @@ function applyCellEdits(){
 			asylumData.rooms[toolData.currentCell].designersNotes.description = document.getElementById("cellDescription").value;
 			//
 			asylumData.rooms[toolData.currentCell].designersNotes.designCompleteness = document.getElementById("cellDesignCompleteness").value;
+			break;
+		case "boundTypes":
+			saveBoundTypesData();
 			break;
 		case "bottomBounds":
 			saveBoundsEditorData("bottom");

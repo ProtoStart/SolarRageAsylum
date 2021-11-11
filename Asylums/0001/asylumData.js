@@ -590,13 +590,13 @@
 				"left": {
 					"known": "no",
 					"nextCell": 16,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 18,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
@@ -624,7 +624,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 17,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
@@ -970,7 +970,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 29,
-					"type": "wall",
+					"type": "fence",
 					"val": "658"
 				},
 				"top": {
@@ -1310,7 +1310,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 39,
-					"type": "wall",
+					"type": "fence",
 					"val": "658"
 				},
 				"top": {
@@ -1548,7 +1548,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 46,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "658"
 				},
 				"top": {
@@ -1576,7 +1576,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 45,
-					"type": "wall",
+					"type": "keypadDoor",
 					"val": "90"
 				},
 				"right": {
@@ -1650,7 +1650,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 49,
-					"type": "wall",
+					"type": "fence",
 					"val": "658"
 				},
 				"top": {
@@ -3168,25 +3168,25 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": "outBottom",
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
 					"nextCell": 92,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 94,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
 					"nextCell": 83,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
@@ -3202,25 +3202,25 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": "outBottom",
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
 					"nextCell": 93,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 95,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
 					"nextCell": 84,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
@@ -3236,25 +3236,25 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": "outBottom",
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
 					"known": "no",
 					"nextCell": 94,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 96,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
 					"known": "no",
 					"nextCell": 85,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
