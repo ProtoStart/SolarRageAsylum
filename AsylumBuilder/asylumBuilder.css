@@ -78,24 +78,26 @@
 	background-color: gold;
 }
 
+/* A reset for any gridCells when bounds CCode is on, in case we have a bounds type without css rules */
 .boundsCCodeOn .gridCell{
-	border-bottom-width: 1px;
-	border-bottom-color: white;
-	border-bottom-style: single;
+	border-bottom-width: 3px;
+	border-bottom-color: lime; /*lime because we want it to be obvious that the reset is in use*/
+	border-bottom-style: solid;
 
-	border-left-width: 1px;
-	border-left-color: white;
-	border-left-style: single;
+	border-left-width: 3px;
+	border-left-color: lime;
+	border-left-style: solid;
 
-	border-right-width: 1px;
-	border-right-color: white;
-	border-right-style: single;
+	border-right-width: 3px;
+	border-right-color: lime;
+	border-right-style: solid;
 
-	border-top-width: 1px;
-	border-top-color: white;
-	border-top-style: single;
+	border-top-width: 3px;
+	border-top-color: lime;
+	border-top-style: solid;
 }
 
+/* wall */
 .boundsCCodeOn .bottom-wall{
 	border-bottom-width: 3px;
 	border-bottom-color: black;
@@ -117,6 +119,7 @@
 	border-top-style: double;
 }
 
+/*regularDoor*/
 .boundsCCodeOn .bottom-regularDoor{
 	border-bottom-width: 3px;
 	border-bottom-color: black;
@@ -136,6 +139,94 @@
 	border-top-width: 3px;
 	border-top-color: black;
 	border-top-style: dashed;
+}
+
+/*keypadDoor*/
+.boundsCCodeOn .bottom-keypadDoor{
+	border-bottom-width: 3px;
+	border-bottom-color: red;
+	border-bottom-style: dotted;
+}
+.boundsCCodeOn .left-keypadDoor{
+	border-left-width: 3px;
+	border-left-color: red;
+	border-left-style: dotted;
+}
+.boundsCCodeOn .right-keypadDoor{
+	border-right-width: 3px;
+	border-right-color: red;
+	border-right-style: dotted;
+}
+.boundsCCodeOn .top-keypadDoor{
+	border-top-width: 3px;
+	border-top-color: red;
+	border-top-style: dotted;
+}
+
+/*continueRoom*/
+.boundsCCodeOn .bottom-continueRoom{
+	border-bottom-width: 3px;
+	border-bottom-color: white;
+	border-bottom-style: none;
+}
+.boundsCCodeOn .left-continueRoom{
+	border-left-width: 3px;
+	border-left-color: white;
+	border-left-style: none;
+}
+.boundsCCodeOn .right-continueRoom{
+	border-right-width: 3px;
+	border-right-color: white;
+	border-right-style: none;
+}
+.boundsCCodeOn .top-continueRoom{
+	border-top-width: 3px;
+	border-top-color: white;
+	border-top-style: none;
+}
+
+/*asylumExit*/
+.boundsCCodeOn .bottom-asylumExit{
+	border-bottom-width: 3px;
+	border-bottom-color: teal;
+	border-bottom-style: dashed;
+}
+.boundsCCodeOn .left-asylumExit{
+	border-left-width: 3px;
+	border-left-color: teal;
+	border-left-style: dashed;
+}
+.boundsCCodeOn .right-asylumExit{
+	border-right-width: 3px;
+	border-right-color: teal;
+	border-right-style: dashed;
+}
+.boundsCCodeOn .top-asylumExit{
+	border-top-width: 3px;
+	border-top-color: teal;
+	border-top-style: dashed;
+}
+
+/*customCodedType*/
+.boundsCCodeOn .bottom-customCodedType{
+	border-bottom-width: 3px;
+	border-bottom-color: pink;
+	border-bottom-style: solid;
+}
+.boundsCCodeOn .left-customCodedType{
+	border-left-width: 3px;
+	border-left-color: pink;
+	border-left-style: solid;
+}
+.boundsCCodeOn .right-customCodedType{
+	border-right-width: 3px;
+	border-right-color: pink;
+	border-right-style: solid;
+}
+.boundsCCodeOn .top-customCodedType{
+	border-top-width: 3px;
+	border-top-color: pink;
+	border-top-style: solid;
 }
 
 .inlineButton{
