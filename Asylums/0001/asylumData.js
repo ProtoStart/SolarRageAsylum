@@ -336,7 +336,7 @@
 			},
 			"bumpCoords": {},
 			"designersNotes": {
-				"description": "An empty cell",
+				"description": "",
 				"designCompleteness": "cellDefault",
 				"label": ""
 			}
@@ -924,7 +924,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 37,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
@@ -1740,7 +1740,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 61,
-					"type": "wall",
+					"type": "regularDoor",
 					"val": "439"
 				},
 				"left": {
@@ -1786,7 +1786,7 @@
 				"right": {
 					"known": "no",
 					"nextCell": 53,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
@@ -1814,13 +1814,13 @@
 				"left": {
 					"known": "no",
 					"nextCell": 52,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
 					"known": "no",
 					"nextCell": 54,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "658"
 				},
 				"top": {
@@ -1848,7 +1848,7 @@
 				"left": {
 					"known": "no",
 					"nextCell": 53,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "90"
 				},
 				"right": {
@@ -2098,7 +2098,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 51,
-					"type": "wall",
+					"type": "regularDoor",
 					"val": "99"
 				}
 			},
@@ -2522,7 +2522,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 84,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "439"
 				},
 				"left": {
@@ -2540,7 +2540,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 64,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},
@@ -2862,7 +2862,7 @@
 				"bottom": {
 					"known": "no",
 					"nextCell": 94,
-					"type": "wall",
+					"type": "asylumExit",
 					"val": "439"
 				},
 				"left": {
@@ -2880,7 +2880,7 @@
 				"top": {
 					"known": "no",
 					"nextCell": 74,
-					"type": "wall",
+					"type": "continueRoom",
 					"val": "99"
 				}
 			},

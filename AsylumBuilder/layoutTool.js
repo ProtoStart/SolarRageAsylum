@@ -244,6 +244,7 @@ function displayGrid(){
 					extraClasses += " cellHasLbl";
 				}
 				extraClasses += " " + asylumData.rooms[cellRef].designersNotes.designCompleteness;
+				//todo: low priority, but this is ugly code that really looks like it could be done in a much more optimal way. Four switch statements in a row, doing much the same thing... it's kinda begging to be done in some clever way, but I couldn't think of it when writing this, and it being optimal is less important than getting other features in.
 				switch (asylumData.rooms[cellRef].bounds.bottom.type ){
 					case "wall":
 						extraClasses += " bottom-wall";
