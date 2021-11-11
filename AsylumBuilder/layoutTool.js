@@ -441,12 +441,11 @@ function changeBoundsType(){
 }
 
 function viewCell(cellID){
-	//alert("we're still building this tool");
 	hideAllXClassShowY("rightPanelView", "cellView");
 	toolData.currentCell = cellID;//so that the save button knows which cell was altered
 	
-	//Show designers notes section immediately
-	document.getElementById("roomEditorPanelChoice").value = "designersNotes";
+	//Earlier design thought we'd always want to show designers notes section immediately, but my usage shows that's just not the case - leaving this here in case I want to put in a toggle Todo: make a toggle switch or select for reverting to description each time
+	//document.getElementById("roomEditorPanelChoice").value = "designersNotes";
 	changeRoomEditorPanel();
 	document.getElementById("cellNumber").innerHTML  = "Cell " + cellID;
 	document.getElementById("cellLabel").value = asylumData.rooms[cellID].designersNotes.label;
