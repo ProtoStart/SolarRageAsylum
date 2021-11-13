@@ -22,12 +22,6 @@
 	padding-bottom: 4px;
 }
 
-#welcome{
-	border-bottom-width: 1px;
-	border-bottom-color: black;
-	border-bottom-style: solid;
-}
-
 .grid{
 	width:  900px;
 	height:	900px;

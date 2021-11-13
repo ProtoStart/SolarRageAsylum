@@ -26,6 +26,19 @@
     </head>
 	<body id="all">
 		<div id="asylumGridContainer" class="leftPanel">
+			<div id="welcome" class="leftItem">
+				<h3>Welcome to the Asylum Layout tool.</h3>
+				<br/>
+				This tool is still being built, and will go through a few stages before people can create a playable Asylum with it. Feel free to have a play with it though!&nbsp;<button id="moreInfoDevStages" class="inlineButton" onclick="moreInfoToggle()">More Info</button>
+				<ol id="stagesList" class="hidden">
+					<li><s>Non-functional basic layout of the tool</s> (Done)</li>
+					<li><s>A tool that can create an empty outline of an Asylum</s> (Done)</li>
+					<li>A tool fit for Phil to use to create simple parts of the starter asylum (partly there)</li>
+					<li>A tool fit for Phil to use for fine tuning and adding complexities</li>
+					<li>A tool fit for non-developers to create their own Asylums</li>
+				</ol>
+				<br/>
+			</div>
 			<div id="jsonEditor" class="leftItem alignLeft hidden">
 			<!--
 			<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" style="display: none;">&lt;!DOCTYPE html&gt;
@@ -63,19 +76,6 @@
 			</div>
 		</div>
 		<div class="rightPanel"><!--hidden-->
-			<div id="welcome" class="rightPanelView">
-				<h3>Welcome to the Asylum Layout tool.</h3>
-				<br/>
-				This tool is still being built, and will go through a few stages before people can create a playable Asylum with it. Feel free to have a play with it though!&nbsp;<button id="moreInfoDevStages" class="inlineButton" onclick="moreInfoToggle()">More Info</button>
-				<ol id="stagesList" class="hidden">
-					<li><s>Non-functional basic layout of the tool</s> (Done)</li>
-					<li><s>A tool that can create an empty outline of an Asylum</s> (Done)</li>
-					<li>A tool fit for Phil to use to create simple parts of the starter asylum (partly there)</li>
-					<li>A tool fit for Phil to use for fine tuning and adding complexities</li>
-					<li>A tool fit for non-developers to create their own Asylums</li>
-				</ol>
-				<br/>
-			</div>
 			<div id="usage" class="hidden">
 				Each grid square can have a room or part of a corridor, or blank space.
 				Tap a square to see details of it here.
