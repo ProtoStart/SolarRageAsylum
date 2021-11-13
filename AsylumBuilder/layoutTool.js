@@ -193,6 +193,7 @@ function localSaveJson(){
 	*/
 	
 	saveToLocalStorage(toolData.localStorageKeyName,  JSON.stringify(asylumData, null , "	"));
+	alert("JSON saved to browsers local storage");
 }
 
 function localLoadAsylum(){
