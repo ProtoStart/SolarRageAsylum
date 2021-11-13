@@ -266,9 +266,9 @@
 	width: 5em;
 }
 
-.singleChar{
-	width: 1em;
-	min-width: 1em;
+.twoDigits{
+	width: calc(2em + 6px);
+	min-width: calc(2em + 6px);
 }
 
 #boundTypes select{
@@ -346,8 +346,7 @@
 	display: none;
 }
 
-#roomNodeCol,
-#roomNodeRow{
+#roomNode{
 	height: 2em;
 }
 
