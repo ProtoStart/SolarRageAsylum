@@ -706,3 +706,19 @@ function closeFullscreen() {
     document.msExitFullscreen();
   }
 }
+
+function toggleJsonWordWrap(){
+	if (document.getElementById("jsonTextArea").classList.contains("wordWrapOn")){
+		jsonWordWrapOff();
+	} else {
+		jsonWordWrapOn();
+	}
+}
+function jsonWordWrapOn(){
+	document.getElementById("jsonTextArea").classList.add("wordWrapOn");
+	document.getElementById("toggleJsonWordWrap").innerHTML = "Turn word wrap OFF";
+}
+function jsonWordWrapOff(){
+	document.getElementById("jsonTextArea").classList.remove("wordWrapOn");
+	document.getElementById("toggleJsonWordWrap").innerHTML = "Turn word wrap ON";
+}

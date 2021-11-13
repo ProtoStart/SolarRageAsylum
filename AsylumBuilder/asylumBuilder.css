@@ -282,6 +282,11 @@
 	white-space: nowrap;
 }
 
+#jsonTextArea.wordWrapOn{
+	white-space: initial;
+}
+
+
 #roomEditorPanelChoice{
 	font-size: 17pt;
 	font-weight: 555;
@@ -295,6 +300,10 @@
 #asylumNotes{
 	width: 98%;
 	height: 12em;
+}
+
+#toggleJsonWordWrap{
+	display: none;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!, MEDIA QUERIES IN SIZE ORDER (Media queries are usually for overriding styles for specific sizes of screen or to account for device dependant needs, and as such we would not want default styles declared lower than MQ's where they might override a rule. Use mobile first design principles - main css should work for tiny screens, then use media queries to make changes for bigger screen sizes.****/
@@ -327,5 +336,8 @@
 /*min-width: 1024px == Monitors, laptops and bigger*/
 	#roomEditorPanelChoice{
 		font-size: 20pt;
+	}
+	#toggleJsonWordWrap{
+		display: initial;
 	}
 }
