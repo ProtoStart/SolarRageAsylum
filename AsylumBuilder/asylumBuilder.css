@@ -302,6 +302,7 @@
 	height: 12em;
 }
 
+#applyJson,
 #toggleJsonWordWrap{
 	display: none;
 }
@@ -337,6 +338,7 @@
 	#roomEditorPanelChoice{
 		font-size: 20pt;
 	}
+	#applyJson,
 	#toggleJsonWordWrap{
 		display: initial;
 	}
