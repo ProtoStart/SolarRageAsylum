@@ -249,8 +249,8 @@
 
 .inlineButton{
 	min-height: 1.4em;
-	min-width: default;
-	width:  default;
+	min-width: initial;
+	width:  initial;
 	height:	1.4em;
 	font-size: 14pt;
 }
@@ -266,6 +266,11 @@
 	width: 5em;
 }
 
+.singleChar{
+	width: 1em;
+	min-width: 1em;
+}
+
 #boundTypes select{
 	right: 0px;
 	position: absolute;
@@ -274,6 +279,40 @@
 #jsonEditor{
 	width:99%;
 	height: 99%;
+}
+
+#jsonChoicesEditor{
+	width:99%;
+	height: calc(99% - 40px);
+}
+
+#jsonNodeChooserArea{
+	width: 100%;
+	height: 3em;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+	border-bottom-width: 1px;
+}
+
+#jsonNodeChooserArea *{
+	font-size: 22px;
+}
+.xScroll{
+    display: flex; /*Makes things on one line*/
+	overflow-x: auto; /*Scrollbar on the x axis*/
+    overflow-y: hidden; /*No Scrollbar or overflow on the y axis*/
+}
+
+#jsonNodeChooserArea select{
+	height: 2em;
+}
+
+#jsonNodeShower{
+	width: 100%;
+	height: calc(98% - 3em);
+	background-color: white;
+	color: black;
+	overflow-y: auto;
 }
 
 #jsonTextArea{
@@ -305,6 +344,11 @@
 #applyJson,
 #toggleJsonWordWrap{
 	display: none;
+}
+
+#roomNodeCol,
+#roomNodeRow{
+	height: 2em;
 }
 
 /****NO DEFAULT STYLES AFTER THIS COMMENT!, MEDIA QUERIES IN SIZE ORDER (Media queries are usually for overriding styles for specific sizes of screen or to account for device dependant needs, and as such we would not want default styles declared lower than MQ's where they might override a rule. Use mobile first design principles - main css should work for tiny screens, then use media queries to make changes for bigger screen sizes.****/

@@ -723,3 +723,20 @@ function jsonWordWrapOff(){
 	document.getElementById("jsonTextArea").classList.remove("wordWrapOn");
 	document.getElementById("toggleJsonWordWrap").innerHTML = "Turn word wrap ON";
 }
+function toggleJsonEditMode(){
+	if (document.getElementById("jsonTextArea").classList.contains("hidden")){
+		jsonTextAreaOn();
+	} else {
+		jsonTextAreaOff();
+	}
+}
+function jsonTextAreaOn(){
+	document.getElementById("jsonChoicesEditor").classList.add("hidden");
+	document.getElementById("jsonTextArea").classList.remove("hidden");
+	document.getElementById("toggleJsonEditMode").innerHTML = "Swap to choices mode";
+}
+function jsonTextAreaOff(){
+	document.getElementById("jsonTextArea").classList.add("hidden");
+	document.getElementById("jsonChoicesEditor").classList.remove("hidden");
+	document.getElementById("toggleJsonEditMode").innerHTML = "Swap to typing mode";
+}
