@@ -145,6 +145,94 @@ function displayAllJSON(){
 	hideAllXClassShowY("leftItem", "jsonEditor");
 }
 
+//chosenCategory will be a string
+function getCategory(chosenCategory){ 
+//Get the array in the "mainSelects" property of the given category
+	var outerArray = [];
+	var newInnerArray = [];
+	
+	var unEscapedCategory = unescape(chosenCategory);
+	
+	for (var subset in teaRounderData.Categories[unEscapedCategory].mainSelects){
+	    newInnerArray = [];
+	    for(var item in teaRounderData.Categories[unEscapedCategory].mainSelects[subset]){//Not the best var naming but hey ho
+	        newInnerArray.push(teaRounderData.Categories[unEscapedCategory].mainSelects[subset][item]);
+	    }
+	    outerArray.push(newInnerArray);
+	}
+	return outerArray;
+}
+
+function makeNodeSelectItems(outerNode){
+	let itemArray = ["all"];
+	// get the remaining from the JSON eg "asylumNotes", "startConditions", "rooms"
+	for (var innerNode in outerNode){
+		itemArray.push(innerNode);
+	}
+	
+	return itemArray;
+}
+
+function jsonNodeChooserStart(){
+	//load the node chooser with show all selected, and other options showing in the select
+	emptyElement("jsonNodeChooserArea");
+	let outerNode = asylumData;
+	//make the first select with just all and the top level JSON nodess
+	//createSelect(items, selectId, containerId, selectClass, onchange)
+	createSelect(makeNodeSelectItems(outerNode),"select0", "jsonNodeChooserArea", "", "jsonNodeChange('select0')");
+}
+function jsonNodeChange(nodeChanged){
+	//TODO: working HERE
+	//createSelect(items, selectId, containerId, selectClass)
+	//alert("still in development. nodeChanged == " + nodeChanged);
+	alert(document.getElementById(nodeChanged).value);
+	
+}
+function displayJSONInChooser(){
+	let gridRef = ""; //instantiate these before the loop so they only instatiate once
+	let iString = "";
+	let neatOutput = "";
+	for (let i = 0; i < 10; i++) {
+		iString = i.toString(); //convert the first digit once
+		for (let j = 0; j < 10; j++) {
+			jString = j.toString();
+			gridRef = iString + "" + jString; //"" forces string concatenation
+			neatOutput += "//Row " + iString + " Column " + jString + "/n"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
+			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //turn the JSON for that specific cell into a string (stringify), with tabs ("&#9;"), and a line break (<br/>) after a seperating comma
+			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the asylumData, so that it can be displayed.
+		}
+		neatOutput += "<br/>"; //add an extra line break every 10 rooms, since 10 rooms represents a row
+	}
+	
+	document.getElementById("jsonNodeShower").value  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
+
+	hideAllXClassShowY("leftItem", "jsonEditor");
+}
+
+function createSelect(items, selectId, containerId, selectClass, onchange){
+	//items should = [] if it's to be an empty select
+	var containerElement = document.getElementById(containerId);
+	containerElement.innerHTML += "<select id=\"" + selectId + "\" class=\"" + selectClass + "\" onchange=\"" + onchange +  "\">  </select>";
+	
+	if(items != []){
+		addToSelect(items, selectId);
+	}
+}
+
+function addToSelect(items, selectId){
+//<option value="item">item</option>
+    var selectElement = document.getElementById(selectId);
+    var indexes;
+    for (indexes in items){
+        selectElement.innerHTML += "<option value=\"" + items[indexes] + "\">" + items[indexes] + "</option>" ;
+    }
+}
+
+function emptyElement(elementId){
+	//alert(selectId);
+	document.getElementById(elementId).innerHTML = "";
+}
+
 function applyJson(){
 	document.getElementById("jsonTextArea").focus();
 	//alert(document.getElementById("jsonTextArea").value);
@@ -739,4 +827,5 @@ function jsonTextAreaOff(){
 	document.getElementById("jsonTextArea").classList.add("hidden");
 	document.getElementById("jsonChoicesEditor").classList.remove("hidden");
 	document.getElementById("toggleJsonEditMode").innerHTML = "Swap to typing mode";
+	jsonNodeChooserStart();
 }
