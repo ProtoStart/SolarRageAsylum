@@ -177,16 +177,32 @@ function jsonNodeChooserStart(){
 	//load the node chooser with show all selected, and other options showing in the select
 	emptyElement("jsonNodeChooserArea");
 	let outerNode = asylumData;
-	//make the first select with just all and the top level JSON nodess
+	//make the first select with just all and the top level JSON nodes
 	//createSelect(items, selectId, containerId, selectClass, onchange)
-	createSelect(makeNodeSelectItems(outerNode),"select0", "jsonNodeChooserArea", "", "jsonNodeChange('select0')");
+	createSelect(makeNodeSelectItems(outerNode),"nodeChooser0", "jsonNodeChooserArea", "nodeChoosers", "jsonNodeChange('nodeChooser0')");
 }
 function jsonNodeChange(nodeChanged){
 	//TODO: working HERE
 	//createSelect(items, selectId, containerId, selectClass)
 	//alert("still in development. nodeChanged == " + nodeChanged);
-	alert(document.getElementById(nodeChanged).value);
+	let nextNode = document.getElementById(nodeChanged).value;
 	
+	if(document.getElementById(nodeChanged).value == "rooms")
+	{
+		//createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue);
+		createNumberInput("nodeChooser1", "jsonNodeChooserArea", "twoDigits nodeChoosers", "", "0", "99");
+	} else if (document.getElementById(nodeChanged).value == "all"){
+		alert("on the all path");
+		
+	} else {
+		alert(nextNode + " still in development");
+		document.getElementById(jsonNodeChooserArea).innerHTML += "boo";
+		
+		//createSelect(items, selectId, containerId, selectClass, onchange)
+		//createSelect(makeNodeSelectItems(asylumData.startConditions), "nodeChooser1", "jsonNodeChooserArea", "nodeChoosers", "");
+	}
+	//a sort of fix for a weird problem we had here - the value reverts back to the default after adding other elements, so this just sets it to the value that it was changed to when it triggered this function
+	document.getElementById(nodeChanged).value = nextNode;
 }
 function displayJSONInChooser(){
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
@@ -209,29 +225,7 @@ function displayJSONInChooser(){
 	hideAllXClassShowY("leftItem", "jsonEditor");
 }
 
-function createSelect(items, selectId, containerId, selectClass, onchange){
-	//items should = [] if it's to be an empty select
-	var containerElement = document.getElementById(containerId);
-	containerElement.innerHTML += "<select id=\"" + selectId + "\" class=\"" + selectClass + "\" onchange=\"" + onchange +  "\">  </select>";
-	
-	if(items != []){
-		addToSelect(items, selectId);
-	}
-}
 
-function addToSelect(items, selectId){
-//<option value="item">item</option>
-    var selectElement = document.getElementById(selectId);
-    var indexes;
-    for (indexes in items){
-        selectElement.innerHTML += "<option value=\"" + items[indexes] + "\">" + items[indexes] + "</option>" ;
-    }
-}
-
-function emptyElement(elementId){
-	//alert(selectId);
-	document.getElementById(elementId).innerHTML = "";
-}
 
 function applyJson(){
 	document.getElementById("jsonTextArea").focus();
@@ -828,4 +822,32 @@ function jsonTextAreaOff(){
 	document.getElementById("jsonChoicesEditor").classList.remove("hidden");
 	document.getElementById("toggleJsonEditMode").innerHTML = "Swap to typing mode";
 	jsonNodeChooserStart();
+}
+
+function createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue){
+	let containerElement = document.getElementById(containerId);
+	containerElement.innerHTML += "<input type=\"number\" id=\"" + elementId + "\" class=\"" + elementClass + "\" value=\"" + startValue + "\"  min=\"" + minValue + "\" max=\"" + maxValue + "\"/>";
+}
+function createSelect(items, selectId, containerId, selectClass, onchange){
+	//items should = [] if it's to be an empty select
+	var containerElement = document.getElementById(containerId);
+	containerElement.innerHTML += "<select id=\"" + selectId + "\" class=\"" + selectClass + "\" onchange=\"" + onchange +  "\">  </select>";
+	
+	if(items != []){
+		addToSelect(items, selectId);
+	}
+}
+
+function addToSelect(items, selectId){
+//<option value="item">item</option>
+    var selectElement = document.getElementById(selectId);
+    var indexes;
+    for (indexes in items){
+        selectElement.innerHTML += "<option value=\"" + items[indexes] + "\">" + items[indexes] + "</option>" ;
+    }
+}
+
+function emptyElement(elementId){
+	//alert(selectId);
+	document.getElementById(elementId).innerHTML = "";
 }
