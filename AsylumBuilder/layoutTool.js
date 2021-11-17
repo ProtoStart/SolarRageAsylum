@@ -182,10 +182,27 @@ function jsonNodeChooserStart(){
 	createSelect(makeNodeSelectItems(outerNode),"nodeChooser0", "jsonNodeChooserArea", "nodeChoosers", "jsonNodeChange('nodeChooser0')");
 }
 function jsonNodeChange(nodeChanged){
-	//TODO: working HERE
+	//TODO: working HERE (this function) 
+	/*needs to know:
+		what node element changed (param nodeChanged), 
+		what the current set of selects/inputs is and values (children of jsonNodeChooserArea and the .value of each - easy way to get that is by the "nodeChoosers" class), 
+		from those 
+			figure out if it needs to remove all the select/inputs to the right of the one that changed. I have quite a good way of doing the figuring out based on the data set - when any select changes, always remove everything else to the right of it, when the rooms number input changes, but don't if it's the rooms number input. Its only room numbers and bound sides that you could change and still have the same values to the right, and bounds sides are penultimate bottom of the tree so theres not much issue there and this makes it consistent by UI. This is based on a trade off judgement call - noted at the bottom of this comment.
+			does it need to create a new select or input to the right
+			update the jsonNodeShower innerHTML
+			
+			Trade-off judgement call:
+			I was initially thinking of keeping this functions implementation loosely coupled from the asylum data incase we want to change it. Now, I think to keep this part of development simple it's worth the risk, since I don't think there's a strong chance I'll change the dataset in a way in a way that was cause rematching this up, to be a significant task. If the dataset does change, or the usage changes, we could add a variable of some kind that lists which elements trigger removing elements to the right of it, that would probably be a triviual thing to add.
+	*/
 	//createSelect(items, selectId, containerId, selectClass)
 	//alert("still in development. nodeChanged == " + nodeChanged);
 	let nextNode = document.getElementById(nodeChanged).value;
+	let currentNodeElems = document.getElementsByClassName("nodeChoosers");
+	let currentNodeValues = [];
+	for (var i = 0; i < currentNodeElems.length; i++) {
+		currentNodeValues.push(currentNodeElems[i].value);
+	}
+	
 	
 	if(document.getElementById(nodeChanged).value == "rooms")
 	{
