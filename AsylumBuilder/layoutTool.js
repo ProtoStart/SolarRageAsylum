@@ -217,40 +217,18 @@ function jsonNodeChange(nodeChanged){
 		//if our starting select (asylumData) value is anything but "all" then the path to give to displayJSONInChooser is asylumData
 		newJsonPath = asylumData[currentNodeValues[0]];
 	}
-	
-	
-	//wipe everything, and redraw!
-	emptyElement("jsonNodeChooserArea");
-	createSelect(makeNodeSelectItems(asylumData),"nodeChooser0", "asylumData", "nodeChoosers", "jsonNodeChooserArea", "jsonNodeChange('nodeChooser0')");
-	
-	
-	
-	if (currentNodeValues[0] == "rooms"){
-		//createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue);
-		//createNumberInput(elementId, elementName, elementClass, containerId,  startValue, minValue, maxValue, onchange)
-		createNumberInput("nodeChooser1", "rooms", "twoDigits nodeChoosers", "jsonNodeChooserArea", "", "0", "99", "jsonNodeChange('nodeChooser1')");
-		document.getElementById("nodeChooser1").value = currentNodeValues[1];
-		
-		if (currentNodeValues[1] == ""){
-			newJsonPath = asylumData.rooms;
-		} else if (currentNodeValues[1].length == 1){
-			newJsonPath = asylumData.rooms["0" + currentNodeValues[1]];
-		} else {
-			newJsonPath = asylumData.rooms[currentNodeValues[1]];
-		}
-		
-		
-		
-		
-		
-	} else {
-		//if rooms is not the value of the first selection element then we need to remove the rooms number input
-	}
-	//set all the values of the choosing elements again
-	document.getElementById("nodeChooser0").value = currentNodeValues[0];
-	
 	//alert("jsonNodeChange about to call displayJSONInChooser");
 	displayJSONInChooser(newJsonPath);
+	
+	/*
+	if (elemChangedValue == "rooms"){
+		//createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue);
+		createNumberInput("nodeChooser1", "jsonNodeChooserArea", "twoDigits nodeChoosers", "", "0", "99");	
+	} else if (currentNodeValues[0] == "rooms"){
+		//This else if is here for a bit of future proofing for when we add in more selects. If rooms is still the value of the first selection element then we keep the rooms number input there, and we don't alter the value
+	} else {
+		//if rooms is not the value of the first selection element then we need to remove the rooms number input
+	}*/
 }
 function displayJSONInChooser(jsonObject){
 	//TODO: this function is unfinished
@@ -263,7 +241,6 @@ function displayJSONInChooser(jsonObject){
 	neatOutput += "</pre>"
 	
 	document.getElementById("jsonNodeShower").innerHTML  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
-	
 	//alert("displayJSONInChooser finished");
 }
 
@@ -866,9 +843,9 @@ function jsonTextAreaOff(){
 	jsonNodeChooserStart();
 }
 
-function createNumberInput(elementId, elementName, elementClass, containerId,  startValue, minValue, maxValue, onchange){
+function createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue){
 	let containerElement = document.getElementById(containerId);
-	containerElement.innerHTML += "<input type=\"number\" id=\"" + elementId + "\" name=\"" + elementName + "\" class=\"" + elementClass + "\" value=\"" + startValue + "\"  min=\"" + minValue + "\" max=\"" + maxValue + "\" onchange=\"" + onchange + "\"/>";
+	containerElement.innerHTML += "<input type=\"number\" id=\"" + elementId + "\" class=\"" + elementClass + "\" value=\"" + startValue + "\"  min=\"" + minValue + "\" max=\"" + maxValue + "\"/>";
 }
 function createSelect(items, selectId, selectName, selectClass, containerId, onchange){
 	//items should = [] if it's to be an empty select
