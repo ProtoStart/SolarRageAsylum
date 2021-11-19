@@ -178,68 +178,70 @@ function jsonNodeChooserStart(){
 	emptyElement("jsonNodeChooserArea");
 	let outerNode = asylumData;
 	//make the first select with just all and the top level JSON nodes
-	//createSelect(items, selectId, containerId, selectClass, onchange)
-	createSelect(makeNodeSelectItems(outerNode),"nodeChooser0", "jsonNodeChooserArea", "nodeChoosers", "jsonNodeChange('nodeChooser0')");
+	//createSelect(items, selectId, selectName, selectClass, containerId, onchange)
+	createSelect(makeNodeSelectItems(outerNode),"nodeChooser0", "asylumData", "nodeChoosers", "jsonNodeChooserArea", "jsonNodeChange('nodeChooser0')");
 }
 function jsonNodeChange(nodeChanged){
 	//TODO: working HERE (this function) 
-	/*needs to know:
+	/* I started working on this going for the full funtionality of drilling all the way down, but I've relised I'd be more productive with this, if I do it in smaller steps. So for now I'm just coding the first select.
+	
+	needs to know:
 		what node element changed (param nodeChanged), 
 		what the current set of selects/inputs is and values (children of jsonNodeChooserArea and the .value of each - easy way to get that is by the "nodeChoosers" class), 
 		from those 
-			figure out if it needs to remove all the select/inputs to the right of the one that changed. I have quite a good way of doing the figuring out based on the data set - when any select changes, always remove everything else to the right of it, when the rooms number input changes, but don't if it's the rooms number input. Its only room numbers and bound sides that you could change and still have the same values to the right, and bounds sides are penultimate bottom of the tree so theres not much issue there and this makes it consistent by UI. This is based on a trade off judgement call - noted at the bottom of this comment.
-			does it need to create a new select or input to the right
+			- figure out if it needs to remove all the select/inputs to the right of the one that changed. Based on current dataset and thinking of UX, always remove everything to the right of what changed,  except if it's the rooms number input, and possibly which type of bounds. We'll use a hard coded constant for the exceptions to the rule, so that it is possible to make changes, but not adding any significant complexity. Its only room numbers and bound sides that you could change and still have the same values to the right, and bounds sides are penultimate bottom of the tree so theres not much issue there and this makes it consistent by UI. 
+			- does it need to create a new select or input to the right?
 			update the jsonNodeShower innerHTML
 			
-			Trade-off judgement call:
-			I was initially thinking of keeping this functions implementation loosely coupled from the asylum data incase we want to change it. Now, I think to keep this part of development simple it's worth the risk, since I don't think there's a strong chance I'll change the dataset in a way in a way that was cause rematching this up, to be a significant task. If the dataset does change, or the usage changes, we could add a variable of some kind that lists which elements trigger removing elements to the right of it, that would probably be a triviual thing to add.
 	*/
-	//createSelect(items, selectId, containerId, selectClass)
-	//alert("still in development. nodeChanged == " + nodeChanged);
-	let nextNode = document.getElementById(nodeChanged).value;
+	//alert("jsonNodeChange started");
+	let elemChangedName = document.getElementById(nodeChanged).name; //we are using the name attributes to store the name of the parent node that you are drilling into by changing that element. The top level select that we start out with has the name "asylumData", if the top level select is changed to the value "asylumNotes" then this function would create a new select with the name "asylumNotes" given to it - or at least it would if that wheren't an end node.
+	let elemChangedValue = document.getElementById(nodeChanged).value; //The value that the user has changed it to.
 	let currentNodeElems = document.getElementsByClassName("nodeChoosers");
 	let currentNodeValues = [];
+	let currentNodeNames = [];
+	
 	for (var i = 0; i < currentNodeElems.length; i++) {
 		currentNodeValues.push(currentNodeElems[i].value);
+		currentNodeNames.push(currentNodeElems[i].name);
 	}
+	const elemNamesNotToWipeFrom = ["rooms"]; //The elements that we're hardcoding to be exceptions to the rule of "wipe all to the right if changed". I had trouble naming this constant.
+	
+	let newJsonPath = ""; //We'll add element values to this to work out the path to give to displayJSONInChooser. 
 	
 	
-	if(document.getElementById(nodeChanged).value == "rooms")
-	{
-		//createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue);
-		createNumberInput("nodeChooser1", "jsonNodeChooserArea", "twoDigits nodeChoosers", "", "0", "99");
-	} else if (document.getElementById(nodeChanged).value == "all"){
-		alert("on the all path");
-		
+	if (currentNodeValues[0] == "all"){
+		//If our starting select (asylumData) value is all then the path to give to displayJSONInChooser is the entire asylumData object
+		newJsonPath = asylumData;
 	} else {
-		alert(nextNode + " still in development");
-		document.getElementById(jsonNodeChooserArea).innerHTML += "boo";
-		
-		//createSelect(items, selectId, containerId, selectClass, onchange)
-		//createSelect(makeNodeSelectItems(asylumData.startConditions), "nodeChooser1", "jsonNodeChooserArea", "nodeChoosers", "");
+		//if our starting select (asylumData) value is anything but "all" then the path to give to displayJSONInChooser is asylumData
+		newJsonPath = asylumData[currentNodeValues[0]];
 	}
-	//a sort of fix for a weird problem we had here - the value reverts back to the default after adding other elements, so this just sets it to the value that it was changed to when it triggered this function
-	document.getElementById(nodeChanged).value = nextNode;
+	//alert("jsonNodeChange about to call displayJSONInChooser");
+	displayJSONInChooser(newJsonPath);
+	
+	/*
+	if (elemChangedValue == "rooms"){
+		//createNumberInput(elementId, containerId, elementClass, startValue, minValue, maxValue);
+		createNumberInput("nodeChooser1", "jsonNodeChooserArea", "twoDigits nodeChoosers", "", "0", "99");	
+	} else if (currentNodeValues[0] == "rooms"){
+		//This else if is here for a bit of future proofing for when we add in more selects. If rooms is still the value of the first selection element then we keep the rooms number input there, and we don't alter the value
+	} else {
+		//if rooms is not the value of the first selection element then we need to remove the rooms number input
+	}*/
 }
-function displayJSONInChooser(){
+function displayJSONInChooser(jsonObject){
+	//TODO: this function is unfinished
+	//alert("displayJSONInChooser started");
 	let gridRef = ""; //instantiate these before the loop so they only instatiate once
 	let iString = "";
-	let neatOutput = "";
-	for (let i = 0; i < 10; i++) {
-		iString = i.toString(); //convert the first digit once
-		for (let j = 0; j < 10; j++) {
-			jString = j.toString();
-			gridRef = iString + "" + jString; //"" forces string concatenation
-			neatOutput += "//Row " + iString + " Column " + jString + "/n"; //writes a comment above each cell with row and collumn numbers - makes it easier to understand for new people and also makes the JSON easy to search using cntrl+f
-			neatOutput += "\"" + gridRef + "\": " + JSON.stringify(asylumData.rooms[gridRef], null, "&#9;") + ",<br/>"; //turn the JSON for that specific cell into a string (stringify), with tabs ("&#9;"), and a line break (<br/>) after a seperating comma
-			//JSON.stringify is a part of regular modern JavaScript - even though it doesn't sound like it is. It converts a JavaScript object into a JSON formatted string. In this case we are stringifying the asylumData, so that it can be displayed.
-		}
-		neatOutput += "<br/>"; //add an extra line break every 10 rooms, since 10 rooms represents a row
-	}
+	let neatOutput = "<pre>";
 	
-	document.getElementById("jsonNodeShower").value  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
-
-	hideAllXClassShowY("leftItem", "jsonEditor");
+	neatOutput += JSON.stringify(jsonObject, null, "&#9;")
+	neatOutput += "</pre>"
+	
+	document.getElementById("jsonNodeShower").innerHTML  = neatOutput; //needs to be value rather than innerHTML so that the save function can work
+	//alert("displayJSONInChooser finished");
 }
 
 
@@ -845,10 +847,10 @@ function createNumberInput(elementId, containerId, elementClass, startValue, min
 	let containerElement = document.getElementById(containerId);
 	containerElement.innerHTML += "<input type=\"number\" id=\"" + elementId + "\" class=\"" + elementClass + "\" value=\"" + startValue + "\"  min=\"" + minValue + "\" max=\"" + maxValue + "\"/>";
 }
-function createSelect(items, selectId, containerId, selectClass, onchange){
+function createSelect(items, selectId, selectName, selectClass, containerId, onchange){
 	//items should = [] if it's to be an empty select
 	var containerElement = document.getElementById(containerId);
-	containerElement.innerHTML += "<select id=\"" + selectId + "\" class=\"" + selectClass + "\" onchange=\"" + onchange +  "\">  </select>";
+	containerElement.innerHTML += "<select id=\"" + selectId + "\" name=\"" + selectName + "\" class=\"" + selectClass + "\" onchange=\"" + onchange +  "\">  </select>";
 	
 	if(items != []){
 		addToSelect(items, selectId);
