@@ -182,8 +182,8 @@ function jsonNodeChooserStart(){
 	createSelect(makeNodeSelectItems(outerNode),"nodeChooser0", "asylumData", "nodeChoosers", "jsonNodeChooserArea", "jsonNodeChange('nodeChooser0')");
 }
 function jsonNodeChange(nodeChanged){
-	//TODO: working HERE (this function) 
-	/* I started working on this going for the full funtionality of drilling all the way down, but I've relised I'd be more productive with this, if I do it in smaller steps. So for now I'm just coding the first select.
+	/*TODO: 
+	 I started working on this going for the full funtionality of drilling all the way down, but I've relised I'd be more productive with this, if I do it in smaller steps. So for now I'm just coding the first select. A big chunk of work on being able to select a specific room was done but I couldn't get it to work, and needed to move on - I commited that in a Commit called "REVERTING IMMEDIATLY: room number choosing" on Nov 19th 2021 and reverted it back. So this "not really working" code is preserved in github but not in the actual code now.
 	
 	needs to know:
 		what node element changed (param nodeChanged), 
